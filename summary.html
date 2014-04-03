@@ -43,4 +43,15 @@ layout: default
 	existing and new marine applications.</p>
 	
 </div>
+<div class="row">
+<h3>Signal K Physical Transmission</h3>
+<p>Signal K data is transmitted as a JSON string. JSON is native to the internet, and to browsers, so transmission is supported on any medium that can 
+access the internet. That includes mobile data, wifi, ethernet, USB, bluetooth, and pretty much anything coming. But importantly we are just sending a string
+of characters - so we can send over serial cables (RS232/442/etc), Onewire, CAN, in fact almost anything.</p>
+<p>Over the years the speed of transmissions has increased enormously. 'FastMode' NMEA2000 is only 1 Mbit/s. constraining their bandwidth severely. 
+Most WIFI is now over 54Mbits/s, as are cellphones, and ethernet is over 1000Mbits/sec. By utilising these commodity mediums Signal K avoids bandwidth traps, 
+and allows you to use a transmission medium that suits the immediate need. 
+<p>As a bonus its a string format, with full meaningful names, so its also easy to read with human eyes.This helps enormously when developing or debugging.
+</p>
+</div>
 

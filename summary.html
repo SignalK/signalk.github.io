@@ -4,6 +4,7 @@ layout: default
 ---
 
 <div class="row">
+<h3>The Problem</h3>
 	<p>The common communication formats in the marine industry are the ubiquitous NMEA0813, and the later NMEA2000. All are tightly controlled and access is controlled at 
 	significant cost by the NMEA. While both have been reverse engineered over the years, they remain out of reach for many small organizations.</p>
 	
@@ -13,12 +14,13 @@ layout: default
 <div class="row">
 	<p>But your boat is not the only one out there! There are lots of other boats out there, and lots of other sources of information. In a connected world 
 	information can be accessed, and shared. So if you travel with a friend, or intend to meet-up, it would be handy to see their boat on your chartplotter. 
-	In a race it would be cool to see the other boats data, even to view the wind they are getting. Or just drop in on your mates boat from the office and dream...</p>
+	Put a race on the inetrnet in realtime, and see the other boats data, even to view the wind they are getting. Or just drop in on your mates boat from the office and dream...</p>
 	
 	<p>To move forward we need to think in a connected way, a way fundamentally different from NMEA protocols. Sun Microsystems famously coined the phrase 
 	<i>The network is the computer</i>, and Signal K reflects that global peer-to-peer concept.</p>
 </div>
-<div class="row">	
+<div class="row">
+<h3>The Signal K Model</h3>
 	<p>Signal K defines a universal marine data model, a structure where every piece of information on a boat has a defined place, and is stored in a consistent defined way. 
 	The model holds multiple boats, your own, and others acquired from AIS, local wifi, or the internet. It also holds other data, cruising notes, charts, 
 	weather, notices, port data, etc. </p>
@@ -31,6 +33,7 @@ layout: default
 	its extensible for future needs, just submit a change on github.</p>
 </div>
 <div class="row">
+<h3>Signal K Data Sharing</h3>
 	<p>So we have a clean extendable model of data, capable of holding information from many boats, many sources. Now we need to transfer that 
 	data efficiently between interested devices. The model is a hierarchical tree, with meta-data on the structure and definition. Its transferred as a JSON string, 
 	which is a filtered image of the full tree containing just the information you want. So a device may just require a vessels speed (vessels[localBoat.navigation.speedThroughWater]), 

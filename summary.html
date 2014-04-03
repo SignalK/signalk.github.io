@@ -25,7 +25,7 @@ layout: default
 	The model holds multiple boats, your own, and others acquired from AIS, local wifi, or the internet. It also holds other data, cruising notes, charts, 
 	weather, notices, port data, etc. </p>
 	
-	```
+	<pre>
 	{
     "vessels": [
         {
@@ -39,7 +39,6 @@ layout: default
                     "headingTrue": {"value": 23, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
                     "headingMagnetic": {"value": 43, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
                     "cogTrue": {"value": 23, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
-                    "cogMagnetic": {"value": 43, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
                     "declination": {"value": 20, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
                     "speedOverGround": {"value": 4.5, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
                     "speedOverWater": {"value": 4.4, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
@@ -51,7 +50,7 @@ layout: default
                     "roll": {"value": 0, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
                     "rateOfTurn": {"value": 0, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
          ..and so on...
-	```
+	</pre>
 	
 	<p>Since the data model is consistent, your instruments can show your data, or others data, and vice-versa. Each instrument and sensor holds a partial copy of the model, with just the 
 	parts its interested in. Since instruments supporting Signal K can always read the data, they are compatible between all boats. Since all sensors store their data 

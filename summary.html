@@ -1,0 +1,43 @@
+---
+title: Signal K Summary
+layout: default
+---
+
+<div class="row">
+	<p>The common communication formats in the marine industry are the ubiquitous NMEA0813, and the later NMEA2000. All are tightly controlled and access is controlled at 
+	significant cost by the NMEA. While both have been reverse engineered over the years, they remain out of reach for many small organizations.</p>
+	
+	<p>NMEA protocols also dont suit a modern world - they were published, and therefore 'locked' at a time when the internet was in its infancy, and mobile data, wifi, 
+	smart phones, and tablets were unheard of.  </p>
+</div>
+<div class="row">
+	<p>But your boat is not the only one out there! There are lots of other boats out there, and lots of other sources of information. In a connected world 
+	information can be accessed, and shared. So if you travel with a friend, or intend to meet-up, it would be handy to see their boat on your chartplotter. 
+	In a race it would be cool to see the other boats data, even to view the wind they are getting. Or just drop in on your mates boat from the office and dream...</p>
+	
+	<p>To move forward we need to think in a connected way, a way fundamentally different from NMEA protocols. Sun Microsystems famously coined the phrase 
+	<i>The network is the computer</i>, and Signal K reflects that global peer-to-peer concept.</p>
+</div>
+<div class="row">	
+	<p>Signal K defines a universal marine data model, a structure where every piece of information on a boat has a defined place, and is stored in a consistent defined way. 
+	The model holds multiple boats, your own, and others acquired from AIS, local wifi, or the internet. It also holds other data, cruising notes, charts, 
+	weather, notices, port data, etc. </p>
+	
+	<p>Since the data model is consistent, your instruments can show your data, or others data, and vice-versa. Each instrument and sensor holds a partial copy of the model, with just the 
+	parts its interested in. Since instruments supporting Signal K can always read the data, they are compatible between all boats. Since all sensors store their data 
+	in the same model, all sensors are compatible with all instruments</p>
+	
+	<p>For existing instruments and sensors, Signal K supports converters for legacy protocols (NMEA0183, NMEA2000, Seatalk) and others as they are required. And 
+	its extensible for future needs, just submit a change on github.</p>
+</div>
+<div class="row">
+	<p>So we have a clean extendable model of data, capable of holding information from many boats, many sources. Now we need to transfer that 
+	data efficiently between interested devices. The model is a hierarchical tree, with meta-data on the structure and definition. Its transferred as a JSON string, 
+	which is a filtered image of the full tree containing just the information you want. So a device may just require a vessels speed (vessels[localBoat.navigation.speedThroughWater]), 
+	or maybe full navigation data (vessels[localBoat.navigation]). Or your chartplotter might display wind information from every location that was offering it</p>
+	
+	<p>Signal K allows easy replication and merging of data between devices. It enables universal interoperability between devices, and it provides a common base for 
+	existing and new marine applications.</p>
+	
+</div>
+

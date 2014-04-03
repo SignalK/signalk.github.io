@@ -26,7 +26,7 @@ layout: default
 	weather, notices, port data, etc. </p>
 	
 	<pre>
-	{
+{
     "vessels": [
         {
             "localBoat": {
@@ -41,7 +41,7 @@ layout: default
                     "cogTrue": {"value": 23, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
                     "declination": {"value": 20, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
                     "speedOverGround": {"value": 4.5, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
-                    "speedOverWater": {"value": 4.4, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
+                    "speedThroughWater": {"value": 4.4, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
                     "location": {"lat": {"value": -41.6789, "source": "self", "timestamp": "2014-03-24T00:15:41Z" }
                                  "lon":{"value": 173.12345,"source": "self", "timestamp": "2014-03-24T00:15:41Z" }
                                }, 
@@ -63,8 +63,15 @@ layout: default
 <h3>Signal K Data Sharing</h3>
 	<p>So we have a clean extendable model of data, capable of holding information from many boats, many sources. Now we need to transfer that 
 	data efficiently between interested devices. The model is a hierarchical tree, with meta-data on the structure and definition. Its transferred as a JSON string, 
-	which is a filtered image of the full tree containing just the information you want. So a device may just require a vessels speed (vessels[localBoat.navigation.speedThroughWater]), 
-	or maybe full navigation data (vessels[localBoat.navigation]). Or your chartplotter might display wind information from every location that was offering it</p>
+	which is a filtered image of the full tree containing just the information you want. So a device may just require a vessels speed 
+	<pre>
+		vessels[localBoat.navigation.speedThroughWater]
+	</pre>
+	or maybe full navigation data 
+	<pre>
+		vessels[localBoat.navigation]
+	</pre>
+	Or your chartplotter might display wind information from every location that was offering it</p>
 	
 	<p>Signal K allows easy replication and merging of data between devices. It enables universal interoperability between devices, and it provides a common base for 
 	existing and new marine applications.</p>

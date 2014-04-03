@@ -25,6 +25,34 @@ layout: default
 	The model holds multiple boats, your own, and others acquired from AIS, local wifi, or the internet. It also holds other data, cruising notes, charts, 
 	weather, notices, port data, etc. </p>
 	
+	```
+	{
+    "vessels": [
+        {
+            "localBoat": {
+                "name": "motu",
+                "mmsi": "2345678", 
+                "source": "self", 
+                "timezone": "NZDT",
+                "navigation": {
+                    "state": {"value": "sailing", "source": "self", "timestamp": "2014-03-24T00:15:41Z" }, 
+                    "headingTrue": {"value": 23, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
+                    "headingMagnetic": {"value": 43, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
+                    "cogTrue": {"value": 23, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
+                    "cogMagnetic": {"value": 43, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
+                    "declination": {"value": 20, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
+                    "speedOverGround": {"value": 4.5, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
+                    "speedOverWater": {"value": 4.4, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
+                    "location": {"lat": {"value": -41.6789, "source": "self", "timestamp": "2014-03-24T00:15:41Z" }
+                                 "lon":{"value": 173.12345,"source": "self", "timestamp": "2014-03-24T00:15:41Z" }
+                               }, 
+                    "altitude": {"value": 0, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
+                    "pitch": {"value": 0.1, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
+                    "roll": {"value": 0, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
+                    "rateOfTurn": {"value": 0, "source": "self", "timestamp": "2014-03-24T00:15:41Z" },
+         ..and so on...
+	```
+	
 	<p>Since the data model is consistent, your instruments can show your data, or others data, and vice-versa. Each instrument and sensor holds a partial copy of the model, with just the 
 	parts its interested in. Since instruments supporting Signal K can always read the data, they are compatible between all boats. Since all sensors store their data 
 	in the same model, all sensors are compatible with all instruments</p>

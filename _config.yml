@@ -5,6 +5,7 @@ asciidoc: asciidoctor
 asciidoc_ext: ad,adoc,asciidoc
 asciidoctor:
   attributes:
+    - hardbreaks!
     - source-highlighter=pygments
     - pygments-css=class
     - pygments-style=perldoc

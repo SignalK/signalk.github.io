@@ -1,3 +1,10 @@
-name: Your New Jekyll Site
+name: Signal K
 markdown: redcarpet
 pygments: true
+asciidoc: asciidoctor
+asciidoc_ext: ad,adoc,asciidoc
+asciidoctor:
+  attributes:
+    - source-highlighter=pygments
+    - pygments-css=class
+    - pygments-style=perldoc

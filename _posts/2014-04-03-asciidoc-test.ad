@@ -1,0 +1,37 @@
+---
+title: AsciiDoc Test
+layout: default
+---
+= Hello, AsciiDoc!
+Doc Writer <doc@example.com>
+
+An introduction to http://asciidoc.org[AsciiDoc].
+
+== First Section
+
+* item 1
+* item 2
+
+[cols="1,1,6a", options="header", role="table table-striped"]
+|===
+|Field
+|Type
+|Description
+
+|greet
+|string
+|The greeting to send
+[source,json]
+{ "greet": "Hello, World!" }
+
+|from
+|string
+|Who the greeting is from
+[source,json]
+{ "from": "Me" }
+
+|to
+|collection of strings
+|Who to send the greeting to
+[source,json]
+{ "to": [ "World", "Others" ]}

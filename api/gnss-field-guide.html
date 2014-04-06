@@ -35,7 +35,7 @@ fields and empty sets are the same thing.
       <td>129029:8</td>
       <td>
         An integer identifying the integrity of the fix
-        {% highlight json %}{ "integrity": 3 }{% endhighlight %}
+        {% highlight json %}{ "integrity": 0 }{% endhighlight %}
       </td>
     </tr>
     <tr>
@@ -127,7 +127,7 @@ fields and empty sets are the same thing.
       <td>129029:14(8)</td>
       <td>
         Number of reference stations used in the fix. Also the size of the <code>referenceStations</code> collection
-        {% highlight json %}{ "referenceStationCount": 1 }{% endhighlight %}
+        {% highlight json %}{ "referenceStationCount": 3 }{% endhighlight %}
       </td>
     </tr>
     <tr>
@@ -410,3 +410,69 @@ fields and empty sets are the same thing.
   </tbody>
 </table>
 
+<h3>Complete Example</h3>
+{% highlight json %}
+{
+  "gnss": {
+    "gnssType": 3,
+    "method": 3,
+    "integrity": 0,
+    "fixMode": 3,
+    "satelliteCount": 4,
+    "satellites": [
+      { "prn": 3,
+        "elevation": 59.4,
+        "azimuth": 11.25,
+        "snr": -1.24,
+        "rangeResidual": 123,
+        "status": 5
+      },
+      { "prn": 11,
+        "elevation": 21.24,
+        "azimuth": 81.25,
+        "snr": -2.11,
+        "rangeResidual": 11,
+        "status": 5
+      },
+      { "prn": 14,
+        "elevation": 11.87,
+        "azimuth": 57.21,
+        "snr": 0.11,
+        "rangeResidual": 28,
+        "status": 5
+      }
+      { "prn": 19,
+        "elevation": 75.43,
+        "azimuth": 120.12,
+        "snr": 1.24,
+        "rangeResidual": 28,
+        "status": 5
+      }
+    ],
+    "dilutionOfPrecision": {
+      "desiredMode": 3,
+      "actualMode": 1,
+      "horizontal": 11.25,
+      "vertial": -1.24,
+      "positional": 0.213,
+      "time": 11.17
+    },
+    "geoidalSeparation": -11.35,
+    "referenceStationCount": 3,
+    "referenceStations": [
+      { "stationType": 0,
+        "stationId": 904,
+        "correctionAge": 11.25
+      },
+      { "stationType": 0,
+        "stationId": 411,
+        "correctionAge": 8.77
+      },
+      { "stationType": 0,
+        "stationId": 604,
+        "correctionAge": 19.08
+      }
+    ] 
+  }
+}
+{% endhighlight %}

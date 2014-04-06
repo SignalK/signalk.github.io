@@ -9,3 +9,5 @@ asciidoctor:
     - source-highlighter=pygments
     - pygments-css=class
     - pygments-style=perldoc
+gems:
+  - jekyll-mentions

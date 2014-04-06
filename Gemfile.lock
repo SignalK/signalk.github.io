@@ -95,3 +95,4 @@ DEPENDENCIES
   asciidoctor
   github-pages
   jekyll
+  jekyll-mentions

@@ -1,6 +1,6 @@
 ---
 title: Summary
-layout: default
+layout: page
 ---
 
 ### The Problem

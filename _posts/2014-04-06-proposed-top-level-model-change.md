@@ -1,16 +1,17 @@
 ---
 title: Proposed Top Level Model Change
 layout: post
+author: Tim
 ---
 Currently the SignalK model looks, at a high level, like this.
 
 {% highlight json linenos %}
 {
   "vessels": [
-    { "localBoat": { } },
-    { "anotherBoat": { } },
-    { "someOtherBoat": { } },
-    { "bigBoat": { } }
+    { "localBoat": { ... } },
+    { "anotherBoat": { ... } },
+    { "someOtherBoat": { ... } },
+    { "bigBoat": { ... } }
   ]
 }    
 {% endhighlight %}
@@ -24,9 +25,9 @@ below.
 {
   "localBoat": { },
   "otherBoats": [
-    { "id": "anotherBoat" },
-    { "id": "someOtherBoat" },
-    { "id": "bigBoat" }
+    { "id": "anotherBoat", ... },
+    { "id": "someOtherBoat", ... },
+    { "id": "bigBoat", ... }
   ]
 }    
 {% endhighlight %}
@@ -66,8 +67,8 @@ channel per tracked vessel and would look like this.
 {% highlight js linenos %}
 // localBoatData and someBoatData each receive updates from separate WebSocket
 // streams
-var localBoatData = {speed:5.5}
-var someBoatData = {speed:22.1}
+var localBoatData = { speed: 5.5 }
+var someBoatData = { speed: 22.1 }
 var vessels = [localBoatData, someBoatData]
 {% endhighlight %}
 

@@ -73,7 +73,7 @@ define(["lib/jquery", "lib/handlebars", "lib/highlight", "lib/jsonpointer", "lib
     });
 
     Handlebars.registerHelper('contains', function(arr, item, options) {;
-        if(item && arr && arr.indexOf(item) != -1) {
+        if(arr && arr.indexOf && arr.indexOf(item) != -1) {
             return options.fn(this);
         }
     });

@@ -225,28 +225,108 @@
 									"type":"number",
 									"description": "Depth below keel in meters",
 									"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowKeel",
-									"default":188.2,
-									"required":false
+									"required":false,
+
+									"properties":{
+										"source": {
+											"type":"string",
+											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowKeel/source",
+											"default": "self",
+											"required":false
+										},
+										"timestamp": {
+											"type":"string",
+											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowKeel/timestamp",
+											"default": "2014-03-24T00:15:41Z",
+											"required":false
+										},
+										"value": {
+											"type":"number",
+											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowKeel/value",
+											"default":188.2,
+											"required":false
+										}
+									}
 								},
 								"depthBelowTransducer": {
 									"type":"number",
 									"description": "Depth below Transducer in meters",
 									"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowTransducer",
-									"default":190.1,
-									"required":false
+									"required":false,
+
+									"properties":{
+										"source": {
+											"type":"string",
+											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowTransducer/source",
+											"default": "self",
+											"required":false
+										},
+										"timestamp": {
+											"type":"string",
+											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowTransducer/timestamp",
+											"default": "2014-03-24T00:15:41Z",
+											"required":false
+										},
+										"value": {
+											"type":"number",
+											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowTransducer/value",
+											"default":190.1,
+											"required":false
+										}
+									}
 								},
 								"depthBelowWater": {
 									"type":"number",
 									"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowWater",
-									"default":192,
-									"required":false
+									"required":false,
+
+									"properties":{
+										"source": {
+											"type":"string",
+											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowWater/source",
+											"default": "self",
+											"required":false
+										},
+										"timestamp": {
+											"type":"string",
+											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowWater/timestamp",
+											"default": "2014-03-24T00:15:41Z",
+											"required":false
+										},
+										"value": {
+											"type":"number",
+											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowWater/value",
+											"default":192,
+											"required":false
+										}
+									}
 								},
 								"depth": {
 									"type":"number",
 									"description": "Depth from surface in meters",
 									"id": "http://jsonschema.net/vessels/123456/environmental/depth",
-									"default":192,
-									"required":false
+									"required":false,
+
+									"properties":{
+										"source": {
+											"type":"string",
+											"id": "http://jsonschema.net/vessels/123456/environmental/depth/source",
+											"default": "self",
+											"required":false
+										},
+										"timestamp": {
+											"type":"string",
+											"id": "http://jsonschema.net/vessels/123456/environmental/depth/timestamp",
+											"default": "2014-03-24T00:15:41Z",
+											"required":false
+										},
+										"value": {
+											"type":"number",
+											"id": "http://jsonschema.net/vessels/123456/environmental/depth/value",
+											"default":192,
+											"required":false
+										}
+									}
 								},
 								"humidity": {
 									"type":"object",
@@ -436,15 +516,55 @@
 									"type":"number",
 									"description": "Depth in meters between transducer and bottom of the keel.",
 									"id": "http://jsonschema.net/vessels/123456/environmental/transducerToKeel",
-									"default":1.3,
-									"required":false
+									"required":false,
+
+									"properties":{
+										"source": {
+											"type":"string",
+											"id": "http://jsonschema.net/vessels/123456/environmental/transducerToKeel/source",
+											"default": "self",
+											"required":false
+										},
+										"timestamp": {
+											"type":"string",
+											"id": "http://jsonschema.net/vessels/123456/environmental/transducerToKeel/timestamp",
+											"default": "2014-03-24T00:15:41Z",
+											"required":false
+										},
+										"value": {
+											"type":"number",
+											"id": "http://jsonschema.net/vessels/123456/environmental/transducerToKeel/value",
+											"default":1.3,
+											"required":false
+										}
+									}
 								},
 								"waterLineToTransducer": {
 									"type":"number",
 									"description": "Depth transducer is below the water in meters",
 									"id": "http://jsonschema.net/vessels/123456/environmental/waterLineToTransducer",
-									"default":0.75,
-									"required":false
+									"required":false,
+
+									"properties":{
+										"source": {
+											"type":"string",
+											"id": "http://jsonschema.net/vessels/123456/environmental/waterLineToTransducer/source",
+											"default": "self",
+											"required":false
+										},
+										"timestamp": {
+											"type":"string",
+											"id": "http://jsonschema.net/vessels/123456/environmental/waterLineToTransducer/timestamp",
+											"default": "2014-03-24T00:15:41Z",
+											"required":false
+										},
+										"value": {
+											"type":"number",
+											"id": "http://jsonschema.net/vessels/123456/environmental/waterLineToTransducer/value",
+											"default":0.75,
+											"required":false
+										}
+									}
 								},
 								"waterTemp": {
 									"type":"object",
@@ -696,6 +816,18 @@
 									"id": "http://jsonschema.net/vessels/123456/navigation/currentRoute",
 									"required":false,
 									"properties":{
+										"source": {
+											"type":"string",
+											"id": "http://jsonschema.net/vessels/123456/navigation/courseOverGroundTrue/source",
+											"default": "self",
+											"required":false
+										},
+										"timestamp": {
+											"type":"string",
+											"id": "http://jsonschema.net/vessels/123456/navigation/courseOverGroundTrue/timestamp",
+											"default": "2014-03-24T00:15:41Z",
+											"required":false
+										},
 										"bearingActual": {
 											"type":"number",
 											"id": "http://jsonschema.net/vessels/123456/navigation/currentRoute/bearingActual",
@@ -793,8 +925,27 @@
 								"drift": {
 									"type":"number",
 									"id": "http://jsonschema.net/vessels/123456/navigation/drift",
-									"default":0.1,
-									"required":false
+									"required":false,
+									"properties":{
+										"source": {
+											"type":"string",
+											"id": "http://jsonschema.net/vessels/123456/navigation/drift/source",
+											"default": "self",
+											"required":false
+										},
+										"timestamp": {
+											"type":"string",
+											"id": "http://jsonschema.net/vessels/123456/navigation/drift/timestamp",
+											"default": "2014-03-24T00:15:41Z",
+											"required":false
+										},
+										"value": {
+											"type":"number",
+											"id": "http://jsonschema.net/vessels/123456/navigation/drift/value",
+											"default":0.1,
+											"required":false
+										}
+									}
 								},
 								"gnss": {
 									"type":"object",
@@ -856,7 +1007,7 @@
 									"id": "http://jsonschema.net/vessels/123456/navigation/location",
 									"required":false,
 									"properties":{
-										"lat": {
+										"latitude": {
 											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/navigation/location/lat",
 											"required":false,
@@ -881,7 +1032,7 @@
 												}
 											}
 										},
-										"lon": {
+										"longitude": {
 											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/navigation/location/lon",
 											"required":false,

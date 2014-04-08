@@ -72,11 +72,11 @@ define(["lib/jquery", "lib/handlebars", "lib/highlight", "lib/jsonpointer", "lib
         }
     });
 
-    Handlebars.registerHelper('contains', function(arr, item, options) {;
-        if(arr && arr.indexOf && arr.indexOf(item) != -1) {
+   /* Handlebars.registerHelper('contains', function(arr, item, options) {;
+        if(arr && arr.indexOf(item) != -1) {
             return options.fn(this);
         }
-    });
+    });*/
 
     Handlebars.registerHelper('primitive', function(schema, options) {
         if(schema.type && schema.type != "object" && schema.type != "array" || schema.enum) {

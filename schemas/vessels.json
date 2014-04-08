@@ -98,7 +98,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/airPressureChangeRateAlarm/source",
 											"default": "self",
 											"required":false
@@ -124,7 +124,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/airPressure/source",
 											"default": "self",
 											"required":false
@@ -150,7 +150,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/airTemp/source",
 											"default": "self",
 											"required":false
@@ -176,7 +176,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/currentDirection/source",
 											"default": "self",
 											"required":false
@@ -202,7 +202,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/currentSpeed/source",
 											"default": "self",
 											"required":false
@@ -229,7 +229,7 @@
 
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowKeel/source",
 											"default": "self",
 											"required":false
@@ -256,7 +256,7 @@
 
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowTransducer/source",
 											"default": "self",
 											"required":false
@@ -282,7 +282,7 @@
 
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowWater/source",
 											"default": "self",
 											"required":false
@@ -309,7 +309,7 @@
 
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/depth/source",
 											"default": "self",
 											"required":false
@@ -335,7 +335,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/humidity/source",
 											"default": "self",
 											"required":false
@@ -363,7 +363,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/salinity/source",
 											"default": "self",
 											"required":false
@@ -389,7 +389,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/tideHeightHigh/source",
 											"default": "self",
 											"required":false
@@ -415,7 +415,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/tideHeightNow/source",
 											"default": "self",
 											"required":false
@@ -441,7 +441,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/tideLowHeight/source",
 											"default": "self",
 											"required":false
@@ -467,7 +467,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/tideLowTime/source",
 											"default": "self",
 											"required":false
@@ -493,7 +493,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/tideTimeHigh/source",
 											"default": "self",
 											"required":false
@@ -520,7 +520,7 @@
 
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/transducerToKeel/source",
 											"default": "self",
 											"required":false
@@ -547,7 +547,7 @@
 
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/waterLineToTransducer/source",
 											"default": "self",
 											"required":false
@@ -573,7 +573,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/waterTemp/source",
 											"default": "self",
 											"required":false
@@ -599,7 +599,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/windDirectionApparent/source",
 											"default": "self",
 											"required":false
@@ -624,7 +624,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/windDirectionChangeAlarm/source",
 											"default": "self",
 											"required":false
@@ -649,7 +649,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/windDirectionTrue/source",
 											"default": "self",
 											"required":false
@@ -674,7 +674,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/windSpeedAlarm/source",
 											"default": "self",
 											"required":false
@@ -699,7 +699,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/environmental/windSpeedTrue/source",
 											"default": "self",
 											"required":false
@@ -743,7 +743,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/navigation/altitude/source",
 											"default": "self",
 											"required":false
@@ -767,7 +767,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/navigation/courseOverGroundMagnetic/source",
 											"default": "self",
 											"required":false
@@ -792,7 +792,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/navigation/courseOverGroundTrue/source",
 											"default": "self",
 											"required":false
@@ -817,7 +817,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/navigation/courseOverGroundTrue/source",
 											"default": "self",
 											"required":false
@@ -898,7 +898,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/navigation/declination/source",
 											"default": "self",
 											"required":false
@@ -928,7 +928,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/navigation/drift/source",
 											"default": "self",
 											"required":false
@@ -958,7 +958,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/navigation/headingMagnetic/source",
 											"default": "self",
 											"required":false
@@ -983,7 +983,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/navigation/headingTrue/source",
 											"default": "self",
 											"required":false
@@ -1013,7 +1013,7 @@
 											"required":false,
 											"properties":{
 												"source": {
-													"type":"string",
+													"type":"object",
 													"id": "http://jsonschema.net/vessels/123456/navigation/location/lat/source",
 													"default": "self",
 													"required":false
@@ -1038,7 +1038,7 @@
 											"required":false,
 											"properties":{
 												"source": {
-													"type":"string",
+													"type":"object",
 													"id": "http://jsonschema.net/vessels/123456/navigation/location/lon/source",
 													"default": "self",
 													"required":false
@@ -1065,7 +1065,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/navigation/pitch/source",
 											"default": "self",
 											"required":false
@@ -1090,7 +1090,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/navigation/rateOfTurn/source",
 											"default": "self",
 											"required":false
@@ -1114,7 +1114,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/navigation/roll/source",
 											"default": "self",
 											"required":false
@@ -1144,7 +1144,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/navigation/speedOverGround/source",
 											"default": "self",
 											"required":false
@@ -1169,7 +1169,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/navigation/speedThroughWater/source",
 											"default": "self",
 											"required":false
@@ -1194,7 +1194,7 @@
 									"required":false,
 									"properties":{
 										"source": {
-											"type":"string",
+											"type":"object",
 											"id": "http://jsonschema.net/vessels/123456/navigation/state/source",
 											"default": "self",
 											"required":false

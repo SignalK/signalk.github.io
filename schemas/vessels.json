@@ -1007,57 +1007,58 @@
 									"id": "http://jsonschema.net/vessels/123456/navigation/location",
 									"required":false,
 									"properties":{
-										"latitude": {
+										"source": {
 											"type":"object",
-											"id": "http://jsonschema.net/vessels/123456/navigation/location/lat",
-											"required":false,
-											"properties":{
-												"source": {
-													"type":"object",
-													"id": "http://jsonschema.net/vessels/123456/navigation/location/lat/source",
-													"default": "self",
-													"required":false
-												},
-												"timestamp": {
-													"type":"string",
-													"id": "http://jsonschema.net/vessels/123456/navigation/location/lat/timestamp",
-													"default": "2014-03-24T00:15:41Z",
-													"required":false
-												},
-												"value": {
-													"type":"number",
-													"id": "http://jsonschema.net/vessels/123456/navigation/location/lat/value",
-													"default":-41.6789,
-													"required":false
-												}
-											}
+											"id": "http://jsonschema.net/vessels/123456/navigation/location/latitude/source",
+											"default": "self",
+											"required":false
+										},
+										"timestamp": {
+											"type":"string",
+											"id": "http://jsonschema.net/vessels/123456/navigation/location/latitude/timestamp",
+											"default": "2014-03-24T00:15:41Z",
+											"required":false
+										},
+										"latitude": {
+											"type":"number",
+											"id": "http://jsonschema.net/vessels/123456/navigation/location/latitude",
+											"required":false
 										},
 										"longitude": {
-											"type":"object",
-											"id": "http://jsonschema.net/vessels/123456/navigation/location/lon",
-											"required":false,
-											"properties":{
-												"source": {
-													"type":"object",
-													"id": "http://jsonschema.net/vessels/123456/navigation/location/lon/source",
-													"default": "self",
-													"required":false
-												},
-												"timestamp": {
-													"type":"string",
-													"id": "http://jsonschema.net/vessels/123456/navigation/location/lon/timestamp",
-													"default": "2014-03-24T00:15:41Z",
-													"required":false
-												},
-												"value": {
-													"type":"number",
-													"id": "http://jsonschema.net/vessels/123456/navigation/location/lon/value",
-													"default":173.12345,
-													"required":false
-												}
-											}
-										}
+											"type":"number",
+											"id": "http://jsonschema.net/vessels/123456/navigation/location/longitude",
+											"required":false
+										},
+										"altitude": {
+											"type":"number",
+											"id": "http://jsonschema.net/vessels/123456/navigation/location/altitude",
+											"required":false
+										},
 									}
+								},
+								"magneticVariaton": {
+									"type":"object",
+									"id": "http://jsonschema.net/vessels/123456/navigation/magneticVariaton",
+									"required":false,
+									"properties":{
+										"source": {
+											"type":"object",
+											"id": "http://jsonschema.net/vessels/123456/navigation/magneticVariaton/source",
+											"default": "self",
+											"required":false
+										},
+										"timestamp": {
+											"type":"string",
+											"id": "http://jsonschema.net/vessels/123456/navigation/magneticVariaton/timestamp",
+											"default": "2014-03-24T00:15:41Z",
+											"required":false
+										},
+										"value": {
+											"type":"number",
+											"id": "http://jsonschema.net/vessels/123456/navigation/magneticVariaton/value",
+											"default":0.0,
+											"required":false
+										}
 								},
 								"pitch": {
 									"type":"object",

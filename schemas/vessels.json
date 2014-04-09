@@ -1,6 +1,40 @@
 {
 	"type":"object",
 	"$schema": "http://json-schema.org/draft-03/schema",
+	"definitions":{
+		"stringValue":{
+			"source": {
+					"type":"string",
+					"description": "Source of the data, eg self, nmea, ais, etc",
+					"required":false
+				},
+				"timestamp": {
+					"type":"string",
+					"description": "2014-03-24T00:15:41Z",
+					"required":false
+				},
+				"value": {
+					"type":"string",
+					"required":false
+				}
+		},
+		"numberValue":{
+			"source": {
+					"type":"string",
+					"description": "Source of the data, eg self, nmea, ais, etc",
+					"required":false
+				},
+			"timestamp": {
+				"type":"string",
+				"description": "2014-03-24T00:15:41Z",
+				"required":false
+			},
+			"value": {
+				"type":"number",
+				"required":false
+			}
+		}
+	}
 	"id": "http://jsonschema.net",
 	"required":false,
 	"properties":{
@@ -14,7 +48,7 @@
 			"properties":{
 				"vesselUid": {
 					"type":["string","object"],
-					"title": "Unique Id",
+					"title": "vesselUid",
 					"name": "vesselUid",
 					"description": "The globally unique identifier for the vessel. Ideally the MMSI number, but any unique name can be used.",
 					"id": "http://jsonschema.net/vessels/vesselUid",
@@ -25,61 +59,61 @@
 							"title": "communication",
 							"name": "communication",
 							"description": "The communication methods supported by this vessel and relevant callsigns and addresses",
-							"id": "http://jsonschema.net/vessels/123456/communication",
+							"id": "http://jsonschema.net/vessels/vesselUid/communication",
 							"required":false,
 							"properties":{
 								"callsignDsc": {
 									"type":"string",
 									"description": "Callsign for DSC communication",
-									"id": "http://jsonschema.net/vessels/123456/communication/callsignDsc",
+									"id": "http://jsonschema.net/vessels/vesselUid/communication/callsignDsc",
 									"default": "ZL1234",
 									"required":false
 								},
 								"callsignHf": {
 									"type":"string",
 									"description": "Callsign for HF communication",
-									"id": "http://jsonschema.net/vessels/123456/communication/callsignHf",
+									"id": "http://jsonschema.net/vessels/vesselUid/communication/callsignHf",
 									"default": "ZL3RTH",
 									"required":false
 								},
 								"callsignVhf": {
 									"type":"string",
 									"description": "Callsign for VHF communication",
-									"id": "http://jsonschema.net/vessels/123456/communication/callsignVhf",
+									"id": "http://jsonschema.net/vessels/vesselUid/communication/callsignVhf",
 									"default": "ZM2038",
 									"required":false
 								},
 								"cellPhone": {
 									"type":"string",
 									"description": "Cellphone number of skipper",
-									"id": "http://jsonschema.net/vessels/123456/communication/cellPhone",
+									"id": "http://jsonschema.net/vessels/vesselUid/communication/cellPhone",
 									"default": "+64xxxxxx",
 									"required":false
 								},
 								"emailHf": {
 									"type":"string",
 									"description": "Email address to be used for HF email (Winmail, Airmail, Sailmail)",
-									"id": "http://jsonschema.net/vessels/123456/communication/emailHf",
+									"id": "http://jsonschema.net/vessels/vesselUid/communication/emailHf",
 									"default": "motu@xxx.co.nz",
 									"required":false
 								},
 								"email": {
 									"type":"string",
 									"description": "Normal email for the skipper",
-									"id": "http://jsonschema.net/vessels/123456/communication/email",
+									"id": "http://jsonschema.net/vessels/vesselUid/communication/email",
 									"default": "robert@xxx.co.nz",
 									"required":false
 								},
 								"satPhone": {
 									"type":"string",
 									"description": "Satellite phone number for boat.",
-									"id": "http://jsonschema.net/vessels/123456/communication/satPhone",
+									"id": "http://jsonschema.net/vessels/vesselUid/communication/satPhone",
 									"default": "+64xxxxxx",
 									"required":false
 								},
 								"skipperName": {
 									"type":"string",
-									"id": "http://jsonschema.net/vessels/123456/communication/skipperName",
+									"id": "http://jsonschema.net/vessels/vesselUid/communication/skipperName",
 									"default": "Rob",
 									"required":false
 								}
@@ -88,56 +122,38 @@
 						"environmental": {
 							"type":"object",
 							"description": "Holds all environmental data for the vessel. Environmental data is around the vessel rather than in it.",
-							"id": "http://jsonschema.net/vessels/123456/environmental",
+							"id": "http://jsonschema.net/vessels/vesselUid/environmental",
 							"required":false,
 							"properties":{
 								"airPressureChangeRateAlarm": {
 									"type":"object",
 									"description": "Change per hour which will cause an alarm in kPa",
-									"id": "http://jsonschema.net/vessels/123456/environmental/airPressureChangeRateAlarm",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/airPressureChangeRateAlarm",
 									"required":false,
-									"properties":{
-										"source": {
-											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/airPressureChangeRateAlarm/source",
-											"default": "self",
-											"required":false
-										},
-										"timestamp": {
-											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/airPressureChangeRateAlarm/timestamp",
-											"default": "2014-03-24T00:15:41Z",
-											"required":false
-										},
-										"value": {
-											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/airPressureChangeRateAlarm/value",
-											"default":0.2,
-											"required":false
-										}
+									"properties":{ "$ref": "#/definitions/numberValue" }
 									}
 								},
 								"airPressure": {
 									"type":"object",
 									"description": "Current air pressure in kPa",
-									"id": "http://jsonschema.net/vessels/123456/environmental/airPressure",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/airPressure",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/airPressure/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/airPressure/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/airPressure/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/airPressure/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/airPressure/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/airPressure/value",
 											"default":101.325,
 											"required":false
 										}
@@ -146,24 +162,24 @@
 								"airTemp": {
 									"type":"object",
 									"description": "Current air temperature in degrees Centigrade",
-									"id": "http://jsonschema.net/vessels/123456/environmental/airTemp",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/airTemp",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/airTemp/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/airTemp/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/airTemp/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/airTemp/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/airTemp/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/airTemp/value",
 											"default":28,
 											"required":false
 										}
@@ -172,24 +188,24 @@
 								"currentDirection": {
 									"type":"object",
 									"description": "Direction of water current in degrees true",
-									"id": "http://jsonschema.net/vessels/123456/environmental/currentDirection",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/currentDirection",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/currentDirection/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/currentDirection/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/currentDirection/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/currentDirection/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/currentDirection/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/currentDirection/value",
 											"default":37,
 											"required":false
 										}
@@ -198,24 +214,24 @@
 								"currentSpeed": {
 									"type":"object",
 									"description": "Speed of water current in m/s",
-									"id": "http://jsonschema.net/vessels/123456/environmental/currentSpeed",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/currentSpeed",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/currentSpeed/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/currentSpeed/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/currentSpeed/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/currentSpeed/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/currentSpeed/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/currentSpeed/value",
 											"default":0.1,
 											"required":false
 										}
@@ -224,25 +240,25 @@
 								"depthBelowKeel": {
 									"type":"number",
 									"description": "Depth below keel in meters",
-									"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowKeel",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/depthBelowKeel",
 									"required":false,
 
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowKeel/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/depthBelowKeel/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowKeel/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/depthBelowKeel/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowKeel/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/depthBelowKeel/value",
 											"default":188.2,
 											"required":false
 										}
@@ -251,25 +267,25 @@
 								"depthBelowTransducer": {
 									"type":"number",
 									"description": "Depth below Transducer in meters",
-									"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowTransducer",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/depthBelowTransducer",
 									"required":false,
 
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowTransducer/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/depthBelowTransducer/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowTransducer/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/depthBelowTransducer/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowTransducer/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/depthBelowTransducer/value",
 											"default":190.1,
 											"required":false
 										}
@@ -277,25 +293,25 @@
 								},
 								"depthBelowWater": {
 									"type":"number",
-									"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowWater",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/depthBelowWater",
 									"required":false,
 
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowWater/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/depthBelowWater/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowWater/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/depthBelowWater/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/depthBelowWater/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/depthBelowWater/value",
 											"default":192,
 											"required":false
 										}
@@ -304,25 +320,25 @@
 								"depth": {
 									"type":"number",
 									"description": "Depth from surface in meters",
-									"id": "http://jsonschema.net/vessels/123456/environmental/depth",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/depth",
 									"required":false,
 
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/depth/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/depth/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/depth/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/depth/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/depth/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/depth/value",
 											"default":192,
 											"required":false
 										}
@@ -331,18 +347,18 @@
 								"humidity": {
 									"type":"object",
 									"description": "Current relative humidity as percentage",
-									"id": "http://jsonschema.net/vessels/123456/environmental/humidity",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/humidity",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/humidity/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/humidity/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/humidity/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/humidity/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
@@ -350,7 +366,7 @@
 											"type":"number",
 											"minimum": "0",
 											"maximum": "100",
-											"id": "http://jsonschema.net/vessels/123456/environmental/humidity/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/humidity/value",
 											"default":73,
 											"required":false
 										}
@@ -359,24 +375,24 @@
 								"salinity": {
 									"type":"object",
 									"description": "Water salinity",
-									"id": "http://jsonschema.net/vessels/123456/environmental/salinity",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/salinity",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/salinity/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/salinity/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/salinity/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/salinity/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/salinity/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/salinity/value",
 											"default":10,
 											"required":false
 										}
@@ -385,24 +401,24 @@
 								"tideHeightHigh": {
 									"type":"object",
 									"description": "Next high tide in meters",
-									"id": "http://jsonschema.net/vessels/123456/environmental/tideHeightHigh",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideHeightHigh",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/tideHeightHigh/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideHeightHigh/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/tideHeightHigh/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideHeightHigh/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/tideHeightHigh/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideHeightHigh/value",
 											"default":4.3,
 											"required":false
 										}
@@ -411,24 +427,24 @@
 								"tideHeightNow": {
 									"type":"object",
 									"description": "The current tide height",
-									"id": "http://jsonschema.net/vessels/123456/environmental/tideHeightNow",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideHeightNow",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/tideHeightNow/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideHeightNow/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/tideHeightNow/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideHeightNow/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/tideHeightNow/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideHeightNow/value",
 											"default":2.5,
 											"required":false
 										}
@@ -437,24 +453,24 @@
 								"tideLowHeight": {
 									"type":"object",
 									"description": "The next low tide height in meters",
-									"id": "http://jsonschema.net/vessels/123456/environmental/tideLowHeight",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideLowHeight",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/tideLowHeight/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideLowHeight/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/tideLowHeight/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideLowHeight/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/tideLowHeight/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideLowHeight/value",
 											"default":0.3,
 											"required":false
 										}
@@ -463,24 +479,24 @@
 								"tideLowTime": {
 									"type":"object",
 									"description": "Time of the next low tide",
-									"id": "http://jsonschema.net/vessels/123456/environmental/tideLowTime",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideLowTime",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/tideLowTime/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideLowTime/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/tideLowTime/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideLowTime/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/tideLowTime/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideLowTime/value",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										}
@@ -489,24 +505,24 @@
 								"tideTimeHigh": {
 									"type":"object",
 									"description": "Time of next high tide",
-									"id": "http://jsonschema.net/vessels/123456/environmental/tideTimeHigh",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideTimeHigh",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/tideTimeHigh/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideTimeHigh/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/tideTimeHigh/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideTimeHigh/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/tideTimeHigh/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/tideTimeHigh/value",
 											"default": "2014-03-24T12:15:41Z",
 											"required":false
 										}
@@ -515,25 +531,25 @@
 								"transducerToKeel": {
 									"type":"number",
 									"description": "Depth in meters between transducer and bottom of the keel.",
-									"id": "http://jsonschema.net/vessels/123456/environmental/transducerToKeel",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/transducerToKeel",
 									"required":false,
 
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/transducerToKeel/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/transducerToKeel/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/transducerToKeel/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/transducerToKeel/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/transducerToKeel/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/transducerToKeel/value",
 											"default":1.3,
 											"required":false
 										}
@@ -542,25 +558,25 @@
 								"waterLineToTransducer": {
 									"type":"number",
 									"description": "Depth transducer is below the water in meters",
-									"id": "http://jsonschema.net/vessels/123456/environmental/waterLineToTransducer",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/waterLineToTransducer",
 									"required":false,
 
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/waterLineToTransducer/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/waterLineToTransducer/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/waterLineToTransducer/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/waterLineToTransducer/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/waterLineToTransducer/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/waterLineToTransducer/value",
 											"default":0.75,
 											"required":false
 										}
@@ -569,24 +585,24 @@
 								"waterTemp": {
 									"type":"object",
 									"description": "Current water temperature in degrees Centigrade",
-									"id": "http://jsonschema.net/vessels/123456/environmental/waterTemp",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/waterTemp",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/waterTemp/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/waterTemp/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/waterTemp/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/waterTemp/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/waterTemp/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/waterTemp/value",
 											"default":19.5,
 											"required":false
 										}
@@ -595,24 +611,24 @@
 								"windDirectionApparent": {
 									"type":"object",
 									"description": "Apparent wind direction, -180 to +180 degrees from the bow. Negative numbers to port.",
-									"id": "http://jsonschema.net/vessels/123456/environmental/windDirectionApparent",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/windDirectionApparent",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/windDirectionApparent/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/windDirectionApparent/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/windDirectionApparent/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/windDirectionApparent/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/windDirectionApparent/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/windDirectionApparent/value",
 											"default":275,
 											"required":false
 										}
@@ -620,24 +636,24 @@
 								},
 								"windDirectionChangeAlarm": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/environmental/windDirectionChangeAlarm",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/windDirectionChangeAlarm",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/windDirectionChangeAlarm/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/windDirectionChangeAlarm/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/windDirectionChangeAlarm/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/windDirectionChangeAlarm/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/windDirectionChangeAlarm/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/windDirectionChangeAlarm/value",
 											"default":30,
 											"required":false
 										}
@@ -645,24 +661,24 @@
 								},
 								"windDirectionTrue": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/environmental/windDirectionTrue",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/windDirectionTrue",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/windDirectionTrue/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/windDirectionTrue/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/windDirectionTrue/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/windDirectionTrue/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/windDirectionTrue/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/windDirectionTrue/value",
 											"default":233,
 											"required":false
 										}
@@ -670,24 +686,24 @@
 								},
 								"windSpeedAlarm": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/environmental/windSpeedAlarm",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/windSpeedAlarm",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/windSpeedAlarm/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/windSpeedAlarm/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/windSpeedAlarm/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/windSpeedAlarm/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/windSpeedAlarm/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/windSpeedAlarm/value",
 											"default":30,
 											"required":false
 										}
@@ -695,24 +711,24 @@
 								},
 								"windSpeedTrue": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/environmental/windSpeedTrue",
+									"id": "http://jsonschema.net/vessels/vesselUid/environmental/windSpeedTrue",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/windSpeedTrue/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/windSpeedTrue/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/environmental/windSpeedTrue/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/windSpeedTrue/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/environmental/windSpeedTrue/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/environmental/windSpeedTrue/value",
 											"default":15,
 											"required":false
 										}
@@ -722,65 +738,65 @@
 						},
 						"mmsi": {
 							"type":"string",
-							"id": "http://jsonschema.net/vessels/123456/mmsi",
+							"id": "http://jsonschema.net/vessels/vesselUid/mmsi",
 							"default": "2345678",
 							"required":false
 						},
 						"name": {
 							"type":"string",
-							"id": "http://jsonschema.net/vessels/123456/name",
+							"id": "http://jsonschema.net/vessels/vesselUid/name",
 							"default": "motu",
 							"required":false
 						},
 						"navigation": {
 							"type":"object",
-							"id": "http://jsonschema.net/vessels/123456/navigation",
+							"id": "http://jsonschema.net/vessels/vesselUid/navigation",
 							"required":false,
 							"properties":{
 								"altitude": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/navigation/altitude",
+									"id": "http://jsonschema.net/vessels/vesselUid/navigation/altitude",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/altitude/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/altitude/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/altitude/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/altitude/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/navigation/altitude/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/altitude/value",
 											"required":false
 										}
 									}
 								},
 								"courseOverGroundMagnetic": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/navigation/courseOverGroundMagnetic",
+									"id": "http://jsonschema.net/vessels/vesselUid/navigation/courseOverGroundMagnetic",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/courseOverGroundMagnetic/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/courseOverGroundMagnetic/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/courseOverGroundMagnetic/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/courseOverGroundMagnetic/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/navigation/courseOverGroundMagnetic/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/courseOverGroundMagnetic/value",
 											"default":43,
 											"required":false
 										}
@@ -788,24 +804,24 @@
 								},
 								"courseOverGroundTrue": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/navigation/courseOverGroundTrue",
+									"id": "http://jsonschema.net/vessels/vesselUid/navigation/courseOverGroundTrue",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/courseOverGroundTrue/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/courseOverGroundTrue/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/courseOverGroundTrue/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/courseOverGroundTrue/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/navigation/courseOverGroundTrue/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/courseOverGroundTrue/value",
 											"default":23,
 											"required":false
 										}
@@ -813,80 +829,80 @@
 								},
 								"currentRoute": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/navigation/currentRoute",
+									"id": "http://jsonschema.net/vessels/vesselUid/navigation/currentRoute",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/courseOverGroundTrue/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/courseOverGroundTrue/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/courseOverGroundTrue/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/courseOverGroundTrue/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"bearingActual": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/navigation/currentRoute/bearingActual",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/currentRoute/bearingActual",
 											"default":230.1,
 											"required":false
 										},
 										"bearingDirect": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/navigation/currentRoute/bearingDirect",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/currentRoute/bearingDirect",
 											"default":234.1,
 											"required":false
 										},
 										"courseRequired": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/navigation/currentRoute/courseRequired",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/currentRoute/courseRequired",
 											"default":228.3,
 											"required":false
 										},
 										"eta": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/currentRoute/eta",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/currentRoute/eta",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"route": {
 											"type":"null",
-											"id": "http://jsonschema.net/vessels/123456/navigation/currentRoute/route",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/currentRoute/route",
 											"required":false
 										},
 										"startTime": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/currentRoute/startTime",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/currentRoute/startTime",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"waypointLastTime": {
 											"type":"null",
-											"id": "http://jsonschema.net/vessels/123456/navigation/currentRoute/waypointLastTime",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/currentRoute/waypointLastTime",
 											"required":false
 										},
 										"waypointLast": {
 											"type":"null",
-											"id": "http://jsonschema.net/vessels/123456/navigation/currentRoute/waypointLast",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/currentRoute/waypointLast",
 											"required":false
 										},
 										"waypointNextEta": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/currentRoute/waypointNextEta",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/currentRoute/waypointNextEta",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"waypointNext": {
 											"type":"null",
-											"id": "http://jsonschema.net/vessels/123456/navigation/currentRoute/waypointNext",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/currentRoute/waypointNext",
 											"required":false
 										},
 										"xte": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/navigation/currentRoute/xte",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/currentRoute/xte",
 											"default":250,
 											"required":false
 										}
@@ -894,24 +910,24 @@
 								},
 								"declination": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/navigation/declination",
+									"id": "http://jsonschema.net/vessels/vesselUid/navigation/declination",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/declination/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/declination/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/declination/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/declination/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/navigation/declination/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/declination/value",
 											"default":20,
 											"required":false
 										}
@@ -919,29 +935,29 @@
 								},
 								"destination": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/navigation/destination",
+									"id": "http://jsonschema.net/vessels/vesselUid/navigation/destination",
 									"required":false
 								},
 								"drift": {
 									"type":"number",
-									"id": "http://jsonschema.net/vessels/123456/navigation/drift",
+									"id": "http://jsonschema.net/vessels/vesselUid/navigation/drift",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/drift/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/drift/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/drift/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/drift/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/navigation/drift/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/drift/value",
 											"default":0.1,
 											"required":false
 										}
@@ -949,29 +965,29 @@
 								},
 								"gnss": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/navigation/gnss",
+									"id": "http://jsonschema.net/vessels/vesselUid/navigation/gnss",
 									"required":false
 								},
 								"headingMagnetic": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/navigation/headingMagnetic",
+									"id": "http://jsonschema.net/vessels/vesselUid/navigation/headingMagnetic",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/headingMagnetic/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/headingMagnetic/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/headingMagnetic/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/headingMagnetic/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/navigation/headingMagnetic/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/headingMagnetic/value",
 											"default":43,
 											"required":false
 										}
@@ -979,24 +995,24 @@
 								},
 								"headingTrue": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/navigation/headingTrue",
+									"id": "http://jsonschema.net/vessels/vesselUid/navigation/headingTrue",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/headingTrue/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/headingTrue/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/headingTrue/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/headingTrue/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/navigation/headingTrue/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/headingTrue/value",
 											"default":23,
 											"required":false
 										}
@@ -1004,29 +1020,29 @@
 								},
 								"location": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/navigation/location",
+									"id": "http://jsonschema.net/vessels/vesselUid/navigation/location",
 									"required":false,
 									"properties":{
 										"latitude": {
 											"type":"object",
-											"id": "http://jsonschema.net/vessels/123456/navigation/location/lat",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/location/lat",
 											"required":false,
 											"properties":{
 												"source": {
 													"type":"string",
-													"id": "http://jsonschema.net/vessels/123456/navigation/location/lat/source",
+													"id": "http://jsonschema.net/vessels/vesselUid/navigation/location/lat/source",
 													"default": "self",
 													"required":false
 												},
 												"timestamp": {
 													"type":"string",
-													"id": "http://jsonschema.net/vessels/123456/navigation/location/lat/timestamp",
+													"id": "http://jsonschema.net/vessels/vesselUid/navigation/location/lat/timestamp",
 													"default": "2014-03-24T00:15:41Z",
 													"required":false
 												},
 												"value": {
 													"type":"number",
-													"id": "http://jsonschema.net/vessels/123456/navigation/location/lat/value",
+													"id": "http://jsonschema.net/vessels/vesselUid/navigation/location/lat/value",
 													"default":-41.6789,
 													"required":false
 												}
@@ -1034,24 +1050,24 @@
 										},
 										"longitude": {
 											"type":"object",
-											"id": "http://jsonschema.net/vessels/123456/navigation/location/lon",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/location/lon",
 											"required":false,
 											"properties":{
 												"source": {
 													"type":"string",
-													"id": "http://jsonschema.net/vessels/123456/navigation/location/lon/source",
+													"id": "http://jsonschema.net/vessels/vesselUid/navigation/location/lon/source",
 													"default": "self",
 													"required":false
 												},
 												"timestamp": {
 													"type":"string",
-													"id": "http://jsonschema.net/vessels/123456/navigation/location/lon/timestamp",
+													"id": "http://jsonschema.net/vessels/vesselUid/navigation/location/lon/timestamp",
 													"default": "2014-03-24T00:15:41Z",
 													"required":false
 												},
 												"value": {
 													"type":"number",
-													"id": "http://jsonschema.net/vessels/123456/navigation/location/lon/value",
+													"id": "http://jsonschema.net/vessels/vesselUid/navigation/location/lon/value",
 													"default":173.12345,
 													"required":false
 												}
@@ -1061,24 +1077,24 @@
 								},
 								"pitch": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/navigation/pitch",
+									"id": "http://jsonschema.net/vessels/vesselUid/navigation/pitch",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/pitch/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/pitch/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/pitch/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/pitch/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/navigation/pitch/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/pitch/value",
 											"default":0.1,
 											"required":false
 										}
@@ -1086,78 +1102,78 @@
 								},
 								"rateOfTurn": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/navigation/rateOfTurn",
+									"id": "http://jsonschema.net/vessels/vesselUid/navigation/rateOfTurn",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/rateOfTurn/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/rateOfTurn/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/rateOfTurn/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/rateOfTurn/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/navigation/rateOfTurn/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/rateOfTurn/value",
 											"required":false
 										}
 									}
 								},
 								"roll": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/navigation/roll",
+									"id": "http://jsonschema.net/vessels/vesselUid/navigation/roll",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/roll/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/roll/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/roll/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/roll/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/navigation/roll/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/roll/value",
 											"required":false
 										}
 									}
 								},
 								"set": {
 									"type":"number",
-									"id": "http://jsonschema.net/vessels/123456/navigation/set",
+									"id": "http://jsonschema.net/vessels/vesselUid/navigation/set",
 									"default":0.1,
 									"required":false
 								},
 								"speedOverGround": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/navigation/speedOverGround",
+									"id": "http://jsonschema.net/vessels/vesselUid/navigation/speedOverGround",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/speedOverGround/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/speedOverGround/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/speedOverGround/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/speedOverGround/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/navigation/speedOverGround/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/speedOverGround/value",
 											"default":4.5,
 											"required":false
 										}
@@ -1165,24 +1181,24 @@
 								},
 								"speedThroughWater": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/navigation/speedThroughWater",
+									"id": "http://jsonschema.net/vessels/vesselUid/navigation/speedThroughWater",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/speedThroughWater/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/speedThroughWater/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/speedThroughWater/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/speedThroughWater/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"number",
-											"id": "http://jsonschema.net/vessels/123456/navigation/speedThroughWater/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/speedThroughWater/value",
 											"default":4.4,
 											"required":false
 										}
@@ -1190,24 +1206,24 @@
 								},
 								"state": {
 									"type":"object",
-									"id": "http://jsonschema.net/vessels/123456/navigation/state",
+									"id": "http://jsonschema.net/vessels/vesselUid/navigation/state",
 									"required":false,
 									"properties":{
 										"source": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/state/source",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/state/source",
 											"default": "self",
 											"required":false
 										},
 										"timestamp": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/state/timestamp",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/state/timestamp",
 											"default": "2014-03-24T00:15:41Z",
 											"required":false
 										},
 										"value": {
 											"type":"string",
-											"id": "http://jsonschema.net/vessels/123456/navigation/state/value",
+											"id": "http://jsonschema.net/vessels/vesselUid/navigation/state/value",
 											"default": "sailing",
 											"required":false
 										}
@@ -1217,19 +1233,19 @@
 						},
 						"source": {
 							"type":"string",
-							"id": "http://jsonschema.net/vessels/123456/source",
+							"id": "http://jsonschema.net/vessels/vesselUid/source",
 							"default": "self",
 							"required":false
 						},
 						"timezone": {
 							"type":"string",
-							"id": "http://jsonschema.net/vessels/123456/timezone",
+							"id": "http://jsonschema.net/vessels/vesselUid/timezone",
 							"default": "NZDT",
 							"required":false
 						},
 						"version": {
 							"type":"string",
-							"id": "http://jsonschema.net/vessels/123456/version",
+							"id": "http://jsonschema.net/vessels/vesselUid/version",
 							"default": "0.1",
 							"required":false
 						}

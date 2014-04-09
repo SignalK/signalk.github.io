@@ -131,7 +131,7 @@
 									"id": "http://jsonschema.net/vessels/vesselUid/environmental/airPressureChangeRateAlarm",
 									"required":false,
 									"properties":{ "$ref": "#/definitions/numberValue" }
-									}
+									
 								},
 								"airPressure": {
 									"type":"object",

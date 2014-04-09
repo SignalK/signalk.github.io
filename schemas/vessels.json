@@ -34,7 +34,7 @@
 				"required":false
 			}
 		}
-	}
+	},
 	"id": "http://jsonschema.net",
 	"required":false,
 	"properties":{

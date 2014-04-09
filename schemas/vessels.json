@@ -247,7 +247,7 @@
                                     }
                                 },
                                 "depthBelowKeel": {
-                                    "type": "number",
+                                    "type": "object",
                                     "description": "Depth below keel in meters",
                                     "id": "http://jsonschema.net/vessels/vesselUid/environmental/depthBelowKeel",
                                     "required": false,
@@ -273,7 +273,7 @@
                                     }
                                 },
                                 "depthBelowTransducer": {
-                                    "type": "number",
+                                    "type": "object",
                                     "description": "Depth below Transducer in meters",
                                     "id": "http://jsonschema.net/vessels/vesselUid/environmental/depthBelowTransducer",
                                     "required": false,
@@ -299,7 +299,7 @@
                                     }
                                 },
                                 "depth": {
-                                    "type": "number",
+                                    "type": "object",
                                     "description": "Depth from surface in meters",
                                     "id": "http://jsonschema.net/vessels/vesselUid/environmental/depth",
                                     "required": false,
@@ -512,53 +512,13 @@
                                     "type": "number",
                                     "description": "Depth in meters between transducer and bottom of the keel.",
                                     "id": "http://jsonschema.net/vessels/vesselUid/environmental/transducerToKeel",
-                                    "required": false,
-                                    "properties": {
-                                        "source": {
-                                            "type": "string",
-                                            "id": "http://jsonschema.net/vessels/vesselUid/environmental/transducerToKeel/source",
-                                            "example": "self",
-                                            "required": false
-                                        },
-                                        "timestamp": {
-                                            "type": "string",
-                                            "id": "http://jsonschema.net/vessels/vesselUid/environmental/transducerToKeel/timestamp",
-                                            "example": "2014-03-24T00:15:41Z",
-                                            "required": false
-                                        },
-                                        "value": {
-                                            "type": "number",
-                                            "id": "http://jsonschema.net/vessels/vesselUid/environmental/transducerToKeel/value",
-                                            "example": 1.3,
-                                            "required": false
-                                        }
-                                    }
+                                    "required": false
                                 },
                                 "waterLineToTransducer": {
                                     "type": "number",
                                     "description": "Depth transducer is below the water in meters",
                                     "id": "http://jsonschema.net/vessels/vesselUid/environmental/waterLineToTransducer",
-                                    "required": false,
-                                    "properties": {
-                                        "source": {
-                                            "type": "string",
-                                            "id": "http://jsonschema.net/vessels/vesselUid/environmental/waterLineToTransducer/source",
-                                            "example": "self",
-                                            "required": false
-                                        },
-                                        "timestamp": {
-                                            "type": "string",
-                                            "id": "http://jsonschema.net/vessels/vesselUid/environmental/waterLineToTransducer/timestamp",
-                                            "example": "2014-03-24T00:15:41Z",
-                                            "required": false
-                                        },
-                                        "value": {
-                                            "type": "number",
-                                            "id": "http://jsonschema.net/vessels/vesselUid/environmental/waterLineToTransducer/value",
-                                            "example": 0.75,
-                                            "required": false
-                                        }
-                                    }
+                                    "required": false
                                 },
                                 "waterTemp": {
                                     "type": "object",

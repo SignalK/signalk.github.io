@@ -4,7 +4,7 @@
     "definitions": {
         "stringValue": {
             "source": {
-                "type": "string",
+                "type": "object",
                 "description": "Source of the data, eg self, nmea, ais, etc",
                 "required": false
             },
@@ -20,7 +20,7 @@
         },
         "numberValue": {
             "source": {
-                "type": "string",
+                "type": "object",
                 "description": "Source of the data, eg self, nmea, ais, etc",
                 "required": false
             },
@@ -146,7 +146,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/airPressure/source",
                                             "example": "self",
                                             "required": false
@@ -172,7 +172,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/airTemp/source",
                                             "example": "self",
                                             "required": false
@@ -198,7 +198,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/currentDirection/source",
                                             "example": "self",
                                             "required": false
@@ -224,7 +224,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/currentSpeed/source",
                                             "example": "self",
                                             "required": false
@@ -250,7 +250,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/depthBelowKeel/source",
                                             "example": "self",
                                             "required": false
@@ -276,7 +276,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/depthBelowTransducer/source",
                                             "example": "self",
                                             "required": false
@@ -302,7 +302,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/depth/source",
                                             "example": "self",
                                             "required": false
@@ -328,7 +328,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/humidity/source",
                                             "example": "self",
                                             "required": false
@@ -356,7 +356,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/salinity/source",
                                             "example": "self",
                                             "required": false
@@ -382,7 +382,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/tideHeightHigh/source",
                                             "example": "self",
                                             "required": false
@@ -408,7 +408,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/tideHeightNow/source",
                                             "example": "self",
                                             "required": false
@@ -434,7 +434,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/tideLowHeight/source",
                                             "example": "self",
                                             "required": false
@@ -460,7 +460,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/tideLowTime/source",
                                             "example": "self",
                                             "required": false
@@ -486,7 +486,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/tideTimeHigh/source",
                                             "example": "self",
                                             "required": false
@@ -524,7 +524,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/waterTemp/source",
                                             "example": "self",
                                             "required": false
@@ -550,7 +550,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/windDirectionApparent/source",
                                             "example": "self",
                                             "required": false
@@ -576,7 +576,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/windDirectionChangeAlarm/source",
                                             "example": "self",
                                             "required": false
@@ -602,7 +602,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/windDirectionTrue/source",
                                             "example": "self",
                                             "required": false
@@ -628,7 +628,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/windSpeedAlarm/source",
                                             "example": "self",
                                             "required": false
@@ -654,7 +654,7 @@
                                     "required": false,
                                     "properties": {
                                         "source": {
-                                            "type": "string",
+                                            "type": "object",
                                             "id": "http://jsonschema.net/vessels/vesselUid/environmental/windSpeedTrue/source",
                                             "example": "self",
                                             "required": false
@@ -681,7 +681,7 @@
                                 "required": false,
                                 "properties": {
                                     "source": {
-                                        "type": "string",
+                                        "type": "object",
                                         "id": "http://jsonschema.net/vessels/vesselUid/environmental/windSpeedApparent/source",
                                         "example": "self",
                                         "required": false
@@ -721,7 +721,7 @@
 									"required": false,
 									"properties": {
 										"source": {
-											"type": "string",
+											"type": "object",
 											"id": "http://jsonschema.net/vessels/vesselUid/navigation/courseOverGroundMagnetic/source",
 											"example": "self",
 											"required": false
@@ -747,7 +747,7 @@
 									"required": false,
 									"properties": {
 										"source": {
-											"type": "string",
+											"type": "object",
 											"id": "http://jsonschema.net/vessels/vesselUid/navigation/courseOverGroundTrue/source",
 											"example": "self",
 											"required": false
@@ -773,7 +773,7 @@
 									"required": false,
 									"properties": {
 										"source": {
-											"type": "string",
+											"type": "object",
 											"id": "http://jsonschema.net/vessels/vesselUid/navigation/courseOverGroundTrue/source",
 											"example": "self",
 											"required": false
@@ -866,7 +866,7 @@
 									"required": false,
 									"properties": {
 										"source": {
-											"type": "string",
+											"type": "object",
 											"id": "http://jsonschema.net/vessels/vesselUid/navigation/magneticVariation/source",
 											"example": "self",
 											"required": false
@@ -898,7 +898,7 @@
 									"required": false,
 									"properties": {
 										"source": {
-											"type": "string",
+											"type": "object",
 											"id": "http://jsonschema.net/vessels/vesselUid/navigation/drift/source",
 											"example": "self",
 											"required": false
@@ -930,7 +930,7 @@
 									"required": false,
 									"properties": {
 										"source": {
-											"type": "string",
+											"type": "object",
 											"id": "http://jsonschema.net/vessels/vesselUid/navigation/headingMagnetic/source",
 											"example": "self",
 											"required": false
@@ -956,7 +956,7 @@
 									"required": false,
 									"properties": {
 										"source": {
-											"type": "string",
+											"type": "object",
 											"id": "http://jsonschema.net/vessels/vesselUid/navigation/headingTrue/source",
 											"example": "self",
 											"required": false
@@ -981,22 +981,22 @@
 									"description": "The position of the vessel in 3 dimensions",
 									"required": false,
 									"properties": {
+                                        "source": {
+                                            "type": "object",
+                                            "id": "http://jsonschema.net/vessels/vesselUid/navigation/position/source",
+                                            "example": "self",
+                                            "required": false
+                                        },
+                                        "timestamp": {
+                                            "type": "string",
+                                            "id": "http://jsonschema.net/vessels/vesselUid/navigation/position/timestamp",
+                                            "example": "2014-03-24T00:15:41Z",
+                                            "required": false
+                                        },
 										"latitude": {
 											"type": "number",
 											"id": "http://jsonschema.net/vessels/vesselUid/navigation/position/latitude",
 											"description": "Latitude in decimal degrees",
-											"required": false
-										},
-										"source": {
-											"type": "string",
-											"id": "http://jsonschema.net/vessels/vesselUid/navigation/position/source",
-											"example": "self",
-											"required": false
-										},
-										"timestamp": {
-											"type": "string",
-											"id": "http://jsonschema.net/vessels/vesselUid/navigation/position/timestamp",
-											"example": "2014-03-24T00:15:41Z",
 											"required": false
 										},
 										"longitude": {
@@ -1022,7 +1022,7 @@
 									"required": false,
 									"properties": {
 										"source": {
-											"type": "string",
+											"type": "object",
 											"id": "http://jsonschema.net/vessels/vesselUid/navigation/pitch/source",
 											"example": "self",
 											"required": false
@@ -1048,7 +1048,7 @@
 									"required": false,
 									"properties": {
 										"source": {
-											"type": "string",
+											"type": "object",
 											"id": "http://jsonschema.net/vessels/vesselUid/navigation/rateOfTurn/source",
 											"example": "self",
 											"required": false
@@ -1073,7 +1073,7 @@
 									"required": false,
 									"properties": {
 										"source": {
-											"type": "string",
+											"type": "object",
 											"id": "http://jsonschema.net/vessels/vesselUid/navigation/roll/source",
 											"example": "self",
 											"required": false
@@ -1105,7 +1105,7 @@
 									"required": false,
 									"properties": {
 										"source": {
-											"type": "string",
+											"type": "object",
 											"id": "http://jsonschema.net/vessels/vesselUid/navigation/speedOverGround/source",
 											"example": "self",
 											"required": false
@@ -1131,7 +1131,7 @@
 									"required": false,
 									"properties": {
 										"source": {
-											"type": "string",
+											"type": "object",
 											"id": "http://jsonschema.net/vessels/vesselUid/navigation/speedThroughWater/source",
 											"example": "self",
 											"required": false
@@ -1157,7 +1157,7 @@
 									"required": false,
 									"properties": {
 										"source": {
-											"type": "string",
+											"type": "object",
 											"id": "http://jsonschema.net/vessels/vesselUid/navigation/state/source",
 											"example": "self",
 											"required": false
@@ -1191,11 +1191,10 @@
 							}
 						},
 						"source": {
-							"type": "string",
-							"enum": [ "AIS","SELF","INTERNET"],
+							"type": "object",
 							"id": "http://jsonschema.net/vessels/vesselUid/source",
-							"description": "The source of the data on this vessel",
-							"example": "self",
+							"description": "An object describing the source of this data on a vessel.",
+							"example": "{ device: '/dev/ttyUSB0', type: 'NMEA0183', label: 'Stern-mounted GPS' }",
 							"required": false
 						},
 						"timezone": {

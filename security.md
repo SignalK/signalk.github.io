@@ -20,7 +20,7 @@ The goals of the security definition are:
 
 The security model is provided by a filter mechanism similar to the Linux iptables (http://en.wikipedia.org/wiki/Iptables) firewall. All messages arriving at the signalK device should go through an INCOMING filter chain, and all messages leaving should go through an OUTGOING filter chain. The filter will have the option of:
 
-Based on {source, destination, user}
+Based on (source, destination, user)
 * ALLOW the message to continue
 * DENY the message - sending a denial message back
 * DROP the message, ignoring the data. 

@@ -11,26 +11,26 @@ With Signal K we are potentially connecting the vessel to the world, via the int
 
 The goals of the security definition are:
 
- * to validate all messages arriving and departing in a similar way to a network firewall
- * to provide a configurable filter implementation that will work for all Signal K messages, current and future
- * provide a security layer that is independant of Signal K applications, so that applications need minimal knowledge of security
- * be software agnostic but rule compatible to allow implementations on different servers/devices.
+* to validate all messages arriving and departing in a similar way to a network firewall
+* to provide a configurable filter implementation that will work for all Signal K messages, current and future
+* provide a security layer that is independant of Signal K applications, so that applications need minimal knowledge of security
+* be software agnostic but rule compatible to allow implementations on different servers/devices.
 
 ### Security Model
 
 The security model is provided by a filter mechanism similar to the Linux iptables (http://en.wikipedia.org/wiki/Iptables) firewall. All messages arriving at the signalK device should go through an INCOMING filter chain, and all messages leaving should go through an OUTGOING filter chain. The filter will have the option of:
 
 Based on {source, destination, user}
- * ALLOW the message to continue
- * DENY the message - sending a denial message back
- * DROP the message, ignoring the data. 
- * SECURE - encrypt or decrypt the message contents (SSL transport can be specified by the source/destination urls, and is done in the normal web  way.)
- * JUMP - pass the message through another filter chain
+* ALLOW the message to continue
+* DENY the message - sending a denial message back
+* DROP the message, ignoring the data. 
+* SECURE - encrypt or decrypt the message contents (SSL transport can be specified by the source/destination urls, and is done in the normal web  way.)
+* JUMP - pass the message through another filter chain
 
 Based on the message contents:
- * FILTER_ALLOW - allow the Signal K branch/leaf to continue
- * FILTER_DENY - remove the Signal K branch/leaf
- * FILTER_READONLY - allow the branch/leaf to continue, but annotated with a read-only flag
+* FILTER_ALLOW - allow the Signal K branch/leaf to continue
+* FILTER_DENY - remove the Signal K branch/leaf
+* FILTER_READONLY - allow the branch/leaf to continue, but annotated with a read-only flag
  
 It will be possible to specify additional custom chains (as per iptables) to make complex routing possible. When an app is installed it can provide a set of rules, and (with permission) these will be added into the current rule base.
 
@@ -43,15 +43,15 @@ App developers can provide rulesets to suit their needs, and hence provide for t
 As per good security practice the default security setting will be to limit external (off boat) messages severely, allowing only such data as will already be available externally. There are different security scopes within the vessel and these will have different default permissions.
 
 Sources on the boat, that are as secure as current systems:
- * serial cables - ALLOW - trusted by default.
- * usb devices local to the server, eg plugged into the servers usb hub -  ALLOW - trusted by default.
- * ethernet -  ALLOW - trusted by default
- * CANbus and misc local wiring - ALLOW -  trusted by default
+* serial cables - ALLOW - trusted by default.
+* usb devices local to the server, eg plugged into the servers usb hub -  ALLOW - trusted by default.
+* ethernet -  ALLOW - trusted by default
+* CANbus and misc local wiring - ALLOW -  trusted by default
 
 New systems that are potentially insecure:
- * local WIFI - ALLOW - trusted by default when using WPA access and encryption control.
- * public WIFI - DROP - untrusted - assume that the client is off-boat. (Both access points are on-board, but this one is for public connection to the boat)
- * other external sources, eg satellite, GPRS, cellphone data - DROP - untrusted
+* local WIFI - ALLOW - trusted by default when using WPA access and encryption control.
+* public WIFI - DROP - untrusted - assume that the client is off-boat. (Both access points are on-board, but this one is for public connection to the boat)
+* other external sources, eg satellite, GPRS, cellphone data - DROP - untrusted
 
  
 

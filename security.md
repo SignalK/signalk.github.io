@@ -21,6 +21,7 @@ The goals of the security definition are:
 The security model is provided by a filter mechanism similar to the Linux iptables (http://en.wikipedia.org/wiki/Iptables) firewall. All messages arriving at the signalK device should go through an INCOMING filter chain, and all messages leaving should go through an OUTGOING filter chain. The filter will have the option of:
 
 Based on (source, destination, user)
+
 * ALLOW the message to continue
 * DENY the message - sending a denial message back
 * DROP the message, ignoring the data. 
@@ -28,6 +29,7 @@ Based on (source, destination, user)
 * JUMP - pass the message through another filter chain
 
 Based on the message contents:
+
 * FILTER_ALLOW - allow the Signal K branch/leaf to continue
 * FILTER_DENY - remove the Signal K branch/leaf
 * FILTER_READONLY - allow the branch/leaf to continue, but annotated with a read-only flag
@@ -43,12 +45,14 @@ App developers can provide rulesets to suit their needs, and hence provide for t
 As per good security practice the default security setting will be to limit external (off boat) messages severely, allowing only such data as will already be available externally. There are different security scopes within the vessel and these will have different default permissions.
 
 Sources on the boat, that are as secure as current systems:
+
 * serial cables - ALLOW - trusted by default.
 * usb devices local to the server, eg plugged into the servers usb hub -  ALLOW - trusted by default.
 * ethernet -  ALLOW - trusted by default
 * CANbus and misc local wiring - ALLOW -  trusted by default
 
 New systems that are potentially insecure:
+
 * local WIFI - ALLOW - trusted by default when using WPA access and encryption control.
 * public WIFI - DROP - untrusted - assume that the client is off-boat. (Both access points are on-board, but this one is for public connection to the boat)
 * other external sources, eg satellite, GPRS, cellphone data - DROP - untrusted

@@ -2,6 +2,7 @@
 title: Proposed Top Level Model Change
 layout: post
 author: Tim
+gravatar: https://avatars2.githubusercontent.com/u/1078998
 ---
 Currently the SignalK model looks, at a high level, like this.
 

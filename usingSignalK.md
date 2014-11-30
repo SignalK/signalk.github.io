@@ -5,7 +5,8 @@ layout: page
 
 ###Understanding and using Signal K data
 
-This page describes the three data formats (full, sparse, and delta) used for trasmitting data and how to use them.
+This page describes the two data formats (full and delta) used for transmitting data and how to use them.
+The 'sparse' format is the same as the full format, but doesnt contain a full tree, just parts of the full tree.
 
 ###Full format
 
@@ -58,7 +59,13 @@ Formatted for ease of reading:
     }
 }
 ```
-The message is UTF-8 ASCII text, and always starts with the {"vessels":{ string. Below this is a list of vessels, identified by their mmsi number or a generated unique id. There may be many vessels, if data has been received from AIS or other sources. The format of each vessel's data is the same. The full format is useful for backups, and for populating a secondary device, or just updating all data, a kind of 'this is the current state' message.
+The message is UTF-8 ASCII text, and the top-level attribute(key) is always "vessels". Below this level is a list of vessels, identified by their mmsi number or a generated unique id. There may be many vessels, if data has been received from AIS or other sources. The format for each vessel's data uses the same standard Signal K structure, but may not have the same content, eg you wont have as much data about other vessels as you have about your own. 
+
+The values are always SI units, and always the same units for the same key. eg 'speedOverGround' is always meters per second, never knots, km/hr, or miles/hr. This means you never have to send 'units' with data, the units are specific for a key, and defined in the data schema.
+
+The ordering of keys is also not important, they can occur in any order. In this area Signal K follows normal JSON standards. 
+
+The full format is useful for backups, and for populating a secondary device, or just updating all data, a kind of 'this is the current state' message.
 
 However sending the full data model will be wasteful of bandwidth and CPU, when the majority of data does not change often. So we want to be able to send parts of the model (eg parts of the hierarchical tree).
 
@@ -138,11 +145,11 @@ In more detail we have the header section:
     ]
 }
 ```
- The message can be recognised from the other types by the topmost element being "context" and "updates" rather than "vessels". 
+ The message can be recognised from the other types by the topmost level having "context" and "updates" rather than "vessels". 
  
- Context is a path from the root of the tree. In this case 'vessels.230099999'. All subsequent data is relative to that location. The context could be much more specific, eg 'vessels.230099999.navigation', whatever is the common root of the updated data.
+ Context is a path from the root of the full tree. In this case 'vessels.230099999'. All subsequent data is relative to that location. The context could be much more specific, eg 'vessels.230099999.navigation', whatever is the common root of the updated data.
  
- The 'updates' holds an array (json array) of updates, each of wihich has a 'source' and json array of 'values'.
+ The 'updates' holds an array (json array) of updates, each of which has a 'source' and json array of 'values'.
 ```
  {
             "source": {

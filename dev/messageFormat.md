@@ -11,11 +11,14 @@ The 'sparse' format is the same as the full format, but doesnt contain a full tr
 ###Full format
 
 The simplest format is the full format, which is the complete Signal K data model sent as a json string. Abbreviated for clarity it looks like this:
-```
+
+```json
 {"vessels":{"9334562":{"navigation":{"courseOverGroundTrue": {"value":11.9600000381},"courseOverGroundMagnetic": {"value":93.0000000000},"more":"a lot more data here...","waterTemp": {"value":0.0000000000},"wind":{"speedAlarm": {"value":0.0000000000},"directionChangeAlarm": {"value":0.0000000000},"directionApparent": {"value":0.0000000000},"directionTrue": {"value":0.0000000000},"speedApparent": {"value":0.0000000000},"speedTrue": {"value":0.0000000000}}}}}}
 
 ```
+
 Formatted for ease of reading:
+
 ```json
 {
     "vessels": {
@@ -57,6 +60,7 @@ Formatted for ease of reading:
     }
 }
 ```
+
 The message is UTF-8 ASCII text, and the top-level attribute(key) is always "vessels". Below this level is a list of vessels, identified by their mmsi number or a generated unique id. There may be many vessels, if data has been received from AIS or other sources. The format for each vessel's data uses the same standard Signal K structure, but may not have the same content, eg you wont have as much data about other vessels as you have about your own. 
 
 The values are always SI units, and always the same units for the same key. eg 'speedOverGround' is always meters per second, never knots, km/hr, or miles/hr. This means you never have to send 'units' with data, the units are specific for a key, and defined in the data schema.
@@ -73,9 +77,10 @@ The sparse format is the same as the full format but only contains a limited par
 
  ```json
  {"vessels":{"self":{"navigation":{"position":{"latitude": {"value":-41.2936935424}}}}}}
+
  {"vessels":{"self":{"navigation":{"position":{"longitude": {"value":173.2470855712},"source": "self", "timestamp": "2014-03-24T00: 15: 41Z"}}}}}
  ```
- or, more efficiently:
+ or, more efficiently (and formatted):
 
   ```json
  {

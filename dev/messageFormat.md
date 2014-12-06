@@ -1,9 +1,9 @@
 ---
-title: Summary
+title: Message formats
 layout: page
 ---
 
-###Understanding and using Signal K data
+###Signal K data formats
 
 This page describes the two data formats (full and delta) used for transmitting data and how to use them.
 The 'sparse' format is the same as the full format, but doesnt contain a full tree, just parts of the full tree.
@@ -11,12 +11,12 @@ The 'sparse' format is the same as the full format, but doesnt contain a full tr
 ###Full format
 
 The simplest format is the full format, which is the complete Signal K data model sent as a json string. Abbreviated for clarity it looks like this:
-```
+```json
 {"vessels":{"9334562":{"navigation":{"courseOverGroundTrue": {"value":11.9600000381},"courseOverGroundMagnetic": {"value":93.0000000000},...al lot more here...."waterTemp": {"value":0.0000000000},"wind":{"speedAlarm": {"value":0.0000000000},"directionChangeAlarm": {"value":0.0000000000},"directionApparent": {"value":0.0000000000},"directionTrue": {"value":0.0000000000},"speedApparent": {"value":0.0000000000},"speedTrue": {"value":0.0000000000}}}}}}
 
 ```
 Formatted for ease of reading:
-```
+```json
 {
     "vessels": {
         "9334562": {
@@ -73,17 +73,53 @@ However sending the full data model will be wasteful of bandwidth and CPU, when 
 
 The sparse format is the same as the full format but only contains a limited part of the tree. This can be one or more data values.
 
- ```
+ ```json
  {"vessels":{"self":{"navigation":{"position":{"latitude": {"value":-41.2936935424}}}}}}
  {"vessels":{"self":{"navigation":{"position":{"longitude": {"value":173.2470855712},"source": "self", "timestamp": "2014-03-24T00: 15: 41Z"}}}}}
  ```
  or, more efficiently:
-  ```
- {"vessels":{"self":{"navigation":{"position":{"latitude": {"value":-41.2936935424},"longitude": {"value":173.2470855712}}}}}}
+  ```json
+ {
+    "vessels": {
+        "self": {
+            "navigation": {
+                "position": {
+                    "latitude": {
+                        "value": -41.2936935424
+                    },
+                    "longitude": {
+                        "value": 173.2470855712
+                    }
+                }
+            }
+        }
+    }
+}
  ```
  Mix and match of misc values are also valid:
- ```
- {"vessels":{"self":{"navigation":{"courseOverGroundTrue": {"value":11.9600000381},"position":{"latitude": {"value":-41.2936935424},"longitude": {"value":173.2470855712},"altitude": {"value":0.0000000000}}}}}}
+ ```json
+ {
+    "vessels": {
+        "self": {
+            "navigation": {
+                "courseOverGroundTrue": {
+                    "value": 11.9600000381
+                },
+                "position": {
+                    "latitude": {
+                        "value": -41.2936935424
+                    },
+                    "longitude": {
+                        "value": 173.2470855712
+                    },
+                    "altitude": {
+                        "value": 0
+                    }
+                }
+            }
+        }
+    }
+}
  ```
  This mix of any combination of values means we dont need to create multiple message types to send different combinations of data. Just assemble whatever you want and send it. When parsing an incoming message a device should skip values it has no interest in, or doesnt recognise. Hence we avoid the problem of multiple message definitions for the same or similar data, and we avoid having to decode multiple messages with fixed formats.
  
@@ -92,7 +128,7 @@ The sparse format is the same as the full format but only contains a limited par
  While building the reference servers and clients it was apparent that a third type of message format was useful. This format specifically sends changes to the full data model. This was useful for a number of technical reasons, especially in clients or sensors that did not hold a copy of the data model.
  
  The format looks like this (pretty printed):
- ```
+ ```json
  {
     "context": "vessels.230099999",
     "updates": [
@@ -137,7 +173,7 @@ The sparse format is the same as the full format but only contains a limited par
  ```
  
 In more detail we have the header section:
-```
+```json
 {
     "context": "vessels.230099999",
     "updates": [
@@ -150,7 +186,7 @@ In more detail we have the header section:
  Context is a path from the root of the full tree. In this case 'vessels.230099999'. All subsequent data is relative to that location. The context could be much more specific, eg 'vessels.230099999.navigation', whatever is the common root of the updated data.
  
  The 'updates' holds an array (json array) of updates, each of which has a 'source' and json array of 'values'.
-```
+```json
  {
             "source": {
                 "device": "/dev/actisense",

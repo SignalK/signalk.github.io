@@ -23,9 +23,9 @@ If its the first value for the key, it becomes the default value and looks like 
                 {
 		    "value": 102.29,
 		    "source": "/dev/actisense",
-		    "timestamp": "2014-08-15-16:00:00.081",
+		    "timestamp": "2014-08-15-16: 00: 01.083",
 		    "src": "115",
-		    "pgn": "128267"
+		    "pgn": "129026"
 		}
 	    }
 	}
@@ -35,34 +35,42 @@ If its the first value for the key, it becomes the default value and looks like 
 
 If another value with different source arrives, we add an option object and put both values in there - if its our preferred source (from persistent config) we auto-switch to it, otherwise we just record it. It look like this:
 
-```
+```json
 {"vessels":
     {"self":
-        {"navigation":
-            {"courseOverGroundTrue":
-                {
-                 "value": 102.29,
-                 "source": "options.actisense-128267-115",
-                 "options":
-                    {
-                    "ttyUSB1-imu":  **a unique name, see below
-                        {  
-                            "value": 99.2900009155,
-                            "source": "/dev/ttyUSB1"
-                            "timestamp": "2014-08-15-16:00:00.081",
-                        },
-                     "actisense-128267-115":
-                        {
-                            "value": 102.29,
-                            "source": "/dev/actisense",
-                            "timestamp": "2014-08-15-16:00:00.081",
-                            "src": "115",
-                            "pgn": "128267"
-                        }
-                    }
-                }
-            }
-        }
+        {    "navigation": {
+	    "courseOverGroundTrue": {
+		"value": 102.29,
+		"source": "options.actisense-115-129026",
+		"options": {
+		    "nmea1-GP-RMC": {
+			"value": 99.2900009155,
+			"source": "/dev/ttyUSB1",
+			"timestamp": "2014-08-15-16: 00: 00.081"
+		    },
+		    "nmea0-GP-RMA": {
+			"value": 99.90234,
+			"source": "/dev/ttyUSB0",
+			"timestamp": "2014-08-15-16: 00: 00.081"
+		    },
+		    "actisense-115-129026": {
+			"value": 102.29,
+			"source": "/dev/actisense",
+			"timestamp": "2014-08-15-16: 00: 01.083",
+			"src": "115",
+			"pgn": "129026"
+		    },
+		    "actisense-201-130577": {
+			"value": 102.29,
+			"source": "/dev/actisense",
+			"timestamp": "2014-08-15-16: 00: 00.085",
+			"src": "201",
+			"pgn": "130577"
+		    }
+		}
+	    }
+	}
+        
     }
 }
 ``` 
@@ -79,6 +87,6 @@ The identifer is constructed as follows:
 
     n2k: producerid-pgn-sourceid (producer id from server configuration, others from n2k data)
     nmea0183: producerid-talkerid-sentence (like n2k)
-    signalk: any valid string [a-zA-Z0-9]
+    signalk: any valid string matching regex [a-zA-Z0-9-]. eg alphabet, hyphens, and 0 to 9 
 
 (The nmea0183 talker id is not in the schema as I write this, it will be added shortly)

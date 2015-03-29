@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300,200);
+@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans:700,400,300,100);
 
 /*
 Halcyonic by HTML5 UP
@@ -19,9 +20,14 @@ body {
 body, input, textarea, select {
   color: #474f51;
   font-size: 13.5pt;
-  font-family: 'Yanone Kaffeesatz';
+  font-family: 'Alegreya Sans';
   line-height: 1.85em;
   font-weight: 300;
+}
+
+#header,
+h1, h2, h3 {
+  font-family: 'Yanone Kaffeesatz';
 }
 
 ul, ol, p, dl {
@@ -206,4 +212,91 @@ section > :last-child, .last-child {
   background-image: -ms-linear-gradient(top, #ce1a00, #ed391b);
   background-image: -o-linear-gradient(top, #ce1a00, #ed391b);
   background-image: linear-gradient(top, #ce1a00, #ed391b);
+}
+
+.team-grid {
+  display: block;
+  font-size: 0px;
+  margin-left: -1.25%;
+  margin-right: -1.25%;
+  width: 102.5%;
+}
+
+.name {
+  display: block;
+  font-size: 1.3125em;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.team-grid .profile:nth-child(3n+1) {
+margin-left: 13.75%;
+}
+
+.team-grid .profile {
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 1.25%;
+  margin-right: 1.25%;
+  width: 22.5%;
+  padding: 0 0 75px;
+  vertical-align: top;
+}
+
+/*
+.team-grid .profile {
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 1.66667%;
+  margin-right: 1.66667%;
+  width: 30%;
+  padding-bottom: 75px;
+}
+.team-grid .profile {
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  width: 45%;
+  padding: 0px 0px 75px;
+}
+.team-grid .profile {
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+  padding: 36px 0px;
+  vertical-align: top;
+}
+*/
+
+.team-grid .profile p {
+  line-height: 1.1;
+  margin: 0 0 0.25em 15px;
+}
+
+.team-grid .name {
+  font-weight: 700;
+  letter-spacing: 1.15px;
+  color: #96A9B5;
+  margin-left: 15px;
+}
+
+.team-grid .profile .description {
+  height: 270px;
+  color: #403D39;
+  display: block;
+  text-align: left;
+  font-size: 1em;
+  line-height: 1.4375;
+  margin: 10px 0px 0px;
+}
+
+.team-grid .profile .picture-wrapper {
+  height: 190px;
+  width: 190px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0px auto 23px;
 }

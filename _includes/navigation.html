@@ -1,0 +1,23 @@
+<header id="header" class="container">
+  <div class="row">
+    <div class="12u">
+
+      <!-- Logo -->
+      {% if page.date %}
+      <h1><a href="/" id="logo">Signal K &mdash; Blog</a></h1>
+      {% else %}
+      <h1><a href="/" id="logo">Signal K &mdash; {{ page.title }}</a></h1>
+      {% endif %}
+
+      <!-- Nav -->
+      <nav id="nav">
+        <a href="/index.html">Home</a>
+        <a href="/summary.html">Summary</a>
+        <a href="/specification#schemas/signalk.json">Specification</a>
+        <a href="/security.html">Security</a>
+        <a href="/developers">Developers</a>
+        <a href="/about.html">About</a>
+      </nav>
+    </div>
+  </div>
+</header>

@@ -1,20 +1,29 @@
----
-layout: default
----
-<div class="container">
-  {% include header.html %}
-  <div class="jumbotron">
-    <img alt="" src="images/signalk.jpeg">
-    <h2>Welcome to Signal&nbsp;K</h2>
-    <p>"I wish to communicate with you"</p>
-  </div>
-  <div class="row">
-    <div class="col-sm-9">
-      {{ content }}
-    </div>
-    <div class="col-sm-3">
-      {% include sidebar.html %}
-    </div>
-  </div>
-  {% include footer.html %}
-</div> <!-- /container -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <title>Signal K &raquo; {{ page.title }}</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-layers.min.js"></script>
+    <script src="js/init.js"></script>
+    <noscript>
+      <link rel="stylesheet" href="css/skel.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="css/style-desktop.css" />
+      <link rel="stylesheet" href="/css/post.css" />
+      <link rel="stylesheet" href="/css/syntax.css" />
+    </noscript>
+    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+  </head>
+  <body class="{{page.bodyclass}}">
+    {{ content }}
+  </body>
+</html>

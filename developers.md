@@ -1,17 +1,17 @@
 ---
-title: Message formats
-layout: page
+title: Developers
+layout: rsidebar
 ---
 
-###Developer resources
-
+##Developer Resources
 A menu page to resources and documents to aid developers in using the Signal K format.
 
 ###Resources
 
 ####JSON
 * [http://json.org/](http://json.org/) - definition of JSON format.
-* [http://jsonlint.com/](http://jsonlint.com/) - an online JSON formatter and syntax checker. Useful to see if your message is valid JSON.
+* [http://jsonlint.com/](http://jsonlint.com/) - an online JSON formatter and syntax checker. Useful to see if your
+  message is valid JSON.
 
 ####Node
 * [http://nodejs.org/](http://nodejs.org/) - the reference server and many examples use the Node javascript server.
@@ -19,7 +19,6 @@ A menu page to resources and documents to aid developers in using the Signal K f
 * [http://browserify.org/](http://browserify.org/) - used to make npm modules available in the web browser
 
 ####Documents
-
-* [Signal K data formats](./messageFormat.html)
+* [Signal K data formats](message_format.html)
 
 More coming :-)

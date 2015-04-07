@@ -11,3 +11,4 @@ asciidoctor:
     - pygments-style=perldoc
 gems:
   - jekyll-mentions
+baseurl:

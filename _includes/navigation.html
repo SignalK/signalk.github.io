@@ -4,19 +4,19 @@
 
       <!-- Logo -->
       {% if page.date %}
-      <h1><a href="/" id="logo">Signal K &mdash; Blog</a></h1>
+      <h1><a href="{{site.baseurl}}" id="logo">Signal K &mdash; Blog</a></h1>
       {% else %}
-      <h1><a href="/" id="logo">Signal K &mdash; {{ page.title }}</a></h1>
+      <h1><a href="{{site.baseurl}}" id="logo">Signal K &mdash; {{ page.title }}</a></h1>
       {% endif %}
 
       <!-- Nav -->
       <nav id="nav">
-        <a href="/index.html">Home</a>
-        <a href="/summary.html">Summary</a>
-        <a href="/specification#schemas/signalk.json">Specification</a>
-        <a href="/security.html">Security</a>
-        <a href="/developers.html">Developers</a>
-        <a href="/about.html">About</a>
+        <a href="{{site.baseurl}}/index.html">Home</a>
+        <a href="{{site.baseurl}}/summary.html">Summary</a>
+        <a href="{{site.baseurl}}/specification#schemas/signalk.json">Specification</a>
+        <a href="{{site.baseurl}}/security.html">Security</a>
+        <a href="{{site.baseurl}}/developers/index.html">Developers</a>
+        <a href="{{site.baseurl}}/about.html">About</a>
       </nav>
     </div>
   </div>

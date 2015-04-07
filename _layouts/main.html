@@ -7,21 +7,26 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="shortcut icon" href="{{site.baseurl}}/assets/ico/favicon.ico">
     <title>Signal K &raquo; {{ page.title }}</title>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/skel.min.js"></script>
-    <script src="js/skel-layers.min.js"></script>
-    <script src="js/init.js"></script>
+    <script src="{{site.baseurl}}/js/jquery.min.js"></script>
+    <script src="{{site.baseurl}}/js/skel.min.js"></script>
+    <script src="{{site.baseurl}}/js/skel-layers.min.js"></script>
+    <script src="{{site.baseurl}}/js/init.js"></script>
+    <script>
+      (function($) {
+        init("{{site.baseurl}}");
+      })(jQuery);
+    </script>
     <noscript>
-      <link rel="stylesheet" href="css/skel.css" />
-      <link rel="stylesheet" href="css/style.css" />
-      <link rel="stylesheet" href="css/style-desktop.css" />
+      <link rel="stylesheet" href="{{site.baseurl}}/css/skel.css" />
+      <link rel="stylesheet" href="{{site.baseurl}}/css/style.css" />
+      <link rel="stylesheet" href="{{site.baseurl}}/css/style-desktop.css" />
     </noscript>
-    <link rel="stylesheet" href="css/post.css" />
-    <link rel="stylesheet" href="css/syntax.css" />
-    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
-    <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="{{site.baseurl}}/css/post.css" />
+    <link rel="stylesheet" href="{{site.baseurl}}/css/syntax.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="{{site.baseurl}}/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><script src="{{site.baseurl}}/js/html5shiv.js"></script><![endif]-->
   </head>
   <body class="{{page.bodyclass}}">
     {{ content }}

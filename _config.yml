@@ -1,6 +1,6 @@
 name: Signal K
 markdown: redcarpet
-pygments: true
+highlighter: pygments
 asciidoc: asciidoctor
 asciidoc_ext: ad,adoc,asciidoc
 asciidoctor:

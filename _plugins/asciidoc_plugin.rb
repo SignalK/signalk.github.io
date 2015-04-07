@@ -3,9 +3,6 @@ module Jekyll
     class AsciiDocConverter < Converter
       safe true
 
-      pygments_prefix "\n"
-      pygments_suffix "\n"
-
       def initialize(config)
         @config = config
         @config['asciidoc'] ||= 'asciidoctor'
@@ -43,7 +40,7 @@ module Jekyll
         end
         @setup = true
       end
-      
+
       def matches(ext)
         rgx = '(' + @config['asciidoc_ext'].gsub(',','|') +')'
         ext =~ Regexp.new(rgx, Regexp::IGNORECASE)

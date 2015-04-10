@@ -1,28 +1,15 @@
 ---
 title: Summary
 layout: rsidebar
+sidebar: summary-sb.html
 ---
-
-## Table of Contents <a name="toc"></a>
-
-1. [Introduction](#introduction)
-2. [Rationale](#rationale)
-3. [Organization](#organization)
-4. [The Data Model](#model)
-5. [Security](#security)
-5. [The Protocol](#protocol)
-6. [Transport Mechanisms](#transport)
-7. [NMEA 2000 Mapping](#nmea2000)
-8. [NMEA 0183 Mapping](#nmea0183)
-
-
-## [Introduction](#toc) <a name="introduction"></a>
+## [Introduction](#) <a id="introduction"></a>
 Signal K aims to be the next generation solution for marine data exchange. It is intended to be used not only for
 communication between instruments and sensors on board a single vessel, but also to allow for sharing of data between
 multiple boats, aids to navigation, bridges, and marinas. It is designed to be easily consumable by Web and Mobile
 applications and to connect modern boats to the Internet of Things.
 
-## [Rationale](#toc) <a name="rationale"></a>
+## [Rationale](#) <a id="rationale"></a>
 There is a need for a new communications protocol for the marine industry to address the needs of a changing and ever
 more interconnected world. The currently most deployed mechanism for connecting instrumentation together has been with
 us for more than thirty years. Unlike some other ubiquitous communication protocols of similar age, NMEA 0183 has not
@@ -59,7 +46,7 @@ where ever you are and on whatever device you want?
 To move forward we need to think in a connected way, a way fundamentally different from NMEA protocols. Sun Microsystems
 famously coined the phrase _The network is the computer_, and Signal K reflects that global peer-to-peer concept.
 
-## [Organization](#toc) <a name="organization"></a>
+## [Organization](#) <a id="organization"></a>
 Signal K is broken down into three components. The first is the data model. The Signal K data model describes a large
 hierarchy of data points organized into topics and subtopics. It can contain data from your boat, other boats in the
 vicinity, aids to navigation (AToNs), marinas, local points of interest, online cruising guides, in fact any manner of
@@ -88,7 +75,7 @@ information. However, one should note that Signal K is very much a work in progr
 decision made on the format of the initial handshake exchange which would set up between two communicating devices the
 data serialization format to use.  _Caveat implementor_.
 
-## [The Data Model](#toc) <a name="model"></a>
+## [The Data Model](#) <a id="model"></a>
 Let us begin with a simplified example of the Signal K data model. The complete reference for the currently implemented
 model is [here](/specification/#schemas/signalk.json).
 
@@ -121,9 +108,9 @@ and sensor holds a partial copy of the model, containing just the data it is int
 Signal K can always read the data, they are compatible between all boats. Since all sensors store their data in the same
 model, all sensors are compatible with all instruments.
 
-## [Security](#toc) <a name="security"></a>
+## [Security](#) <a id="security"></a>
 
-## [The Protocol](#toc) <a name="protocol"></a>
+## [The Protocol](#) <a id="protocol"></a>
 So we have a clean extensible model of data, capable of holding information from many boats, many sources. Now we need
 to transfer that data efficiently between interested devices. The model is a hierarchical tree, with meta-data on the
 structure and definition. Its transferred as a JSON string, which is a filtered image of the full tree containing just
@@ -151,7 +138,7 @@ var windVectors = Array.prototype.slice(vessels)
 Signal K allows easy replication and merging of data between devices. It enables universal interoperability between
 devices, and it provides a common base for existing and new marine applications.
 
-## [Transport Mechanisms](#toc) <a name="transport"></a>
+## [Transport Mechanisms](#) <a id="transport"></a>
 Signal K data is transmitted as a JSON string. JSON is native to the Internet, and to browsers, so transmission is
 supported on any medium that can access the Internet. That includes mobile data, WiFi, Ethernet, USB, Bluetooth, and
 pretty much anything coming. But importantly we are just sending a string of characters &endash; so we can send over
@@ -166,9 +153,9 @@ the immediate need.
 As a bonus it's a string format, with full meaningful names, so it's also easy to read with human eyes. This helps
 enormously when developing or debugging.
 
-## [NMEA 2000 Mapping](#toc) <a name="nmea2000"></a>
+## [NMEA 2000 Mapping](#) <a id="nmea2000"></a>
 For existing instruments and sensors, Signal K supports converters for legacy protocols (NMEA0183, NMEA2000, SeaTalk)
 and others as they are required. And it's extensible for future needs, just submit a change on
 [GitHub](https://github.com/signalk).
 
-## [NMEA 0183 Mapping](#toc) <a name="nmea0183"></a>
+## [NMEA 0183 Mapping](#) <a id="nmea0183"></a>

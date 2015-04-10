@@ -1,31 +1,25 @@
 /*
  * Halcyonic by HTML5 UP
  * html5up.net | @n33co
- * Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+ * Free for personal and commercial use under the CCA 3.0 license
+ * (html5up.net/license)
  */
 
-/*********************************************************************************/
-/* 1000px (> 480px && < 1200px)                                                  */
-/*********************************************************************************/
+/*
+ * 1000px (> 480px && < 1200px)
+ */
 
 /* Basic */
 
-body
-{
+body {
   min-width: 1000px;
 }
 
 /* Multi-use */
 
-.check-list {
-}
-
 .check-list li {
   font-size: 1em;
   line-height: 2em;
-}
-
-.quote-list {
 }
 
 .quote-list li {
@@ -62,23 +56,14 @@ body
 
 /* Banner */
 
-#banner {
-}
-
 #banner p {
   font-size: 1.75em;
 }
 
 /* Header */
 
-#header {
-}
-
 #header h1 {
   font-size: 2.25em;
-}
-
-#header nav {
 }
 
 #header nav a {
@@ -86,9 +71,6 @@ body
 }
 
 /* Content */
-
-#content {
-}
 
 #content h2 {
   font-size: 1.4em;
@@ -98,7 +80,19 @@ body
   font-size: 1.1em;
 }
 
-#content header
-{
+#content header {
   margin: 0 0 1.25em 0;
+}
+
+.team-grid .profile {
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 1.66667% !important;
+  margin-right: 1.66667%;
+  width: 30%;
+  padding-bottom: 75px;
+}
+
+#links.affix {
+  width: 235px;
 }

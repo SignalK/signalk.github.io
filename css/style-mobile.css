@@ -1,39 +1,29 @@
 /*
  * Halcyonic by HTML5 UP
  * html5up.net | @n33co
- * Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+ * Free for personal and commercial use under the CCA 3.0 license
+ * (html5up.net/license)
  */
 
-/*********************************************************************************/
-/* Mobile (<= 480px)                                                             */
-/*********************************************************************************/
+/*
+ * Mobile (<= 480px)
+ */
 
-body, input, textarea, select
-{
+/* Basic */
+
+body, input, textarea, select {
   font-size: 13pt;
   line-height: 1.4em;
 }
 
 /* Multi-use */
 
-.link-list {
-}
-
 .link-list li {
   padding: 0.75em 0 0.75em 0;
 }
 
-.quote-list {
-}
-
-.quote-list li {
-}
-
 .quote-list li p {
   margin-bottom: 0.5em;
-}
-
-.check-list {
 }
 
 .check-list li {
@@ -50,24 +40,20 @@ body, input, textarea, select
 #header-wrapper {
   background: #3B4346 url('images/bg01.jpg') top center;
   box-shadow: inset 0px -1px 0px 0px #272d30, inset 0px -2px 0px 0px #51575a;
-  text-shadow: -1px -1px 1px rgba(0,0,0,0.75);
 }
 
 /*
-Don't want the banner? Uncomment the lines below:
-
-#header-wrapper { background-position: bottom center; }
-#banner { display: none !important; }
+ * Don't want the banner? Uncomment the lines below:
+ *
+ * #header-wrapper { background-position: bottom center; }
+ * #banner { display: none !important; }
  */
 
 #features-wrapper {
-  background: #353D40 url('images/bg02.jpg');
   padding: 15px 15px 30px 15px;
-  text-shadow: -1px -1px 1px rgba(0,0,0,0.75);
 }
 
 #content-wrapper {
-  background: #f7f7f7 url('images/bg04.png');
   padding: 5px;
 }
 
@@ -77,7 +63,6 @@ Don't want the banner? Uncomment the lines below:
 
 #footer-wrapper {
   padding: 40px 15px 15px 15px;
-  text-shadow: 1px 1px 1px rgba(255,255,255,1);
 }
 
 /* Header */
@@ -86,9 +71,10 @@ Don't want the banner? Uncomment the lines below:
   display: none;
 }
 
+/* Banner */
+
 #banner {
   position: relative;
-  color: #fff;
   text-align: center;
   padding: 30px 30px 15px 30px;
   margin-top: 44px;
@@ -107,10 +93,6 @@ Don't want the banner? Uncomment the lines below:
 
 /* Features */
 
-#features {
-  color: #a0a8ab;
-}
-
 #features section {
   padding: 0 0 25px 0;
   margin: 0 0 25px 0;
@@ -127,25 +109,12 @@ Don't want the banner? Uncomment the lines below:
 
 #features h2 {
   font-size: 1.25em;
-  color: #fff;
   margin: 0 0 0.25em 0;
-}
-
-#features a {
-  color: #e0e8eb;
-}
-
-#features strong {
-  color: #fff;
 }
 
 /* Content */
 
-#content {
-}
-
 #content section {
-  background: #fff;
   box-shadow: inset 0px 0px 0px 1px rgba(128,128,128,0.2);
   padding: 30px 15px 30px 15px;
   margin: 0 0 5px 0;
@@ -153,17 +122,11 @@ Don't want the banner? Uncomment the lines below:
 
 #content h2 {
   font-size: 1.25em;
-  color: #373f42;
   margin: 0 0 0.1em 0;
 }
 
 #content h3 {
-  color: #96a9b5;
   font-size: 1em;
-}
-
-#content a {
-  color: #ED391B;
 }
 
 #content header {
@@ -172,23 +135,12 @@ Don't want the banner? Uncomment the lines below:
 
 /* Footer */
 
-#footer {
-  color: #546b76;
-  text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
-}
-
 #footer section {
   margin: 0 0 40px 0;
 }
 
 #footer h2 {
-  font-size: 1.25em;
-  color: #212f35;
   margin: 0 0 0.75em 0;
-}
-
-#footer a {
-  color: #546b76;
 }
 
 #footer .link-list {
@@ -198,16 +150,7 @@ Don't want the banner? Uncomment the lines below:
 /* Copyright */
 
 #copyright {
-  border-top: solid 1px #b5bec3;
-  box-shadow: inset 0px 1px 0px 0px #e0e4e7;
-  text-align: center;
   padding: 20px 30px 20px 30px;
-  color: #8d9ca3;
-  text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
-}
-
-#copyright a {
-  color: #8d9ca3;
 }
 
 /* MobileUI */
@@ -289,4 +232,18 @@ Don't want the banner? Uncomment the lines below:
 
 #navPanel .link:last-child {
   border-bottom: 0;
+}
+
+.team-grid .profile {
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+  padding: 36px 0px;
+  vertical-align: top;
+}
+
+#links.affix {
+  display: none;
 }

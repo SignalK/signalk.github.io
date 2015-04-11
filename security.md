@@ -1,6 +1,6 @@
 ---
 title: Security
-layout: rsidebar
+layout: onecolumn
 ---
 
 ## The need for security

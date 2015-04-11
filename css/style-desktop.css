@@ -58,12 +58,25 @@ section:last-child
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
+  display: -ms-flex;
+  display: -moz-flex;
   display: -webkit-flex;
   display: flex;
 
   -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
   justify-content: space-between;
+  
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
   align-items: center;
+}
+
+#header img {
+  vertical-align: center;
+  border-radius: 2px;
 }
 
 #header {

@@ -18,7 +18,7 @@ bodyclass: subpage
           </section>
         </div>
         {% if page.sidebar %}
-        <div class="3u">
+        <div class="3u important(mobile)">
           {% include_relative {{page.sidebar}} active=page.id %}
         </div>
         {% endif %}

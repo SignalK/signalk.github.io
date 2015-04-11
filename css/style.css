@@ -43,10 +43,6 @@ ul, ol, p, dl, blockquote {
 }
 
 a {
-  text-decoration: underline;
-}
-
-a:hover {
   text-decoration: none;
 }
 
@@ -296,6 +292,11 @@ h1, h2, h3 {
   color: #f6f8f8;
 }
 
+#header a:focus {
+  color: #f6f8f8;
+  border: 1px dotted #f6f8f8;
+}
+
 /* Banner */
 
 #banner {
@@ -323,8 +324,13 @@ h1, h2, h3 {
 }
 
 #content a {
-  color: #ed391b;
-  color: #0B24FB;
+  color: #4185B0;
+}
+
+#content a:hover,
+#content a:active,
+#content a:focus {
+  color: #699aca;
 }
 
 #content h2, h3, h4 {

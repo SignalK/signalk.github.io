@@ -256,11 +256,11 @@ h1, h2, h3 {
   color: #fff;
 }
 
-#header nav a {
+#header a {
   color: #c6c8c8;
 }
 
-#header nav a:hover {
+#header a:hover {
   color: #f6f8f8;
 }
 

@@ -28,8 +28,7 @@ section:last-child
   box-shadow: inset 0px -1px 0px 0px #51575a;
 }
 
-.subpage #header-wrapper
-{
+.subpage #header-wrapper {
   height: 155px;
 }
 
@@ -49,33 +48,41 @@ section:last-child
 
 /* Header */
 
+.container-flex {
+  padding: 0;
+  margin: 0;
+
+  width: 1200px;
+  margin: 0 auto;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  align-items: center;
+}
+
 #header {
   min-height: 155px;
-  position: relative;
+  line-height: 155px;
 }
 
 #header h1 {
-  position: absolute;
-  left: 0;
-  bottom: 35px;
-  font-size: 2.75em;
+  font-size: 1.75em;
 }
 
 #header h1 a {
   text-decoration: none;
 }
 
-#header nav {
-  position: absolute;
-  right: 0;
-  bottom: 35px;
+#header a {
   font-weight: 200;
-}
-
-#header nav a {
   text-decoration: none;
   font-size: 1.4em;
-  margin-left: 60px;
   outline: 0;
 }
 

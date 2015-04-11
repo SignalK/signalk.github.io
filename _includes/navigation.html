@@ -1,23 +1,19 @@
-<header id="header" class="container">
-  <div class="row">
-    <div class="12u">
+<header id="header" class="container-flex">
+  <!-- Logo -->
+  <img src="{{site.baseurl}}/images/signalk.jpg" alt="Signal K Logo"  height=93 width=93 />
 
-      <!-- Logo -->
-      {% if page.date %}
-      <h1><a href="{{site.baseurl}}" id="logo">Signal K &mdash; Blog</a></h1>
-      {% else %}
-      <h1><a href="{{site.baseurl}}" id="logo">Signal K &mdash; {{ page.title }}</a></h1>
-      {% endif %}
+  <!-- Page Title -->
+  {% if page.date %}
+  <h1><a href="{{site.baseurl}}/" id="logo">Signal K &mdash; Blog</a></h1>
+  {% else %}
+  <h1><a href="{{site.baseurl}}/" id="logo">Signal K &mdash; {{ page.title }}</a></h1>
+  {% endif %}
 
-      <!-- Nav -->
-      <nav id="nav">
-        <a href="{{site.baseurl}}/index.html">Home</a>
-        <a href="{{site.baseurl}}/summary.html">Summary</a>
-        <a href="{{site.baseurl}}/specification#schemas/signalk.json">Specification</a>
-        <a href="{{site.baseurl}}/security.html">Security</a>
-        <a href="{{site.baseurl}}/developers/index.html">Developers</a>
-        <a href="{{site.baseurl}}/about.html">About</a>
-      </nav>
-    </div>
-  </div>
+  <!-- Nav -->
+    <a href="{{site.baseurl}}/index.html">Home</a>
+    <a href="{{site.baseurl}}/summary.html">Summary</a>
+    <a href="{{site.baseurl}}/specification#schemas/signalk.json">Specification</a>
+    <a href="{{site.baseurl}}/security.html">Security</a>
+    <a href="{{site.baseurl}}/developers/index.html">Developers</a>
+    <a href="{{site.baseurl}}/about.html">About</a>
 </header>

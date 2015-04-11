@@ -342,6 +342,7 @@ h1, h2, h3 {
   margin-left: -1.25%;
   margin-right: -1.25%;
   width: 102.5%;
+  list-style: none;
 }
 
 .name {
@@ -349,6 +350,12 @@ h1, h2, h3 {
   font-size: 1.3125em;
   line-height: 1.2;
   text-align: left;
+}
+
+.team-grid .profile::before {
+  content: "";
+  padding-right: 0;
+  display: normal;
 }
 
 .team-grid .profile p {

@@ -55,24 +55,42 @@ body {
 
 .button-big {
   font-size: 1.5em;
-  padding: 10px 35px 10px 35px;
+  padding: 10px 35px;
+}
+
+#content-wrapper {
+  padding-top: 10px;
 }
 
 /* Banner */
 
 #banner p {
   font-size: 1.75em;
+  margin: 0.5em 0 0.25em 0;
+}
+
+.bordered-feature-image {
+  width: 450px;
 }
 
 /* Header */
 
-#header h1 a {
-  font-size: 1.1em;
+#header {
+  min-height: 75px;
+  line-height: 75px;
 }
 
-#header nav a {
-  font-size: 1.1em;
-  margin-left: 30px;
+#header h1 a {
+  font-size: 1.8em;
+}
+
+#header a {
+  font-size: 1.3em;
+}
+
+#header img {
+  width: 50px;
+  height: 50px;
 }
 
 /* Content */

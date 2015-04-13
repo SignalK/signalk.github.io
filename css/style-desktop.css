@@ -9,85 +9,21 @@
  * Desktop (>= 480px)
  */
 
-/* Basic */
-
 body {
   min-width: 1200px;
 }
 
-section:last-child
-{
-  margin-bottom: 0 !important;
-}
-
-/* Wrappers */
-
-.subpage #header-wrapper {
-  height: 155px;
-}
-
-#features-wrapper {
-  padding: 45px 0 45px 0;
-}
-
-#content-wrapper {
-  border-top: solid 1px #fff;
-  padding: 45px 0 45px 0;
-}
-
-#footer-wrapper {
-  padding: 45px 0 45px 0;
-}
-
-/* Header */
-
-#header {
-  min-height: 155px;
-  line-height: 155px;
-}
-
-#header h1 {
-  font-size: 1.75em;
-}
-
-#header h1 a {
-  text-decoration: none;
-}
-
-#header a {
-  font-weight: 200;
-  font-size: 1.4em;
-  outline: 0;
-}
-
-/* Banner */
-
 #banner {
   border-top: solid 1px #222628;
   box-shadow: inset 0px 1px 0px 0px #3e484a;
-  padding: 35px 0 35px 0;
-}
-
-#banner .bordered-feature-image {
-  margin-bottom: 0;
+  padding: 35px 0;
 }
 
 #banner p {
   font-size: 2em;
-  font-weight: 200;
   line-height: 1.25em;
-  padding-right: 1em;
-  margin: 0 0 1em 0;
+  margin: 0 1em 1em 0;
 }
-
-/* Features */
-
-#features h2 {
-  font-size: 1.25em;
-  margin: 0 0 0.25em 0;
-}
-
-/* Content */
 
 #content h2 {
   font-size: 1.8em;
@@ -98,20 +34,53 @@ section:last-child
   font-size: 1.25em;
 }
 
-#content header {
-  margin: 0 0 2em 0;
+#content h4 {
+  font-size: 1.125em;
 }
 
-/* Footer */
+#content-wrapper {
+  border-top: solid 1px #fff;
+  padding: 45px 0 45px 0;
+}
+
+#copyright {
+  padding: 45px 0 80px 0;
+}
+
+#features h2 {
+  font-size: 1.25em;
+  margin: 0 0 0.25em 0;
+}
+
+#features-wrapper {
+  padding: 45px 0 45px 0;
+}
 
 #footer h2 {
   margin: 0 0 1em 0;
 }
 
-/* Copyright */
+#footer-wrapper {
+  padding: 45px 0 45px 0;
+}
 
-#copyright {
-  padding: 45px 0 80px 0;
+#header {
+  min-height: 155px;
+  line-height: 155px;
+}
+
+#header a {
+  font-weight: 200;
+  font-size: 1.4em;
+  outline: 0;
+}
+
+#header h1 {
+  font-size: 1.75em;
+}
+
+.subpage #header-wrapper {
+  height: 155px;
 }
 
 .team-grid .profile:nth-child(3n+1) {
@@ -120,11 +89,9 @@ section:last-child
 
 .team-grid .profile {
   display: inline-block;
-  font-size: 16px;
   margin-left: 2.5%;
   margin-right: 2.5%;
   width: 22.5%;
   padding: 0 0 75px;
   vertical-align: top;
 }
-

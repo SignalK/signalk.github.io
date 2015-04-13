@@ -9,21 +9,65 @@
  * 1000px (> 480px && < 1200px)
  */
 
-/* Basic */
-
 body {
-  min-width: 1000px;
+  min-width: 736px;
 }
 
-/* Multi-use */
+#banner {
+  padding: 25px 5px;
+}
 
-.container-flex {
-  width: 1000px;
+#banner p {
+  font-size: 1.6em;
+  margin: 0.5em 0 0.25em 0;
+}
+
+#content h2 {
+  font-size: 1.4em;
+}
+
+#content h3 {
+  font-size: 1.1em;
+}
+
+#content-wrapper {
+  padding-top: 10px;
+}
+
+#header {
+  min-height: 75px;
+  line-height: 75px;
+}
+
+#header a {
+  font-size: 1.25em;
+}
+
+#header h1 {
+  font-size: 1.6em;
+}
+
+#header img {
+  width: 50px;
+  height: 50px;
+}
+
+#links.affix {
+  width: 235px;
+}
+
+.bordered-feature-image {
+  margin-right: 5px;
+  width: 350px;
+}
+
+.button-big {
+  font-size: 1.5em;
+  padding: 10px 35px;
 }
 
 .check-list li {
   font-size: 1em;
-  line-height: 2em;
 }
 
 .quote-list li {
@@ -42,80 +86,27 @@ body {
 }
 
 .quote-list li span {
-  display: block;
   margin-left: 80px;
   font-size: 0.8em;
-  font-weight: 400;
   line-height: 1.8em;
+}
+
+.container-flex {
+  width: 100%;
+  -webkit-justify-content: space-around;
+     -moz-justify-content: space-around;
+      -ms-justify-content: space-around;
+          justify-content: space-around;
 }
 
 .feature-image {
   margin: 0 0 1em 0;
 }
 
-.button-big {
-  font-size: 1.5em;
-  padding: 10px 35px;
-}
-
-#content-wrapper {
-  padding-top: 10px;
-}
-
-/* Banner */
-
-#banner p {
-  font-size: 1.75em;
-  margin: 0.5em 0 0.25em 0;
-}
-
-.bordered-feature-image {
-  width: 450px;
-}
-
-/* Header */
-
-#header {
-  min-height: 75px;
-  line-height: 75px;
-}
-
-#header h1 a {
-  font-size: 1.8em;
-}
-
-#header a {
-  font-size: 1.3em;
-}
-
-#header img {
-  width: 50px;
-  height: 50px;
-}
-
-/* Content */
-
-#content h2 {
-  font-size: 1.4em;
-}
-
-#content h3 {
-  font-size: 1.1em;
-}
-
-#content header {
-  margin: 0 0 1.25em 0;
-}
-
 .team-grid .profile {
   display: inline-block;
-  font-size: 16px;
   margin-left: 1.66667% !important;
   margin-right: 1.66667%;
   width: 30%;
   padding-bottom: 75px;
-}
-
-#links.affix {
-  width: 235px;
 }

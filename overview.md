@@ -1,7 +1,7 @@
 ---
 title: Summary
 layout: rsidebar
-sidebar: summary-sb.html
+sidebar: overview-sb.html
 ---
 ## [Introduction](#) <a id="introduction"></a>
 Signal K aims to be the next generation solution for marine data exchange. It is intended to be used not only for

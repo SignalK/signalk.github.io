@@ -210,7 +210,7 @@ body, input, textarea, select {
 }
 
 .subpage #content-wrapper {
-  padding-top: 44px;
+  margin-top: 44px;
 }
 
 .team-grid .profile {

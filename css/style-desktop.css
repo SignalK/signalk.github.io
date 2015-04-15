@@ -79,10 +79,6 @@ body {
   font-size: 1.75em;
 }
 
-.subpage #header-wrapper {
-  height: 155px;
-}
-
 .team-grid .profile:nth-child(3n+1) {
   margin-left: 10%;
 }

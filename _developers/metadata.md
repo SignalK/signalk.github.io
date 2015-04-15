@@ -9,10 +9,10 @@ id: md
 
 ### The Use Cases
 
-Let's assume we have engine1.rpm as a key/value in Signal K. We want to display it on our dashboard, and monitor alarms
-for temp, oil, rpm etc.
+Let's assume we have `engine1.rpm` as a key/value in Signal K. We want to display it on our dashboard, and monitor
+alarms for temperature, oil pressure, RPM, etc.
 
-We can drop a generic dial gauge on our dash and display rpm, but it can't know maxRpm, or alarms unless its an
+We can drop a generic dial gauge on our dash and display RPM, but it can't know maxRpm, or alarms unless its an
 engine-specific gauge, and knows where to look in the Signal K schema. So we will end up with a profusion of role
 specific gauges to maintain. We also have non standard key names for max, min, high, low, etc. which pollute the schema.
 
@@ -63,7 +63,7 @@ two vessels have the same engine, then the engine profiles will also tend to be 
 The common profiles should be exportable and importable. This would allow manufacturers or other users to create
 profiles for specific products or use cases, which could then be imported to a vessel.
 
-This may also have possibilities for race control or charter management. For instance a limit on lat/lon would raise an
+This may also have possibilities for race control or charter management. For instance a limit on lat/lon could raise an
 'Out of Bounds' email on a charter vessel.
 
 A lot of the current max/min/alarm values could be removed to simplify and standardise the spec.

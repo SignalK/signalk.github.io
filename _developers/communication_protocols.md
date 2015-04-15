@@ -1,6 +1,7 @@
 ---
 title: Communication Protocols
 layout: developers
+developers: active
 id: cp
 ---
 

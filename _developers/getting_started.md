@@ -1,6 +1,7 @@
 ---
 title: Getting Started
 layout: developers
+developers: active
 id: gs
 ---
 

@@ -203,7 +203,6 @@ table thead tr {
 }
 
 #header {
-  line-height: 1.85em;
 }
 
 #header,
@@ -217,17 +216,18 @@ h1, h2, h3 {
   color: #c6c8c8;
 }
 
-#header a:hover {
-  color: #f6f8f8;
-}
-
+#header a:hover,
 #header a:focus {
   color: #f6f8f8;
-  border: 1px dotted #f6f8f8;
 }
 
 #header h1 a {
   color: #fff;
+}
+
+#header a.active {
+  color: #f6f8f8;
+  border-bottom: 3px solid #c6c8c8;
 }
 
 #header img {
@@ -454,6 +454,9 @@ h1, h2, h3 {
 ul.in li.in,
 ul.gs li.gs,
 ul.dm li.dm,
+ul.ap li.ap,
+ul.dm li.dm,
+ul.mf li.mf,
 ul.cp li.cp,
 ul.sp li.sp,
 ul.md li.md,

@@ -66,13 +66,12 @@ body {
 
 #header {
   min-height: 155px;
-  line-height: 155px;
 }
 
 #header a {
   font-weight: 200;
   font-size: 1.4em;
-  outline: 0;
+  padding: 5px 0;
 }
 
 #header h1 {

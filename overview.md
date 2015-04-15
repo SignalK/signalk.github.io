@@ -1,8 +1,10 @@
 ---
-title: Summary
+title: Overview
 layout: rsidebar
+overview: active
 sidebar: overview-sb.html
 ---
+
 ## [Introduction](#) <a id="introduction"></a>
 Signal K aims to be the next generation solution for marine data exchange. It is intended to be used not only for
 communication between instruments and sensors on board a single vessel, but also to allow for sharing of data between

@@ -1,6 +1,7 @@
 ---
 title: Message Formats
 layout: developers
+developers: active
 id: mf
 ---
 

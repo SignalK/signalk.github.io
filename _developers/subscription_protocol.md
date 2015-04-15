@@ -1,6 +1,7 @@
 ---
 title: Subscription Protocol
 layout: developers
+developers: active
 id: sp
 ---
 

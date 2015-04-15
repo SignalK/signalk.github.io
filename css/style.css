@@ -68,6 +68,10 @@ section:last-child,
   margin-bottom: 0 !important;
 }
 
+small {
+  font-size: 0.75em;
+}
+
 strong {
   font-weight: 700;
 }
@@ -452,7 +456,6 @@ h1, h2, h3 {
 /* Sidebar highlighting */
 
 ul.in li.in,
-ul.gs li.gs,
 ul.dm li.dm,
 ul.ap li.ap,
 ul.dm li.dm,

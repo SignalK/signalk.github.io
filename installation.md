@@ -1,8 +1,8 @@
 ---
-title: Getting Started
-layout: developers
-developers: active
-id: gs
+title: Installation
+layout: rsidebar
+installation: active
+sidebar: installation-sb.html
 ---
 
 ## {{page.title}}

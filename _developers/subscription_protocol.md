@@ -9,7 +9,7 @@ id: sp
 
 ### Introduction
 
-By default a Signal K server will provide a new WebSockets client with an empty delta stream, once per second. eg
+By default a Signal K server will provide a new WebSocket client with an empty delta stream, once per second. eg
 `/signalk/stream` will provide the delta stream, every 1 sec.
 
 ```json
@@ -18,15 +18,15 @@ By default a Signal K server will provide a new WebSockets client with an empty 
    "updates": []
 }
 ```
-> Below we refer to websockets, but the same process works in the same way over any transport eg for a raw TCP connection
-> the connection causes the above message to be sent, and sending the subscribe messages will have the same effect as
-> described here.
+> Below we refer to WebSockets, but the same process works in the same way over any transport. e.g. for a raw TCP
+> connection the connection causes the above message to be sent, and sending the subscribe messages will have the same
+> effect as described here.
 
 This is a fairly useless message, but provides a heartbeat while you subscribe to parts of the model that are of
 interest.
 
 In most use cases you do not want the whole update stream but part thereof. A subscription to the required criteria is
-made by sending a json message over the websocket.
+made by sending a JSON message over the WebSocket connection.
 
 ```json
 {
@@ -91,7 +91,7 @@ made by sending a json message over the websocket.
 A gauge-type display for just one or a few data items for the 'self' vessel should be able to specify that it only wants
 those items for the self vessel.
 
-This can be achieved by a default WebSockets connection `/signalk/stream`, then sending a JSON message:
+This can be achieved by a default WebSocket connection `/signalk/stream`, then sending a JSON message:
 
 ```json
 {
@@ -157,7 +157,7 @@ message in the buffer.
 
 #### Optional extension to WebSockets (/signalk/stream)
 
-For convienience the WebSockets URL may support the following parameters:
+For convienience the WebSocket URL may support the following parameters:
 
 * the parameter `context=vessels.self` becomes the context. By default it is `vessels.self`, e.g. own vessel
 * the parameter `path=[path.to.key]`. It can be added many times.

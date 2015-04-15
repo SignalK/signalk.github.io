@@ -1,6 +1,7 @@
 ---
 title: Message formats
-layout: rsidebar
+layout: developers
+id: mf
 ---
 
 ###Signal K data formats

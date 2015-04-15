@@ -1,7 +1,6 @@
 ---
 title: Developers
-layout: rsidebar
-sidebar: sidebar.html
+layout: developers
 id: in
 ---
 

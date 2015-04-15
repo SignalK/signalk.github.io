@@ -17,11 +17,13 @@ bodyclass: subpage
           {{content}}
           </section>
         </div>
-        {% if page.sidebar %}
         <div class="3u important(mobile)">
-          {% include {{page.sidebar}} active=page.id %}
-        </div>
+        {% if page.sidebar %}
+        {% include {{page.sidebar}} active=page.id %}
+        {% elsif layout.sidebar_rel %}
+        {% include_relative {{layout.sidebar_rel}} active=page.id %}
         {% endif %}
+        </div>
       </div>
     </div>
   </div>

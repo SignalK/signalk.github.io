@@ -1,7 +1,6 @@
 ---
 title: Communication Protocols
-layout: rsidebar
-sidebar: sidebar.html
+layout: developers
 id: cp
 ---
 

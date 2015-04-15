@@ -1,7 +1,6 @@
 ---
 title: Data Model
-layout: rsidebar
-sidebar: sidebar.html
+layout: developers
 id: dm
 ---
 

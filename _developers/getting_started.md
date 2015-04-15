@@ -1,7 +1,6 @@
 ---
 title: Getting Started
-layout: rsidebar
-sidebar: sidebar.html
+layout: developers
 id: gs
 ---
 

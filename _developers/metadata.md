@@ -1,7 +1,6 @@
 ---
 title: Metadata
-layout: rsidebar
-sidebar: sidebar.html
+layout: developers
 id: md
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: Subscription Protocol
-layout: rsidebar
-sidebar: sidebar.html
+layout: developers
 id: sp
 ---
 

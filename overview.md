@@ -32,7 +32,7 @@ non-free, in that their use is governed by a license agreement which restricts h
 NMEA 2000, a non-disclosure agreement. In essence, this prevents the release of an open source application developed
 using these standards.
 
-The final, non-technical problem is that changes to these standards happen a glacial pace, forcing manufacturers of
+The final, non-technical problem is that changes to these standards happen at a glacial pace, forcing manufacturers of
 marine equipment to develop proprietary sentences or parameter groups to cover functionality not envisioned by the
 standards committee.
 

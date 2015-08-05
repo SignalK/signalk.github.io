@@ -20,6 +20,7 @@ A menu page to resources and documents to aid developers in using the Signal K f
 
 ####Documents
 
-* [Signal K data formats](./messageFormat.html)
+* [Signal K - data formats](./messageFormat.html)
+* [Signal K - handling multiple values](./multipleValues.html)
 
 More coming :-)

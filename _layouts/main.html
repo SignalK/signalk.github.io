@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: http://ogp.me/ns#">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
+    <meta name="description" content="{{page.description}}">
+    <meta name="keywords" content="{{page.keywords}}">
+    <meta property="og:title" content="Signak K &raquo; {{page.title}}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{site.url}}{{site.baseurl}}{{page.url}}">
+    <meta property="og:image" content="{{site.url}}{{site.baseurl}}{{site.logo}}">
+    <meta property="og:description" content="{{page.description}}">
     <link rel="shortcut icon" href="{{site.baseurl}}/assets/ico/favicon.ico">
     <title>Signal K &raquo; {{ page.title }}</title>
     <script src="{{site.baseurl}}/js/jquery.min.js"></script>

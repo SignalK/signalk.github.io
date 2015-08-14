@@ -11,4 +11,6 @@ collections:
 gems:
   - jekyll-mentions
   - jekyll-sitemap
+url:
 baseurl:
+logo: /images/signalk.gif

@@ -76,6 +76,7 @@ body {
 
 #header h1 {
   font-size: 1.75em;
+  max-width: 33%;
 }
 
 .team-grid .profile:nth-child(3n+1) {

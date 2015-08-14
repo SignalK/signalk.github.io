@@ -3,6 +3,8 @@ title: Installation
 layout: rsidebar
 installation: active
 sidebar: installation-sb.html
+description: "Follow these instructions to get started with Signal K. Please don't hesitate to ask the community for
+  help if you run in to trouble."
 ---
 
 ## {{page.title}}

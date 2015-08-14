@@ -3,6 +3,9 @@ title: Overview
 layout: rsidebar
 overview: active
 sidebar: overview-sb.html
+description: "Signal K aims to be the next generation solution for marine data exchange. It is intended to be used not
+  only for communication between instruments and sensors on board a single vessel, but also to allow for sharing of data
+  between multiple boats, aids to navigation, bridges, and marinas."
 ---
 
 ## [Introduction](#) <a id="introduction"></a>

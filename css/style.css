@@ -257,6 +257,10 @@ h1, h2, h3 {
   top: 0px;
 }
 
+.article img {
+  width: 100%;
+}
+
 .article ul {
   padding-left: 20px;
   display: table;

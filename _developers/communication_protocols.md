@@ -8,8 +8,8 @@ id: cp
 ## {{page.title}}
 
 This page outlines basic mapping from Signal K json formats to common messaging protocols, and a describes a provisional
-implementation of Signal K over STOMP and MQTT. This is a pretty rough mapping to explore the similarities. Feel free to
-edit
+implementation of Signal K over STOMP and MQTT. This is a pretty rough mapping to explore the similarities. An example
+implementation can be found in the (Signal K Java Server)[https://github.com/signalk/signalk-java-server].
 
  Signal K | STOMP | MQTT | Notes | Notes
 ----------|-------|------|-------| ------
@@ -40,16 +40,16 @@ that layer the next protocol may or may not provide the same. Hence its guarante
 over UDP. If a reply never arrives via UDP, then MQTT will never know and not care. If QOS is important, then
 appropriate end-to-end protocols should be used.
 
-One improvement that should be made is for each Signal K message to have a unique ID. This would then map to the STOMP
-and MQTT IDs, making better end-to-end co-ordination. These IDs are sometimes used in replies, so they should be
-consistent across protocols.
-
 Overlapping paths are considered in MQTT, so its reasonable to assume each broker will be smart enough to handle
 overlapping paths (queues).
 
-Both STOMP and MQTT use the SUBSCRIBE header to initiate a queue subscription. Since the Signal K server will be a
-client of the broker, and responsible for sending to the broker's clients, a method of propagating the subscription to
-the Signal K server is required.
+### Basic Method
+
+Both STOMP and MQTT use a message broker to route messages between clients. Both STOMP and MQTT use the SUBSCRIBE header
+to initiate a queue subscription. Since the Signal K server will be a client of the broker, and responsible for sending
+to the broker's clients, a method of propagating the subscription to the Signal K server is required.
+
+![MQTT Sequence]({{site.baseurl}}/images/mqtt-sequence.png)
 
 In the current implementation this is achieved by having a common queue `queue://signalk.put`. This is a receive-only
 queue for the Signal K server, and all conversations between client and Signal K server start here.
@@ -57,20 +57,47 @@ queue for the Signal K server, and all conversations between client and Signal K
 After connecting and authenticating to the STOMP/MQTT server, the client posts a normal Signal K message into
 `queue://signalk.put` Lets assume the case of a subscribe message:
 
+```
+{
+  "context": "vessels.230099999",
+  "websocket.connectionkey":"d2f691ac-a5ed-4cb7-b361-9072a24ce6bc", // a unique session ID
+  "reply-to":"signalk.3202a939-1681-4a74-ad4b-3a90212e4f33.vessels.motu.navigation" // a private reply queue
+  "subscribe": [
+    {
+      "path": "navigation.speedThroughWater",
+      "period": 1000,
+      "format": "delta",
+      "policy": "ideal",
+      "minPeriod": 200
+    },
+    {
+      "path": "navigation.logTrip",
+      "period": 10000
+    }
+  ]
+}
+```
+*NOTE:* `websocket.connectionkey` does not refer to any sort of WebSocket, it's just the original session ID name which
+is getting a bit out-dated
+
 * The client generates a unique ID and sends a STOMP/MQTT SUBSCRIBE request for a suitable temporary queue name, using
   the unique ID `signalk.3202a939-1681-4a74-ad4b-3a90212e4f33.vessels.motu.navigation`.
 * The client then sends a Signal K subscribe message to `signalk.put` with the `reply-to` header set to the temporary
-  queue name eg `reply-to=signalk.3202a939-1681-4a74-ad4b-3a90212e4f33.vessels.motu.navigation`.
-* The client then listens on `signalk.3202a939-1681-4a74-ad4b-3a90212e4f33.vessels.motu.navigation` for the subscribed
-  Signal K messages.
+  queue name eg `reply-to=signalk.3202a939-1681-4a74-ad4b-3a90212e4f33.vessels.motu.navigation`. It listens on this
+  queue.
+* The client then sends the Signal K subscribe message to queue `signalk.put` with the repy-to header set to the
+  temporary queue name e.g. `repy-to=signalk.3202a939-1681-4a74-ad4b-3a90212e4f33.vessels.motu.navigation`.
+* The server will enable the subscription and send it to
+  `signalk.3202a939-1681-4a74-ad4b-3a90212e4f33.vessels.motu.navigation`.
+* The client is already listening for the subscribed Signal K messages on the private queue.
 * The client sends a Signal K unsubscribe message to `signalk.put` to stop the process.
 
-Hence a client can subscribe to a queue (path) in the broker, and the subscription will be notified to the signak
+Hence a client can subscribe to a queue (path) in the broker, and the subscription will be relayed to the Signal K
 server, so that the appropriate Signal K updates can be sent to the appropriate queue periodically.
 
 In Signal K we have proposed a series of 'verbs' (`SUBSCRIBE`, `UNSUBSCRIBE`, `LIST`, `GET`, `PUT`) which can also be
 sent to the `signalk.put` queue. Sending a Signal K `GET` message to this queue could cause the Signal K server to
-respond, probably in a synchronous reply (or on a temporary queue). This allows for similar symantics to the current
+respond, probably in a synchronous reply (or on a temporary queue). This allows for similar semantics to the current
 messaging.
 
 Support for this exists in the  Signal K Java server using STOMP and an embedded ActiveMQ instance. It all seems to work

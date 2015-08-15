@@ -1,0 +1,31 @@
+---
+layout: main
+bodyclass: subpage
+---
+
+<div id="header-wrapper">
+  {% include navigation.html %}
+</div>
+
+<!-- Content -->
+<div id="content-wrapper">
+  <div id="content">
+    <div class="container">
+      <div class="row">
+        <div class="9u">
+          <section class="article">
+          {{content}}
+          </section>
+        </div>
+        <div class="3u important(mobile)">
+        {% if page.sidebar %}
+        {% include {{page.sidebar}} active=page.id %}
+        {% elsif layout.sidebar_rel %}
+        {% include_relative {{layout.sidebar_rel}} active=page.id %}
+        {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include footer.html %}

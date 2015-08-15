@@ -1,0 +1,93 @@
+/*
+ * Halcyonic by HTML5 UP
+ * html5up.net | @n33co
+ * Free for personal and commercial use under the CCA 3.0 license
+ * (html5up.net/license)
+ */
+
+/*
+ * Desktop (>= 480px)
+ */
+
+body {
+  min-width: 1200px;
+}
+
+#banner {
+  border-top: solid 1px #222628;
+  box-shadow: inset 0px 1px 0px 0px #3e484a;
+  padding: 35px 0;
+}
+
+#banner p {
+  font-size: 2em;
+  line-height: 1.25em;
+  margin: 0 1em 1em 0;
+}
+
+#content h2 {
+  font-size: 1.8em;
+  margin: 0 0 0.25em 0;
+}
+
+#content h3 {
+  font-size: 1.25em;
+}
+
+#content h4 {
+  font-size: 1.125em;
+}
+
+#content-wrapper {
+  border-top: solid 1px #fff;
+  padding: 45px 0 45px 0;
+}
+
+#copyright {
+  padding: 45px 0 80px 0;
+}
+
+#features h2 {
+  font-size: 1.25em;
+  margin: 0 0 0.25em 0;
+}
+
+#features-wrapper {
+  padding: 45px 0 45px 0;
+}
+
+#footer h2 {
+  margin: 0 0 1em 0;
+}
+
+#footer-wrapper {
+  padding: 45px 0 45px 0;
+}
+
+#header {
+  min-height: 155px;
+}
+
+#header a {
+  font-weight: 200;
+  font-size: 1.4em;
+  padding: 5px 0;
+}
+
+#header h1 {
+  font-size: 1.75em;
+  max-width: 33%;
+}
+
+.team-grid .profile:nth-child(3n+1) {
+  margin-left: 10%;
+}
+
+.team-grid .profile {
+  display: inline-block;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  width: 22.5%;
+  padding: 0 0 75px;
+  vertical-align: top;
+}

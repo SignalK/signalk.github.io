@@ -15,8 +15,8 @@ This page outlines the APIs and the conventions we use for ports, URLs, and misc
 
 ### URL and Ports
 
-The Signal K server SHOULD be found on the usual HTTP/S ports (80 or 443) but MAY be found on the common alternate
-HTTP/S ports (8080 or 8443). It MUST be found on one of these. Redirects from these ports to another port are allowed.
+Signal K http and WebSocket endpoint SHOULD be found on the usual HTTP/S ports (80 or 443). 
+
 
 - MAY offer Signal K over TCP or UDP, SHOULD be on port 55555
 - MAY offer NMEA 0183 over TCP or UDP, SHOULD be on port 10110

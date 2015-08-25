@@ -11,7 +11,7 @@ This page outlines the APIs and the conventions we use for ports, URLs, and misc
 
 ### Short Names
 
-- `self` refers to the current vessel's unique name. Normally used in `vessels.self...`.
+- `self` refers to the current vessel. Normally used in `vessels.self...`.
 
 ### URL and Ports
 

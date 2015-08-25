@@ -33,7 +33,9 @@ other applications on the same server. Therefore the Signal K entry point will a
 Authorizes a session. Add `/user/password` to obtain a session cookie in the reply. SHOULD be done over HTTPS for
 security.
 
-#### /signalk/api/v1
+#### /signalk/api/v1/
+
+The base URL MUST provide a Signal K document that is valid according to the Signal K [full schema](http://signalk.org/specification.html). The contents SHOULD be all the current values of the data items the server knows.
 
 If the path following the base is a valid Signal K path `GET` will retrieve the Signal K branch named by the path; e.g.
 `/signalk/api/v1/vessels/123456789/navigation/position` returns

@@ -19,7 +19,6 @@ Signal K http and WebSocket endpoint SHOULD be found on the usual HTTP/S ports (
 
 
 - MAY offer Signal K over TCP or UDP, SHOULD be on port 55555
-- MAY offer NMEA 0183 over TCP or UDP, SHOULD be on port 10110
 - MAY offer a STOMP broker, SHOULD be on port 61613
 - MAY offer an MQTT broker, SHOULD be on port 1883
 

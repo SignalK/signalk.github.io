@@ -17,11 +17,7 @@ This page outlines the APIs and the conventions we use for ports, URLs, and misc
 
 Signal K HTTP and WebSocket endpoint SHOULD be found on the usual HTTP/S ports (80 or 443).
 
-A Signal K server
-
-- MAY offer Signal K over TCP or UDP, SHOULD be on port 55555
-- MAY offer a STOMP broker, SHOULD be on port 61613
-- MAY offer an MQTT broker, SHOULD be on port 1883
+A Signal K server MAY offer Signal K over TCP or UDP, SHOULD be on port 55555.
 
 ### Default URLs
 

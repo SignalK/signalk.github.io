@@ -72,24 +72,6 @@ If the path following the base is a valid Signal K path `GET` will retrieve the 
 }
 ```
 
-#### /signalk/api/v1/addresses
-
-`GET` will retrieve the Signal K service address list as a JSON object. It SHOULD provides a full URL for the available
-connections. This MAY be on a different host:port from the webserver.
-
-The WebSocket entry MUST end in the stream URL, i.e. `/signalk/stream/v1`. It SHOULD be on the same port as the HTTP
-API, but MAY be on a different port. No service port is registered for the WebSocket stream, so implementers SHOULD
-choose an arbitrary high port in the range 49152&ndash;65535[[1]](#fn_1).
-
-```json
-{
-  "mqttPort": "1883",
-  "stompPort": "61613",
-  "signalkPort": "55555",
-  "websocketUrl": "ws://rth:3000/signalk/stream/v1"
-}
-```
-> Note that if the Signal K service is using SSL, then the WebSocket URL should use `wss://`.
 
 #### /signalk/stream/v1
 

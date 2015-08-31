@@ -19,7 +19,7 @@ Signal K HTTP and WebSocket endpoint SHOULD be found on the usual HTTP/S ports (
 
 A Signal K server MAY offer Signal K over TCP or UDP, SHOULD be on port 55555.
 
-If an alternate port is needed it SHOULD be an arbitrary high port in the range 49152&ndash;65535.
+If an alternate port is needed it SHOULD be an arbitrary high port in the range 49152&ndash;65535[[1]](#fn_1).
 
 ### URL Prefix
 

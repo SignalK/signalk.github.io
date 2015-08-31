@@ -63,7 +63,8 @@ If the path following the base is a valid Signal K path `GET` will retrieve the 
 connections. This MAY be on a different host:port from the webserver.
 
 The WebSocket entry MUST end in the stream URL, i.e. `/signalk/stream/v1`. It SHOULD be on the same port as the HTTP
-API, but MAY be on a different port.
+API, but MAY be on a different port. No service port is registered for the WebSocket stream, so implementers SHOULD
+choose an arbitrary high port in the range 49152&ndash;65535.
 
 ```json
 {

@@ -58,22 +58,17 @@ specification]({{site.baseurl}}specification.html). The contents SHOULD be all t
 server knows.
 
 If the path following the base is a valid Signal K path `GET` will retrieve the Signal K branch named by the path; e.g.
-`/signalk/api/v1/vessels/123456789/navigation/position` returns
+`/signalk/api/v1/vessels/123456789/navigation/speedThroughWater` returns
 
 ```json
 {
-  "vessels": {
-    "123456789": {
-      "navigation": {
-        "position": {
-          "latitude": 60.07979701,
-          "longitude": 23.5330315,
-          "source": "vessels.motu.sources.nmea.0183.GLL",
-          "timestamp": "2015-04-13T01:13:50.524Z"
-        }
-      }
-    }
-  }
+    "value": 2.55,
+    "source": {
+        "type": "NMEA0183",
+        "src": "VHW",
+        "label": "signalk-parser-nmea0183"
+    },
+    "timestamp": "2015-08-31T05:45:36.000Z"
 }
 ```
 

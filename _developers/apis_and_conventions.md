@@ -51,14 +51,14 @@ The version(s) that the API server supports are available as a JSON document at 
 In this example the server provides two versions of Signal K, 1.1.1 and 3.0. WebSocket for version 1.1.1 is available at an alternate port. The document provides the version specific prefix, not the exact path tof the endpoint.
 
 
-#### /signalk/api/v1/
+#### /signalk/v1/api/
 
 The base URL MUST provide a Signal K document that is valid according to the Signal K [schema
 specification]({{site.baseurl}}specification.html). The contents SHOULD be all the current values of the data items the
 server knows.
 
 If the path following the base is a valid Signal K path `GET` will retrieve the Signal K branch named by the path; e.g.
-`/signalk/api/v1/vessels/123456789/navigation/speedThroughWater` returns
+`/signalk/v1/api/vessels/123456789/navigation/speedThroughWater` returns
 
 ```json
 {
@@ -73,7 +73,7 @@ If the path following the base is a valid Signal K path `GET` will retrieve the 
 ```
 
 
-#### /signalk/stream/v1
+#### /signalk/v1/stream
 
 Upgrade to a WebSocket connection. The `/signalk/api/v1/addresses` SHOULD be obtained first in case of host or port
 redirections.

@@ -15,9 +15,11 @@ This page outlines the APIs and the conventions we use for ports, URLs, and misc
 
 ### URL and Ports
 
-Signal K HTTP and WebSocket endpoint SHOULD be found on the usual HTTP/S ports (80 or 443).
+Signal K HTTP and WebSocket endpoint SHOULD be found on the usual HTTP/S ports (80 or 443). They SHOULD be available on the same port, but MAY be on an alternate port.
 
 A Signal K server MAY offer Signal K over TCP or UDP, SHOULD be on port 55555.
+
+If an alternate port is needed it SHOULD be an arbitrary high port in the range 49152&ndash;65535.
 
 ### URL Prefix
 

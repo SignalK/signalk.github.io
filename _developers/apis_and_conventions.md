@@ -85,7 +85,7 @@ Upon connection a 'hello' message is sent as follows:
 
 ```json
 {
-  "version": "0.1",
+  "version": "1.1.2",
   "timestamp": "2015-04-13T01:13:50.524Z",
   "self": "123456789"
 }

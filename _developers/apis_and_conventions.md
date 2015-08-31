@@ -13,7 +13,7 @@ This page outlines the APIs and the conventions we use for ports, URLs, and misc
 
 - `self` refers to the current vessel. Normally used in `vessels.self...`.
 
-### URL and Ports
+### Ports
 
 Signal K HTTP and WebSocket endpoint SHOULD be found on the usual HTTP/S ports (80 or 443). They SHOULD be available on the same port, but MAY be on an alternate port.
 
@@ -51,7 +51,7 @@ The version(s) that the API server supports are available as a JSON document at 
 }
 ```
 
-In this example the server provides two versions of Signal K, 1.1.1 and 3.0. WebSocket for version 1.1.1 is available at an alternate port. The document provides the version specific prefix, not the exact path tof the endpoint.
+In this example the server provides two versions of Signal K, 1.1.1 and 3.0. WebSocket for version 1.1.1 is available at an alternate port. The document provides the version specific prefix, not the exact path of the endpoint.
 
 
 #### REST/HTTP API: /signalk/v1/api
@@ -60,7 +60,7 @@ The base URL MUST provide a Signal K document that is valid according to the Sig
 specification]({{site.baseurl}}specification.html). The contents SHOULD be all the current values of the data items the
 server knows.
 
-If the path following the base is a valid Signal K path `GET` will retrieve the Signal K branch named by the path; e.g.
+If the path following the base is a valid Signal K path `GET` MUST retrieve the Signal K branch named by the path; e.g.
 `/signalk/v1/api/vessels/123456789/navigation/speedThroughWater` returns
 
 ```json
@@ -80,7 +80,7 @@ If the path following the base is a valid Signal K path `GET` will retrieve the 
 
 Initiates a WebSocket connection that will start streaming the server's updates as Signal K delta messages. You can further specify the contents of the stream by using a more specific url: `/signalk/v1/stream/vessels/self` will stream just the `self` vessel's data.
 
-To initiate the subscription protocol use url parameter  `/signalk/v1/stream?requireSubscriptions=true`. In subscription mode the server will start with no subscriptions, hence no data will be streamed. The client should send subscription messages upstream to the server to start receiving the corresponding data items. See [Subscription Protocol](subscription_protocol.html) for more details.
+To initiate the subscription protocol use url parameter `/signalk/v1/stream?requireSubscriptions=true`. In subscription mode the server will start with no subscriptions, hence no data will be streamed. The client should send subscription messages upstream to the server to start receiving the corresponding data items. See [Subscription Protocol](subscription_protocol.html) for more details.
 
 ##### Connection Hello
 

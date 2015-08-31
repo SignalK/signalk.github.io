@@ -48,7 +48,8 @@ The version(s) that the API server supports are available as a JSON document at 
         }
 
     }
-}```
+}
+```
 
 In this example the server provides two versions of Signal K, 1.1.1 and 3.0. WebSocket for version 1.1.1 is available at an alternate port. The document provides the version specific prefix, not the exact path tof the endpoint.
 

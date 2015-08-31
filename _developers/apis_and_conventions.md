@@ -11,15 +11,14 @@ This page outlines the APIs and the conventions we use for ports, URLs, and misc
 
 ### Short Names
 
-- `self` refers to the current vessel's unique name. Normally used in `vessels.self...`.
+- `self` refers to the current vessel. Normally used in `vessels.self...`.
 
 ### URL and Ports
 
-The Signal K server SHOULD be found on the usual HTTP/S ports (80 or 443) but MAY be found on the common alternate
-HTTP/S ports (8080 or 8443). It MUST be found on one of these. Redirects from these ports to another port are allowed.
+Signal K http and WebSocket endpoint SHOULD be found on the usual HTTP/S ports (80 or 443). 
 
+A Signal K server
 - MAY offer Signal K over TCP or UDP, SHOULD be on port 55555
-- MAY offer NMEA 0183 over TCP or UDP, SHOULD be on port 10110
 - MAY offer a STOMP broker, SHOULD be on port 61613
 - MAY offer an MQTT broker, SHOULD be on port 1883
 
@@ -34,7 +33,9 @@ other applications on the same server. Therefore the Signal K entry point will a
 Authorizes a session. Add `/user/password` to obtain a session cookie in the reply. SHOULD be done over HTTPS for
 security.
 
-#### /signalk/api/v1
+#### /signalk/api/v1/
+
+The base URL MUST provide a Signal K document that is valid according to the Signal K [full schema](http://signalk.org/specification.html). The contents SHOULD be all the current values of the data items the server knows.
 
 If the path following the base is a valid Signal K path `GET` will retrieve the Signal K branch named by the path; e.g.
 `/signalk/api/v1/vessels/123456789/navigation/position` returns
@@ -62,8 +63,7 @@ If the path following the base is a valid Signal K path `GET` will retrieve the 
 connections. This MAY be on a different host:port from the webserver.
 
 The WebSocket entry MUST end in the stream URL, i.e. `/signalk/stream/v1`. It SHOULD be on the same port as the HTTP
-API, but MAY be on a different port. No service port is registered for the WebSocket stream, so implementers SHOULD
-choose an arbitrary high port in the range 49152&ndash;65535.
+API, but MAY be on a different port.
 
 ```json
 {

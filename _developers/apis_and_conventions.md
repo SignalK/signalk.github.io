@@ -15,16 +15,17 @@ This page outlines the APIs and the conventions we use for ports, URLs, and misc
 
 ### URL and Ports
 
-Signal K http and WebSocket endpoint SHOULD be found on the usual HTTP/S ports (80 or 443). 
+Signal K HTTP and WebSocket endpoint SHOULD be found on the usual HTTP/S ports (80 or 443).
 
 A Signal K server
+
 - MAY offer Signal K over TCP or UDP, SHOULD be on port 55555
 - MAY offer a STOMP broker, SHOULD be on port 61613
 - MAY offer an MQTT broker, SHOULD be on port 1883
 
 ### Default URLs
 
-The Signal K applications start from the `/signalk/` root. This provides some protection against name collisions with
+The Signal K applications start from the `/signalk` root. This provides some protection against name collisions with
 other applications on the same server. Therefore the Signal K entry point will always be found by loading
 `http(s)://«host»:«port»/signalk`
 
@@ -35,7 +36,9 @@ security.
 
 #### /signalk/api/v1/
 
-The base URL MUST provide a Signal K document that is valid according to the Signal K [full schema](http://signalk.org/specification.html). The contents SHOULD be all the current values of the data items the server knows.
+The base URL MUST provide a Signal K document that is valid according to the Signal K [schema
+specification]({{site.baseurl}}specification.html). The contents SHOULD be all the current values of the data items the
+server knows.
 
 If the path following the base is a valid Signal K path `GET` will retrieve the Signal K branch named by the path; e.g.
 `/signalk/api/v1/vessels/123456789/navigation/position` returns
@@ -64,12 +67,11 @@ connections. This MAY be on a different host:port from the webserver.
 
 The WebSocket entry MUST end in the stream URL, i.e. `/signalk/stream/v1`. It SHOULD be on the same port as the HTTP
 API, but MAY be on a different port. No service port is registered for the WebSocket stream, so implementers SHOULD
-choose an arbitrary high port in the range 49152&ndash;65535.
+choose an arbitrary high port in the range 49152&ndash;65535[[1]](#fn_1).
 
 ```json
 {
   "mqttPort": "1883",
-  "nmeaPort": "10110",
   "stompPort": "61613",
   "signalkPort": "55555",
   "websocketUrl": "ws://rth:3000/signalk/stream/v1"
@@ -93,3 +95,7 @@ Upon connection a 'hello' message is sent as follows:
   "self": "123456789"
 }
 ```
+
+* * *
+
+<a id="fn_1"></a>[1] See [RFC 6335 § 6](http://tools.ietf.org/html/rfc6335#section-6)

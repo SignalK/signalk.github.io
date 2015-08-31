@@ -19,11 +19,36 @@ Signal K HTTP and WebSocket endpoint SHOULD be found on the usual HTTP/S ports (
 
 A Signal K server MAY offer Signal K over TCP or UDP, SHOULD be on port 55555.
 
-### Default URLs
+### URL Prefix
 
 The Signal K applications start from the `/signalk` root. This provides some protection against name collisions with
 other applications on the same server. Therefore the Signal K entry point will always be found by loading
-`http(s)://«host»:«port»/signalk`
+`http(s)://«host»:«port»/signalk/`. 
+
+### Versioning
+
+The version of Signal K that an API endpoint supports is visible in the url after the prefix as `/signalk/vX` where X is the major version of the Signal K specification of the endpoint. 
+
+The version(s) that the API server supports are available as a JSON document at `/signalk/`:
+
+```json
+{
+    'endpoints': {
+        'v1': {
+            'version': '1.1.2',
+            'signalk-http': 'http://192.168.1.2/signalk/v1/',
+            'signalk-ws': 'http:192.168.1.2:34567/signalk/v1/'
+        },
+        'v3': {
+            'version': '3.0',
+            'signalk-http': 'http://192.168.1.2/signalk/v1/',
+            'signalk-ws': 'http:192.168.1.2/signalk/v1/'
+        }
+
+    }
+}```
+
+In this example the server provides two versions of Signal K, 1.1.1 and 3.0. WebSocket for version 1.1.1 is available at an alternate port. The document provides the version specific prefix, not the exact path tof the endpoint.
 
 #### /signalk/auth/v1
 

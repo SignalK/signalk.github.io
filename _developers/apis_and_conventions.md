@@ -75,10 +75,11 @@ If the path following the base is a valid Signal K path `GET` will retrieve the 
 
 #### /signalk/v1/stream
 
-Upgrade to a WebSocket connection. The `/signalk/api/v1/addresses` SHOULD be obtained first in case of host or port
-redirections.
+Initiates a WebSocket connection that will start streaming the server's updates as Signal K delta messages. You can further specify the contents of the stream by using a more specific url: `/signalk/v1/stream/vessels/self` will stream just the `self` vessel's data.
 
-#### Connection Hello
+To initiate the subscription protocol use url parameter  `/signalk/v1/stream?requireSubscriptions=true`. In subscription mode the server will start with no subscriptions, hence no data will be streamed. The client should send subscription messages upstream to the server to start receiving the corresponding data items. See [Subscription Protocol](subscription_protocol.html) for more details.
+
+##### Connection Hello
 
 Upon connection a 'hello' message is sent as follows:
 

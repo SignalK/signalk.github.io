@@ -37,12 +37,12 @@ The version(s) that the API server supports are available as a JSON document at 
         'v1': {
             'version': '1.1.2',
             'signalk-http': 'http://192.168.1.2/signalk/v1/',
-            'signalk-ws': 'http:192.168.1.2:34567/signalk/v1/'
+            'signalk-ws': 'ws://192.168.1.2:34567/signalk/v1/'
         },
         'v3': {
             'version': '3.0',
             'signalk-http': 'http://192.168.1.2/signalk/v1/',
-            'signalk-ws': 'http:192.168.1.2/signalk/v1/'
+            'signalk-ws': 'ws://192.168.1.2/signalk/v1/'
         }
 
     }

@@ -59,7 +59,7 @@ available from the `endpoints` object above.
 
 #### REST/HTTP API: /signalk/v1/api
 
-The base URL MUST provide a Signal K document that is valid according to the Signal K [schema
+The base URL MUST provide a Signal K document that is valid according to the full Signal K [schema
 specification]({{site.baseurl}}specification.html). The contents SHOULD be all the current values of the data items the
 server knows.
 

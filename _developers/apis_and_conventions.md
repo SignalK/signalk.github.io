@@ -30,9 +30,7 @@ other applications on the same server. Therefore the Signal K entry point will a
 
 ### Versioning
 
-The version of Signal K that an API endpoint supports is visible in the url after the prefix as `/signalk/vX` where X is the major version of the Signal K specification of the endpoint. 
-
-The version(s) that the API server supports are available as a JSON document at `/signalk`:
+The version(s) of the Signal K API that a server supports SHALL be available as a JSON object available at `/signalk`:
 
 ```json
 {
@@ -52,8 +50,12 @@ The version(s) that the API server supports are available as a JSON document at 
 }
 ```
 
-In this example the server provides two versions of Signal K, 1.1.1 and 3.0. WebSocket for version 1.1.1 is available at an alternate port. The document provides the version specific prefix, not the exact path of the endpoint.
+In this example the server provides two versions of Signal K, 1.1.1 and 3.0. The WebSocket endpoing for version 1.1.1 is
+available on an alternate port.
 
+Signal K clients specify which version of the API they wish to use by placing the version in the URL after the
+prefix as `/signalk/vX` where `vX` is the major version of the Signal K specification of the endpoint matching an option
+available from the `endpoints` object above.
 
 #### REST/HTTP API: /signalk/v1/api
 

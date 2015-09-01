@@ -103,4 +103,5 @@ Upon connection a 'hello' message is sent as follows:
 
 * * *
 
-<a id="fn_1"></a>[1] See [RFC 6335 § 6](http://tools.ietf.org/html/rfc6335#section-6)
+<a id="fn_1"></a>[1] Signal K has not registered a service port with IANA, for now we use an ephemeral port.
+<a id="fn_2"></a>[2] See [RFC 6335 § 6](http://tools.ietf.org/html/rfc6335#section-6).

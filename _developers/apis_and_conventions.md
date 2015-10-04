@@ -50,7 +50,7 @@ The version(s) of the Signal K API that a server supports SHALL be available as 
 }
 ```
 
-In this example the server provides two versions of Signal K, 1.1.1 and 3.0. The WebSocket endpoing for version 1.1.1 is
+In this example the server provides two versions of Signal K, 1.1.1 and 3.0. The WebSocket endpoint for version 1.1.1 is
 available on an alternate port.
 
 Signal K clients specify which version of the API they wish to use by placing the version in the URL after the

@@ -101,6 +101,16 @@ Upon connection a 'hello' message is sent as follows:
 }
 ```
 
+#### Service Discovery
+
+A Signal K server should advertise its services over mDNS/Bonjour. The server must use the service types
+- `_signalk-http._tcp` for http api
+- `_signalk-ws._tcp` for Websocket
+- `_signalk-https._tcp` for https api
+- `_signalk-wss._tcp` for secure Websocket
+
+Furthermore a server should advertise its web interface with normal Bonjour convention `_http._tcp` and `_https._tcp`.
+
 * * *
 
 <a id="fn_1"></a>[1] Signal K has not registered a service port with IANA, for now we use an ephemeral port.

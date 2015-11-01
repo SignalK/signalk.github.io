@@ -1,0 +1,19 @@
+---
+layout: onecolumn
+title: Applications & Solutions
+description: Applications & Solutions with Signal K Support
+---
+
+## {{page.title}} with Signal K Support
+
+- [iKommunicate](http://ikommunicate.com) (in
+  [KickStarter](https://www.kickstarter.com/projects/1689846268/ikommunicate-gateway-enabling-the-internet-of-thin)) by
+  [Digital Yacht](http://digitalyacht.co.uk) is a Signal K server with NMEA 2000 and NMEA 0183 connectivity.
+- [Yacht Devices](http://www.yachtd.com) [Voyage Recorder](http://www.yachtd.com/products/recorder.html) can export
+  data in Signal K format.
+- [FairWind](http://fairwind.uniparthenope.it) can act as a gateway from commonly available marine electronics to
+  Signal&nbsp;K supporting Android based Boat Apps.
+
+The most straightforward way to add entries to this page is to
+[fork this page in Github](https://github.com/SignalK/signalk.github.io/blob/master/applications_solutions.html) and
+create a pull request with your additions.

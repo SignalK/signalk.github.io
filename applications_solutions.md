@@ -13,6 +13,7 @@ description: Applications & Solutions with Signal K Support
   data in Signal K format.
 - [FairWind](http://fairwind.uniparthenope.it) can act as a gateway from commonly available marine electronics to
   Signal&nbsp;K supporting Android based Boat Apps.
+- [Locations](https://activecaptain.com/locations/index.php) by [ActiveCaptain](https://activecaptain.com/index.php) can use data in Signal K format.
 
 The most straightforward way to add entries to this page is to
 [fork this page in Github](https://github.com/SignalK/signalk.github.io/blob/master/applications_solutions.html) and

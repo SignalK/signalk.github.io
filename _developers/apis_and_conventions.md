@@ -42,8 +42,8 @@ The version(s) of the Signal K API that a server supports SHALL be available as 
         },
         "v3": {
             "version": "3.0",
-            "signalk-http": "http://192.168.1.2/signalk/v1",
-            "signalk-ws": "ws://192.168.1.2/signalk/v1"
+            "signalk-http": "http://192.168.1.2/signalk/v3",
+            "signalk-ws": "ws://192.168.1.2/signalk/v3"
         }
 
     }

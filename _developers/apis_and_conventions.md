@@ -43,7 +43,7 @@ The version(s) of the Signal K API that a server supports SHALL be available as 
         "v3": {
             "version": "3.0",
             "signalk-http": "signalk/v3/api/",
-            "signalk-ws": "ws://192.168.1.2/signalk/v3/stream"
+            "signalk-ws": "ws://192.168.1.2/signalk/v3/stream",
             "signalk-tcp": "tcp://192.168.1.2:34568"
         }
 

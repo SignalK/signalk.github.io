@@ -37,25 +37,31 @@ The version(s) of the Signal K API that a server supports SHALL be available as 
     "endpoints": {
         "v1": {
             "version": "1.1.2",
-            "signalk-http": "http://192.168.1.2/signalk/v1",
-            "signalk-ws": "ws://192.168.1.2:34567/signalk/v1"
+            "signalk-http": "http://192.168.1.2/signalk/v1/api/",
+            "signalk-ws": "ws://192.168.1.2:34567/signalk/v1/stream"
         },
         "v3": {
             "version": "3.0",
-            "signalk-http": "http://192.168.1.2/signalk/v3",
-            "signalk-ws": "ws://192.168.1.2/signalk/v3"
+            "signalk-http": "signalk/v3/api/",
+            "signalk-ws": "ws://192.168.1.2/signalk/v3/stream"
+            "signalk-tcp": "tcp://192.168.1.2:34568"
         }
 
     }
 }
 ```
 
-In this example the server provides two versions of Signal K, 1.1.2 and 3.0. The WebSocket endpoint for version 1.1.1 is
-available on an alternate port.
+This response is defined by the `discovery.json` schema. In this example, the server supports two versions of
+the specification: `1.1.2` and `3.0`. For each version, the server indicates which transport protocols it
+supports and the URL that can be used to access that protocol's endpoint; in the example, the `1.1.2`
+REST endpoint is located at `http://192.168.1.2/signalk/v1/api/`. Clients should use one of these published
+endpoints based on the protocol version they wish to use.
 
-Signal K clients specify which version of the API they wish to use by placing the version in the URL after the
-prefix as `/signalk/vX` where `vX` is the major version of the Signal K specification of the endpoint matching an option
-available from the `endpoints` object above.
+The server must only return valid URLs and should use IANA standard protocol names such as `http`.
+However, a server may support unofficial protocols and may return additional protocol names; for example,
+the response above indicates the server supports a `signalk-tcp` stream over TCP at on port `34568`.
+
+A server may return relative URIs that the client must resolve against the base of the original request.
 
 #### REST/HTTP API: /signalk/v1/api
 

@@ -25,7 +25,7 @@ system.
 
 NMEA 0183 is specified as an RS-422 simplex network, however RS-232 (standard serial ports) work just as well for
 connecting to an NMEA 0183 network. It is recommended that you use an opto-isolated interface between your computer and
-the 0183 network to avoid damanging either your computer or instruments. A good option for this is the [Actisense
+the 0183 network to avoid damaging either your computer or instruments. A good option for this is the [Actisense
 USG-1](http://actisense.com/products/nmea-0183/usg-1/usg-1) as it provides 1500V of isolation to protect your equipment
 and proper differential signalling.
 
@@ -44,7 +44,7 @@ $ picocom -b 4800 /dev/ttyUSB0
 
 You should see NMEA 0183 sentences scrolling off the screen. To exit picocom press `Ctrl-a` followed by `Ctrl-x`.
 
-#### Getting Started with NMEA 2000 Intruments
+#### Getting Started with NMEA 2000 Instruments
 
 For NMEA 2000, you will need a NMEA 2000 gateway device such as the [Actisense
 NGT-1](http://actisense.com/products/nmea-2000/ngt-1/ngt-1) which connects your NMEA 2000 bus to your server's USB port.
@@ -66,8 +66,9 @@ we are always looking for new interfaces to support.
 There are two options currently for serving Signal K data. The first is
 [signalk-server-node](https://github.com/SignalK/signalk-server-node) and the second is
 [signalk-server-java](https://github.com/SignalK/signalk-server-java). All of the examples below are written assuming
-you are using [Debian](https://debian.org) or a derivatve ([Ubuntu](http://ubuntu.com), [Raspbian](http://raspbian.org),
-etc). If you are using a different Linux distribution, adjust the commands accordingly.
+you are using [Debian](https://debian.org) or a derivative ([Ubuntu](http://ubuntu.com),
+[Raspbian](http://raspbian.org), etc.). If you are using a different Linux distribution, adjust the commands
+accordingly.
 
 #### Signal K Server Node
 
@@ -98,15 +99,16 @@ This will start the server with a sample configuration file. See the
 
 ### Install User Interfaces
 
-All of these user interfaces can be installed with bower to the Node SignalK server. Run `bower` in the root directory
-of your Node SignalK server:
+All of these user interfaces can be installed with bower to the Node Signal K server. Run `bower` in the root directory
+of your Node Signal K server:
 
 ```
-bower install https://github.com/SignalK/instrumentpanel.git
-bower install https://github.com/SignalK/sailgauge.git
-bower install https://github.com/SignalK/maptracker.git
-bower install https://github.com/SignalK/simplegauges.git
+$ sudo npm install -g bower
+$ bower install https://github.com/SignalK/instrumentpanel.git
+$ bower install https://github.com/SignalK/sailgauge.git
+$ bower install https://github.com/SignalK/maptracker.git
+$ bower install https://github.com/SignalK/simplegauges.git
 ```
 
-After the installation you can access these with urls like http://localhost:3000/instrumentpanel. Your SignalK server
+After the installation you can access these with URLs like `http://localhost:3000/instrumentpanel`. Your Signal K server
 must be running to serve the html files and provide the data stream.

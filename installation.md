@@ -75,9 +75,9 @@ First, the prerequisites.
 
 ```
 $ sudo apt-get update
-$ sudo apt-get install curl git build-essential
-$ curl -sL https://deb.nodesource.com/setup | sudo bash -
-$ sudo apt-get install nodejs
+$ sudo apt-get install -y curl git build-essential
+$ curl -sL https://deb.nodesource.com/setup_0.12 | sudo -E bash -
+$ sudo apt-get install -y nodejs
 ```
 
 See [this blog

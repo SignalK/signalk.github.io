@@ -16,6 +16,7 @@ description: Applications & Solutions with Signal K Support
 - [Locations](https://activecaptain.com/locations/index.php) by [ActiveCaptain](https://activecaptain.com/index.php) can use data in Signal K format.
 - [Oceanix](https://play.google.com/store/apps/details?id=com.easybizness.oceanIX): Android digital marine instrument display, various instruments designed to mimic the standard marine instrument display
 - [Vyacht router](http://vyacht.net/) - router with Signal K support
+- [NMEAremote](http://www.zapfware.de/en/products/nmearemote/): iOS marine instrument display with Signal K support
 
 The most straightforward way to add entries to this page is to
 [fork this page in Github](https://github.com/SignalK/signalk.github.io/blob/master/applications_solutions.html) and

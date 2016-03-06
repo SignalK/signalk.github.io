@@ -12,9 +12,9 @@ id: md
 Let's assume we have `engine1.rpm` as a key/value in Signal K. We want to display it on our dashboard, and monitor
 alarms for temperature, oil pressure, RPM, etc.
 
-We can drop a generic dial gauge on our dash and display RPM, but it can't know maxRpm, or alarms unless its an
+We can drop a generic dial gauge on our dash and display RPM, but it can't know maxRpm, or alarms unless it's an
 engine-specific gauge, and knows where to look in the Signal K schema. So we will end up with a profusion of role
-specific gauges to maintain. We also have non standard key names for max, min, high, low, etc. which pollute the schema.
+specific gauges to maintain. We also have non-standard key names for max, min, high, low, etc. which pollute the schema.
 
 Currently the Signal K server has a set of specific alarm keys. These grow over time and are becoming awkward. The
 server can only monitor these specific keys at present as there is no mechanism for arbitrary alarm definition.

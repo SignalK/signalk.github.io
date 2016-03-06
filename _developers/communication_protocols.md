@@ -7,7 +7,7 @@ id: cp
 
 ## {{page.title}}
 
-This page outlines basic mapping from Signal K json formats to common messaging protocols, and a describes a provisional
+This page outlines basic mapping from Signal K JSON formats to common messaging protocols, and a describes a provisional
 implementation of Signal K over STOMP and MQTT. This is a pretty rough mapping to explore the similarities. An example
 implementation can be found in the (Signal K Java Server)[https://github.com/signalk/signalk-java-server].
 
@@ -83,9 +83,9 @@ is getting a bit out-dated
 * The client generates a unique ID and sends a STOMP/MQTT SUBSCRIBE request for a suitable temporary queue name, using
   the unique ID `signalk.3202a939-1681-4a74-ad4b-3a90212e4f33.vessels.motu.navigation`.
 * The client then sends a Signal K subscribe message to `signalk.put` with the `reply-to` header set to the temporary
-  queue name eg `reply-to=signalk.3202a939-1681-4a74-ad4b-3a90212e4f33.vessels.motu.navigation`. It listens on this
+  queue name e.g. `reply-to=signalk.3202a939-1681-4a74-ad4b-3a90212e4f33.vessels.motu.navigation`. It listens on this
   queue.
-* The client then sends the Signal K subscribe message to queue `signalk.put` with the repy-to header set to the
+* The client then sends the Signal K subscribe message to queue `signalk.put` with the reply-to header set to the
   temporary queue name e.g. `repy-to=signalk.3202a939-1681-4a74-ad4b-3a90212e4f33.vessels.motu.navigation`.
 * The server will enable the subscription and send it to
   `signalk.3202a939-1681-4a74-ad4b-3a90212e4f33.vessels.motu.navigation`.

@@ -10,11 +10,11 @@ id: mf
 ### Signal K data formats
 
 This page describes the two data formats (full and delta) used for transmitting data and how to use them. The 'sparse'
-format is the same as the full format, but doesnt contain a full tree, just parts of the full tree.
+format is the same as the full format, but doesn't contain a full tree, just parts of the full tree.
 
 ### Full format
 
-The simplest format is the full format, which is the complete Signal K data model sent as a json string. Abbreviated for
+The simplest format is the full format, which is the complete Signal K data model sent as a JSON string. Abbreviated for
 clarity it looks like this:
 
 ```json
@@ -66,11 +66,11 @@ Formatted for ease of reading:
 ```
 
 The message is UTF-8 ASCII text, and the top-level attribute(key) is always "vessels". Below this level is a list of
-vessels, identified by their mmsi number or a generated unique id. There may be many vessels, if data has been received
+vessels, identified by their MMSI number or a generated unique id. There may be many vessels, if data has been received
 from AIS or other sources. The format for each vessel's data uses the same standard Signal K structure, but may not have
-the same content, eg you wont have as much data about other vessels as you have about your own.
+the same content, i.e. you won't have as much data about other vessels as you have about your own.
 
-The values are always SI units, and always the same units for the same key. eg 'speedOverGround' is always meters per
+The values are always SI units, and always the same units for the same key. I.e. `speedOverGround` is always meters per
 second, never knots, km/hr, or miles/hr. This means you never have to send 'units' with data, the units are specific for
 a key, and defined in the data schema.
 
@@ -81,7 +81,7 @@ The full format is useful for backups, and for populating a secondary device, or
 is the current state' message.
 
 However sending the full data model will be wasteful of bandwidth and CPU, when the majority of data does not change
-often. So we want to be able to send parts of the model (eg parts of the hierarchical tree).
+often. So we want to be able to send parts of the model (i.e. parts of the hierarchical tree).
 
 ### Sparse format
 
@@ -141,10 +141,10 @@ Mix and match of misc values are also valid:
 }
 ```
 
-This mix of any combination of values means we dont need to create multiple message types to send different combinations
-of data. Just assemble whatever you want and send it. When parsing an incoming message a device should skip values it
-has no interest in, or doesnt recognise. Hence we avoid the problem of multiple message definitions for the same or
-similar data, and we avoid having to decode multiple messages with fixed formats.
+This mix of any combination of values means we don't need to create multiple message types to send different
+combinations of data. Just assemble whatever you want and send it. When parsing an incoming message a device should skip
+values it has no interest in, or doesn't recognise. Hence we avoid the problem of multiple message definitions for the
+same or similar data, and we avoid having to decode multiple messages with fixed formats.
 
 ### Delta format
 
@@ -213,10 +213,10 @@ The message can be recognised from the other types by the topmost level having "
 "vessels".
 
 Context is a path from the root of the full tree. In this case 'vessels.230099999'. All subsequent data is relative to
-that location. The context could be much more specific, eg 'vessels.230099999.navigation', whatever is the common root
+that location. The context could be much more specific, e.g. 'vessels.230099999.navigation', whatever is the common root
 of the updated data.
 
-The 'updates' holds an array (json array) of updates, each of which has a 'source' and json array of 'values'.
+The 'updates' holds an array (JSON array) of updates, each of which has a 'source' and JSON array of 'values'.
 
 ```json
 {

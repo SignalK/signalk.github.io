@@ -9,7 +9,7 @@ id: sp
 
 ### Introduction
 
-By default a Signal K server will provide a new WebSocket client with an empty delta stream, once per second. eg
+By default a Signal K server will provide a new WebSocket client with an empty delta stream, once per second. E.g.
 `/signalk/stream` will provide the delta stream, every 1 sec.
 
 ```json
@@ -18,7 +18,7 @@ By default a Signal K server will provide a new WebSocket client with an empty d
    "updates": []
 }
 ```
-> Below we refer to WebSockets, but the same process works in the same way over any transport. e.g. for a raw TCP
+> Below we refer to WebSockets, but the same process works in the same way over any transport. E.g. for a raw TCP
 > connection the connection causes the above message to be sent, and sending the subscribe messages will have the same
 > effect as described here.
 
@@ -54,7 +54,7 @@ made by sending a JSON message over the WebSocket connection.
 
 * `path=[path.to.key]` is appended to the context to specify subsets of the context. The path value can use jsonPath
   syntax.
-* `period=[millisecs]` becomes the transmission rate, eg every `period/1000` seconds.
+* `period=[millisecs]` becomes the transmission rate, e.g. every `period/1000` seconds.
 * `format=[delta|full]` specifies delta or full format. Delta format is provided by default
 * `policy=[instant|ideal|fixed]`.
  * `instant` means send all changes as fast as they are received, but no faster than `minPeriod`. By default the reply
@@ -63,8 +63,8 @@ made by sending a JSON message over the WebSocket connection.
  * `ideal` means use `instant` policy, but if no changes are received before `period`, then resend the last known
    values.
  * `fixed` means simply send the last known values every period. This is the default.
-* `minPeriod=[millisecs]` becomes the fastest transmission rate allowed, eg every `minPeriod/1000` seconds. This is only
-  relevant for policy='instant' below to avoid swamping the client.
+* `minPeriod=[millisecs]` becomes the fastest transmission rate allowed, e.g. every `minPeriod/1000` seconds. This is
+  only relevant for policy='instant' below to avoid swamping the client.
 
 > **Teppo**: to me `minPeriod` is confusing. `minimumInterval` would be my suggestion. That way we would have periodic
 > or throttled-by-minimum-interval subscriptions. BTW why do we need `policy` if it is in effect specified by `period`
@@ -74,7 +74,7 @@ made by sending a JSON message over the WebSocket connection.
 > commands and the connection would emit events such as
 >
 > * connection
-> * disconnnection
+> * disconnection
 > * reconnection
 > * change (tree)
 > * change:delta (delta) ** Side note: I think these should be changed in Multiplexer and js client to something like
@@ -151,13 +151,13 @@ every 2 minutes (120 seconds) even if no data has been updated.
 }
 ```
 
-The result will be delta position messages for vessel 230029970, broadcast whenever it changes, but with minumum
+The result will be delta position messages for vessel 230029970, broadcast whenever it changes, but with minimum
 interval of 60 seconds. Messages are delayed to meet the minimum interval with newer messages overriding the previous
 message in the buffer.
 
 #### Optional extension to WebSockets (/signalk/stream)
 
-For convienience the WebSocket URL may support the following parameters:
+For convenience the WebSocket URL may support the following parameters:
 
 * the parameter `context=vessels.self` becomes the context. By default it is `vessels.self`, e.g. own vessel
 * the parameter `path=[path.to.key]`. It can be added many times.

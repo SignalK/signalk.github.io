@@ -37,8 +37,8 @@ The branches equate to folders, and the leaves equate to files. The structure is
 implement it however is best suited to your application. It is quite valid to implement it REST style, where a leaf
 value like `roll` is derived by a function on the fly. But in terms of external representation, Signal K capable devices
 will be assuming the _filesystem_ model, and the JSON representation will also reflect that. (The path representation is
-generally dot-separated, but sometimes `/` separated in situations where dot is ambiguous, eg relative URIs are awful in
-dot-syntax ` ...path.to.goal` vs `../path/to/goal`.)
+generally dot-separated, but sometimes `/` separated in situations where dot is ambiguous, e.g. relative URIs are awful
+in dot-syntax ` ...path.to.goal` vs `../path/to/goal`.)
 
 Navigation of the tree is accomplished in a similar way to any filesystem. `*` and `?` wildcards can be used to define
 paths which are used in data requests.
@@ -70,9 +70,10 @@ Each node on the tree has several optional sub-nodes
 This introduces an important aspect. Any node name starting with `_` is normally stripped from output, especially
 off-vessel. This is a useful way of 'hiding' custom nodes that only relate to the specific instance of Signal K.
 
-The `source` node is very powerful. It has two forms, a json string, and a json object. The json string form above is a
-simple redirect, and can be any valid URI. The same source may provide data for more than one signal K key (eg NMEA0183
-RMC from gps) so we recommend the sources be held under a top-level (root) tree named `sources` to avoid duplication.
+The `source` node is very powerful. It has two forms, a JSON string, and a JSON object. The JSON string form above is a
+simple redirect, and can be any valid URI. The same source may provide data for more than one signal K key (e.g.
+NMEA0183 RMC from GPS) so we recommend the sources be held under a top-level (root) tree named `sources` to avoid
+duplication.
 
 The object form looks like this and holds meta-data on the source of the value
 

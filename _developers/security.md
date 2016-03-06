@@ -67,7 +67,7 @@ and these will have different default permissions.
 Sources on the boat, that are as secure as current systems:
 
 * serial cables - ALLOW - trusted by default
-* usb devices local to the server, eg plugged into the servers usb hub -  ALLOW - trusted by default
+* usb devices local to the server, e.g. plugged into the servers USB hub -  ALLOW - trusted by default
 * ethernet -  ALLOW - trusted by default
 * CANbus and misc local wiring - ALLOW -  trusted by default
 
@@ -76,7 +76,7 @@ New systems that are potentially insecure:
 * local WIFI - ALLOW - trusted by default when using WPA access and encryption control
 * public WIFI - DROP - untrusted - assume that the client is off-boat. (Both access points are on-board, but this one is
   for public connection to the boat)
-* other external sources, eg satellite, GPRS, cellphone data - DROP - untrusted
+* other external sources, e.g. satellite, GPRS, cellphone data - DROP - untrusted
 
 #### Implementation
 
@@ -87,4 +87,4 @@ security practice using firewalls and bastion hosts.
 The implementation should ensure that access to the security rules configuration is tightly controlled, and not
 compromised by plugins and other potentially dangerous code. Likewise the implementation should ensure that the first
 rule chain for incoming messages is always INCOMING, and the last for outgoing messages is always OUTGOING. Branching to
-custom chains and the potential effects should be crefully considered.
+custom chains and the potential effects should be carefully considered.

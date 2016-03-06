@@ -87,10 +87,10 @@ If the path following the base is a valid Signal K path `GET` MUST retrieve the 
 #### Streaming WebSocket API: /signalk/v1/stream
 
 Initiates a WebSocket connection that will start streaming the server's updates as Signal K delta messages. You can
-further specify the contents of the stream by using a more specific url: `/signalk/v1/stream/vessels/self` will stream
+further specify the contents of the stream by using a more specific URL: `/signalk/v1/stream/vessels/self` will stream
 just the `self` vessel's data.
 
-To initiate the subscription protocol use url parameter `/signalk/v1/stream?requireSubscriptions=true`. In subscription
+To initiate the subscription protocol use URL parameter `/signalk/v1/stream?requireSubscriptions=true`. In subscription
 mode the server will start with no subscriptions, hence no data will be streamed. The client should send subscription
 messages upstream to the server to start receiving the corresponding data items. See [Subscription
 Protocol](subscription_protocol.html) for more details.
@@ -110,10 +110,10 @@ Upon connection a 'hello' message is sent as follows:
 #### Service Discovery
 
 A Signal K server should advertise its services over mDNS/Bonjour. The server must use the service types
-- `_signalk-http._tcp` for http api
-- `_signalk-ws._tcp` for Websocket
-- `_signalk-https._tcp` for https api
-- `_signalk-wss._tcp` for secure Websocket
+- `_signalk-http._tcp` for http API
+- `_signalk-ws._tcp` for WebSocket
+- `_signalk-https._tcp` for HTTPS API
+- `_signalk-wss._tcp` for secure WebSocket
 
 Furthermore a server should advertise its web interface with normal Bonjour convention `_http._tcp` and `_https._tcp`.
 

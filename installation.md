@@ -17,6 +17,8 @@ mailing list (signalk@googlegroups.com) and someone in the community will be sur
 While it is pretty likely that all of the Signal K software will run on Windows and OS X just as well as Linux, we have
 really only tested on Linux and the instructions below will assume that you are working on a Linux platform as well.
 
+For Raspberry Pi owners, we have a dedicated "How to" guide which can be accessed by [clicking here.](https://github.com/SignalK/specification/wiki/Raspberry-Pi-Installation-(Node-Server))
+
 If you just want to see how Signal K works and aren't interested in connecting to real hardware you can skip down to
 [installing the server](#server), otherwise continue on to learn how to interface your computer with your instrument
 system.

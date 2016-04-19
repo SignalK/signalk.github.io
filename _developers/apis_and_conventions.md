@@ -63,7 +63,9 @@ the response above indicates the server supports a `signalk-tcp` stream over TCP
 
 A server may return relative URIs that the client must resolve against the base of the original request.
 
-#### REST/HTTP API: /signalk/v1/api
+#### REST/HTTP API: /signalk/v1/api/
+
+Note the trailing slash in the path.
 
 The base URL MUST provide a Signal K document that is valid according to the full Signal K [schema
 specification]({{site.baseurl}}specification.html). The contents SHOULD be all the current values of the data items the

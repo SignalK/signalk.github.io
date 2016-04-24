@@ -88,14 +88,17 @@ If the path following the base is a valid Signal K path `GET` MUST retrieve the 
 
 #### Streaming WebSocket API: /signalk/v1/stream
 
-Initiates a WebSocket connection that will start streaming the server's updates as Signal K delta messages. You can
-further specify the contents of the stream by using a more specific URL: `/signalk/v1/stream/vessels/self` will stream
-just the `self` vessel's data.
+Initiates a WebSocket connection that will start streaming the server's updates as Signal K delta messages. You can specify the contents of the stream by using a specific URL:
 
-To initiate the subscription protocol use URL parameter `/signalk/v1/stream?requireSubscriptions=true`. In subscription
-mode the server will start with no subscriptions, hence no data will be streamed. The client should send subscription
-messages upstream to the server to start receiving the corresponding data items. See [Subscription
-Protocol](subscription_protocol.html) for more details.
+- ws://hostname/signalk/v1/stream?subscribe=self
+- ws://hostname/signalk/v1/stream?subscribe=all
+- ws://hostname/signalk/v1/stream?subscribe=none
+
+With no query parameter the default is `self`, which will stream the data related to the `self` object. `all` will stream all the updates the server sees and `none` will stream only the heartbeat, until the client issues subscribe messages in the WebSocket stream.
+
+If a server does not support some streaming options listed in here it must respond with http status code `505 Not Implemented`.
+
+See [Subscription Protocol](subscription_protocol.html) for more details.
 
 ##### Connection Hello
 

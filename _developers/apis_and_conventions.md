@@ -96,7 +96,7 @@ Initiates a WebSocket connection that will start streaming the server's updates 
 
 With no query parameter the default is `self`, which will stream the data related to the `self` object. `all` will stream all the updates the server sees and `none` will stream only the heartbeat, until the client issues subscribe messages in the WebSocket stream.
 
-If a server does not support some streaming options listed in here it must respond with http status code `505 Not Implemented`.
+If a server does not support some streaming options listed in here it must respond with http status code `501 Not Implemented`.
 
 See [Subscription Protocol](subscription_protocol.html) for more details.
 

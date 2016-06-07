@@ -3,46 +3,46 @@ title: Overview
 layout: rsidebar
 overview: active
 sidebar: overview-sb.html
-description: "Signal K aims to be the next generation solution for marine data exchange. It is intended to be used not
-  only for communication between instruments and sensors on board a single vessel, but also to allow for sharing of data
-  between multiple boats, aids to navigation, bridges, and marinas."
+description: "With the release of V1.0.0, Signal K is the next generation solution for marine data exchange. It not only allows for
+communication between instruments and sensors on board a single vessel, but also to allow for sharing of data between
+multiple boats, aids to navigation, bridges, and marinas."
 ---
 
 ## [Introduction](#) <a id="introduction"></a>
-Signal K aims to be the next generation solution for marine data exchange. It is intended to be used not only for
+With the release of V1.0.0, Signal K is the next generation solution for marine data exchange. It not only allows for
 communication between instruments and sensors on board a single vessel, but also to allow for sharing of data between
 multiple boats, aids to navigation, bridges, and marinas. It is designed to be easily consumable by Web and Mobile
 applications and to connect modern boats to the Internet of Things.
 
 ## [Rationale](#) <a id="rationale"></a>
-There is a need for a new communications protocol for the marine industry to address the needs of a changing and ever
-more interconnected world. The currently most deployed mechanism for connecting instrumentation together has been with
-us for more than thirty years. Unlike some other ubiquitous communication protocols of similar age, NMEA 0183 has not
-aged so well. This was recognized as early as 1994 when development began on a replacement, the NMEA 2000 protocol.
-Unfortunately, by the time this replacement arrived on the market in early 2001, it was already showing its age.
-Fourteen years later, it is clear that a new forward-thinking approach is required.
+In the last few years, it has become clear that there is a real need for a new communications protocol for the marine 
+industry that will catch up and address the needs of a changing and ever more interconnected world. Nearly all marine 
+electronic systems have interfaces that are over 30 years old. Unlike some other ubiquitous communication protocols of 
+a similar age, NMEA 0183 has not aged so well. This was recognized as early as 1994 when development began on a 
+replacement, the NMEA 2000 protocol. Unfortunately, by the time this replacement arrived on the market in early 2001, 
+it was already showing its age. Fourteen years later, it is clear that a new forward-thinking approach is required.
 
-There are several major problems with the existing standards. Breaking this down, the first problems are technical. Both
-standards are fundamentally local area serial networks designed for limited deployments in simple environments.  NMEA
-0183 is limited to 4800 baud (34,800bps in high speed mode, which has seen limited deployment for AIS instruments) and
-one transmitting device. NMEA 2000 works at a significantly higher bit-rate (250kbps) and allows multiple devices to
-transmit on one shared bus, but it is limited to 50 devices on a bus. These decisions may have been perfectly rational
-twenty or thirty years ago, but today we need something more capable and extensible.
+There are two main problems with the existing standards:-
 
-The next major problem isn't technical, but rather a legal one. These standards are published and available for use by
-developers. However, while they are technically open standards and anyone can develop a product using them, both are
-non-free, in that their use is governed by a license agreement which restricts how they can be used and in the case of
-NMEA 2000, a non-disclosure agreement. In essence, this prevents the release of an open source application developed
-using these standards.
+**Technical** - Both standards are fundamentally local area serial networks designed for limited deployments in simple 
+environments.  NMEA0183 is normally limited to 4800 baud (or 34,800bps in high speed mode) and one transmitting device. 
+NMEA 2000 works at a significantly higher bit-rate (250kbps) and allows multiple devices to transmit on one shared bus, 
+but it is limited to 50 devices on a bus. These decisions may have been perfectly rational twenty or thirty years ago, 
+but today we need something more capable and extensible.
+
+**Legal** - Although all NMEA standards are published and available for use by any developer and therefore are 
+technically "open standards", anyone wishing to use them must not only pay for the standards but also sign a license 
+agreement which restricts how they can be used and in the case of NMEA 2000, a non-disclosure agreement. In essence, 
+this prevents the release of an open source application developed using these standards.
 
 Finally, and most importantly, both NMEA standards and the other proprietary protocols in the industry were developed
 when the instruments on the average boat were much simpler and much less capable. In a world where your home thermostat
 is connected to the Internet and the number of Internet connected devices in the United States alone is projected to
 exceed a billion by 2016, it seems archaic that your boat is still an island to itself.
 
-After all, your boat is not the only one out on the water. There are lots of other boats out there, and lots of other
-sources of information. In the modern connected world, shouldn't you be able to access that information from your boat
-where ever you are and on whatever device you want?
+After all, there are lots of other boats out there, and lots of other sources of information, all of which could be of 
+interest and benefit to you. In the modern connected world, shouldn't you be able to access that information from your 
+boat where ever you are and on whatever device you want?
 
 To move forward we need to think in a connected way, a way fundamentally different from NMEA protocols. Sun Microsystems
 famously coined the phrase _The network is the computer_, and Signal K reflects that global peer-to-peer concept.
@@ -154,9 +154,20 @@ the immediate need.
 As a bonus it's a string format, with full meaningful names, so it's also easy to read with human eyes. This helps
 enormously when developing or debugging.
 
-## [NMEA 2000 Mapping](#) <a id="nmea2000"></a>
-For existing instruments and sensors, Signal K supports converters for legacy protocols (NMEA0183, NMEA2000, SeaTalk)
-and others as they are required. And it's extensible for future needs, just submit a change on
-[GitHub](https://github.com/signalk).
+## [NMEA Conversion](#) <a id="nmea"></a>
+In the future, we may well see Signal K sensors and transducers that will natively output Signal K data, but for now we 
+are reliant upon conversion of NMEA0183 and NMEA2000 data in to Signal K. This is possible in a number of ways, but the most
+common is for a Signal K server (running on LINUX, Windows, Android, etc.) to receive NMEA via its serial connections or
+via a suitable 3rd party gateway. One such gateway ["iKommunicate"](http://ikommunicate.com) from Digital Yacht
+is a dedicated, black box solution that will convert both NMEA0183 and NMEA2000 in to Signal K in a simple "plug and play"
+manner. Alternatively for the more technical minded, you can use an Actisense [NGT-1-USB](http://actisense.com) to connect a Signal K 
+Server to the NMEA2000 network.
+ 
+As more and more Signal K compatible hardware becomes available we will be listing it, along with apps and other Signal K
+news on this site.
 
-## [NMEA 0183 Mapping](#) <a id="nmea0183"></a>
+Signal K is going to grow and grow and with its extensible data format, modern design, HTML5 and JSON technology and active
+development team, it will be able to meet all of your future needs. If there is something you want Signal K to do,just submit 
+a change on [GitHub](https://github.com/signalk).
+
+

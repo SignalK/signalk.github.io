@@ -76,13 +76,21 @@ If the path following the base is a valid Signal K path `GET` MUST retrieve the 
 
 ```json
 {
-    "value": 2.55,
-    "source": {
-        "type": "NMEA0183",
-        "src": "VHW",
-        "label": "signalk-parser-nmea0183"
-    },
-    "timestamp": "2015-08-31T05:45:36.000Z"
+    "vessels": {
+        "123456789": {
+            "navigation": {
+                "speedThroughWater": {
+                    "value": 2.55,
+                    "source": {
+                        "type": "NMEA0183",
+                        "src": "VHW",
+                        "label": "signalk-parser-nmea0183"
+                    },
+                    "timestamp": "2015-08-31T05:45:36.000Z"
+                }
+            }
+        }
+    }
 }
 ```
 

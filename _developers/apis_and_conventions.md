@@ -157,6 +157,27 @@ Service data for service 'signalk-ws (2)' of type '_signalk-ws._tcp' in domain '
         ]
 ```
 
+#### Connection Establishment
+
+Using the information above a web client or http capable device can discover and connect to a Signal K server using the following process:
+
+- Listen for Signal K services using Bonjour/mDns.
+- Use the Bonjour record to find the REST api interface `signalk-http`
+- Make a GET call to <<host>><<port>><<path>> (eg `http://10.1.1.40:8080/signalk` from above)
+- And get the endpoints json 
+```json
+{
+    "endpoints": {
+        "v1": {
+            "version": "1.1.2",
+            "signalk-http": "http://192.168.1.2/signalk/v1/api/",
+            "signalk-ws": "ws://192.168.1.2:34567/signalk/v1/stream"
+        }
+     }
+ }
+ ```
+- Make further REST calls for more specific data, or open a websocket connection and subscribe to data
+
 * * *
 
 <a id="fn_1"></a>[1] Signal K has not registered a service port with IANA, for now we use an ephemeral port.

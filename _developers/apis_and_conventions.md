@@ -122,13 +122,14 @@ Upon connection a 'hello' message is sent as follows:
 
 #### Service Discovery
 
-A Signal K server should advertise its services over mDNS/Bonjour. The server must use the service types
+A Signal K server SHOULD advertise its services over mDNS/Bonjour. The server MUST use the service types
 - `_signalk-http._tcp` for http API
 - `_signalk-ws._tcp` for WebSocket
 - `_signalk-https._tcp` for HTTPS API
 - `_signalk-wss._tcp` for secure WebSocket
 
-Furthermore a server should advertise its web interface with normal Bonjour convention `_http._tcp` and `_https._tcp`.
+Furthermore a server SHOULD advertise its web interface with normal Bonjour convention `_http._tcp` and `_https._tcp`.
+
 A sample Bonjour record output, dumped using avahi-discover:
 ```
 Service data for service 'signalk-http (2)' of type '_signalk-http._tcp' in domain 'local' on 4.0:

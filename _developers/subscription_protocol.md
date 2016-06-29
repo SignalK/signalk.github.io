@@ -9,8 +9,8 @@ id: sp
 
 ### Introduction
 
-By default a Signal K server will provide a new WebSocket client with a delta stream of the `vessels.self` record, once per second. E.g.
-`/signalk/v1/stream` will provide the delta stream, every 1 sec.(truncated for brevity)
+By default a Signal K server will provide a new WebSocket client with a delta stream of the `vessels.self` record, as updates are received from sources. E.g.
+`/signalk/v1/stream` will provide the following delta stream, every time the log value changes .
 
 ```javascript
 {
@@ -32,7 +32,6 @@ By default a Signal K server will provide a new WebSocket client with a delta st
           "value": 17404540
         }]
      }
-     //...lots more updates...
      ]
 }
 ```
@@ -40,7 +39,7 @@ By default a Signal K server will provide a new WebSocket client with a delta st
 > connection the connection causes the above message to be sent, and sending the subscribe messages will have the same
 > effect as described here.
 
-This can be a large message, especially if `vessel.self` holds many resources, or other data. Generally you will want to subscribe to a much smaller range of data. 
+This can be a lot of messages, many you may not need, especially if `vessel.self` has many sensors, or other data sources. Generally you will want to subscribe to a much smaller range of data. 
 
 First you will want to unsubscribe from the current default (or you may have already connected with `ws://hostname/signalk/v1/stream?subscribe=none`). To unsubscribe all create an `unsubscribe` message and send the message over the websocket connection:
 

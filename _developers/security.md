@@ -20,71 +20,56 @@ the safety of crew and vessel.
 
 The goals of the security definition are:
 
-* to validate all messages arriving and departing in a similar way to a network firewall
-* to provide a configurable filter implementation that will work for all Signal K messages, current and future
+* provide ways to verify identities (authorise and authenticate) and protect communications between identies from eavsdropping or editing (encryption) 
+* provide ways to limit and control access to data that will work for all Signal K messages, current and future (access)
 * provide a security layer that is independent of Signal K applications, so that applications need minimal knowledge of
   security
 * be software agnostic but rule compatible to allow implementations on different servers/devices.
 
-### Security Model
+## Authorise, Authenticate and Encrypt
 
-The security model is provided by a filter mechanism similar to the Linux
-[iptables](http://www.netfilter.org/projects/iptables/index.html) firewall. All messages arriving at the Signal K device
-should go through an INCOMING filter chain, and all messages leaving should go through an OUTGOING filter chain. The
-filter will have the option of:
+There are a number of well-proven methods of providing authentication, authorisation and encryption over the internet. Signal K implementations will use existing protocols at the transport layer. These implementations are not specified in V1, but will be standardised as we gain experience with real-life usage. 
 
-Based on (source, destination, user)
+The use of end-to-end encryption for internet messaging is strongly encouraged. The chosen messaging system should ideally meet the security requirements of the EFF Secure Messaging Scorecard, see https://www.eff.org/node/82654
 
-* ALLOW the message to continue
-* DENY the message, sending a denial message back
-* DROP the message, ignoring the data
-* SECURE - encrypt or decrypt the message contents (SSL transport can be specified by the source/destination URL, and
-  is done in the normal web way)
-* JUMP - pass the message through another filter chain
+## Security Access Model
 
-Based on the message contents:
+At this point we can assume that every connection to a signalk server is authorised, and can be authenticated (using typical existing web technology), and hence has a reliable identity. The identity has name or id (owner), and belongs to appropriate groups or roles (group). Unauthenticated access defaults to owner=nobody, group=nobody.
 
-* FILTER_ALLOW - allow the Signal K branch/leaf to continue
-* FILTER_DENY - remove the Signal K branch/leaf
-* FILTER_READONLY - allow the branch/leaf to continue, but annotated with a read-only flag
+The security model for Signal K is based on the UNIX file permissions model. This was first developed in the late 1970's and is still perfectly suited to the internet today, so its got to be a pretty sound model!. 
 
-It will be possible to specify additional custom chains (as per iptables) to make complex routing possible. When an app
-is installed it can provide a set of rules, and (with permission) these will be added into the current rule base.
+We adapted it for Signal K. See http://www.tutorialspoint.com/unix/unix-file-permission.htm
 
-The reference server will have a default set of rules - and it may be that some rules are 'fixed'. Otherwise a user can
-configure permissions by adjusting rules. This implies a Signal K server implementation provides a GUI to simplify some
-quite complex concepts for the average user.
+Each key in Signal K has an optional `_attr` value.
+```javascript
+"vessels": {
+    "self":{
+             //the usual signal k keys, navigation, environment, etc
+            
+       "_attr":{                 // filesystem specific data, eg security, possibly more later
+                "_mode": 640,         // unix style permissions, often written in `owner:group:other` form, `-rw-r-----`
+                "_owner" : "self",    // owner, surprisingly. The user who created the item, sometimes a virtual user like 'self'
+                "_group": "self"      // group
+             }
+           }
+        }
+```
+Every connection to a signalk server can be authenticated (using typical existing web technology), and hence has a reliable identity. The identity has name (owner), and belongs to appropriate groups (group). Unauthenticated access defaults to owner=nobody, group=nobody.
 
-App developers can provide rulesets to suit their needs, and hence provide for their own needs, for example encrypting
-contents to an ActiveCaptain private blog or such.
+By default the `vessels.self` key has the above `_attr`. This effectively means that only the current vessels 'owner' can read and write from this key or any of its sub-keys. It also allows users in group `self` to read the data. This provides a way to give additional programs or users read-only access. In the above case an external user connecting from outside the vessel and requesting vessel data would receive `{}`, eg nothing. 
 
-#### Default permissions
+__Note:keys beginning with `_` are always stripped from signal k messages__
 
-As per good security practice the default security setting will be to limit external (off boat) messages severely,
-allowing only such data as will already be available externally. There are different security scopes within the vessel
-and these will have different default permissions.
+Since the above is a default, Signal K devices that lack the resources to implement security should always be installed behind a suitable gateway that can provide security. Again, the simplest security is the default read-write only within the local vessel (typically the current network). This makes a basic implementation as simple as possible.
 
-Sources on the boat, that are as secure as current systems:
+The permissions apply recursively to all sub-keys, unless specifically overwritten. You can only provide a __narrowing__ change in permissions, eg less than the parent directory. In the above case if the permissions for `vessels.self.navigation.position` were set to `"_mode" : 644`, it would have no effect as access is blocked at the `vessels.self` key. The `vessels.self` _attr must now also be `"_mode" : 644`, and all its other subkeys explicitly set to `"_mode" : 640`
 
-* serial cables - ALLOW - trusted by default
-* usb devices local to the server, e.g. plugged into the servers USB hub -  ALLOW - trusted by default
-* ethernet -  ALLOW - trusted by default
-* CANbus and misc local wiring - ALLOW -  trusted by default
+Hence setting complex permissions are likely beyond the typical user. For this reason we believe there should be a choice of default permission 'templates' for the Signal K tree. Users would select their preference from a config screen. A paranoid user may prefer the above setup, another may chose to allow basic data similar to AIS (position, cog, speed, etc), and others may expose much more.
 
-New systems that are potentially insecure:
+Templates also allow sharing of data for specific uses or needs, like a social group, or a marina.
 
-* local WIFI - ALLOW - trusted by default when using WPA access and encryption control
-* public WIFI - DROP - untrusted - assume that the client is off-boat. (Both access points are on-board, but this one is
-  for public connection to the boat)
-* other external sources, e.g. satellite, GPRS, cellphone data - DROP - untrusted
+Exposing everything (`"_mode" : 666`) would be dangerous - it would potentially allow external users to gain control of the vessels systems, however it is useful for demos and software development. All signal K implementations should always consider the potential danger of such permissions, and protect users if possible.
 
-#### Implementation
+**The implementation of proper security is the responsibility of the Signal K software implementation provider.**
 
-The security implementation is up to the Signal K device or server to implement.  Most sensor level devices will not
-have the capacity to provide security, and will depend on an upstream server to do this. This is similar to normal
-security practice using firewalls and bastion hosts.
-
-The implementation should ensure that access to the security rules configuration is tightly controlled, and not
-compromised by plugins and other potentially dangerous code. Likewise the implementation should ensure that the first
-rule chain for incoming messages is always INCOMING, and the last for outgoing messages is always OUTGOING. Branching to
-custom chains and the potential effects should be carefully considered.
+By manipulating the `_attr` values for the signalk keys, and creating suitable users and groups a sophisticated and well proven security model for vessel data can be created.

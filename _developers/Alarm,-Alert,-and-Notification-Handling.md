@@ -1,14 +1,25 @@
-Handling alarms, alerts, and notifications in Signal k is a multi-stage process. Alarms, alerts and notifications are all handled the same way, and are all referred to as alarms below. 
+---
+title: Alarm, Alert, and Notification Handling
+layout: developers
+developers: active
+id: ap
+---
+
+## {{page.title}}
+
+Handling alarms, alerts, and notifications in Signal K is a multi-stage process. Alarms, alerts and notifications are all handled the same way, and are all referred to as alarms below. 
 
 We need a flexible model to define alarm conditions, and a standard way to announce and record them.
 
 ## Alarm Process
-* Define alarm states as zones in the meta object attached to any Signal K value. See [[Metadata for Data Values]]
+
+* Define alarm states as zones in the meta object attached to any Signal K value. See [[metadata.html]]
 * If the value is within an alarm zone raise the defined alarm.
 * If the value goes out of the zone, remove the alarm by setting its value to null
 * Alarms are raised by placing an alarm object in the `vessels.self.notifications` tree
 
 ## Expected implementation behaviour
+
 * The server (or device) should monitor the current value and compare it to the defined zones.
 * If a value enters an alarm zone, then a key is written to `vessels.self.notifications..`
 * If a value leaves an alarm zone, then the key is removed from `vessels.self.notifications..`
@@ -23,6 +34,7 @@ eg If we exceed our anchor alarm radius:
 The alarm is : `vessels.self.notifications.navigation.anchor.currentRadius`
 
 The alarm object is 
+
 ```
 { 
      "method": ["sound"], 
@@ -38,6 +50,7 @@ The server alarm manager will see this new entry and turn on the alarm. Using a 
 Since the `vessels.self.notifications` tree mirrors the other data in the signal k model, we can selectively watch or react to specific branches or keys. When displaying multiple alarms a screen can also sort and filter them.
 
 ## Other Alarms
+
 Above we have discussed monitoring existing values and raising alarms. There are other alarms that must be considered, eg MOB, fire, sinking etc, and misc alerts "GPS signal lost".etc.
 
 The `vessels.[uuid].notifications` tree is the same as any other Signal k branch. Keys can be added and removed as required in the usual way. Since the branch is being monitored we only need to add a key of any sort to create a suitable alarm.
@@ -46,6 +59,7 @@ In the case of an emergency, create a unique key:
 The alarm is : `vessels.[uuid].notifications.[alarm.key]`
 
 The alarm object is 
+
 ```
 {
   "method": ["visual","sound"], 
@@ -61,6 +75,7 @@ eg In the case of an alert, create a unique key by generating a path:
 The alarm is : `vessels.[uuid].notifications.navigation.gnss`
 
 The alarm object is 
+
 ```
 {
   "method": ["visual"], 
@@ -73,18 +88,20 @@ The alarm object is
 ### Well Known Names 
 
 Some alarms are especially important, eg MOB. This is a list of keys for special alarms.
- * `..notifications.mob.*`
- * `..notifications.fire.*`
- * `..notifications.sinking.*`
- * `..notifications.flooding.*`
- * `..notifications.collision.*`
- * `..notifications.grounding.*`
- * `..notifications.listing.*`
- * `..notifications.adrift.*`
- * `..notifications.piracy.*`
- * `..notifications.abandon.*`
+
+* `..notifications.mob.*`
+* `..notifications.fire.*`
+* `..notifications.sinking.*`
+* `..notifications.flooding.*`
+* `..notifications.collision.*`
+* `..notifications.grounding.*`
+* `..notifications.listing.*`
+* `..notifications.adrift.*`
+* `..notifications.piracy.*`
+* `..notifications.abandon.*`
 
 An example to send an MOB alarm from an N2K source, the gateway would convert and send something like:
+
 ```
 {
   "context": "vessels.urn:mrn:signalk:uuid:c0d79334-4e25-4245-8892-54e8ccc8021d",
@@ -107,7 +124,9 @@ An example to send an MOB alarm from an N2K source, the gateway would convert an
     }
 }
 ```
+
 The resulting full signalk tree would be:
+
 ```
 {
   "vessels": {
@@ -127,7 +146,9 @@ The resulting full signalk tree would be:
   }
 }
 ```
+
 To clear the alarm condition, send:
+
 ```
 {
   "context": "vessels.urn:mrn:signalk:uuid:c0d79334-4e25-4245-8892-54e8ccc8021d",
@@ -146,6 +167,7 @@ To clear the alarm condition, send:
     }
 }
 ```
+
 ## Multiple cases of the same alarm
 
 Should multiple cases of the same alarm occur (eg a gps loses signal, then a second gps loses signal) the alarms are handled the same as any other multiple values in signalk. However alarms will tend to be re-issued whenever the underlying data changes. 
@@ -155,4 +177,5 @@ The servers alarm monitoring processes are expected to be smart enough to know t
 This may be handled differently for notifications. It may be useful to know that your gps's are all failing intermittently, or that . Hence the handling of multiple copies of alarms is an implementation issue, and may vary.
 
 ## The key should be unique
+
 If we have an alarm `vessels.self.notifications.navigation.anchor.currentRadius` and we attempt to write another higher in the same tree at `vessels.self.notifications` it must not replace or remove the existing alarm. Since the `meta.zones` structure is only valid on signalk leaf values this occurs naturally in most circumstances. But it is possible to set an alarm value arbitrarily (eg MOB) and care should be taken in implementations that keys do not overwrite existing paths. 

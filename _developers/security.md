@@ -41,6 +41,7 @@ The security model for Signal K is based on the UNIX file permissions model. Thi
 We adapted it for Signal K. See http://www.tutorialspoint.com/unix/unix-file-permission.htm
 
 Each key in Signal K has an optional `_attr` value.
+
 ```javascript
 "vessels": {
     "self":{
@@ -54,15 +55,16 @@ Each key in Signal K has an optional `_attr` value.
            }
         }
 ```
+
 Every connection to a signalk server can be authenticated (using typical existing web technology), and hence has a reliable identity. The identity has name (owner), and belongs to appropriate groups (group). Unauthenticated access defaults to owner=nobody, group=nobody.
 
 By default the `vessels.self` key has the above `_attr`. This effectively means that only the current vessels 'owner' can read and write from this key or any of its sub-keys. It also allows users in group `self` to read the data. This provides a way to give additional programs or users read-only access. In the above case an external user connecting from outside the vessel and requesting vessel data would receive `{}`, eg nothing. 
 
-__Note:keys beginning with `_` are always stripped from signal k messages__
+__Note: keys beginning with `_` are always stripped from Signal K messages__
 
 Since the above is a default, Signal K devices that lack the resources to implement security should always be installed behind a suitable gateway that can provide security. Again, the simplest security is the default read-write only within the local vessel (typically the current network). This makes a basic implementation as simple as possible.
 
-The permissions apply recursively to all sub-keys, unless specifically overwritten. You can only provide a __narrowing__ change in permissions, eg less than the parent directory. In the above case if the permissions for `vessels.self.navigation.position` were set to `"_mode" : 644`, it would have no effect as access is blocked at the `vessels.self` key. The `vessels.self` _attr must now also be `"_mode" : 644`, and all its other subkeys explicitly set to `"_mode" : 640`
+The permissions apply recursively to all sub-keys, unless specifically overwritten. You can only provide a __narrowing__ change in permissions, eg less than the parent directory. In the above case if the permissions for `vessels.self.navigation.position` were set to `"_mode" : 644`, it would have no effect as access is blocked at the `vessels.self` key. The `vessels.self` `_attr` must now also be `"_mode" : 644`, and all its other subkeys explicitly set to `"_mode" : 640`
 
 Hence setting complex permissions are likely beyond the typical user. For this reason we believe there should be a choice of default permission 'templates' for the Signal K tree. Users would select their preference from a config screen. A paranoid user may prefer the above setup, another may chose to allow basic data similar to AIS (position, cog, speed, etc), and others may expose much more.
 

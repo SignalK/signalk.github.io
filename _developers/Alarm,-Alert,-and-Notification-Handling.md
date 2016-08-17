@@ -13,7 +13,7 @@ We need a flexible model to define alarm conditions, and a standard way to annou
 
 ## Alarm Process
 
-* Define alarm states as zones in the meta object attached to any Signal K value. See [[metadata.html]]
+* Define alarm states as zones in the meta object attached to any Signal K value. See [Metadata](metadata.html)
 * If the value is within an alarm zone raise the defined alarm.
 * If the value goes out of the zone, remove the alarm by setting its value to null
 * Alarms are raised by placing an alarm object in the `vessels.self.notifications` tree

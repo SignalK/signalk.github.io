@@ -160,7 +160,7 @@ Using the information above a web client or http capable device can discover and
 - Make a GET call to <host><port><path> (eg `http://10.1.1.40:8080/signalk` from above)
 - And get the endpoints json 
 
-```json
+```
 {
     "endpoints": {
         "v1": {

@@ -13,8 +13,8 @@ In these cases the clients cannot use the REST interface as it assumes http(s) a
 
 These messages are variations on the `updates`, `subscribe` and `unsubscribe` messages, using a similar delta format. The reply message will be different due to the async nature of the communication.
 
-REST GET vs json get
-====================
+### REST GET vs json get
+
 The `get` is functionally equivalent to a `subscribe`, receive first `updates` message, then `unsubscribe`. It is a request for just one current copy of the requested data. 
 
 The REST api uses a GET call to obtain a specific subset of the signalk full tree, eg
@@ -67,8 +67,8 @@ which returns the same data, but in normal delta format. This is because the req
 }
 ```
 
-REST PUT vs json put
-====================
+### REST PUT vs json put
+
 The `put` message concept is similar to the `updates` message. They differ primarily in their use. 
 
 The `updates` are a periodic response to a `subscribe` message, the intent being that the subscriber has asked the target that it be notified of changes in various keys, and a change has occurred eg it can be viewed as a data event notification.
@@ -109,8 +109,8 @@ For a json `put` message we use a format like `updates`:
 
 There will be no response.
 
-REST LIST vs json list
-======================
+### REST LIST vs json list
+
 The `list` message is a way to fing which keys a server knows about. Its optional, but may be helpful in some cases if you are trying to obtain a wide variety of data, eg for configuring an interface.
 
 The REST list is done via a HTTP GET call to the REST API:

@@ -155,10 +155,10 @@ Service data for service 'signalk-ws (2)' of type '_signalk-ws._tcp' in domain '
 
 Using the information above a web client or http capable device can discover and connect to a Signal K server using the following process:
 
-- Listen for Signal K services using Bonjour/mDns.
-- Use the Bonjour record to find the REST api interface `signalk-http`
-- Make a GET call to <host><port><path> (eg `http://10.1.1.40:8080/signalk` from above)
-- And get the endpoints json 
+* Listen for Signal K services using Bonjour/mDns.
+* Use the Bonjour record to find the REST api interface `signalk-http`
+* Make a GET call to <host><port><path> (eg `http://10.1.1.40:8080/signalk` from above)
+* And get the endpoints json 
 
 ```
 {
@@ -172,7 +172,7 @@ Using the information above a web client or http capable device can discover and
  }
  ```
  
-- Make further REST calls for more specific data, or open a websocket connection and subscribe to data
+* Make further REST calls for more specific data, or open a websocket connection and subscribe to data
 
 * * *
 

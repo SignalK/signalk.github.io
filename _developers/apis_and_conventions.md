@@ -115,14 +115,16 @@ Upon connection a 'hello' message is sent as follows:
 #### Service Discovery
 
 A Signal K server SHOULD advertise its services over mDNS/Bonjour. The server MUST use the service types
-- `_signalk-http._tcp` for http API
-- `_signalk-ws._tcp` for WebSocket
-- `_signalk-https._tcp` for HTTPS API
-- `_signalk-wss._tcp` for secure WebSocket
+
+* `_signalk-http._tcp` for http API
+* `_signalk-ws._tcp` for WebSocket
+* `_signalk-https._tcp` for HTTPS API
+* `_signalk-wss._tcp` for secure WebSocket
 
 Furthermore a server SHOULD advertise its web interface with normal Bonjour convention `_http._tcp` and `_https._tcp`.
 
 A sample Bonjour record output, dumped using avahi-discover:
+
 ```
 Service data for service 'signalk-http (2)' of type '_signalk-http._tcp' in domain 'local' on 4.0:
     Host 10-1-1-40.local (10.1.1.40), 
@@ -155,8 +157,9 @@ Using the information above a web client or http capable device can discover and
 
 - Listen for Signal K services using Bonjour/mDns.
 - Use the Bonjour record to find the REST api interface `signalk-http`
-- Make a GET call to <<host>><<port>><<path>> (eg `http://10.1.1.40:8080/signalk` from above)
+- Make a GET call to <host><port><path> (eg `http://10.1.1.40:8080/signalk` from above)
 - And get the endpoints json 
+
 ```json
 {
     "endpoints": {
@@ -168,6 +171,7 @@ Using the information above a web client or http capable device can discover and
      }
  }
  ```
+ 
 - Make further REST calls for more specific data, or open a websocket connection and subscribe to data
 
 * * *

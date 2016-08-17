@@ -78,6 +78,7 @@ To subscribe to the required criteria send a suitable subscribe message:
   syntax.
 
 The following are optional, included above only for example as it uses defaults anyway:
+
 * `period=[millisecs]` becomes the transmission rate, e.g. every `period/1000` seconds. Default=1000
 * `format=[delta|full]` specifies delta or full format. Default: delta
 * `policy=[instant|ideal|fixed]`. Default: ideal

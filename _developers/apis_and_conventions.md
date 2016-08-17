@@ -160,7 +160,6 @@ Using the information above a web client or http capable device can discover and
 * Make a GET call to <host><port><path> (eg `http://10.1.1.40:8080/signalk` from above)
 * And get the endpoints json 
 
-
 ```json
 {
     "endpoints": {
@@ -171,8 +170,7 @@ Using the information above a web client or http capable device can discover and
         }
      }
  }
- ```
- 
+```
  
 * Make further REST calls for more specific data, or open a websocket connection and subscribe to data
 

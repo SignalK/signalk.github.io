@@ -42,9 +42,9 @@ body {
 
 body, input, textarea, select {
   color: #474f51;
-  font-size: 18px;
-  font-family: 'Alegreya Sans';
-  line-height: 1.35em;
+  font-size: 16px;
+  font-family: Oxygen;
+  line-height: 1.45em;
   font-weight: 300;
 }
 
@@ -206,12 +206,14 @@ table thead tr {
   text-shadow: 1px 1px 1px rgba(255,255,255,1);
 }
 
-#header {
+#header,
+#header h1 {
+  font-family: 'Open Sans Condensed';
 }
 
-#header,
 h1, h2, h3 {
-  font-family: 'Open Sans Condensed';
+  font-family: 'Biryani';
+  font-weight: 300;
 }
 
 #header a {

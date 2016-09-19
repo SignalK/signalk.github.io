@@ -1,29 +1,27 @@
 <header id="header" class="container-flex">
   <!-- Logo -->
-  <img src="{{site.baseurl}}/images/signalk.svg" alt="Signal K Logo"  height="100" width="100" />
+  <img src="{{site.path}}/images/signalk.svg" alt="Signal K Logo"  height="100" width="100" />
 
   <!-- Page Title -->
-  {% if page.date %}
-  <h1><a href="{{site.baseurl}}/" id="logo">Signal K &ndash; Blog</a></h1>
+  {% if page.layout == "post" %}
+  <h1><a href="{{site.path}}/" id="logo">Signal K &ndash; Blog</a></h1>
   {% else %}
-  <h1><a href="{{site.baseurl}}/" id="logo">Signal K &ndash; {{ page.title }}</a></h1>
+  <h1><a href="{{site.path}}/" id="logo">Signal K &ndash; {{ page.title }}</a></h1>
   {% endif %}
 
   <!-- Nav -->
-  <a class="{{page.index}}" href="{{site.baseurl}}/index.html">Home</a>
-  <a class="{{page.overview}}" href="{{site.baseurl}}/overview.html">Overview</a>
-  <a class="{{page.installation}}" href="{{site.baseurl}}/installation.html">Installation</a>
-  <a class="{{page.demo}}" href="{{site.baseurl}}/demo.html">Demo</a>
-  <a class="{{page.specification}}" href="{{site.baseurl}}/specification.html">Specification</a>
-  <a class="{{page.developers}}" href="{{site.baseurl}}/developers/index.html">Developers</a>
-  <a class="{{page.team}}" href="{{site.baseurl}}/team.html">Team</a>
+  <a class="{{page.index}}" href="{{site.path}}/index.html">Home</a>
+  <a class="{{page.overview}}" href="{{site.path}}/overview.html">Overview</a>
+  <a class="{{page.installation}}" href="{{site.path}}/installation.html">Installation</a>
+  <a class="{{page.demo}}" href="{{site.path}}/demo.html">Demo</a>
+  <a class="{{page.specification}}" href="{{site.path}}/specification/master">Specification</a>
+  <a class="{{page.team}}" href="{{site.path}}/team.html">Team</a>
 </header>
 <span id="nav" style="display:none">
-  <a href="{{site.baseurl}}/index.html">Home</a>
-  <a href="{{site.baseurl}}/overview.html">Overview</a>
-  <a href="{{site.baseurl}}/installation.html">Installation</a>
-  <a href="{{site.baseurl}}/demo.html">Demo</a>
-  <a href="{{site.baseurl}}/specification#schemas/signalk.json">Specification</a>
-  <a href="{{site.baseurl}}/developers/index.html">Developers</a>
-  <a href="{{site.baseurl}}/team.html">Team</a>
+  <a href="{{site.path}}/index.html">Home</a>
+  <a href="{{site.path}}/overview.html">Overview</a>
+  <a href="{{site.path}}/installation.html">Installation</a>
+  <a href="{{site.path}}/demo.html">Demo</a>
+  <a href="{{site.path}}/specification/master">Specification</a>
+  <a href="{{site.path}}/team.html">Team</a>
 </span>

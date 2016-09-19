@@ -3,8 +3,6 @@ highlighter: rouge
 kramdown:
   input: GFM
 collections:
-  api:
-    output: true
   developers:
     output: true
 gems:

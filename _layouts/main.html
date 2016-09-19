@@ -8,32 +8,37 @@
     <meta name="keywords" content="{{page.keywords}}">
     <meta property="og:title" content="Signak K &raquo; {{page.title}}">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{site.url}}{{site.baseurl}}{{page.url}}">
-    <meta property="og:image" content="{{site.url}}{{site.baseurl}}{{site.logo}}">
+    <meta property="og:url" content="{{site.url}}/{{site.path}}/{{page.url}}">
+    <meta property="og:image" content="{{site.url}}/{{site.path}}/{{site.logo}}">
     <meta property="og:description" content="{{page.description}}">
-    <link rel="shortcut icon" href="{{site.baseurl}}/assets/ico/favicon.ico">
+
+    {% if page.redirect %}
+      <meta http-equiv="refresh" content="0;URL='{{page.redirect}}'" />
+    {% endif %}
+
+    <link rel="shortcut icon" href="{{site.path}}/assets/ico/favicon.ico">
     <title>Signal K &raquo; {{ page.title }}</title>
-    <script src="{{site.baseurl}}/js/jquery.min.js"></script>
-    <script src="{{site.baseurl}}/js/scrollspy.js"></script>
-    <script src="{{site.baseurl}}/js/affix.js"></script>
-    <script src="{{site.baseurl}}/js/skel.min.js"></script>
-    <script src="{{site.baseurl}}/js/skel-layers.min.js"></script>
-    <script src="{{site.baseurl}}/js/init.js"></script>
+    <script src="{{site.path}}/js/jquery.min.js"></script>
+    <script src="{{site.path}}/js/scrollspy.js"></script>
+    <script src="{{site.path}}/js/affix.js"></script>
+    <script src="{{site.path}}/js/skel.min.js"></script>
+    <script src="{{site.path}}/js/skel-layers.min.js"></script>
+    <script src="{{site.path}}/js/init.js"></script>
     <script>
       (function($) {
-        init("{{site.baseurl}}");
+        init("{{site.path}}");
       })(jQuery);
     </script>
-    <link rel="stylesheet" href="{{site.baseurl}}/css/fonts.css" />
+    <link rel="stylesheet" href="{{site.path}}/css/fonts.css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
     <noscript>
-      <link rel="stylesheet" href="{{site.baseurl}}/css/skel.css" />
-      <link rel="stylesheet" href="{{site.baseurl}}/css/style.css" />
-      <link rel="stylesheet" href="{{site.baseurl}}/css/style-desktop.css" />
+      <link rel="stylesheet" href="{{site.path}}/css/skel.css" />
+      <link rel="stylesheet" href="{{site.path}}/css/style.css" />
+      <link rel="stylesheet" href="{{site.path}}/css/style-desktop.css" />
     </noscript>
-    <link rel="stylesheet" href="{{site.baseurl}}/css/syntax.css" />
-    <!--[if lte IE 9]><link rel="stylesheet" href="{{site.baseurl}}/css/ie9.css" /><![endif]-->
-    <!--[if lte IE 8]><script src="{{site.baseurl}}/js/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="{{site.path}}/css/syntax.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="{{site.path}}/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><script src="{{site.path}}/js/html5shiv.js"></script><![endif]-->
   </head>
   <body class="{{layout.bodyclass}}">
     {{ content }}

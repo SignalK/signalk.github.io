@@ -1,14 +1,11 @@
 ---
-title: Developers
-layout: developers
+title: Developer Resources
+layout: onecolumn
 developers: active
-id: in
+redirect: http://signalk.org/specification/master
 ---
 
-## Developer Resources
-Here you will find all of the information you will need to develop fully
-compliant Signal K applications.
+## {{page.title}}
 
-This guide is broken down into several sections which cover every aspect of
-Signal K, from the message specification and the subscription protocol to
-security and metadata.
+The developer resources have been relocated to the consolidated [Signal K
+documentation]({{site.path}}/specification/master). You should be redirected shortly.

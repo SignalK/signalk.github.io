@@ -2,6 +2,7 @@ name: Signal K
 highlighter: rouge
 kramdown:
   input: GFM
+  hard_wrap: false
 collections:
   developers:
     output: true
@@ -9,5 +10,5 @@ gems:
   - jekyll-mentions
   - jekyll-sitemap
 url:
-baseurl:
+path:
 logo: /images/signalk.gif

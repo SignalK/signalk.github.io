@@ -43,20 +43,25 @@ body {
 body, input, textarea, select {
   color: #474f51;
   font-size: 16px;
-  font-family: Oxygen;
+  font-family: 'Oxygen', sans-serif;
   line-height: 1.45em;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
   letter-spacing: 1.1px;
   line-height: 1.1;
   font-variant: small-caps;
-  font-weight: 300;
+  font-weight: 200;
 }
 
 h4, h5, h6 {
   font-variant: normal;
+}
+
+#banner, #header,
+h1, h2, h3 {
+  font-family: 'Biryani', sans-serif;
 }
 
 em {
@@ -109,12 +114,11 @@ table td:last-child, table th:last-child {
 table thead tr {
   border-bottom: 4px solid #699aca;
   text-align: center;
-  font-weight: 400;
 }
 
 #banner {
+  font-variant: small-caps;
   color: #fff;
-  font-weight: 300;
   line-height: 1.85em;
 }
 
@@ -206,16 +210,6 @@ table thead tr {
   text-shadow: 1px 1px 1px rgba(255,255,255,1);
 }
 
-#header,
-#header h1 {
-  font-family: 'Open Sans Condensed';
-}
-
-h1, h2, h3 {
-  font-family: 'Biryani';
-  font-weight: 300;
-}
-
 #header a {
   font-variant: small-caps;
   letter-spacing: 1.3px;
@@ -294,7 +288,6 @@ h1, h2, h3 {
   background: #4185b0;
   color: #fff;
   font-size: 1.75em;
-  font-weight: 300;
   padding: 15px 45px 15px 45px;
   outline: 0;
   border-radius: 10px;
@@ -369,7 +362,6 @@ h1, h2, h3 {
   display: block;
   margin-left: 90px;
   font-size: 0.9em;
-  font-weight: 400;
 }
 
 .container-flex {

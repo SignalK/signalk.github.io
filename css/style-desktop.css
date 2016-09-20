@@ -69,14 +69,13 @@ body {
 }
 
 #header a {
-  font-weight: 200;
   font-size: 1.4em;
   padding: 5px 0;
 }
 
 #header h1 {
   font-size: 1.75em;
-  max-width: 33%;
+  max-width: 25%;
 }
 
 .team-grid .profile:nth-child(3n+1) {

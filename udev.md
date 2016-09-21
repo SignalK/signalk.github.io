@@ -9,7 +9,7 @@ description: Notes on creating udev rules in Linux
 
 Linux assigns device names sequentially to hotplug hardware. Usually, your device will get the same name each time you
 connect it or boot your computer, but sometimes the name may change. For this reason, disks and partitions are typically
-referenced by UUID and not by device path any more.For our purposes dealing with USB serial adapters, the assigned
+referenced by UUID and not by device path any more. For our purposes dealing with USB serial adapters, the assigned
 device name is typically `/dev/ttyUSB0`. However, if you have more than adapter the device names may not always be
 consistent. Therefore, it is a good idea to create a udev rule to provide an alias for your device.
 

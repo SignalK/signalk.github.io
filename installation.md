@@ -14,6 +14,13 @@ description: "Follow these instructions to get started with Signal K. Please don
 While it is pretty likely that all of the Signal K software will run on Windows and OS X just as well as Linux, we have
 really only tested on Linux and the instructions below will assume that you are working on a Linux platform as well.
 
+If you have a Raspberry Pi, both the [Node.js Server](https://github.com/signalk/signalk-server-node) and the [Java
+Server](https://github.com/signalk/signalk-server-java) have detailed Raspberry Pi “Getting Started” guides:
+
+- [Signal K Node.js on Raspberry
+  Pi](https://github.com/signalk/signalk-server-node/blob/master/raspberry_pi_installation.md)
+- [Signal K Java on Raspberry Pi](https://github.com/signalk/specification/wiki/Raspberry-Pi-Installation-(Java-Server))
+
 If you just want to see how Signal K works and aren’t interested in connecting to real hardware you can skip down to
 [installing the server](#server), otherwise continue on to learn how to interface your computer with your instrument
 system.
@@ -89,7 +96,7 @@ $ bin/nmea-from-file
 This will start the server with a sample configuration file. See the
 [README](https://github.com/SignalK/signalk-server-node) for more details.
 
-## Install User Interfaces
+## [Install User Interfaces](#) <a id="client"><a/>
 All of these user interfaces can be installed with bower to the Node Signal K server. Run `bower` in the root directory
 of your Node Signal K server:
 

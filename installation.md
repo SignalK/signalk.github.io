@@ -52,7 +52,10 @@ For NMEA 2000, you will need a NMEA 2000 gateway device such as the [Actisense
 NGT-1](http://actisense.com/products/nmea-2000/ngt-1/ngt-1) which connects your NMEA 2000 bus to your server’s USB port.
 Much like the USG-1, Linux should recognize the NGT-1 as a serial device and create the appropriate entry in /dev.
 However some distributions do not do this. You will need to create a UDEV rule and a simple startup script to get this
-device working. See [creating UDEV rules](udev.html) for details.
+device working. See [creating UDEV rules](udev.html) for details. **Important:** currently, the Node.js server cannot
+natively parse NMEA 2000, you will need to install the [CANboat](https://github.com/canboat/canboat) suite of tools in
+order to read data from the NGT-1 and convert it to a format that the server can understand. This is not necessary for
+the Java server.
 
 While Signal K data can be sent over any digital medium, it is designed primarily for Ethernet networks, so it makes
 sense to have a network on your boat, either wired or wireless. It is possible to set up your Linux computer as a WiFi

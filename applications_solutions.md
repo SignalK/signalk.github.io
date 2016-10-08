@@ -20,5 +20,5 @@ description: Applications & Solutions with Signal K Support
 - [Signal K Mobile](https://github.com/itemir/signalk-mobile): Open source mobile app for Signal K, available for iOS and Android
 
 The most straightforward way to add entries to this page is to
-[fork this page in Github](https://github.com/SignalK/signalk.github.io/blob/master/applications_solutions.html) and
+[fork this page in Github](https://github.com/SignalK/signalk.github.io/blob/master/applications_solutions.md) and
 create a pull request with your additions.

@@ -19,6 +19,7 @@ description: Applications & Solutions with Signal K Support
 - [NMEAremote](http://www.zapfware.de/en/products/nmearemote/): iOS marine instrument display with Signal K support
 - [Signal K Mobile](https://github.com/itemir/signalk-mobile): Open source mobile app for Signal K, available for iOS and Android
 - [WilhelmSK](https://itunes.apple.com/us/app/wilhelmsk/id1150499484?mt=8): Highly customizable Signal K application for iOS with Apple Watch support
+- [SailRacer.net](http://sailracer.net): Tactical app for iOS and Android - helps to make decisions faster. Polars, Charts, Wind graphs, Signal K, Google wear and much more.
 
 The most straightforward way to add entries to this page is to
 [fork this page in Github](https://github.com/SignalK/signalk.github.io/blob/master/applications_solutions.md) and

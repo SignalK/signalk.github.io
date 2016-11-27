@@ -21,6 +21,7 @@ description: Applications & Solutions with Signal K Support
 - [WilhelmSK](https://itunes.apple.com/us/app/wilhelmsk/id1150499484?mt=8): Highly customizable Signal K application for iOS with Apple Watch support
 - [SailRacer.net](http://sailracer.net): Tactical app for iOS and Android - helps to make decisions faster. Polars, Charts, Wind graphs, Signal K, Google wear and much more.
 - [AFTrack](http://afischer-online.de/and/aftrack/): a marine navigation display for an Android phone or tablet. Uses tracking with various logging features, several input modes, maps online and offline, wind routing, AIS and more.
+- [pysk](https://github.com/ph1l/pysk): a terminal client for displaying Signal K data, based on [Signal K Python client library](https://github.com/ph1l/python-signalk-client).
 
 The most straightforward way to add entries to this page is to
 [fork this page in Github](https://github.com/SignalK/signalk.github.io/blob/master/applications_solutions.md) and

@@ -21,6 +21,8 @@ Server](https://github.com/signalk/signalk-server-java) have detailed Raspberry 
   Pi](https://github.com/signalk/signalk-server-node/blob/master/raspberry_pi_installation.md)
 - [Signal K Java on Raspberry Pi](https://github.com/signalk/specification/wiki/Raspberry-Pi-Installation-(Java-Server))
 
+If you are not a technical person and do not feel ready to "dive in" to the world of DIY electronics and LINUX, then Digital Yacht's new [iKommunicate gateway](http://ikommunicate.com) might be a good solution. This little black box will interface with your existing NMEA0183 and NMEA2000 systems and allow you to run Signal K mobile and web apps, without building your own Signal K server. iKommunicate can also work with either the Signal K Node or Java Server, to connect the NMEA0183 and NMEA2000 data to the Raspberry Pi via Ethernet.
+
 If you just want to see how Signal K works and aren’t interested in connecting to real hardware you can skip down to
 [installing the server](#server), otherwise continue on to learn how to interface your computer with your instrument
 system.

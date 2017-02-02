@@ -100,18 +100,3 @@ $ bin/nmea-from-file
 
 This will start the server with a sample configuration file. See the
 [README](https://github.com/SignalK/signalk-server-node) for more details.
-
-## [Install User Interfaces](#) <a id="client"><a/>
-All of these user interfaces can be installed with bower to the Node Signal K server. Run `bower` in the root directory
-of your Node Signal K server:
-
-```
-$ sudo npm install -g bower
-$ bower install https://github.com/SignalK/instrumentpanel.git
-$ bower install https://github.com/SignalK/sailgauge.git
-$ bower install https://github.com/SignalK/maptracker.git
-$ bower install https://github.com/SignalK/simplegauges.git
-```
-
-After the installation you can access these with URLs like `http://localhost:3000/instrumentpanel`. Your Signal K server
-must be running to serve the html files and provide the data stream.

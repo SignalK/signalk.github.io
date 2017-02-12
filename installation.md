@@ -69,34 +69,7 @@ If you already have your instrument data available on your boat’s WiFi please 
 we are always looking for new interfaces to support.
 
 ## [Install Signal K Server](#) <a id="server"></a>
+
 There are two options currently for serving Signal K data. The first is
 [signalk-server-node](https://github.com/SignalK/signalk-server-node) and the second is
-[signalk-server-java](https://github.com/SignalK/signalk-server-java). All of the examples below are written assuming
-you are using [Debian](https://debian.org) or a derivative ([Ubuntu](http://ubuntu.com),
-[Raspbian](http://raspbian.org), etc.). If you are using a different Linux distribution, adjust the commands
-accordingly.
-
-### Signal K Server Node
-First, the prerequisites.
-
-```
-$ sudo apt-get update
-$ sudo apt-get install -y curl git build-essential
-$ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-$ sudo apt-get install -y nodejs
-```
-
-See [Installing Node.js via package manager](https://nodejs.org/en/download/package-manager/) for more information about
-the above commands.
-
-Now that those are installed, you will need the Signal K server itself.
-
-```
-$ git clone https://github.com/SignalK/signalk-server-node.git
-$ cd signalk-server-node
-$ npm install
-$ bin/nmea-from-file
-```
-
-This will start the server with a sample configuration file. See the
-[README](https://github.com/SignalK/signalk-server-node) for more details.
+[signalk-server-java](https://github.com/SignalK/signalk-server-java).

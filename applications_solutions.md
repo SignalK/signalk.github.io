@@ -22,6 +22,7 @@ description: Applications & Solutions with Signal K Support
 - [SailRacer.net](http://sailracer.net): Tactical app for iOS and Android - helps to make decisions faster. Polars, Charts, Wind graphs, Signal K, Google wear and much more.
 - [AFTrack](http://afischer-online.de/and/aftrack/): a marine navigation display for an Android phone or tablet. Uses tracking with various logging features, several input modes, maps online and offline, wind routing, AIS and more.
 - [pysk](https://github.com/ph1l/pysk): a terminal client for displaying Signal K data, based on [Signal K Python client library](https://github.com/ph1l/python-signalk-client).
+- [Signal View](http://signalkool.com/signalview/): with this iOS app, boaters can move around the vessel whilst monitoring their live boat data. Tank levels, depth, drift, engine parameters, fuel economy, bait-well temperature, wind speed, battery status, etc, can all be monitored from the convenience of an iPhone or iPad.
 
 The most straightforward way to add entries to this page is to
 [fork this page in Github](https://github.com/SignalK/signalk.github.io/blob/master/applications_solutions.md) and

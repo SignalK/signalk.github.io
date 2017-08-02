@@ -23,7 +23,7 @@ description: Applications & Solutions with Signal K Support
 - [AFTrack](http://afischer-online.de/and/aftrack/): a marine navigation display for an Android phone or tablet. Uses tracking with various logging features, several input modes, maps online and offline, wind routing, AIS and more.
 - [pysk](https://github.com/ph1l/pysk): a terminal client for displaying Signal K data, based on [Signal K Python client library](https://github.com/ph1l/python-signalk-client).
 - [Signal View](http://signalkool.com/signalview/): with this iOS app, boaters can move around the vessel whilst monitoring their live boat data. Tank levels, depth, drift, engine parameters, fuel economy, bait-well temperature, wind speed, battery status, etc, can all be monitored from the convenience of an iPhone or iPad.
-- [OpenPlotter](http://www.sailoog.com/en/openplotter): OpenPlotter is a combination of selected software, SignalK and OpenCPN to mention a few, and hardware to be used as navigational aid on boats. It is also a home automation system onboard. Easy installation with a NOOBS installer for Raspberry Pi.
+- [OpenPlotter](http://www.sailoog.com/en/openplotter): OpenPlotter is a combination of selected software, SignalK, OpenCPN and Node-RED to mention a few, and hardware to be used as navigational aid on boats. It is also a home automation system onboard. It's easy installation with a NOOBS installer for Raspberry Pi.
 
 The most straightforward way to add entries to this page is to
 [fork this page in Github](https://github.com/SignalK/signalk.github.io/blob/master/applications_solutions.md) and

@@ -152,7 +152,7 @@ table thead tr {
 }
 
 #content-wrapper {
-  background: #f7f7f7 url('images/bg04.png');
+  background: #ffffff;
 }
 
 #copyright {
@@ -239,7 +239,7 @@ table thead tr {
 #header-wrapper {
   text-shadow: -1px -1px 1px rgba(0,0,0,0.75);
   border-bottom: solid 1px #272d30;
-  background: #3B4346 url('images/bg01.jpg');
+  background: #FFFFFF url('images/bg01.jpg');
   box-shadow: inset 0px -1px 0px 0px #51575a;
 }
 
@@ -277,7 +277,7 @@ table thead tr {
 
 .bordered-feature-image {
   display: block;
-  background: #fff url('images/bg04.png');
+  background: #ffffff;
   padding: 1px;
   box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.15);
   margin: 0;
@@ -286,25 +286,18 @@ table thead tr {
 
 .button-big {
   display: inline-block;
-  background: #4185b0;
-  color: #fff;
+  background: #ffcc00;
+  color: #000;
   font-size: 1.75em;
   padding: 15px 45px 15px 45px;
   outline: 0;
   border-radius: 10px;
 
-  background-image: -moz-linear-gradient(top, #4185b0, #0B24FB);
-  background-image: -webkit-linear-gradient(top, #4185b0, #0B24FB);
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4185b0), to(#0B24FB));
-  background-image: -ms-linear-gradient(top, #4185b0, #0B24FB);
-  background-image: -o-linear-gradient(top, #4185b0, #0B24FB);
-  background-image: linear-gradient(top, #4185b0, #0B24FB);
-
   text-shadow: -1px -1px 1px rgba(0,0,0,0.5);
 }
 
 .button-big:hover {
-  background: #4185b0;
+  background: #003399;
 }
 
 .button-big:active {

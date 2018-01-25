@@ -36,14 +36,14 @@ blockquote, dl, p, ol, ul {
 }
 
 body {
-  background: #D4D9DD url('images/bg03.jpg');
+  background: #FFFFFF;
   position: relative;
 }
 
 body, input, textarea, select {
   color: #474f51;
   font-size: 16px;
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Jura', sans-serif;
   line-height: 1.45em;
   font-weight: 400;
 }
@@ -51,8 +51,8 @@ body, input, textarea, select {
 h1, h2, h3, h4, h5, h6 {
   letter-spacing: 1.1px;
   line-height: 1.1;
-  font-variant: small-caps;
-  font-weight: 200;
+  font-variant: bold;
+  font-weight: 700;
 }
 
 h4, h5, h6 {
@@ -61,7 +61,7 @@ h4, h5, h6 {
 
 #banner, #header,
 h1, h2, h3 {
-  font-family: 'Biryani', sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
 em {
@@ -78,7 +78,8 @@ small {
 }
 
 strong {
-  font-weight: 700;
+  font-style: black
+  font-weight: 800;
 }
 
 table {

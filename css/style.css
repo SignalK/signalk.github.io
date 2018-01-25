@@ -124,7 +124,7 @@ table thead tr {
 }
 
 #content a {
-  color: #4185b0;
+  color: #003399;
 }
 
 #content a:hover,
@@ -134,7 +134,7 @@ table thead tr {
 }
 
 #content h2, h3, h4 {
-  color: #4185b0;
+  color: #003399;
   padding-bottom: .5em;
 }
 
@@ -197,7 +197,7 @@ table thead tr {
 
 #footer h2 {
   font-size: 1.25em;
-  color: #212f35;
+  color: #003399;
 }
 
 #footer .check-list li,
@@ -219,7 +219,7 @@ table thead tr {
 
 #header a:hover,
 #header a:focus {
-  color: #f6f8f8;
+  color: #ffcc00;
 }
 
 #header h1 a {
@@ -227,7 +227,7 @@ table thead tr {
 }
 
 #header a.active {
-  color: #f6f8f8;
+  color: #ffcc00;
   border-bottom: 3px solid #c6c8c8;
 }
 
@@ -239,7 +239,7 @@ table thead tr {
 #header-wrapper {
   text-shadow: -1px -1px 1px rgba(0,0,0,0.75);
   border-bottom: solid 1px #272d30;
-  background: #FFFFFF url('images/bg01.jpg');
+  background: #FFFFFF;
   box-shadow: inset 0px -1px 0px 0px #51575a;
 }
 
@@ -287,7 +287,7 @@ table thead tr {
 .button-big {
   display: inline-block;
   background: #ffcc00;
-  color: #000;
+  color: #003399;
   font-size: 1.75em;
   padding: 15px 45px 15px 45px;
   outline: 0;
@@ -298,10 +298,11 @@ table thead tr {
 
 .button-big:hover {
   background: #003399;
+  color: #ffcc00;
 }
 
 .button-big:active {
-  background: #4185b0;
+  background: #003399;
   padding: 17px 45px 13px 45px;
 }
 

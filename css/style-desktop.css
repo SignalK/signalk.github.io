@@ -14,8 +14,6 @@ body {
 }
 
 #banner {
-  border-top: solid 1px #222628;
-  box-shadow: inset 0px 1px 0px 0px #3e484a;
   padding: 35px 0;
 }
 
@@ -39,7 +37,6 @@ body {
 }
 
 #content-wrapper {
-  border-top: solid 1px #fff;
   padding: 45px 0 45px 0;
 }
 

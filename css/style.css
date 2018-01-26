@@ -118,8 +118,7 @@ table thead tr {
 }
 
 #banner {
-  font-variant: small-caps;
-  color: #fff;
+  color: #ffffff;
   line-height: 1.85em;
 }
 
@@ -214,7 +213,7 @@ table thead tr {
 #header a {
   font-variant: small-caps;
   letter-spacing: 1.3px;
-  color: #c6c8c8;
+  color: #003399;
 }
 
 #header a:hover,
@@ -228,7 +227,6 @@ table thead tr {
 
 #header a.active {
   color: #ffcc00;
-  border-bottom: 3px solid #c6c8c8;
 }
 
 #header img {
@@ -237,10 +235,7 @@ table thead tr {
 }
 
 #header-wrapper {
-  text-shadow: -1px -1px 1px rgba(0,0,0,0.75);
-  border-bottom: solid 1px #272d30;
-  background: #FFFFFF;
-  box-shadow: inset 0px -1px 0px 0px #51575a;
+  background: #FFFFFF url('images/bg01.jpg');
 }
 
 #links.affix {

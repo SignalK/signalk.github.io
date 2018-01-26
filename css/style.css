@@ -273,8 +273,6 @@ table thead tr {
 .bordered-feature-image {
   display: block;
   background: #ffffff;
-  padding: 1px;
-  box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.15);
   margin: 0;
   outline: 0;
 }

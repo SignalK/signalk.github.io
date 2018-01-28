@@ -133,7 +133,7 @@ table thead tr {
 }
 
 #content h2, h3, h4 {
-  color: #003399;
+  color: #000000;
   padding-bottom: .5em;
 }
 
@@ -280,7 +280,7 @@ table thead tr {
 .button-big {
   display: inline-block;
   background: #ffcc00;
-  color: #003399;
+  color: #000000;
   font-size: 1.75em;
   padding: 15px 45px 15px 45px;
   outline: 0;
@@ -291,7 +291,7 @@ table thead tr {
 
 .button-big:hover {
   background: #003399;
-  color: #ffcc00;
+  color: #ffffff;
 }
 
 .button-big:active {

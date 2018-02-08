@@ -205,14 +205,15 @@ table thead tr {
 }
 
 #header a {
-  font-variant: small-caps;
   color: #003399;
+  font-variant: small-caps;
 }
 
 #header a:hover,
 #header a:focus {
   color: #15193b;
-  font-size: 1.25em;
+  font-variant: normal;
+  font-size: 1.1em;
 }
 
 #header h1 a {
@@ -221,7 +222,8 @@ table thead tr {
 
 #header a.active {
   color: #15193b;
-  font-size: 1.25em;
+  font-variant: normal;
+  font-size: 1.1em;
 }
 
 #header img {
@@ -267,7 +269,6 @@ table thead tr {
 
 .bordered-feature-image {
   display: block;
-  background: #ffffff;
   margin: 0;
   outline: 0;
 }

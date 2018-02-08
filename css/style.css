@@ -49,7 +49,6 @@ body, input, textarea, select {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  letter-spacing: 1.1px;
   line-height: 1.1;
   font-variant: bold;
   font-weight: 700;
@@ -118,7 +117,7 @@ table thead tr {
 }
 
 #banner {
-  color: #ffffff;
+  color: #f5f1e3;
   line-height: 1.85em;
 }
 
@@ -139,7 +138,6 @@ table thead tr {
 
 #content section {
   background: #fff;
-  box-shadow: 2px 2px 2px 1px rgba(128,128,128,0.1);
   padding: 40px 30px 45px 30px;
   margin: 0 0 10% 0;
 }
@@ -156,10 +154,8 @@ table thead tr {
 
 #copyright {
   border-top: solid 1px #b5bec3;
-  box-shadow: inset 0px 1px 0px 0px #e0e4e7;
   color: #8d9ca3;
   text-align: center;
-  text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
 }
 
 #copyright a {
@@ -182,12 +178,10 @@ table thead tr {
 #features-wrapper {
   background: #353d40 url('images/bg02.jpg');
   border-bottom: solid 1px #272e31;
-  text-shadow: -1px -1px 1px rgba(0,0,0,0.75);
 }
 
 #footer {
   color: #546b76;
-  text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
 }
 
 #footer a {
@@ -207,12 +201,11 @@ table thead tr {
 }
 
 #footer-wrapper {
-  text-shadow: 1px 1px 1px rgba(255,255,255,1);
+
 }
 
 #header a {
   font-variant: small-caps;
-  letter-spacing: 1.3px;
   color: #003399;
 }
 
@@ -226,7 +219,7 @@ table thead tr {
 }
 
 #header a.active {
-  color: #ffcc00;
+  color: #021d54;
 }
 
 #header img {
@@ -284,18 +277,15 @@ table thead tr {
   font-size: 1.75em;
   padding: 15px 45px 15px 45px;
   outline: 0;
-  border-radius: 10px;
-
-  text-shadow: -1px -1px 1px rgba(0,0,0,0.5);
+  border-radius: 4px;
 }
 
 .button-big:hover {
-  background: #003399;
-  color: #ffffff;
+  background: #d0a600;
 }
 
 .button-big:active {
-  background: #003399;
+  background: #d0a600;
   padding: 17px 45px 13px 45px;
 }
 
@@ -404,7 +394,6 @@ table thead tr {
   display: block;
   font-size: 1.3125em;
   font-weight: 700;
-  letter-spacing: 1.15px;
   line-height: 1.2;
   margin-left: 15px;
   text-align: center;
@@ -454,4 +443,3 @@ ul.se li.se,
   border-left: 5px solid #E2E6E8;
   padding-left: 3px;
 }
-

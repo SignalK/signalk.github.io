@@ -122,13 +122,13 @@ table thead tr {
 }
 
 #content a {
-  color: #003399;
+  color: #000000;
 }
 
 #content a:hover,
 #content a:active,
 #content a:focus {
-  color: #699aca;
+  color: #003399;
 }
 
 #content h2, h3, h4 {
@@ -219,8 +219,7 @@ table thead tr {
 }
 
 #header a.active {
-  color: #15193b;
-  font-stlye: italic;
+  color: #000000;
 }
 
 #header img {

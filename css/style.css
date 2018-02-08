@@ -206,14 +206,12 @@ table thead tr {
 
 #header a {
   color: #003399;
-  font-variant: small-caps;
 }
 
 #header a:hover,
 #header a:focus {
   color: #15193b;
-  font-variant: normal;
-  font-size: 1.1em;
+  font-style: italic;
 }
 
 #header h1 a {
@@ -222,8 +220,7 @@ table thead tr {
 
 #header a.active {
   color: #15193b;
-  font-variant: normal;
-  font-size: 1.1em;
+  font-stlye: italic;
 }
 
 #header img {
@@ -379,6 +376,7 @@ table thead tr {
 
 .feature-image img {
   display: block;
+  background: :003399
   width: 100%;
 }
 

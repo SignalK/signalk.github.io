@@ -21,6 +21,8 @@ industry that will address the needs of a changing and ever more interconnected 
 
    * NMEA0183, based on the RS422 serial interface, is now over 35 years old but has aged remarkably well and is still in use on many leisure and commercial vessels.
 
+   <img src="/images/diagrams/Typical_NMEA0183_Diagram.png" width="400">
+
    * NMEA2000, based on the same CAN Bus technology used in cars, is now over 15 years old and although adoption was relatively slow, most new boats have an NMEA2000 network.
 
 For developers of modern mobile/web apps and cloud services, there are two main problems with the existing standards.

@@ -11,19 +11,19 @@ description:
 
 ## [Introduction](#) <a id="introduction"></a>
 With the release of v1.0.0, Signal K is the next generation solution for marine data exchange. It not only allows for
-communication between instruments and sensors on board a single vessel, but also to allow for sharing of data between
-multiple boats, aids to navigation, bridges, and marinas. It is designed to be easily consumable by Web and Mobile
+communication between instruments and sensors on board a single vessel, but also allows sharing of data between
+multiple boats, aids to navigation, bridges, and marinas. It is designed to be easily used by Web and Mobile
 applications and to connect modern boats to the Internet of Things.
 
 ## [Rationale](#) <a id="rationale"></a>
 In the last few years, it has become clear that there is a real need for a new communications protocol for the marine
-industry that will catch up and address the needs of a changing and ever more interconnected world. Nearly all marine
-electronic systems have interfaces that are over 30 years old. Unlike some other ubiquitous communication protocols of a
-similar age, NMEA 0183 has not aged so well. This was recognized as early as 1994 when development began on a
-replacement, the NMEA 2000 protocol. Unfortunately, by the time this replacement arrived on the market in early 2001, it
-was already showing its age. Fourteen years later, it is clear that a new forward-thinking approach is required.
+industry that will address the needs of a changing and ever more interconnected world. There are a number of existing marine data protocols, some that are proprietary such as Raymarine's SeaTalk interface, but the two most popular were both developed by the National Marine Electronics Association (the NMEA):-
 
-We believe that there are two main problems with the existing standards.
+   * NMEA0183, based on the RS422 serial interface, is now over 35 years old but has aged remarkably well and is still in use on many leisure and commercial vessels.
+
+   * NMEA2000, based on the same CAN Bus technology used in cars, is now over 15 years old and although adoption was relatively slow, most new boats have an NMEA2000 network.
+
+For developers of modern mobile/web apps and cloud services, there are two main problems with the existing standards.
 
 ### Technical
 Both standards are fundamentally local area serial networks designed for limited deployments in simple environments.

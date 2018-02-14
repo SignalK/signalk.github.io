@@ -19,11 +19,13 @@ applications and to connect modern boats to the Internet of Things.
 In the last few years, it has become clear that there is a real need for a new communications protocol for the marine
 industry that will address the needs of a changing and ever more interconnected world. There are a number of existing marine data protocols, some that are proprietary such as Raymarine's SeaTalk interface, but the two most popular were both developed by the National Marine Electronics Association (the NMEA):-
 
-   * NMEA0183, based on the RS422 serial interface, is now over 35 years old but has aged remarkably well and is still in use on many leisure and commercial vessels.
+   * NMEA0183, based on the RS422 serial interface, is now over 35 years old but has aged remarkably well and is still in use on many leisure and commercial vessels. As you can see from the diagram, you have to have lots of pairs of wires going between equipment, in fact two pairs or wires if you want bi-directional communication. It is primarily a one to one method of communication although you can have 3 or 4 listeners connected to one talker.
 
-   <img src="/images/diagrams/Typical_NMEA0183_Diagram.png" width="400">
+   <img src="/images/diagrams/Typical_NMEA0183_Diagram.png" height="300">
 
-   * NMEA2000, based on the same CAN Bus technology used in cars, is now over 15 years old and although adoption was relatively slow, most new boats have an NMEA2000 network.
+   * NMEA2000, based on the same CAN Bus technology used in cars, is now over 15 years old and although adoption was relatively slow, most new boats have an NMEA2000 network. As you can see from the diagram, you have a network "back bone" with "spurs" or drop cables that take power and data to the equipment. Every device on the network can talk or listen to any other device or broadcast to all devices.
+
+   <img src="/images/diagrams/Typical_NMEA2000_Diagram.png" height="300">
 
 For developers of modern mobile/web apps and cloud services, there are two main problems with the existing standards.
 

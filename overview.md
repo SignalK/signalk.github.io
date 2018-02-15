@@ -42,6 +42,8 @@ standards”, anyone wishing to use them must not only pay for the standards but
 restricts how they can be used and in the case of NMEA 2000, a non-disclosure agreement. In essence, this prevents the
 release of an open source application developed using these standards.
 
+<img src="/images/diagrams/Technical+Legal_Barriers.png" width="400">
+
 Finally, and most importantly, both NMEA standards and the other proprietary protocols in the industry were developed
 when the instruments on the average boat were much simpler and much less capable. In a world where your home thermostat
 is connected to the Internet and the number of Internet connected devices in the United States alone is projected to
@@ -148,7 +150,7 @@ devices, and it provides a common base for existing and new marine applications.
 Signal K data is transmitted as a JSON string. JSON is native to the Internet, and to browsers, so transmission is
 supported on any medium that can access the Internet. That includes mobile data, WiFi, Ethernet, USB, Bluetooth, and
 pretty much anything coming. But importantly we are just sending a string of characters – so we can send data over
-serial cables (RS232/442/etc.), Onewire, CAN, in fact almost anything.
+a simple serial cable (RS232/442/etc.), Onewire, CAN, in fact almost anything.
 
 Over the years the speed of data transmissions has increased enormously. NMEA 0183 is 4800 bits/s, the highspeed version
 is 38.4 kbits/s and NMEA 2000 is 250 kbit/s. These are all fine for their respective uses, 38.4k is quite enough for AIS

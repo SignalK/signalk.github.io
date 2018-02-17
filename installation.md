@@ -42,7 +42,7 @@ If you do decide to use a laptop (or desktop), then you should have no problem r
 
 Currently the most cost effective, powerful and best supported hardware platform for a Signal K server is the Raspberry Pi.
 
-<img src="/images/diagrams/Raspberry_Pi3_clear.jpg" width="400">
+<img src="/images/Raspberry_Pi3_clear.jpg" width="400">
 
 With starter kits that include everything you need for around $50 USD, you can understand why they are so popular. There are a number of models, but the Raspberry Pi3 is probably the best model to go for and includes a Wi-Fi adaptor that can turn it in to a mini-wireless router, allowing you to serve up web pages to your mobile devices with no additional equipment. It runs from a 5v DC Micro USB plug (same as Android phones/tablets/Kindles), so you will need one of these USB cables plugged in to a 12v to USB type charging point on your boat to power it.
 

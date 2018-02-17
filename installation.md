@@ -11,8 +11,8 @@ description: "Follow these instructions to get started with Signal K. Please don
 In this section we will look at different ways you can install and use Signal K on your boat. There are already a number of hardware platforms and devices being used, and more are bound to follow, but we will concentrate on three recommended starter packs that we will refer to as; Basic, Advanced and Expert.
 
 
-## [1. Basic Signal K Starter Pack](#) <a id="basic"></a>
-For boat owners that want to use Siganl K with the minimum of effort, then the Basic Starter Pack gives you a simple way to install Signal K on your boat and start using the free apps and services that are available. The pack consists of a "Smart" Gateway that converts your existing NMEA data in to Signal K and installation just consists of wiring the gateway to your NMEA0183 and/or NMEA2000 networks and plugging the gateway in to a wireless router.
+## ["Basic" Signal K Starter Pack](#) <a id="basic"></a>
+For boat owners that want to use Signal K with the minimum of effort, then the Basic Starter Pack gives you a simple way to install Signal K on your boat and start using the free apps and services that are available. The pack consists of a "Smart" Gateway that converts your existing NMEA data in to Signal K and installation just consists of wiring the gateway to your NMEA0183 and/or NMEA2000 networks and plugging the gateway in to a wireless router.
 
 <img src="/images/diagrams/SK_Smart_Gateway.png" width="400">
 
@@ -21,7 +21,7 @@ The most popular "smart gateway" is Digital Yacht's [iKommunicate gateway](http:
 As your experience and confidence in Signal K grows, you can simply add a Signal K server to iKommunicate to make one of the advanced or expert packs (see below).
 
 
-## [2. Advanced Signal K Starter Pack](#) <a id="advanced"></a>
+## ["Advanced" Signal K Starter Pack](#) <a id="advanced"></a>
 For more technical minded boat owners that want to use the logging and cloud features of Signal K or who want to get involved in the "cutting edge" Signal K developments, then one of the two Advanced packs below would be the best starting point. For a larger, more powerful Signal K system, but where stability and reliability are key, then adding a Signal K server to an iKommunicate is the way to go.
 
 <img src="/images/diagrams/SK_Server+Gateway.png" width="400">
@@ -32,8 +32,8 @@ If you enjoy getting your hands dirty and want to experiment with the "cutting e
 
 
 
-## [3. Expert Signal K Starter Pack](#) <a id="expert"></a>
-For developers and seriously technical installations, then a larger network with multiple Signal K servers, Signal K sensors, etc. is possible and will become more common in the future as more people discover Signal K and the new functionality and benefits Signal K can bring.
+## ["Expert" Signal K Starter Pack](#) <a id="expert"></a>
+For developers and seriously technical installations, then a larger network with multiple Signal K servers, Signal K sensors, etc. is possible and will become more common in the future as more people discover Signal K and the new functionality and benefits it can bring.
 
 <img src="/images/diagrams/SK_Multiple_Servers+Gateway.png" width="400">
 
@@ -43,6 +43,7 @@ and more technical minded boat owners that want to use the logging and cloud fea
 <img src="/images/diagrams/SK_Server+Gateway.png" width="400">
 
 
+## [Installing your Signal K server](#) <a id="server"></a>
  suggested Inter is the most popular "smart gateway" and but do not want to setup their own hardware, install tWhile it is pretty likely that all of the Signal K software will run on Windows and OS X just as well as Linux, we have
 really only tested on Linux and the instructions below will assume that you are working on a Linux platform as well.
 

@@ -35,10 +35,6 @@ For developers and seriously technical installations, then a larger network with
 
 <img src="/images/diagrams/SK_Multiple_Servers+Gateway.png" width="400">
 
-and more technical minded boat owners that want to use the logging and cloud features of Signal K or who want to get involved in the "cutting edge" Signal K developments, then one of the two Advanced packs below would be the best starting point. For a larger, more powerful Signal K system, but where stability and reliability are key, then adding a Signal K server to an iKommunicate is the way to go.
-
-<img src="/images/diagrams/SK_Server+Gateway.png" width="400">
-
 ## [Installing your Signal K server](#) <a id="server"></a>
 A Signal K server, is basically a webserver with the ability to read marine data and create web pages and web apps that uses this data. As a result, nearly any computer can be used as the hardware for a Signal K server, although a certain level of performance is required to avoid slow loading of web pages, etc. If you have an old laptop, then this would make a good initial test platform, although for permanent use on a yacht, a more power efficient hardware like a Raspberry Pi might be a better choice.
 
@@ -60,7 +56,7 @@ Server](https://github.com/signalk/signalk-server-java) have detailed Raspberry 
 - [Signal K Java on Raspberry Pi](https://github.com/signalk/specification/wiki/Raspberry-Pi-Installation-(Java-Server))
 
 
-## [Connecting to other Equipment](#) <a id="equipment"></a>
+## [Interfacing to Other Devices](#) <a id="interface"></a>
 Most equipment on boats use NMEA0183, NMEA2000 or proprietary interfaces to communicate with each other. A lot of work has been done within the Signal K community to convert these data different data formats in to Signal K. One option is to use an iKommunicate to convert NMEA to Signal K, but if you want to use the raw  is specified as an RS-422 simplex network, however RS-232 (standard serial ports) work just as well for
 connecting to an NMEA 0183 network. It is recommended that you use an opto-isolated interface between your computer and
 the 0183 network to avoid damaging either your computer or instruments. A good option for this is the [Actisense

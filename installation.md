@@ -63,16 +63,11 @@ For a full step by step guide on creating and using the NOOBS SD Card, please cl
 <a href="/overview.html" class="button-big">Download</a>  <a href="/overview.html" class="button-big">Instructions</a>   
 
 ## [Interfacing to Other Devices](#) <a id="interface"></a>
-Most equipment on boats use NMEA0183, NMEA2000 or proprietary interfaces to communicate with each other. A lot of work has been done within the Signal K community to convert these data different data formats in to Signal K. One option is to use an iKommunicate to convert NMEA to Signal K, but if you want to use the raw  is specified as an RS-422 simplex network, however RS-232 (standard serial ports) work just as well for
-connecting to an NMEA 0183 network. It is recommended that you use an opto-isolated interface between your computer and
-the 0183 network to avoid damaging either your computer or instruments. A good option for this is the [Actisense
-pleasand proper differential signalling.
+Most equipment on boats use NMEA0183, NMEA2000 or proprietary interfaces to communicate with each other. A lot of work has been done within the Signal K community to convert these different data formats in to Signal K. One option is to use an [iKommunicate](http://ikommunicate.com) to convert NMEA to Signal K, but if you want to use the raw data to access proprietary sentences, PGNs, etc. then the following are recommended;
 
-The USG-1 should be recognized as a serial device when it is connected to your computer and you should see a device
-called `/dev/ttyUSB0` (the number could be different if there are multiple USB-to-serial adapters connected). Linux
-assigns these device names automatically when the device is connected, so it could change. If you want to ensure that
-the device always has the same name, you will need to write a UDEV rule to specify an alias. See [creating UDEV
-rules](udev.html) for details.
+**NMEA0183**  - There are a number of NMEA to USB adaptors around from [Actisense](http://www.actisense.com/product/usg-2/), [Digital Yacht](http://digitalyacht.co.uk/product/usb-nmea-adaptor/), [Shipmodule](http://www.shipmodul.com/en/miniplex-lite.html) which allow bi-directional transfer of the NMEA0183 Serial data (electrically similar to RS422) and convert it in to a USB virtual COM Port when plugged in to the Signal K server.
+
+In LINUX the virtual COM Port will be seen as a device called `/dev/ttyUSB0` (the number could be different if there are multiple USB-to-serial adapters connected). Linux assigns these device names automatically when the device is connected, so it could change. If you want to ensure that the device always has the same name, you will need to write a UDEV rule to specify an alias. See [creating UDEV rules](udev.html) for details.
 
 To verify that you have a working connection, you can use picocom or another terminal emulator to see if you are
 receiving data. The default baud rate for NMEA 0183 is 4800.
@@ -83,27 +78,14 @@ $ picocom -b 4800 /dev/ttyUSB0
 
 You should see NMEA 0183 sentences scrolling off the screen. To exit picocom press `Ctrl-a` followed by `Ctrl-x`.
 
-### Getting Started with NMEA 2000 Instruments
-For NMEA 2000, you will need a NMEA 2000 gateway device such as the [Actisense
-NGT-1](http://actisense.com/products/nmea-2000/ngt-1/ngt-1) which connects your NMEA 2000 bus to your server’s USB port.
-Much like the USG-1, Linux should recognize the NGT-1 as a serial device and create the appropriate entry in /dev.
-However some distributions do not do this. You will need to create a UDEV rule and a simple startup script to get this
-device working. See [creating UDEV rules](udev.html) for details. **Important:** currently, the Node.js server cannot
-natively parse NMEA 2000, you will need to install the [CANboat](https://github.com/canboat/canboat) suite of tools in
-order to read data from the NGT-1 and convert it to a format that the server can understand. This is not necessary for
-the Java server.
+**NMEA 2000 Instruments** - For NMEA 2000, there are less options. A quick search on Google will return a number of NMEA2000 to USB gateways, but the interface device is just one half of the solution. The other equally important part is the software that can read the data from the gateway and then convert it in to a format that the Signal K server understands. This software called [CANboat](https://github.com/canboat/canboat) is a suite of tools that can read and write NMEA2000 data and convert it in to Signal K.
 
-While Signal K data can be sent over any digital medium, it is designed primarily for Ethernet networks, so it makes
-sense to have a network on your boat, either wired or wireless. It is possible to set up your Linux computer as a WiFi
-access point, but that is outside the scope of this article.
-[Here](http://xmodulo.com/raspberry-pi-wifi-access-point.html) is an example of configuring a Raspberry Pi as a WiFi
-access point.
+Currently, CANboat only supports the [NGT-1-USB from Actisense](http://www.actisense.com/product/nmea-2000-to-pc-interface-ngt-1/) and any CAN Interface that supports "SocketCAN" such as the [CANable board](http://canable.io/).
 
-If you already have your instrument data available on your boat’s WiFi please drop us a note on the mailing list –
-we are always looking for new interfaces to support.
+CANBoat has recently been ported to JavaScript and is now part of the Signal K Node Server build, so no additional installation of CANBoat is required.    
 
-## [Install Signal K Server](#) <a id="server"></a>
+If you are running the Signal K Java server, then ?????
 
-There are two options currently for serving Signal K data. The first is
-[signalk-server-node](https://github.com/SignalK/signalk-server-node) and the second is
-[signalk-server-java](https://github.com/SignalK/signalk-server-java).
+**Proprietary Interfaces**  - There are a number of proprietary interfaces in the marine industry and by their nature, they tend to be pretty "closed" formats, that the manufacturers who create them, keep confidential. With Signal K being an open source data format, we are keen to support as many interface formats as possible and are working hard to encourage manufacturers to open up their proprietary formats.
+
+The most common proprietary format in the marine industry is arguably SeaTalk which was developed by Autohelm in the 1990s and trade mark is now owned by Raymarine Limited.

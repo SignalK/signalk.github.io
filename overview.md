@@ -19,15 +19,15 @@ applications and to connect modern boats to the Internet of Things.
 In the last few years, it has become clear that there is a real need for a new communications protocol for the marine
 industry that will address the needs of a changing and ever more interconnected world. There are a number of existing marine data protocols, some that are proprietary such as Raymarine's SeaTalk interface, but the two most popular were both developed by the National Marine Electronics Association (the NMEA):-
 
-   * NMEA0183, based on the RS422 serial interface, is now over 35 years old but has aged remarkably well and is still in use on many leisure and commercial vessels. As you can see from the diagram, you have to have lots of pairs of wires going between equipment, in fact two pairs or wires if you want bi-directional communication. It is primarily a one to one method of communication although you can have 3 or 4 listeners connected to one talker.
+**NMEA0183**, based on the RS422 serial interface, is now over 35 years old but has aged remarkably well and is still in use on many leisure and commercial vessels. As you can see from the diagram, you have to have lots of pairs of wires going between equipment, in fact two pairs or wires if you want bi-directional communication. It is primarily a one to one method of communication although you can have 3 or 4 listeners connected to one talker.
 
-   <img src="/images/diagrams/Typical_NMEA0183_Diagram.png" width="400">
+<img src="/images/diagrams/Typical_NMEA0183_Diagram.png" width="400">
 
-   * NMEA2000, based on the same CAN Bus technology used in cars, is now over 15 years old and although adoption was relatively slow, most new boats have an NMEA2000 network. It can handle a wide spread of information sources from engines to stereos and is faster that NMEA0183 but more difficult to interface to.
+**NMEA2000**, based on the same CAN Bus technology used in cars, is now over 15 years old and although adoption was relatively slow, most new boats have an NMEA2000 network. It can handle a wide spread of information sources from engines to stereos and is faster that NMEA0183 but more difficult to interface to.
 
-   As you can see from the diagram, you have a network "back bone" with "spurs" or drop cables that take power and data to the equipment. Every device on the network can talk or listen to any other device or broadcast to all devices.
+As you can see from the diagram, you have a network "back bone" with "spurs" or drop cables that take power and data to the equipment. Every device on the network can talk or listen to any other device or broadcast to all devices.
 
-   <img src="/images/diagrams/Typical_NMEA2000_Diagram.png" width="400">
+<img src="/images/diagrams/Typical_NMEA2000_Diagram.png" width="400">
 
 For developers of modern mobile/web apps and cloud services, there are two main problems with the existing standards.
 
@@ -83,13 +83,13 @@ It is easy to get started with Signal K. With a Google Group for users, Slack Ch
 
 Signal K works by having a small black box - a 'Signal K Server' - on board your boat. This can interface to existing NMEA networks onboard as well as databases, other Signal K data streams, and potentially land-based and cloud-based resources. The server can also hold static items like charts, routes and notes. It can also hold and act as a web-server for browser-based Apps.
 
-The Signal K server is available as a 'ready-to-fit' commercial product (such as the Digital Yacht iKommunicate), or you can download the software for free and run it yourself. The software runs on a range of single board computers as well as Linux, Windows and MacOS, see the [Install page]({{site.path}}/installation.html) for details.
+The Signal K server is available as a 'ready-to-fit' commercial product (such as the Digital Yacht iKommunicate), or you can download the software for free and run it yourself. The software runs on a range of single board computers as well as Linux, Windows and MacOS, see the [*Install page*]({{site.path}}/installation.html) for details.
 
 
-A list of all the latest Signal K Apps and Services can be found on the [Applications and Solutions page]({{site.path}}/solutions.html).
+A list of all the latest Signal K Apps and Services can be found on the [*Applications and Solutions page*]({{site.path}}/solutions.html).
 
 Signal K is an on-going, collaborative effort between a global network of volunteers and interested hardware
-manufacturers and software vendors in the marine industry. We encourage you to get in touch via the [mailing
-list](https://groups.google.com/forum/#!forum/Signal K) or group chat in our [Slack
-channel](http://slack-invite.Signal K.org/). Suggestions and requests via [GitHub](https://github.com/Signal K) are also
+manufacturers and software vendors in the marine industry. We encourage you to get in touch via the [*mailing
+list*](https://groups.google.com/forum/#!forum/Signal K) or group chat in our [Slack
+channel](http://slack-invite.Signal K.org/). Suggestions and requests via [*GitHub*](https://github.com/Signal K) are also
 welcome.

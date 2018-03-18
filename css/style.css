@@ -228,7 +228,8 @@ table thead tr {
 }
 
 #header-wrapper {
-  background: #FFFFFF url('images/bg01.jpg');
+  height: 130px;
+  background: #003399;
 }
 
 #links.affix {

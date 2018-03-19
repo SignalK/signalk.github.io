@@ -39,6 +39,7 @@ body {
 #header {
   min-height: 50px;
   line-height: 50px;
+  background-color: #003399;
 }
 
 #header a {

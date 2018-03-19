@@ -133,8 +133,7 @@ body, input, textarea, select {
 }
 
 #titleBar {
-  color: #fff;
-  background: url('images/bg04.jpg');
+  background-color: #15193b;
   box-shadow: inset 0px -20px 70px 0px rgba(200,220,245,0.1), inset 0px -1px 0px 0px rgba(255,255,255,0.1), 0px 1px 7px 0px rgba(0,0,0,0.6);
   text-shadow: -1px -1px 1px rgba(0,0,0,0.75);
 }

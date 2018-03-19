@@ -62,8 +62,8 @@ body {
 }
 
 .bordered-feature-image {
-  margin-right: 5px;
-  width: 350px;
+  padding: 5px 5px 5px 5px;
+  width: 375px;
 }
 
 .button-big {

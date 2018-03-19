@@ -14,10 +14,12 @@ body {
 }
 
 #banner {
+  background-color: #003399;
   padding: 35px 0;
 }
 
 #banner p {
+  color: #ffffff;
   font-size: 2em;
   line-height: 1.25em;
   margin: 0 1em 1em 0;
@@ -62,7 +64,9 @@ body {
 }
 
 #header {
-  min-height: 155px;
+  min-height: 50px;
+  line-height: 50px;
+  background-color: #003399;
 }
 
 #header a {

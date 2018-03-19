@@ -16,13 +16,13 @@ body, input, textarea, select {
 
 #banner {
   position: relative;
-  color: #003399;
   text-align: center;
   padding: 30px 30px 15px 30px;
   margin-top: 44px;
 }
 
 #banner p {
+  color: #ffffff;
   font-size: 1.25em;
   line-height: 1.33em;
   margin: 0.5em 0.25em;
@@ -48,7 +48,7 @@ body, input, textarea, select {
 }
 
 #sklogo {
-  padding-top: : 50px;
+  padding-top: 50px;
   background-color: #FFFFFF
 }
 

@@ -1,23 +1,17 @@
-<header id="header" class="container-flex">
+<header class="container-grid content-wrapper">
   <!-- Logo -->
-  <img src="{{site.path}}/images/signalk.svg" alt="Signal K Logo"  height="100" width="350" />
+  <img src="{{site.path}}/images/signalk.svg" alt="Signal K Logo"  height="45" width="229" />
 
   <!-- Page Title -->
 
-
+  <a href="#!" class="icon" onclick="toggleNav()">&#9776;</a>
   <!-- Nav -->
-  <a class="{{page.index}}" href="{{site.path}}/index.html">HOME</a>
-  <a class="{{page.overview}}" href="{{site.path}}/overview.html">INFO</a>
-  <a class="{{page.installation}}" href="{{site.path}}/installation.html">INSTALL</a>
-  <a class="{{page.documentation}}" href="{{site.path}}/specification/latest/">SPECS</a>
-  <a class="{{page.demo}}" href="{{site.path}}/demo.html">DEMO</a>
-  <a class="{{page.about}}" href="{{site.path}}/about.html">ABOUT</a>
+  <nav id="topNav" class="container-flex">
+    <a class="{{page.index}}" href="{{site.path}}/index.html">Home</a>
+    <a class="{{page.overview}}" href="{{site.path}}/overview.html">Info</a>
+    <a class="{{page.installation}}" href="{{site.path}}/installation.html">Install</a>
+    <a class="{{page.documentation}}" href="{{site.path}}/specification/latest/">Specs</a>
+    <a class="{{page.demo}}" href="{{site.path}}/demo.html">Demo</a>
+    <a class="{{page.about}}" href="{{site.path}}/about.html">About</a>
+  </nav>
 </header>
-<span id="nav" style="display:none">
-  <a href="{{site.path}}/index.html">HOME</a>
-  <a href="{{site.path}}/overview.html">INFO</a>
-  <a href="{{site.path}}/installation.html">INSTALL</a>
-  <a href="{{site.path}}/specification/master">SPECS</a>
-  <a href="{{site.path}}/demo.html">DEMO</a>
-  <a href="{{site.path}}/about.html">ABOUT</a>
-</span>

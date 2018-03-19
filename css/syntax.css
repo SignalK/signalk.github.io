@@ -8,22 +8,22 @@ code {
           border-radius: 2px;
 }
 
-.highlight  {
+pre.highlight {
   background: #eed;
   font-family: monospace;
   font-size: 14px;
   line-height: 1.25;
   padding: 5px;
   margin-bottom: 2em;
-  -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
-  -webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
-     -moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
-          box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  -webkit-box-shadow: 1px 1px 2px 0px rgba(100, 100, 100, 0.5);
+     -moz-box-shadow: 1px 1px 2px 0px rgba(100, 100, 100, 0.5);
+          box-shadow: 1px 1px 2px 0px rgba(100, 100, 100, 0.5);
 }
 
-.highlight code {
+pre.highlight code {
   background: inherit;
   font-family: inherit;
   font-size: inherit;
@@ -34,6 +34,12 @@ code {
   white-space: -o-pre-wrap;    /* Opera 7 */
   word-wrap: break-word;       /* Internet Explorer 5.5+ */
   word-break: break-all;
+}
+
+@media (max-width: 600px) {
+  pre.highlight {
+    word-break: break-all;
+  }
 }
 
 .highlight .hll { background: #ffc; }

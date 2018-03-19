@@ -21,21 +21,14 @@
     <script src="{{site.path}}/js/jquery.min.js"></script>
     <script src="{{site.path}}/js/scrollspy.js"></script>
     <script src="{{site.path}}/js/affix.js"></script>
-    <script src="{{site.path}}/js/skel.min.js"></script>
-    <script src="{{site.path}}/js/skel-layers.min.js"></script>
-    <script src="{{site.path}}/js/init.js"></script>
-    <script>
-      (function($) {
-        init("{{site.path}}");
-      })(jQuery);
+    <script type="text/javascript">
+      function toggleNav() {
+        $('#topNav').toggleClass('open');
+      }
     </script>
-    <link rel="stylesheet" href="{{site.path}}/css/fonts.css" />
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-    <noscript>
-      <link rel="stylesheet" href="{{site.path}}/css/skel.css" />
-      <link rel="stylesheet" href="{{site.path}}/css/style.css" />
-      <link rel="stylesheet" href="{{site.path}}/css/style-desktop.css" />
-    </noscript>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="{{site.path}}/css/style.css" />
     <link rel="stylesheet" href="{{site.path}}/css/syntax.css" />
     <!--[if lte IE 9]><link rel="stylesheet" href="{{site.path}}/css/ie9.css" /><![endif]-->
     <!--[if lte IE 8]><script src="{{site.path}}/js/html5shiv.js"></script><![endif]-->

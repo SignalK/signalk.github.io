@@ -37,8 +37,8 @@ body {
 }
 
 #header {
-  min-height: 75px;
-  line-height: 75px;
+  min-height: 50px;
+  line-height: 50px;
 }
 
 #header a {

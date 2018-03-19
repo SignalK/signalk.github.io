@@ -15,13 +15,13 @@ body {
 
 #banner {
   color: #003399;
-  min-height: 130px
+  min-height: 130px;
   padding: 5px;
 }
 
 #banner p {
   font-size: 1.6em;
-  color: #fffff
+  color: #fffff;
   margin: 0.5em 0 0.25em 0;
 }
 
@@ -38,8 +38,8 @@ body {
 }
 
 #header {
-  min-height: 75px;
-  line-height: 75px;
+  min-height: 50px;
+  line-height: 50px;
 }
 
 #header a {

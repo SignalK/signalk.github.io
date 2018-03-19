@@ -15,13 +15,11 @@ body {
 
 #banner {
   color: #003399;
-  min-height: 130px
-  padding: 5px;
+  padding: 130px 5px;
 }
 
 #banner p {
   font-size: 1.6em;
-  color: #fffff
   margin: 0.5em 0 0.25em 0;
 }
 

@@ -9,13 +9,13 @@ description:
   multiple boats, aids to navigation, bridges, marinas and more."
 ---
 
-## [Introduction](#) <a id="introduction"></a>
+## [Introduction](#) <a class="anchor" id="introduction"></a>
 Signal K is the next generation solution for marine data exchange. It not only allows for communication between
 instruments and sensors on board a single vessel, but also allows sharing of data between multiple boats,
 aids to navigation, bridges, marinas and other land-based resources. It is designed to be easily used by Web and Mobile
 applications and to connect modern boats to the Internet of Things.
 
-## [Background](#) <a id="background"></a>
+## [Background](#) <a class="anchor" id="background"></a>
 In the last few years, it has become clear that there is a real need for a new communications protocol for the marine
 industry that will address the needs of a changing and ever more interconnected world. There are a number of existing marine data protocols, some that are proprietary such as Raymarine's SeaTalk interface, but the two most popular were both developed by the National Marine Electronics Association (the NMEA):-
 
@@ -58,7 +58,7 @@ boat where ever you are and on whatever device you want?
 To move forward we need to think in a connected way, a way fundamentally different from NMEA protocols. Sun Microsystems
 famously coined the phrase _The network is the computer_, and Signal K reflects that global peer-to-peer concept.
 
-## [The Internet of Things](#) <a id="IoT"></a>
+## [The Internet of Things](#) <a class="anchor" id="IoT"></a>
 The ability to share information with other boats, and via the Internet, has the potential to revolutionise the way nautical data is treated both afloat and ashore. Applications will be limited only by developers' imagination, but could include:
 
 * Innovative Apps: If a standard is free to use, cost of entry is lower. This is encouraging new software and hardware developers to compete on providing new solutions.
@@ -69,10 +69,10 @@ The ability to share information with other boats, and via the Internet, has the
 *	Race Management: The monitoring and management of Race Fleets, currently the province of major round-the-world events, can be brought to club level.
 *	Pilotage & Cruising Information: Real time information from established organisations can be beamed directly to your boat to enhance your onboard tools.
 
-## [Security](#) <a id="security"></a>
+## [Security](#) <a class="anchor" id="security"></a>
 For any standard that has the ability to make your information available on the Internet, security needs to be at its heart. The Internet has widely adopted security standards, so there is no need to reinvent the wheel. Secure HTTPS and WSS connections, with the same authorisation and authentication techniques that you are using everyday on Facebook, Paypal, Googlemail, etc.
 
-## [Signal K](#) <a id="signalk"></a>
+## [Signal K](#) <a class="anchor" id="signalk"></a>
 Signal K uses modern techniques to create a marine data standard for the 21st Century. It is:
 
 *	Open. It is free for anyone to use. Signal K is managed by a community of boaters, and developers are able to propose improvements to the standard.

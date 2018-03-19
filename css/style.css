@@ -313,6 +313,8 @@ table thead tr {
 .link-list li {
   padding: 0.2em 0 0.2em 8px;
   line-height: 1.85em;
+  position: relative;
+  top: -50px;
 }
 
 .link-list li:last-child {

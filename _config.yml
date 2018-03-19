@@ -6,7 +6,7 @@ kramdown:
 collections:
   developers:
     output: true
-gems:
+plugins:
   - jekyll-mentions
   - jekyll-sitemap
 url:

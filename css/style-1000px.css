@@ -14,11 +14,12 @@ body {
 }
 
 #banner {
-  color: #003399;
+  background-color: #003399;
   padding: 130px 5px;
 }
 
 #banner p {
+  color: #ffffff;
   font-size: 1.6em;
   margin: 0.5em 0 0.25em 0;
 }

@@ -20,7 +20,7 @@ In the last few years, it has become clear that there is a real need for a new c
 industry that will address the needs of a changing and ever more interconnected world. There are a number of existing marine data protocols, some that are proprietary such as Raymarine's SeaTalk interface, but the two most popular were both developed by the National Marine Electronics Association (the NMEA):-
 
 ### NMEA0183
-Based on the RS422 serial interface, is now over 35 years old but has aged remarkably well and is still in use on many leisure and commercial vessels. As you can see from the diagram, you have to have lots of pairs of wires going between equipment, in fact two pairs or wires if you want bi-directional communication. It is primarily a one to one method of communication although you can have 3 or 4 listeners connected to one talker.
+Based on the RS422 serial interface, is now over 35 years old but has aged remarkably well and is still in use on many leisure and commercial vessels. As you can see from the diagram, you have to have lots of pairs of wires going between equipment, in fact two pairs of wires if you want bi-directional communication. It is primarily a one to one method of communication although you can have 3 or 4 "listeners" (inputs) connected to one "talker" (output).
 
 <img src="/images/diagrams/Typical_NMEA0183_Diagram.png" width="400">
 
@@ -70,7 +70,9 @@ The ability to share information with other boats, and via the Internet, has the
 *	Pilotage & Cruising Information: Real time information from established organisations can be beamed directly to your boat to enhance your onboard tools.
 
 ## [Security](#) <a class="anchor" id="security"></a>
-For any standard that has the ability to make your information available on the Internet, security needs to be at its heart. The Internet has widely adopted security standards, so there is no need to reinvent the wheel. Secure HTTPS and WSS connections, with the same authorisation and authentication techniques that you are using everyday on Facebook, Paypal, Googlemail, etc.
+We are constantly hearing horror stories of the latest security flaw being exploited by hackers and it is extremely important that any modern data standard, that allows your information to be transferred across the Internet, has security designed in to its heart.
+
+The Internet has widely adopted and proven security standards, so there was no need to reinvent the wheel. Signal K supports secure, encrypted HTTPS and WSS connections, with the same authorisation and authentication techniques that you are using everyday on Facebook, Paypal, Googlemail, online banking, etc. As a user, having fun sailing miles out at sea, it is easy to forget about security, but the in-built security of Signal K coupled with your own good security practices like strong passwords and WPA2 encryption on your wireless router, will keep your data safe.     
 
 ## [Signal K](#) <a class="anchor" id="signalk"></a>
 Signal K uses modern techniques to create a marine data standard for the 21st Century. It is:

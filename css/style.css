@@ -381,6 +381,52 @@ figure figcaption a {
   font-size: 3em;
 }
 
+/* Picture grid */
+
+.team-grid {
+  list-style: none;
+}
+
+.team-grid .name {
+  color: #96a9b5;
+  display: block;
+  font-size: 1.3125em;
+  font-weight: 700;
+  letter-spacing: 1.15px;
+  line-height: 1.2;
+  margin-left: 15px;
+  text-align: center;
+}
+
+.team-grid .profile::before {
+  content: "";
+  padding-right: 0;
+  display: normal;
+}
+
+.team-grid .profile p {
+  line-height: 1.1;
+  margin: 0 0 0.25em 15px;
+}
+
+.team-grid .profile .description {
+  height: 270px;
+  color: #403D39;
+  display: block;
+  text-align: left;
+  font-size: 1em;
+  line-height: 1.4375;
+  margin: 10px 0px 0px;
+}
+
+.team-grid .profile .picture-wrapper {
+  height: 190px;
+  width: 190px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0px auto 23px;
+}
+
 @media (max-width: 600px) {
   .container {
     width: 100% !important;

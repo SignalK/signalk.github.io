@@ -3,21 +3,17 @@ layout: main
 bodyclass: subpage
 ---
 
-<div id="header-wrapper">
+<div class="header-wrapper">
   {% include navigation.html %}
 </div>
 
 <!-- Content -->
-<div id="content-wrapper">
+<div class="content-wrapper">
   <div id="content">
     <div class="container">
-      <div class="row">
-        <div class="10u -1u">
-          <section class="article">
-          {{content}}
-          </section>
-        </div>
-      </div>
+      <section class="article">
+      {{content}}
+      </section>
     </div>
   </div>
 </div>

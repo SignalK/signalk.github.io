@@ -112,7 +112,8 @@ h6 {
 }
 
 .container-grid-3 section,
-.container-grid-2 section {
+.container-grid-2 section,
+.container section {
   background: #fff;
   box-shadow: 2px 2px 2px 1px rgba(128,128,128,0.1);
   padding: 15px;
@@ -251,6 +252,10 @@ nav a:hover, nav a:active {
 }
 
 @media (max-width: 600px) {
+  .container {
+    width: 100% !important;
+  }
+
   .container-grid {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 50px 1fr;

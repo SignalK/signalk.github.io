@@ -354,3 +354,7 @@ figure figcaption {
   font-size: 1.25rem;
   font-weight: bold;
 }
+
+.center {
+  text-align: center;
+}

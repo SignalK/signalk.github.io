@@ -33,6 +33,10 @@ strong {
   font-weight: bold;
 }
 
+.article {
+  counter-reset: figures;
+}
+
 .article li {
   padding-left: 1rem;
   margin-bottom: 0.5rem;
@@ -340,6 +344,7 @@ figure {
   border: 1px solid #ccc;
   border-radius: 3px;
   box-shadow: 1px 1px 2px 0px rgba(100, 100, 100, 0.25);
+  counter-increment: figures;
 }
 
 figure img {
@@ -353,6 +358,10 @@ figure figcaption {
   color: #5a5a5a;
   font-size: 1.25rem;
   font-weight: bold;
+}
+
+figure figcaption:before {
+  content: 'Fig. ' counter(figures) ' - ';
 }
 
 figure figcaption a {
@@ -382,6 +391,10 @@ figure figcaption a {
 .album figure figcaption {
   margin: 0;
   align-self: stretch;
+}
+
+.album figure figcaption:before {
+  content: '';
 }
 
 .album figure img {

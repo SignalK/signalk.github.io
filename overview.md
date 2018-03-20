@@ -72,7 +72,9 @@ The ability to share information with other boats, and via the Internet, has the
 ## [Security](#) <a class="anchor" id="security"></a>
 We are constantly hearing horror stories of the latest security flaw being exploited by hackers and it is extremely important that any modern data standard, that allows your information to be transferred across the Internet, has security designed in to its heart.
 
-The Internet has widely adopted and proven security standards, so there was no need to reinvent the wheel. Signal K supports secure, encrypted HTTPS and WSS connections, with the same authorisation and authentication techniques that you are using everyday on Facebook, Paypal, Googlemail, online banking, etc. As a user, having fun sailing miles out at sea, it is easy to forget about security, but the in-built security of Signal K coupled with your own good security practices like strong passwords and WPA2 encryption on your wireless router, will keep your data safe.     
+The Internet has widely adopted and proven security standards, so there was no need to reinvent the wheel. Signal K supports secure, encrypted HTTPS and WSS connections, with the same authorisation and authentication techniques that you are using everyday on Facebook, Paypal, Googlemail, online banking, etc.
+
+As a user, having fun sailing miles out at sea, it is easy to forget about security, but the in-built security of Signal K coupled with your own good security practices like strong passwords and WPA2 encryption on your wireless router, will keep your data safe.     
 
 ## [Signal K](#) <a class="anchor" id="signalk"></a>
 Signal K uses modern techniques to create a marine data standard for the 21st Century. It is:
@@ -87,7 +89,7 @@ It is easy to get started with Signal K. With a Google Group for users, Slack Ch
 
 Signal K works by having a small black box - a 'Signal K Server' - on board your boat. This can interface to existing NMEA networks onboard as well as databases, other Signal K data streams, and potentially land-based and cloud-based resources. The server can also hold static items like charts, routes and notes. It can also hold and act as a web-server for browser-based Apps.
 
-The Signal K server is available as a 'ready-to-fit' commercial product (such as the Digital Yacht iKommunicate), or you can download the software for free and run it yourself. The software runs on a range of single board computers as well as Linux, Windows and MacOS, see the [*Install page*]({{site.path}}/installation.html) for details.
+The Signal K server is available as a 'ready-to-fit' commercial product (such as the [*Digital Yacht iKommunicate*](http://ikommunicate.com)), or you can download the software for free and run it yourself. The software runs on a range of single board computers as well as Linux, Windows and MacOS, see the [*Install page*]({{site.path}}/installation.html) for details.
 
 
 A list of all the latest Signal K Apps and Services can be found on the [*Applications and Solutions page*]({{site.path}}/solutions.html).

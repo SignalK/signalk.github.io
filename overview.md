@@ -27,7 +27,7 @@ both developed by the National Marine Electronics Association (the NMEA):-
   one to one method of communication although you can have 3 or 4 listeners connected to one talker.
 
   <figure>
-    <img src="/images/diagrams/Typical_NMEA0183_Diagram.png" width="700px" height="460px">
+    <img src="{{site.path}}/images/diagrams/Typical_NMEA0183_Diagram.png" width="700px" height="460px">
     <figcaption>Typical NMEA 0183 Implementation</figcaption>
   </figure>
 
@@ -37,7 +37,7 @@ both developed by the National Marine Electronics Association (the NMEA):-
   listen to any other device or broadcast to all devices.
 
   <figure>
-    <img src="/images/diagrams/Typical_NMEA2000_Diagram.png" width="700px" height="322px">
+    <img src="{{site.path}}/images/diagrams/Typical_NMEA2000_Diagram.png" width="700px" height="322px">
     <figcaption>Typical NMEA 2000 Implementation</figcaption>
   </figure>
 
@@ -57,7 +57,7 @@ restricts how they can be used and in the case of NMEA 2000, a non-disclosure ag
 release of an open source application developed using these standards.
 
 <figure>
-  <img src="/images/diagrams/Technical+Legal_Barriers.png" width="700px" height="395px">
+  <img src="{{site.path}}/images/diagrams/Technical+Legal_Barriers.png" width="700px" height="395px">
   <figcaption>Technical and Legal Barriers</figcaption>
 </figure>
 

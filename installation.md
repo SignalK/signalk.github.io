@@ -19,7 +19,7 @@ a “smart gateway” that converts your existing NMEA data into Signal K format
 the gateway to your NMEA 0183 and/or NMEA 2000 networks and plugging the gateway into a wireless router.
 
 <figure>
-  <img src="/images/diagrams/SK_Smart_Gateway.png" width="700px">
+  <img src="{{site.path}}/images/diagrams/SK_Smart_Gateway.png" width="700px">
   <figcaption>Basic Starter Pack Installation</figcaption>
 </figure>
 
@@ -37,7 +37,7 @@ starting point. For a larger, more powerful Signal K system, but where stability
 Signal K server to an iKommunicate is the way to go.
 
 <figure>
-  <img src="/images/diagrams/SK_Server+Gateway.png" width="700px">
+  <img src="{{site.path}}/images/diagrams/SK_Server+Gateway.png" width="700px">
   <figcaption>Signal K Server and Gateway</figcaption>
 </figure>
 
@@ -45,7 +45,7 @@ If you enjoy getting your hands dirty and want to experiment with the “cutting
 with raw NMEA data coming from USB adaptors and gateways would be the best solution, as shown in the diagram below.
 
 <figure>
-  <img src="/images/diagrams/Signal_K_Server_Diagram.png" width="700px">
+  <img src="{{site.path}}/images/diagrams/Signal_K_Server_Diagram.png" width="700px">
   <figcaption>Signal K Server without Gateway</figcaption>
 </figure>
 
@@ -55,7 +55,7 @@ sensors, etc. is possible and will become more common in the future as more peop
 functionality and benefits it can bring.
 
 <figure>
-  <img src="/images/diagrams/SK_Multiple_Servers+Gateway.png" width="700px">
+  <img src="{{site.path}}/images/diagrams/SK_Multiple_Servers+Gateway.png" width="700px">
   <figcaption>Multiple Server Installation</figcaption>
 </figure>
 
@@ -73,7 +73,7 @@ Currently the most cost effective, powerful and best supported hardware platform
 Pi.
 
 <figure>
-  <img src="/images/Raspberry_Pi3_clear.jpg" width="522px" height="349px">
+  <img src="{{site.path}}/images/Raspberry_Pi3_clear.jpg" width="522px" height="349px">
   <figcaption>A Raspberry Pi</figcaption>
 </figure>
 
@@ -105,8 +105,8 @@ connect your RPi3 to a home/office network with internet, power up and wait for 
 
 For a full step by step guide on creating and using the NOOBS SD Card, please click the "Instructions" button below.
 
-<a href="/overview.html" class="button-big">Download</a>
-<a href="/overview.html" class="button-big">Instructions</a>
+<a href="{{site.path}}/overview.html" class="button-big">Download</a>
+<a href="{{site.path}}/overview.html" class="button-big">Instructions</a>
 
 ## [Interfacing to Other Devices](#) <a id="interface"></a>
 Most equipment on boats use NMEA 0183, NMEA 2000 or proprietary interfaces to communicate with each other. A lot of
@@ -124,7 +124,7 @@ data (electrically similar to RS-422) via a virtual serial port on the Signal K 
 In Linux the virtual serial port will typically appear as a device such as `/dev/ttyUSB0` (the number could be
 different if there are multiple USB-to-serial adapters connected). Linux assigns these device names automatically when
 the device is connected, so it could change. If you want to ensure that the device always has the same name, you will
-need to write a UDEV rule to specify an alias. See [creating UDEV rules](udev.html) for details.
+need to write a UDEV rule to specify an alias. See [creating UDEV rules]({{site.path}}/udev.html) for details.
 
 To verify that you have a working connection, you can use picocom or another terminal emulator to see if you are
 receiving data. The default baud rate for NMEA 0183 is 4800.

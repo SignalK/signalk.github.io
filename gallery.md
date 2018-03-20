@@ -12,7 +12,7 @@ to send us your own images, as we will be refreshing the gallery on a regular ba
 <div class="album">
   {% for image in site.data.gallery %}
     <figure data-toggle="gallery">
-      <img src="/images/gallery/{{image.image}}" id="img-{{forloop.index}}">
+      <img src="{{site.path}}/images/gallery/{{image.image}}" id="img-{{forloop.index}}">
       <figcaption>
         {{image.caption}}
       </figcaption>

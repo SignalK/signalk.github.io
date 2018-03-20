@@ -365,7 +365,7 @@ figure figcaption a {
 
 .bordered-feature-image {
   border-radius: 4px;
-  background: url("../images/banner3.jpg") no-repeat;
+  background: url("../images/banner.jpg") no-repeat;
   width: 800px;
   height: 200px;
   position: relative;
@@ -460,7 +460,6 @@ figure figcaption a {
 
   .bordered-feature-image {
     border-radius: 4px;
-    background: url("../images/banner3.jpg"); /* -140px -100px no-repeat; */
     width: calc(100% - 12px);
     min-height: 100px;
     position: relative;

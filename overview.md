@@ -91,6 +91,9 @@ Signal K works by having a small black box - a 'Signal K Server' - on board your
 
 The Signal K server is available as a 'ready-to-fit' commercial product (such as the [*Digital Yacht iKommunicate*](http://ikommunicate.com)), or you can download the software for free and run it yourself. The software runs on a range of single board computers as well as Linux, Windows and MacOS, see the [*Install page*]({{site.path}}/installation.html) for details.
 
+One of the latest developments on the Signal K Node server, is the support for [*"Plugins"*](https://en.wikipedia.org/wiki/Plug-in_(computing)). A plugin is an extra software component (program) that adds a specific feature to an existing computer program, in this case the Node Server. There are an increasing number of plugins being released and they are easily selected and installed on the "Signal K Plugin Store".
+
+<img src="/images/plugin_store.png" width="400">
 
 A list of all the latest Signal K Apps and Services can be found on the [*Applications and Solutions page*]({{site.path}}/solutions.html).
 

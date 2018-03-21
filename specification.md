@@ -8,17 +8,18 @@ description: "Technical Overview of the Signal K Specification and Schema."
 ---
 
 ## [Organization](#) <a class="anchor" id="organization"></a>
+
 Signal K has three key components:
 
-**The Data Model**      - This describes how to access information.
-**The Security Model**  - This describes how to make sure only the right people can carry out certain activities.
-**The Protocol**        - How the various components within the system interact with each other.
+1. The Data Model       - This describes how to access information.
+2. The Security Model   - This describes how to make sure only the right people can carry out certain activities.
+3. The Protocol         - How the various components within the system interact with each other.
 
 Signal K is hardware agnostic, and is intended to be used with commodity computer networks, using standards available at the time. See Transport Mechanisms below.
 
 To jump straight to the online Signal K specification and schema [*click here*](http://signalk.org/specification/1.0.0/doc/)
 
-## [The Data Model](#) <a class="anchor" id="model"></a>
+## [The Data Model](#) <a class="anchor" id="datamodel"></a>
 
 The Signal K data model (or schema) describes a large hierarchy of data points organized into topics and subtopics. It can
 contain data from your boat, other boats in the vicinity, aids to navigation (AToNs), marinas, local points of interest, online
@@ -69,7 +70,7 @@ Users can query the Signal K Server to determine what services it supports.
 
 More information on the Signal K Data Model including a complete list of the Schema Keys [*can be found here*](http://signalk.org/specification/1.0.0/doc/).
 
-## [The Security Module](#) <a class="anchor" id="secure"></a>
+## [The Security Model](#) <a class="anchor" id="secmodel"></a>
 
 The second component of Signal K is the security model. The Signal K security model should be familiar to anyone who has spent some amount of time using a Unix or Unix derivative (such as Linux or OS X). For those less familiar, the Unix file system security system specifies three permissions (read, write, execute) for three security principals (user, group, other). In Signal K, things are somewhat simplified by the fact that execute (as in cause an application to run) doesn’t really apply.
 

@@ -12,7 +12,9 @@ description: "Technical Overview of the Signal K Specification and Schema."
 Signal K has three key components:
 
 1. The Data Model       - This describes how to access information.
+
 2. The Security Model   - This describes how to make sure only the right people can carry out certain activities.
+
 3. The Protocol         - How the various components within the system interact with each other.
 
 Signal K is hardware agnostic, and is intended to be used with commodity computer networks, using standards available at the time. See Transport Mechanisms below.

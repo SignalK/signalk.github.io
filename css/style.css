@@ -220,7 +220,7 @@ table thead tr {
 
 #header a:hover,
 #header a:focus {
-  color: #15193b;
+  color: #ffcc00;
   font-style: italic;
 }
 
@@ -229,7 +229,7 @@ table thead tr {
 }
 
 #header a.active {
-  color: #000000;
+  color: #ffcc00;
 }
 
 #header img {

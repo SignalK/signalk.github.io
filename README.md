@@ -25,8 +25,11 @@ named with a leading underscore.
 
 If you rename a page or move its content elsewhere, be a good web citizen and add a redirect from the old location to
 the new. For instance, if you want to move the content of `overview.md` to `getting_started.md`, don't just remove
-`overview.md`, rather remove its content and add a `redirect` variable to its front matter pointing to the new page. See
-`specification.md` for an example of this.
+`overview.md`, rather remove its content and add a `redirect` variable to its front matter pointing to the new page.
+See `specification.md` for an example of this.
 
-When creating links to local resources, such as between pages, prefix them with `{{site.path}}` and use absolute, rather
-than relative paths. This ensures links continue to work in staging.
+When creating links to local resources, such as between pages, prefix them with `{{site.path}}` and use absolute,
+rather than relative paths. This ensures links continue to work in staging.
+
+In order to set the `active` class on the correct navbar link, a variable should be set in each page's front matter
+with the value `active` and the name of the link which should be active.

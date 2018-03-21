@@ -1,6 +1,6 @@
 ---
 title: Gallery
-team: active
+overview: active
 layout: onecolumn
 description: Image Gallery
 ---

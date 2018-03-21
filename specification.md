@@ -16,6 +16,8 @@ Signal K has three key components:
 
 Signalk is hardware agnostic, and is intended to be used with commodity computer networks, using standards available at the time. See Transport Mechanisms below.
 
+To jump straight in to the online Signal K specification and schema [*click here*](http://signalk.org/specification/1.0.0/doc/)
+
 ## [The Data Model](#) <a class="anchor" id="model"></a>
 
 The Signal K data model (or schema) describes a large hierarchy of data points organized into topics and subtopics. It can
@@ -65,6 +67,8 @@ sensor holds a partial copy of the model, containing just the data it is interes
 
 Users can query the SignalK Server to determine what services it supports.
 
+More information on the Signal K Data Model including a complete list of the Schema Keys [*can be found here*](http://signalk.org/specification/1.0.0/doc/).
+
 ## [Security](#) <a class="anchor" id="security"></a>
 
 The second component of Signal K is the security model. The Signal K security model should be familiar to anyone who has spent some amount of time using a Unix or Unix derivative (such as Linux or OS X). For those less familiar, the Unix file system security system specifies three permissions (read, write, execute) for three security principals (user, group, other). In Signal K, things are somewhat simplified by the fact that execute (as in cause an application to run) doesn’t really apply.
@@ -77,19 +81,19 @@ The third component is the Signal K protocol. This specifies how interactions be
 
 API Developers are free to implement the Data Model in their own way, however the most common way to interact with SignalK is via a RESTful HTTP(s) API. This supports the normal GET, PUT , SUBSCRIBE and UNSUBSCRIBE commands using the SignalK paths.
 
-###Subscribing to Data Streams
+### Subscribing to Data Streams
 A Signalk Server can make some information available as a data stream, and users can 'subscribe' to individual streams or to all of them. This is useful where continuous streams of updates are expected, such as navigational information.
 
-###Full and Delta Messages
+### Full and Delta Messages
 An advantage of the SignalK protocol is that it is largely self-describing, with sufficient information to be able to decode the message contained within it. For some purposes however, particularly for streaming sources, this may represent an unnecessary overhead. The protocol includes the ability to receive messages only containing 'updates' from selected sources. SignalK describes these as 'Delta' messages.
 
-###Discovery
+### Discovery
 Signalk Servers can find each other using DNS Service Discovery (also known as Bounjour).
 
-###Notifications
+### Notifications
 SignalK supports Alarms, Alerts and other forms of Notification.
 
-For more detail see the SignalK Specification.
+More detail on the Signal K protocols [*can be found here*](http://signalk.org/specification/1.0.0/doc/).
 
 ## [Transport Layer](#) <a class="anchor" id="transport"></a>
 

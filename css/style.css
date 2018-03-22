@@ -376,7 +376,7 @@ figure figcaption a {
   top: 20px;
   right: 20px;
   text-align: right;
-  text-shadow: 1px 1px 4px rgba(255, 240, 115, 0.75);
+  text-shadow: 1px 1px 4px rgba(255, 204, 0, 0.75);
   color: #039;
   font-size: 3em;
 }

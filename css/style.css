@@ -52,13 +52,13 @@ body, input, textarea, select {
   font-size: 16px;
   font-family: 'Jura', sans-serif;
   line-height: 1.45em;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   font-variant: bold;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 h4, h5, h6 {
@@ -84,7 +84,7 @@ small {
 }
 
 strong {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 table {

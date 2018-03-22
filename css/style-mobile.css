@@ -101,7 +101,7 @@ body, input, textarea, select {
 
 
 #links.affix-top {
-  display: none
+  position: absolute
 }
 
 

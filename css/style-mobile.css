@@ -99,9 +99,12 @@ body, input, textarea, select {
   display: none;
 }
 
+#links.affix {
+  display: none
+}
 
 #links.affix-top {
-  position: absolute
+  position: 0px
 }
 
 

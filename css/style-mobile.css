@@ -9,6 +9,13 @@
  * Mobile (<= 480px)
  */
 
+ a.anchor {
+     display: block;
+     position: relative;
+     top: -80px;
+     visibility: hidden;
+ }
+
 body, input, textarea, select {
   font-size: 16px;
   line-height: 1.4em;

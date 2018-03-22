@@ -25,8 +25,23 @@ body {
   font-size: 18px;
 }
 
-p, ul {
+p, ol, ul {
   margin-bottom: 1rem;
+}
+
+ol {
+  list-style: number;
+}
+
+p+ol {
+  margin-top: -1rem;
+}
+
+ol > li {
+  padding-left: 1rem;
+  margin-bottom: 0.15rem;
+  margin-left: 2rem;
+  position: relative;
 }
 
 strong {
@@ -41,13 +56,13 @@ a {
   counter-reset: figures;
 }
 
-.article li {
+.article ul > li {
   padding-left: 1rem;
   margin-bottom: 0.5rem;
   position: relative;
 }
 
-.article li:before {
+.article ul > li:before {
   position: absolute;
   left: 0;
   content: "» ";

@@ -97,17 +97,6 @@ Server](https://github.com/signalk/signalk-server-java) have detailed Raspberry 
 - [Signal K Java on Raspberry
   Pi](https://github.com/signalk/specification/wiki/Raspberry-Pi-Installation-%28Java-Server%29)
 
-## [New SD Card Image for NOOBS](#) <a id="noobs"></a>
-To coincide with the release of Signal K Version 1.0.0 and to help people get up and running with Signal K in the
-quickest and easiest manner, the team have created a NOOBS SD Card Image. Simply download the image by clicking the
-"Download" button below, copy the image file on to a blank SD card (8GB recommended), plug the SD Card in to your RPi3,
-connect your RPi3 to a home/office network with internet, power up and wait for the magic to happen.
-
-For a full step by step guide on creating and using the NOOBS SD Card, please click the "Instructions" button below.
-
-<a href="{{site.path}}/overview.html" class="button-big">Download</a>
-<a href="{{site.path}}/overview.html" class="button-big">Instructions</a>
-
 ## [Interfacing to Other Devices](#) <a id="interface"></a>
 Most equipment on boats use NMEA 0183, NMEA 2000 or proprietary interfaces to communicate with each other. A lot of
 work has been done within the Signal K community to convert these different data formats in to Signal K. One option is
@@ -155,9 +144,15 @@ Actisense.
 
 ### [Proprietary Interfaces](#) <a id="proprietary"></a>
 There are a number of proprietary interfaces in the marine industry and by their nature they tend to be pretty “closed”
-formats and the manufacturers who create them do not publish any protocol information.  With Signal K being an open
+formats and the manufacturers who create them do not publish any protocol information. With Signal K being an open
 source data format, we are keen to support as many interface formats as possible and are working hard to encourage
 manufacturers to open up their proprietary formats.
 
-The most common proprietary format in the marine industry is arguably SeaTalk® which was developed by Autohelm in the
-1990s and which is now owned by Raymarine Ltd.
+The most common proprietary format in the marine industry is arguably SeaTalk™ which was developed by Autohelm in the
+1990s and trade mark is now owned by Raymarine Limited. SeaTalk uses the same 4800 baud rate as NMEA 0183 but allowed
+bi-directional serial data transfer across the network down one data wire.
+
+Even though Raymarine no longer make a SeaTalk 1 interface, there are a number of 3rd party solutions that either
+convert to NMEA0183, which both of the Signal K servers can read, or convert to a raw $STALK format that allows more
+control and access to the SeaTalk data. One such interface that handles both types of SeaTalk conversions is the
+[ST-NMEA interface](http://digitalyacht.co.uk/product/st-nmea-usb/) from Digital Yacht.

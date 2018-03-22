@@ -100,13 +100,8 @@ body, input, textarea, select {
 }
 
 #links.affix {
-  display: none
+  position: fixed
 }
-
-#links.affix-top {
-  position: 0px
-}
-
 
 #header-wrapper {
   background-color: : #003399;

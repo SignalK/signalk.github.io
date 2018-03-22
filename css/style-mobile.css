@@ -100,7 +100,7 @@ body, input, textarea, select {
 }
 
 #links.affix {
-  position: fixed
+  position: sticky;
 }
 
 #header-wrapper {

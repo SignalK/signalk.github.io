@@ -70,10 +70,6 @@ h1, h2, h3 {
   font-family: 'Rubik', sans-serif;
 }
 
-b {
-  font-weight: bold;
-}
-
 em {
   font-style: italic;
 }
@@ -88,7 +84,7 @@ small {
 }
 
 strong {
-  font-style: black
+  font-style: black;
   font-weight: 800;
 }
 

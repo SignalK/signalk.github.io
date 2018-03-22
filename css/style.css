@@ -52,7 +52,7 @@ body, input, textarea, select {
   font-size: 16px;
   font-family: 'Jura', sans-serif;
   line-height: 1.45em;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -84,7 +84,7 @@ small {
 }
 
 strong {
-  font-weight: 600;
+  font-weight: 800;
 }
 
 table {

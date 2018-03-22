@@ -126,15 +126,20 @@ It is easy to get started with Signal K. With a Google Group for users, Slack Ch
 information, low cost hardware and many free or low costs apps and solutions, you can quickly build a system and start
 benefiting from the tens of thousands of man-hours of community development that has gone in to Signal K.
 
-Signal K works by having a small black box - a 'Signal K Server' - on board your boat. This can interface to existing
-NMEA networks onboard as well as databases, other Signal K data streams, and potentially land-based and cloud-based
-resources. The server can also hold static items like charts, routes and notes. It can also hold and act as a
-web-server for browser-based Apps.
+Signal K works by having a small black box—a Signal K Server—on board your boat. This can interface to existing NMEA
+networks onboard as well as databases, other Signal K data streams, and potentially land- and cloud-based resources.
+The server can also hold static items like charts, routes and notes. It can also act as a web server for browser-based
+Apps.
 
-The Signal K server is available as a 'ready-to-fit' commercial product (such as the [Digital Yacht
-iKommunicate](http://ikommunicate.com)), or you can download the software for free and run it yourself. The software
-runs on a range of single board computers as well as Linux, Windows and MacOS, see the [Install
-page]({{site.path}}/installation.html) for details.
+One of the latest developments on the Signal K Node server, is the support for
+[plugins](https://en.wikipedia.org/wiki/Plug-in_(computing)). A plugin is an extra software component (program)
+that adds a specific feature to an existing computer program, in this case the Node Server. There are an increasing
+number of plugins being released and they are easily selected and installed on the "Signal K Plugin Store".
+
+<figure>
+  <img src="{{site.path}}/images/diagrams/pluginstore.png" width="700px" height="476px">
+  <figcaption>Example Plugin Store Listing</figcaption>
+</figure>
 
 A list of all the latest Signal K Apps and Services can be found on the [Applications and Solutions
 page]({{site.path}}/solutions.html).

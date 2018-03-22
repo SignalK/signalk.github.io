@@ -99,11 +99,11 @@ body, input, textarea, select {
   display: none;
 }
 
-/*
-#links.affix {
+
+#links.affix-top {
   display: none
 }
-*/
+
 
 #header-wrapper {
   background-color: : #003399;

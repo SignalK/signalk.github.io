@@ -75,6 +75,8 @@ em {
 }
 
 figure {
+  margin: 1rem auto;
+  padding: 4px;
   text-align: center;
   counter-increment: figures;
 }
@@ -87,6 +89,7 @@ figure figcaption {
   background: #003399;
   padding: 1rem;
   margin: -4px;
+  border-radius: 5px
   color: #ffffff;
   font-size: 1.25rem;
   font-weight: 800;

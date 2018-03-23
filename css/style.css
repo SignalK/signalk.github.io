@@ -13,8 +13,9 @@ a,
 a:active,
 a:focus,
 a:hover,
-a:visited {
-  text-decoration: none;
+a:link {
+  color: #15193b;
+  text-decoration: underline;
 }
 
 a.anchor {

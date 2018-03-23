@@ -17,7 +17,7 @@ applications and to connect modern boats to the Internet of Things.
 
 ## [Background](#) <a class="anchor" id="background"></a>
 In the last few years, it has become clear that there is a real need for a new communications protocol for the marine
-industry that will address the needs of a changing and ever more interconnected world. There are a number of existing marine data protocols, some that are proprietary such as Raymarine's SeaTalk interface, but the two most popular were both developed by the National Marine Electronics Association (the NMEA):-
+industry that will address the needs of a changing and ever more interconnected world. There are a number of existing marine data protocols, some that are proprietary such as Raymarine's SeaTalk interface, but the two most popular were both developed by the [*National Marine Electronics Association*](http://www.nmea.org/) (the NMEA):-
 
 ### NMEA0183
 Based on the RS422 serial interface, is now over 35 years old but has aged remarkably well and is still in use on many leisure and commercial vessels. As you can see from the diagram, you have to have lots of pairs of wires going between equipment, in fact two pairs of wires if you want bi-directional communication. It is primarily a one to one method of communication although you can have 3 or 4 "listeners" (inputs) connected to one "talker" (output).

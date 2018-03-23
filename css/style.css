@@ -75,12 +75,7 @@ em {
 }
 
 figure {
-  margin: 1rem auto;
-  padding: 4px;
   text-align: center;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  box-shadow: 1px 1px 2px 0px rgba(100, 100, 100, 0.25);
   counter-increment: figures;
 }
 
@@ -89,12 +84,12 @@ figure img {
 }
 
 figure figcaption {
-  background: #ccc;
+  background: #003399;
   padding: 1rem;
   margin: -4px;
-  color: #5a5a5a;
+  color: #ffffff;
   font-size: 1.25rem;
-  font-weight: bold;
+  font-weight: 800;
 }
 
 figure figcaption:before {

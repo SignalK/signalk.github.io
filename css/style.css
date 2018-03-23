@@ -74,6 +74,37 @@ em {
   font-style: italic;
 }
 
+figure {
+  margin: 1rem auto;
+  padding: 4px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px 0px rgba(100, 100, 100, 0.25);
+  counter-increment: figures;
+}
+
+figure img {
+  margin: 0.5rem 0 1rem 0;
+}
+
+figure figcaption {
+  background: #ccc;
+  padding: 1rem;
+  margin: -4px;
+  color: #5a5a5a;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+figure figcaption:before {
+  content: 'Fig. ' counter(figures) ' - ';
+}
+
+figure figcaption a {
+  color: inherit;
+}
+
 section:last-child,
 .last-child {
   margin-bottom: 0 !important;

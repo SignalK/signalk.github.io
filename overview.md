@@ -22,14 +22,20 @@ industry that will address the needs of a changing and ever more interconnected 
 ### NMEA0183
 Based on the RS422 serial interface, is now over 35 years old but has aged remarkably well and is still in use on many leisure and commercial vessels. As you can see from the diagram, you have to have lots of pairs of wires going between equipment, in fact two pairs of wires if you want bi-directional communication. It is primarily a one to one method of communication although you can have 3 or 4 "listeners" (inputs) connected to one "talker" (output).
 
+<figure>
 <img src="/images/diagrams/Typical_NMEA0183_Diagram.png" width="400">
+<figcaption>Typical NMEA 0183 Implementation</figcaption>
+</figure>
 
 ### NMEA2000
 Based on the same CAN Bus technology used in cars, is now over 15 years old and although adoption was relatively slow, most new boats have an NMEA2000 network. It can handle a wide spread of information sources from engines to stereos and is faster that NMEA0183 but more difficult to interface to.
 
 As you can see from the diagram, you have a network "back bone" with "spurs" or drop cables that take power and data to the equipment. Every device on the network can talk or listen to any other device or broadcast to all devices.
 
+<figure>
 <img src="/images/diagrams/Typical_NMEA2000_Diagram.png" width="400">
+<figcaption>Typical NMEA 2000 Implementation</figcaption>
+</figure>
 
 For developers of modern mobile/web apps and cloud services, there are two main problems with the existing standards.
 
@@ -45,7 +51,10 @@ Although all NMEA standards are published and available for use by any developer
 standards”, anyone wishing to use them must not only pay for the standards but also sign a license agreement which
 restricts how they can be used and in the case of NMEA 2000, a non-disclosure agreement. Hardware manufacturers are also obliged to have their equipment ‘certified’ before they can sell it, an expensive process for small companies.  In essence, this prevents the release of an open source application developed using these standards and presents a high cost of entry for smaller developers.
 
+<figure>
 <img src="/images/diagrams/Technical+Legal_Barriers.png" width="400">
+<figcaption>Technical and Legal Barriers</figcaption>
+</figure>
 
 Finally, and most importantly, both NMEA standards and the other proprietary protocols in the industry were developed
 when the instruments on the average boat were much simpler and much less capable. In a world where your home thermostat
@@ -93,7 +102,10 @@ The Signal K server is available as a 'ready-to-fit' commercial product (such as
 
 One of the latest developments on the Signal K Node server, is the support for [*"Plugins"*](https://en.wikipedia.org/wiki/Plug-in_(computing)). A plugin is an extra software component (program) that adds a specific feature to an existing computer program, in this case the Node Server. There are an increasing number of plugins being released and they are easily selected and installed on the "Signal K Plugin Store".
 
+<figure>
 <img src="/images/diagrams/pluginstore.png" width="400">
+<figcaption>List of Available "Plugins"</figcaption>
+</figure>
 
 A list of all the latest Signal K Apps and Services can be found on the [*Applications and Solutions page*]({{site.path}}/solutions.html).
 

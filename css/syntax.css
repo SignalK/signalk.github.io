@@ -8,7 +8,7 @@ code {
           border-radius: 2px;
 }
 
-.highlight  {
+pre.highlight  {
   background: #eed;
   font-family: monospace;
   font-size: 14px;
@@ -23,7 +23,7 @@ code {
           box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
 }
 
-.highlight code {
+pre.highlight code {
   background: inherit;
   font-family: inherit;
   font-size: inherit;

@@ -12,12 +12,9 @@
 a,
 a:active,
 a:focus,
-a:hover {
-  text-decoration: underline;
-}
-a:link {
-  font-style: italic;
-  font-weight: 800;
+a:hover,
+a:visited {
+  text-decoration: none;
 }
 
 a.anchor {
@@ -25,6 +22,12 @@ a.anchor {
     position: relative;
     top: -50px;
     visibility: hidden;
+}
+
+a.hyper {
+  text-decoration: underline;
+  font-weight: 800;
+  color: #003399;
 }
 
 blockquote {

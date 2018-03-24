@@ -12,10 +12,12 @@
 a,
 a:active,
 a:focus,
-a:hover,
-a:link {
-  color: #15193b;
+a:hover {
   text-decoration: underline;
+}
+a:link {
+  font-style: italic;
+  font-weight: 800;
 }
 
 a.anchor {

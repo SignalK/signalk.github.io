@@ -19,7 +19,7 @@ For boat owners that want to use Signal K with the minimum of effort, then the B
 <figcaption>Basic Starter Pack</figcaption>
 </figure>
 
-The most popular "smart gateway" is Digital Yacht's <a class="hyper">[*iKommunicate gateway*](http://ikommunicate.com)</a> which has three NMEA0183 and one NMEA2000 interfaces. It comes with some built-in Signal K web apps to get you started or you can copy other apps on to its 8GB SD card.
+The most popular "smart gateway" is Digital Yacht's [<a class="hyper">iKommunicate gateway</a>](http://ikommunicate.com)</a> which has three NMEA0183 and one NMEA2000 interfaces. It comes with some built-in Signal K web apps to get you started or you can copy other apps on to its 8GB SD card.
 
 As your experience and confidence in Signal K grows, you can simply add a Signal K server to iKommunicate to make one of the advanced or expert packs (see below).
 

@@ -24,9 +24,10 @@ a.anchor {
     visibility: hidden;
 }
 
-a.hyper {
+a.hyper:link {
   text-decoration: underline;
-  font-weight: 800;
+}
+a.hyper:hover {
   color: #003399;
 }
 

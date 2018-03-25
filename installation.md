@@ -19,7 +19,7 @@ For boat owners that want to use Signal K with the minimum of effort, then the B
 <figcaption>Basic Starter Pack</figcaption>
 </figure>
 
-The most popular "smart gateway" is Digital Yacht's <a class="hyper" href="http://ikommunicate.com" target="_blank">ikommunicate gateway</a> which has three NMEA0183 and one NMEA2000 interfaces. It comes with some built-in Signal K web apps to get you started or you can copy other apps on to its 8GB SD card.
+The most popular "smart gateway" is Digital Yacht's <a class="hyper" href="http://ikommunicate.com" target="_blank">iKommunicate Gateway</a> which has three NMEA0183 and one NMEA2000 interfaces. It comes with some built-in Signal K web apps to get you started or you can copy other apps on to its 8GB SD card.
 
 As your experience and confidence in Signal K grows, you can simply add a Signal K server to iKommunicate to make one of the advanced or expert packs (see below).
 
@@ -63,12 +63,10 @@ With starter kits that include everything you need for around $50 USD, you can u
 
 There are currently two "flavours" of Signal K server at the moment, one written for Node.js (JavaScript) and the other written in Java. Rather imaginatively they are referred to as the Node-Server and the Java-Server and both are open source and free to use. Unless you are a Java programmer and intend to do your development, the Node-Server is probably the more popular and up to date of the two server solutions (as of Feb 2018), but there is nothing to stop you installing both and seeing which you prefer.
 
-Both the [*Node.js Server*](https://github.com/signalk/signalk-server-node) and the [*Java
-Server*](https://github.com/signalk/signalk-server-java) have detailed Raspberry Pi “Getting Started” guides:
+Both the  <a class="hyper" href="https://github.com/signalk/signalk-server-node" target="_blank">Node.js Server</a> and the <a class="hyper" href="https://github.com/signalk/signalk-server-java" target="_blank">Java Server</a> have detailed Raspberry Pi “Getting Started” guides:
 
-- [_*Signal K Node.js on Raspberry
-  Pi*_](https://github.com/signalk/signalk-server-node/blob/master/raspberry_pi_installation.md)
-- [_*Signal K Java on Raspberry Pi*_](https://github.com/signalk/specification/wiki/Raspberry-Pi-Installation-(Java-Server))
+- <a class="hyper" href="https://github.com/signalk/signalk-server-node/blob/master/raspberry_pi_installation.md" target="_blank">Signal K Node.js on Raspberry Pi</a>
+- <a class="hyper" href="https://github.com/signalk/specification/wiki/Raspberry-Pi-Installation" target="_blank">Signal K Java on Raspberry Pi</a>
 
 <!-- Commented Out until we have the NOOBs card and instructions done
 
@@ -82,9 +80,9 @@ For a full step by step guide on creating and using the NOOBS SD Card, please cl
 -->
 
 ## [Interfacing to Other Devices](#) <a class="anchor" id="interface"></a>
-Most equipment on boats use NMEA0183, NMEA2000 or proprietary interfaces to communicate with each other. A lot of work has been done within the Signal K community to convert these different data formats in to Signal K. One option is to use an [*iKommunicate*](http://ikommunicate.com) to convert NMEA to Signal K, but if you want to use the raw data to access proprietary sentences, PGNs, etc. then the following are recommended;
+Most equipment on boats use NMEA0183, NMEA2000 or proprietary interfaces to communicate with each other. A lot of work has been done within the Signal K community to convert these different data formats in to Signal K. One option is to use an <a class="hyper" href="http://ikommunicate.com" target="_blank">iKommunicate Gateway</a> to convert NMEA to Signal K, but if you want to use the raw data to access proprietary sentences, PGNs, etc. then the following are recommended;
 
-**NMEA0183**  - There are a number of NMEA to USB adaptors around from [*Actisense*](http://www.actisense.com/product/usg-2/), [*Digital Yacht*](http://digitalyacht.co.uk/product/usb-nmea-adaptor/), [*Shipmodule*](http://www.shipmodul.com/en/miniplex-lite.html) which allow bi-directional transfer of the NMEA0183 Serial data (electrically similar to RS422) and convert it in to a USB virtual COM Port when plugged in to the Signal K server.
+**NMEA0183**  - There are a number of NMEA to USB adaptors around from <a class="hyper" href="http://www.actisense.com/product/usg-2/" target="_blank">Actisense</a>,<a class="hyper" href="http://digitalyacht.co.uk/product/usb-nmea-adaptor/" target="_blank">Digital Yacht</a> and <a class="hyper" href="http://www.shipmodul.com/en/miniplex-lite.html" target="_blank">Shipmodule</a>[**](), [**]() which allow bi-directional transfer of the NMEA0183 Serial data (electrically similar to RS422) and convert it in to a USB virtual COM Port when plugged in to the Signal K server.
 
 In LINUX the virtual COM Port will be seen as a device called `/dev/ttyUSB0` (the number could be different if there are multiple USB-to-serial adapters connected). Linux assigns these device names automatically when the device is connected, so it could change. If you want to ensure that the device always has the same name, you will need to write a UDEV rule to specify an alias. See [*creating UDEV rules*](udev.html) for details.
 
@@ -97,9 +95,9 @@ $ picocom -b 4800 /dev/ttyUSB0
 
 You should see NMEA 0183 sentences scrolling off the screen. To exit picocom press `Ctrl-a` followed by `Ctrl-x`.
 
-**NMEA 2000 Instruments** - For NMEA 2000, there are less options. A quick search on Google will return a number of NMEA2000 to USB gateways, but the interface device is just one half of the solution. The other equally important part is the software that can read the data from the gateway and then convert it in to a format that the Signal K server understands. This software called [*CANboat*](https://github.com/canboat/canboat) is a suite of tools that can read and write NMEA2000 data and convert it in to Signal K.
+**NMEA 2000 Instruments** - For NMEA 2000, there are less options. A quick search on Google will return a number of NMEA2000 to USB gateways, but the interface device is just one half of the solution. The other equally important part is the software that can read the data from the gateway and then convert it in to a format that the Signal K server understands. This software called <a class="hyper" href="https://github.com/canboat/canboat" target="_blank">CANboat</a> is a suite of tools that can read and write NMEA2000 data and convert it in to Signal K.
 
-Currently, CANboat only supports the [*NGT-1-USB from Actisense*](http://www.actisense.com/product/nmea-2000-to-pc-interface-ngt-1/) and any CAN Interface that supports "SocketCAN" such as the [CANable board](http://canable.io/).
+Currently, CANboat only supports the <a class="hyper" href="http://www.actisense.com/product/nmea-2000-to-pc-interface-ngt-1/" target="_blank">NGT-1-USB from Actisense</a> and any CAN Interface that supports "SocketCAN" such as the <a class="hyper" href="http://canable.io/" target="_blank">CANable board</a>.
 
 CANBoat has recently been ported to JavaScript and is now part of the Signal K Node Server build, so no additional installation of CANBoat is required.    
 
@@ -107,4 +105,4 @@ CANBoat has recently been ported to JavaScript and is now part of the Signal K N
 
 The most common proprietary format in the marine industry is arguably SeaTalk™ which was developed by Autohelm in the 1990s and trade mark is now owned by Raymarine Limited. SeaTalk uses the same 4800 baud rate as NMEA0183 but allowed bi-directional serial data transfer across the network down one data wire.
 
-Even though Raymarine no longer make a SeaTalk 1 interface, there are a number of 3rd party solutions that either convert to NMEA0183, which both of the Signal K servers can read, or convert to a raw $STALK format that allows more control and access to the SeaTalk data. One such interface that handles both types of SeaTalk conversions is the [*ST-NMEA interface*](http://digitalyacht.co.uk/product/st-nmea-usb/) from Digital Yacht.
+Even though Raymarine no longer make a SeaTalk 1 interface, there are a number of 3rd party solutions that either convert to NMEA0183, which both of the Signal K servers can read, or convert to a raw $STALK format that allows more control and access to the SeaTalk data. One such interface that handles both types of SeaTalk conversions is the <a class="hyper" href="http://digitalyacht.co.uk/product/st-nmea-usb/" target="_blank">ST-NMEA interface</a> from Digital Yacht.

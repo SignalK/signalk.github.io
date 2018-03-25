@@ -26,9 +26,11 @@ a.anchor {
 
 a.hyper:link {
   text-decoration: underline;
+  font-style: italic;
+  color: #003399;
 }
 a.hyper:hover {
-  color: #003399;
+  color: yellow;
 }
 
 blockquote {

@@ -107,7 +107,7 @@ body, input, textarea, select {
 }
 
 #links.affix {
-  position: sticky;
+  position: static;
   transform: translateZ(0);
 }
 

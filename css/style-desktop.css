@@ -14,12 +14,12 @@ body {
 }
 
 #banner {
-  border-top: solid 1px #222628;
-  box-shadow: inset 0px 1px 0px 0px #3e484a;
+  background-color: #003399;
   padding: 35px 0;
 }
 
 #banner p {
+  color: #ffffff;
   font-size: 2em;
   line-height: 1.25em;
   margin: 0 1em 1em 0;
@@ -39,7 +39,6 @@ body {
 }
 
 #content-wrapper {
-  border-top: solid 1px #fff;
   padding: 45px 0 45px 0;
 }
 
@@ -65,7 +64,12 @@ body {
 }
 
 #header {
-  min-height: 155px;
+  padding-left: 20px;
+  padding-right: 20px;
+  min-height: 50px;
+  line-height: 50px;
+  border-radius: 5px;
+  background-color: #003399;
 }
 
 #header a {

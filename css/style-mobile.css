@@ -9,6 +9,13 @@
  * Mobile (<= 480px)
  */
 
+ a.anchor {
+     display: block;
+     position: relative;
+     top: -80px;
+     visibility: hidden;
+ }
+
 body, input, textarea, select {
   font-size: 16px;
   line-height: 1.4em;
@@ -22,6 +29,7 @@ body, input, textarea, select {
 }
 
 #banner p {
+  color: #ffffff;
   font-size: 1.25em;
   line-height: 1.33em;
   margin: 0.5em 0.25em;
@@ -44,6 +52,11 @@ body, input, textarea, select {
 
 #content-wrapper {
   padding: 5px;
+}
+
+#sklogo {
+  padding-top: 50px;
+  background-color: #FFFFFF
 }
 
 #copyright {
@@ -94,16 +107,17 @@ body, input, textarea, select {
 }
 
 #links.affix {
-  display: none;
+  position: static;
+  transform: translateZ(0);
 }
 
 #header-wrapper {
-  background: #3B4346 url('images/bg01.jpg') top center;
+  background-color: : #003399;
   box-shadow: inset 0px -1px 0px 0px #272d30, inset 0px -2px 0px 0px #51575a;
 }
 
 #navPanel {
-  background: url('images/bg04.jpg');
+  background-color: #15193b;
   box-shadow: inset -1px 0px 0px 0px rgba(255,255,255,0.25), inset -2px 0px 25px 0px rgba(0,0,0,0.5);
   text-shadow: -1px -1px 1px rgba(0,0,0,1);
 }
@@ -127,8 +141,7 @@ body, input, textarea, select {
 }
 
 #titleBar {
-  color: #fff;
-  background: url('images/bg04.jpg');
+  background-color: #15193b;
   box-shadow: inset 0px -20px 70px 0px rgba(200,220,245,0.1), inset 0px -1px 0px 0px rgba(255,255,255,0.1), 0px 1px 7px 0px rgba(0,0,0,0.6);
   text-shadow: -1px -1px 1px rgba(0,0,0,0.75);
 }

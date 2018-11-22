@@ -301,6 +301,10 @@ table thead tr {
   width: 100%;
 }
 
+.article .gravatar {
+  width: 32px;
+}
+
 .article ul {
   padding-left: 20px;
   display: table;

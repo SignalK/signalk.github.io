@@ -4,7 +4,7 @@ layout: post
 author: Brian Smith
 email: ba58smith at gmail dot com,
 gravatar: https://avatars2.githubusercontent.com/u/15186790?s=400&v=4
-status: draft
+status: published
 ---
 
 When we bought our 14 year old trawler in 2016, I knew I wanted to improve the instrumentation. Not only the obvious things (chart plotter, radar, sonar, etc.), but also data about the engine that would alert me to a problem long before the engine started coming apart. At the Miami Boat Show, I stumbled across the Digital Yacht booth, where they were showing some equipment that used a new marine data standard called Signal K. It would let you see all the data from your boat’s data network (NMEA 0183 and 2000) on any smartphone, tablet, or computer screen, via wifi. *COOL!*, I thought!

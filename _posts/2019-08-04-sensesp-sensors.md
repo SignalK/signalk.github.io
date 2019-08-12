@@ -1,5 +1,5 @@
 ---
-title: DIY sensors with Signal K and SensESP
+title: DIY sensors with Signal K
 layout: post
 author: Brian Smith
 email: ba58smith at gmail dot com,

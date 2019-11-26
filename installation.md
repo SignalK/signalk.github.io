@@ -133,11 +133,15 @@ the data from the gateway and then convert it in to a format that the Signal K s
 <a href="https://github.com/canboat/canboat" target="_blank">CANboat</a> is a suite of tools that can read and write
 NMEA 2000 data and convert it in to Signal K.
 
-Currently, CANboat only supports the
+CANboat supports a number of NMEA2000 gateways including the
 <a href="http://www.actisense.com/product/nmea-2000-to-pc-interface-ngt-1/" target="_blank">
   NGT-1-USB from Actisense
 </a>
-and any CAN Interface that supports "SocketCAN" such as the
+and 
+<a href="https://digitalyachtamerica.com/product/ikonvert-usb/" target="_blank">
+  Digital Yacht's iKonvert
+</a>
+plus any CAN Interface that supports "SocketCAN" such as the
 <a href="http://canable.io/" target="_blank">CANable board</a>.
 
 CANBoat has recently been ported to JavaScript and is now part of the Signal K Node Server build, so no additional

@@ -127,7 +127,7 @@ It is easy to get started with Signal K. With a Google Group for users, Slack Ch
 information, low cost hardware and many free or low costs apps and solutions, you can quickly build a system and start
 benefiting from the tens of thousands of man-hours of community development that has gone in to Signal K.
 
-Signal K works by having a small black box — a Signal K Server—on board your boat. This can interface to existing
+Signal K works by having a small black box — a Signal K Server — on board your boat. This can interface to existing
 NMEA networks onboard as well as databases, other Signal K data streams, and potentially land-based and cloud-based
 resources. The server can also hold static items like charts, routes and notes. It can also hold and act as a
 web-server for browser-based Apps.

@@ -147,7 +147,7 @@ number of plugins being released and they are easily selected and installed on t
   <figcaption>List of Available “Plugins”</figcaption>
 </figure>
 
-A [click here](https://www.npmjs.com/search?q=signalk-node-server-plugin) for a list of all the latest Signal K plugins or [click here](https://www.npmjs.com/search?q=signalk-webapp) for a list of the latest Signal K Web Apps that can be installed via NPM. Additional Signal K Apps and Solutions can be found on the [Applications and Solutions
+Please [click here](https://www.npmjs.com/search?q=signalk-node-server-plugin) for a list of all the latest Signal K plugins or [click here](https://www.npmjs.com/search?q=signalk-webapp) for a list of the latest Signal K Web Apps that can be installed via NPM. Additional Signal K Apps and Solutions can be found on the [Applications and Solutions
 page]({{site.path}}/solutions.html).
 
 Signal K is an on-going, collaborative effort between a global network of volunteers and interested hardware

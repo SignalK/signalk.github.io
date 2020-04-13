@@ -109,7 +109,7 @@ connected, so it could change. If you want to ensure that the device always has 
 UDEV rule to specify an alias. See [creating UDEV rules](udev.html) for details.
 
 To verify that you have a working connection, you can use picocom or another terminal emulator to see if you are
-receiving data. The default baud rate for NMEA 0183 is 4800.
+receiving data. The default baud rate for standard NMEA 0183 is 4800, whilst AIS and multiplexers use NMEA 0183(HS) at the "High Speed" 38400 baud rate.
 
 ```
 $ picocom -b 4800 /dev/ttyUSB0
@@ -124,12 +124,32 @@ the data from the gateway and then convert it in to a format that the Signal K s
 <a href="https://github.com/canboat/canboat" target="_blank">CANboat</a> is a suite of tools that can read and write
 NMEA 2000 data and convert it in to Signal K.
 
-Currently, CANboat only supports the
-<a href="http://www.actisense.com/product/nmea-2000-to-pc-interface-ngt-1/" target="_blank">
-  NGT-1-USB from Actisense
+Currently, CANboat supports the following NMEA 2000 to USB Gateways:
+
+- <a href="https://digitalyacht.co.uk/product/ikonvert-nmea-2000-to-usb/" target="_blank">
+  iKonvert USB from Digital Yacht (NMEA Certified)
 </a>
+- <a href="http://www.actisense.com/product/nmea-2000-to-pc-interface-ngt-1/" target="_blank">
+  NGT-1-USB from Actisense (NMEA Certified)
+</a>
+
 and any CAN Interface that supports "SocketCAN" such as the
 <a href="http://canable.io/" target="_blank">CANable board</a>.
+
+Alternatively if you want to have a wireless NMEA 2000 gateway, CANboat supports these products:
+
+- <a href="https://digitalyacht.co.uk/product/navlink2/" target="_blank">
+  NavLink 2 from Digital Yacht (NMEA Certified)
+</a>
+- <a href="https://digitalmarinegauges.com/seasmart-network-gateways/" target="_blank">
+  SeaSmart by Chetco (NMEA Certified)
+</a>
+- <a href="https://www.simrad-yachting.com/simrad/type/accessories/cables-connectors/gofree-wifi1-wireless-module/" target="_blank">
+  GoFree Wifi-1 by Simrad
+</a>
+- <a href="https://www.yachtd.com/purchase/" target="_blank">
+  YDGW-02 by Yacht Devices
+</a>
 
 CANBoat has recently been ported to JavaScript and is now part of the Signal K Node Server build, so no additional
 installation of CANBoat is required.

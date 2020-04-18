@@ -121,7 +121,7 @@ You should see NMEA 0183 sentences scrolling off the screen. To exit picocom pre
 For NMEA 2000, there are less options. A quick search on Google will return a number of NMEA2000 to USB gateways, but
 the interface device is just one half of the solution. The other equally important part is the software that can read
 the data from the gateway and then convert it in to a format that the Signal K server understands. This software called
-<a href="https://github.com/canboat/canboat" target="_blank">CANboat</a> is a suite of tools that can read and write
+<a href="https://github.com/canboat/canboatjs" target="_blank">CANboat</a> is a suite of tools that can read and write
 NMEA 2000 data and convert it in to Signal K.
 
 Currently, CANboat supports the following NMEA 2000 to USB Gateways:

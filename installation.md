@@ -72,31 +72,22 @@ If you do decide to use a laptop (or desktop), then you should have no problem r
 Windows, OS X or Linux, with Linux being the most tested and used operating system for Signal K.
 
 Currently the most cost effective, powerful and best supported hardware platform for a Signal K server is the Raspberry
-Pi.
+Pi. Any Raspberry Pi (even the very first model) can be used but for best performance we recommend the latest RPi 3 model B+ or the new RPi 4 model B.
 
 <figure>
-  <img src="/images/Raspberry_Pi3_clear.jpg" width="400">
-  <figcaption>Raspberry Pi 3</figcaption>
+  <img src="/images/Raspberry_Pi4_clear.jpg" width="400">
+  <figcaption>Raspberry Pi 4 Model B</figcaption>
 </figure>
 
 With starter kits that include everything you need for around $50 USD, you can understand why they are so popular.
-There are a number of models, but the Raspberry Pi3 is probably the best model to go for and includes a Wi-Fi adaptor
-that can turn it in to a mini-wireless router, allowing you to serve up web pages to your mobile devices with no
+There are a number of models, but the Raspberry Pi3 or Pi4 models are probably the best to go for as they include a Wi-Fi adaptor that can turn it in to a mini-wireless router, allowing you to serve up web pages to your mobile devices with no
 additional equipment. It runs from a 5v DC Micro USB plug (same as Android phones/tablets/Kindles), so you will need
 one of these USB cables plugged in to a 12v to USB type charging point on your boat to power it.
 
-There are currently two “flavours” of Signal K server at the moment, one written for Node.js (JavaScript) and the other
-written in Java. Rather imaginatively they are referred to as the Node-Server and the Java-Server and both are open
-source and free to use. Unless you are a Java programmer and intend to do your development, the Node-Server is probably
-the more popular and up to date of the two server solutions (as of Feb 2018), but there is nothing to stop you
-installing both and seeing which you prefer.
+The Signal K server reference design is written in NodeJS and is referred to as the "Node Server", which dates back to when there was a second reference design written in Java. Unfortunately, the "Java Server" is no longer maintained and all development efforts are being focused on the "Node Server".
 
-Both the  <a href="https://github.com/signalk/signalk-server-node" target="_blank">Node.js Server</a> and
-the <a href="https://github.com/signalk/signalk-server-java" target="_blank">Java Server</a> have
-detailed Raspberry Pi “Getting Started” guides:
-
-- <a href="https://github.com/signalk/signalk-server-node/blob/master/raspberry_pi_installation.md" target="_blank">Signal K Node.js on Raspberry Pi</a>
-- <a href="https://github.com/signalk/specification/wiki/Raspberry-Pi-Installation" target="_blank">Signal K Java on Raspberry Pi</a>
+The "Node Server" is maintained on <a href="https://github.com/signalk/signalk-server-node" target="_blank">GitHub</a> and
+a detailed “Getting Started” guide is also available - <a href="https://github.com/signalk/signalk-server-node/blob/master/raspberry_pi_installation.md" target="_blank">Signal K Node.js on Raspberry Pi</a>
 
 ## [Interfacing to Other Devices](#) <a class="anchor" id="interface"></a>
 Most equipment on boats use NMEA 0183, NMEA 2000 or proprietary interfaces to communicate with each other. A lot of
@@ -118,7 +109,7 @@ connected, so it could change. If you want to ensure that the device always has 
 UDEV rule to specify an alias. See [creating UDEV rules](udev.html) for details.
 
 To verify that you have a working connection, you can use picocom or another terminal emulator to see if you are
-receiving data. The default baud rate for NMEA 0183 is 4800.
+receiving data. The default baud rate for standard NMEA 0183 is 4800, whilst AIS and multiplexers use NMEA 0183(HS) at the "High Speed" 38400 baud rate.
 
 ```
 $ picocom -b 4800 /dev/ttyUSB0
@@ -130,15 +121,35 @@ You should see NMEA 0183 sentences scrolling off the screen. To exit picocom pre
 For NMEA 2000, there are less options. A quick search on Google will return a number of NMEA2000 to USB gateways, but
 the interface device is just one half of the solution. The other equally important part is the software that can read
 the data from the gateway and then convert it in to a format that the Signal K server understands. This software called
-<a href="https://github.com/canboat/canboat" target="_blank">CANboat</a> is a suite of tools that can read and write
+<a href="https://github.com/canboat/canboatjs" target="_blank">CANboat</a> is a suite of tools that can read and write
 NMEA 2000 data and convert it in to Signal K.
 
-Currently, CANboat only supports the
-<a href="http://www.actisense.com/product/nmea-2000-to-pc-interface-ngt-1/" target="_blank">
-  NGT-1-USB from Actisense
+Currently, CANboat supports the following NMEA 2000 to USB Gateways:
+
+- <a href="https://digitalyacht.co.uk/product/ikonvert-nmea-2000-to-usb/" target="_blank">
+  iKonvert USB from Digital Yacht (NMEA Certified)
 </a>
+- <a href="http://www.actisense.com/product/nmea-2000-to-pc-interface-ngt-1/" target="_blank">
+  NGT-1-USB from Actisense (NMEA Certified)
+</a>
+
 and any CAN Interface that supports "SocketCAN" such as the
 <a href="http://canable.io/" target="_blank">CANable board</a>.
+
+Alternatively if you want to have a wireless NMEA 2000 gateway, CANboat supports these products:
+
+- <a href="https://digitalyacht.co.uk/product/navlink2/" target="_blank">
+  NavLink 2 from Digital Yacht (NMEA Certified)
+</a>
+- <a href="https://digitalmarinegauges.com/seasmart-network-gateways/" target="_blank">
+  SeaSmart by Chetco (NMEA Certified)
+</a>
+- <a href="https://www.simrad-yachting.com/simrad/type/accessories/cables-connectors/gofree-wifi1-wireless-module/" target="_blank">
+  GoFree Wifi-1 by Simrad
+</a>
+- <a href="https://www.yachtd.com/purchase/" target="_blank">
+  YDGW-02 by Yacht Devices
+</a>
 
 CANBoat has recently been ported to JavaScript and is now part of the Signal K Node Server build, so no additional
 installation of CANBoat is required.

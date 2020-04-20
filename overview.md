@@ -69,8 +69,8 @@ cost of entry for smaller developers.
 
 Finally, and most importantly, both NMEA standards and the other proprietary protocols in the industry were developed
 when the instruments on the average boat were much simpler and much less capable. In a world where your home thermostat
-is connected to the Internet and the number of worldwide Internet connected devices is projected to exceed 30 billion
-by 2020, it seems archaic that your boat is still an island to itself.
+is connected to the Internet and the number of worldwide Internet connected devices is projected to exceed 70 billion
+by 2025, it seems archaic that your boat is still an island to itself.
 
 After all, there are lots of other boats out there, and lots of other sources of information, all of which could be of
 interest and benefit to you. In the modern connected world, shouldn’t you be able to access that information from your
@@ -115,8 +115,9 @@ router, will keep your data safe.
 ## [Signal K](#) <a class="anchor" id="signalk"></a>
 Signal K uses modern techniques to create a marine data standard for the 21st Century. It is:
 
-* Open. It is free for anyone to use. Signal K is managed by a community of boaters, and developers are able to propose
+* Open. Signal K is managed by a community of boaters, and developers are able to propose
   improvements to the standard.
+* Free. All of the code is published under Open Source licenses for anyone to use free of charge.
 * Modern. It uses widely available, Open Source technologies.
 * Extensible. It can mature with new requirements as they emerge.
 * Flexible. Signal K is not tied to specific hardware
@@ -126,14 +127,14 @@ It is easy to get started with Signal K. With a Google Group for users, Slack Ch
 information, low cost hardware and many free or low costs apps and solutions, you can quickly build a system and start
 benefiting from the tens of thousands of man-hours of community development that has gone in to Signal K.
 
-Signal K works by having a small black box—a Signal K Server—on board your boat. This can interface to existing
+Signal K works by having a small black box — a Signal K Server — on board your boat. This can interface to existing
 NMEA networks onboard as well as databases, other Signal K data streams, and potentially land-based and cloud-based
 resources. The server can also hold static items like charts, routes and notes. It can also hold and act as a
 web-server for browser-based Apps.
 
 The Signal K server is available as a ready-to-fit commercial product (such as the
 [Digital Yacht iKommunicate](http://ikommunicate.com)), or you can download the software for free and run it yourself.
-The software runs on a range of single board computers as well as Linux, Windows and MacOS, see the
+The software runs on a range of single board computers; Raspberry Pi, Beagle Board, etc. as well as any normal PC running Linux, Windows and MacOS, see the
 [Install page]({{site.path}}/installation.html) for details.
 
 One of the latest developments on the Signal K Node server, is the support for
@@ -146,7 +147,7 @@ number of plugins being released and they are easily selected and installed on t
   <figcaption>List of Available “Plugins”</figcaption>
 </figure>
 
-A list of all the latest Signal K Apps and Services can be found on the [Applications and Solutions
+Please [click here](https://www.npmjs.com/search?q=signalk-node-server-plugin) for a list of all the latest Signal K plugins or [click here](https://www.npmjs.com/search?q=signalk-webapp) for a list of the latest Signal K Web Apps that can be installed via NPM. Additional Signal K Apps and Solutions can be found on the [Applications and Solutions
 page]({{site.path}}/solutions.html).
 
 Signal K is an on-going, collaborative effort between a global network of volunteers and interested hardware

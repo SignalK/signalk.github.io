@@ -7,7 +7,7 @@ description: Signal K References Online Articles
 ## Signal K Online Articles {{page.title}}
 
 - ["NMEA Open Source Project" thread at Panbo](http://www.panbo.com/forum/2010/09/nmea-open-source-project.html) - The original thread that started Signal K
-- [More Signal K threads at Panbo](https://www.panbo.com/search.html?q=signal%20k) - Lots more posts and threads on Signal K on Panbo
+- [More Signal K threads at Panbo](https://www.panbo.com/?s=signal+K) - Lots more posts and threads on Signal K on Panbo
 - [Sailbits - a number of really interesting Signal K articles](https://sailbits.com/ikommunicate-unboxing-install/) - Steve itchell's excellent blog has lots of useful SIgnal K articles.
 - [Signal K and the Sailboat](https://www.practical-sailor.com/issues/37_60/features/Signal-K-and-the-Sailboat_11878-1.html) - Article published by Practical Sailor in Dec 2015
 - [Signal K the future of networking?](http://www.oceannavigator.com/November-December-2017/The-future-of-networking/) - Article published by Ocean Navigator in Dec 2017

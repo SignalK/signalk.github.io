@@ -23,5 +23,6 @@ description: Signal K References Online Articles
 - [Case Study - 40FT Clipper Cruiser Installation](http://www.signalk.com.au/applications-uses/84-case-study-40ft-clipper-cruiser-installation) - Interesting case study on installing and using Signal K on an Australian power boat
 - [Heading for the Internet of Things Afloat](https://www.marineelectronicsjournal.com/content/newsm/news.asp?show=VIEW&a=188) - Second of a 2 part article by the Marine Journal on the Internet of Things Afloat
 - [Sail Life - iKommunicate from Digital yacht](https://www.youtube.com/watch?v=iMVsoCmwuMg) - Great video showing an iKommunicate being installed by Sail Life Video Blogger
+- [Henri Bergius - Signal K refit](https://bergie.iki.fi/blog/signalk-boat-iot/) - Very detailed article about a Cruising Sailboat's setup with Signal K.
 
 The most straightforward way to add entries to this page is to [fork this page in Github](https://github.com/SignalK/signalk.github.io/blob/master/references.md) and create a pull request with your additions.

@@ -18,6 +18,7 @@ Victron the innovative and highly respected Dutch manufacturer of energy product
 ### Sailbits.com - Real-Time Signal K data  
 
 Steve Mitchell, a long time Champion of Signal K has published a great article on how he remotely accessed real-time weather data from his boat using Signal K.
+
 [https://seabits.com/real-time-weather-from-the-boat/](https://seabits.com/real-time-weather-from-the-boat/)
 
 ### Henri Bergius - Signal K refit  

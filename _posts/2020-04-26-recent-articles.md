@@ -9,11 +9,11 @@ status: published
 
 The message is gradually getting out there about the benefits of Signal K and there have been some really interesting articles published recently on other blogs, and we thought we would give you links to them here.
 
-### Victron Blog - Sailing with Signal K
+### Bare Necessities - DIY Boat Electronics Project
 
-Victron the innovative and highly respected Dutch manufacturer of energy products has embraced Signal K and this post tells the story of sailing boat Taku Moe and how the owners Stefanie and Heike have installed and used Signal K with their Victron system.
+One of the most detailed blogs on the internet about developing a marine computer, a boat LTE/WiFi gateway, and a cockpit chart plotter display from easily obtainable and affordable components. Mikhail Grushinskiy has done a great job in both developing and documenting his boat's system.
 
-[https://www.victronenergy.com/blog/2019/06/13/sailing-with-signal-k/](https://www.victronenergy.com/blog/2019/06/13/sailing-with-signal-k/)
+[https://bareboat-necessities.github.io/my-bareboat/](https://bareboat-necessities.github.io/my-bareboat/)
 
 ### Sailbits.com - Real-Time Signal K data  
 

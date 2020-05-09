@@ -24,5 +24,6 @@ description: Signal K References Online Articles
 - [Heading for the Internet of Things Afloat](https://www.marineelectronicsjournal.com/content/newsm/news.asp?show=VIEW&a=188) - Second of a 2 part article by the Marine Journal on the Internet of Things Afloat
 - [Sail Life - iKommunicate from Digital yacht](https://www.youtube.com/watch?v=iMVsoCmwuMg) - Great video showing an iKommunicate being installed by Sail Life Video Blogger
 - [Henri Bergius - Signal K refit](https://bergie.iki.fi/blog/signalk-boat-iot/) - Very detailed article about a Cruising Sailboat's setup with Signal K.
+- [Bareboat Necessities - Mikhail Grushinskiy](https://bareboat-necessities.github.io/my-bareboat/) - In-depth and detailed GitHub site about developing a marine computer, a boat LTE/WiFi gateway, and a cockpit chart plotter display from easily obtainable and affordable components.
 
 The most straightforward way to add entries to this page is to [fork this page in Github](https://github.com/SignalK/signalk.github.io/blob/master/references.md) and create a pull request with your additions.

@@ -132,6 +132,10 @@ Currently, CANboat supports the following NMEA 2000 to USB Gateways:
 - <a href="http://www.actisense.com/product/nmea-2000-to-pc-interface-ngt-1/" target="_blank">
   NGT-1-USB from Actisense (NMEA Certified)
 </a>
+- <a href="https://www.yachtd.com/purchase/" target="_blank">
+  YDNU-02 by Yacht Devices
+</a>
+
 
 and any CAN Interface that supports "SocketCAN" such as the
 <a href="http://canable.io/" target="_blank">CANable board</a>.
@@ -149,6 +153,12 @@ Alternatively if you want to have a wireless NMEA 2000 gateway, CANboat supports
 </a>
 - <a href="https://www.yachtd.com/purchase/" target="_blank">
   YDGW-02 by Yacht Devices
+</a>
+
+Or wired Ethernet version:
+
+- <a href="https://www.yachtd.com/purchase/" target="_blank">
+  YDEN-02 by Yacht Devices
 </a>
 
 CANBoat has recently been ported to JavaScript and is now part of the Signal K Node Server build, so no additional

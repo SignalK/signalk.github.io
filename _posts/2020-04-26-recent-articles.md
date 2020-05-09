@@ -23,6 +23,6 @@ Steve Mitchell, a long time Champion of Signal K has published a great article o
 
 ### Henri Bergius - Signal K refit  
 
-Acive sailor, adventurer and software engineer, Henri Bergius has written an excellent article on his Signal K installation.
+Active sailor, adventurer and software engineer, Henri Bergius has written an excellent article on his Signal K installation.
 
 [https://bergie.iki.fi/blog/signalk-boat-iot/](https://bergie.iki.fi/blog/signalk-boat-iot/)

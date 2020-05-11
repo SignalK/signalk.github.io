@@ -14,7 +14,7 @@ description: Applications & Solutions with Signal K Support
 - [FairWind](http://fairwind.uniparthenope.it) can act as a gateway from commonly available marine electronics to
   Signal&nbsp;K supporting Android based Boat Apps.
 - [Locations](https://activecaptain.com/locations/index.php) by [ActiveCaptain](https://activecaptain.com/index.php) can use data in Signal K format.
-- SmartBoat digital marine instrument display, various instruments designed to mimic the standard marine instrument display for [Android](https://play.google.com/store/apps/details?id=net.boatdata.smartboat) and [iOS](https://itunes.apple.com/us/app/smartboat/id1299526775)
+- SmartBoat digital marine instrument display, various instruments designed to mimic the standard marine instrument display for [Android](https://play.google.com/store/apps/details?id=com.smartboatnetwork.smartboat) and [iOS](https://itunes.apple.com/us/app/smartboat/id1299526775)
 - [Vyacht router](http://vyacht.net/) - router with Signal K support
 - [NMEAremote](http://www.zapfware.de/en/products/nmearemote/): iOS marine instrument display with Signal K support
 - [Signal K Mobile](https://github.com/itemir/signalk-mobile): Open source mobile app for Signal K, available for iOS and Android

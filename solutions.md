@@ -23,10 +23,10 @@ description: Applications & Solutions with Signal K Support
 - [AFTrack](http://afischer-online.de/and/aftrack/): a marine navigation display for an Android phone or tablet. Uses tracking with various logging features, several input modes, maps online and offline, wind routing, AIS and more.
 - [pysk](https://github.com/ph1l/pysk): a terminal client for displaying Signal K data, based on [Signal K Python client library](https://github.com/ph1l/python-signalk-client).
 - [Signal View](http://signalkool.com/signalview/): with this iOS app, boaters can move around the vessel whilst monitoring their live boat data. Tank levels, depth, drift, engine parameters, fuel economy, bait-well temperature, wind speed, battery status, etc, can all be monitored from the convenience of an iPhone or iPad.
-- [OpenPlotter](http://www.sailoog.com/en/openplotter): OpenPlotter is a combination of selected software, SignalK, OpenCPN and Node-RED to mention a few, and hardware to be used as navigational aid on boats. It is also a home automation system onboard. It's easy installation with a NOOBS installer for Raspberry Pi.
+- [OpenPlotter](https://openmarine.net/openplotter): OpenPlotter is a combination of selected software, SignalK, OpenCPN and Node-RED to mention a few, and hardware to be used as navigational aid on boats. It is also a home automation system onboard. It's easy installation with a NOOBS installer for Raspberry Pi.
 - [Homebridge Signal K Plugin](https://www.npmjs.com/package/homebridge-signalk) brings [HomeKit](https://www.apple.com/ios/home/) integration to let you monitor your boat's batteries, tanks and temperatures as well as control digital switching with the Apple Home app and even Siri.
 - [Aqua Map](http://www.globalaquamaps.com): Marine navigation app for iOS and Android with Signal K over WiFi capability.
 
 The most straightforward way to add entries to this page is to
-[fork this page in Github](https://github.com/SignalK/signalk.github.io/blob/master/applications_solutions.md) and
+[fork this page in Github](https://github.com/SignalK/signalk.github.io/blob/master/solutions.md) and
 create a pull request with your additions.

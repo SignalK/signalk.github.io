@@ -25,6 +25,7 @@ description: Applications & Solutions with Signal K Support
 - [OpenPlotter](https://openmarine.net/openplotter): OpenPlotter is a combination of selected software, SignalK, OpenCPN and Node-RED to mention a few, and hardware to be used as navigational aid on boats. It is also a home automation system onboard. It's easy installation with a NOOBS installer for Raspberry Pi.
 - [Homebridge Signal K Plugin](https://www.npmjs.com/package/homebridge-signalk) brings [HomeKit](https://www.apple.com/ios/home/) integration to let you monitor your boat's batteries, tanks and temperatures as well as control digital switching with the Apple Home app and even Siri.
 - [Aqua Map](http://www.globalaquamaps.com): Marine navigation app for iOS and Android with Signal K over WiFi capability.
+- [SignalK Monitor](https://play.google.com/store/apps/details?id=com.belmille.signalkflutter): Simple smartphone application to show SignalK data.
 
 The most straightforward way to add entries to this page is to
 [fork this page in Github](https://github.com/SignalK/signalk.github.io/blob/master/solutions.md) and

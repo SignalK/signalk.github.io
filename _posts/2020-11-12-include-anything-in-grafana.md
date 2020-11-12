@@ -32,6 +32,6 @@ In the src="" insert an URL address of your choice - http://localhost:3000/@sign
 **FIX:** The Grafana's `Text` plugin may not work with HTML code by default, and you may need to fix it in 3 simple steps:
 - Open Grafana ini file, it's usually located in `signalk_volume/grafana/conf/defaults.ini`
 - Find `disable_sanitize_html` value and change it from `false` to `true`
-![screenshot#6](https://github.com/zadworny/signalk.github.io/blob/images-to-display-anything-in-grafana-post/images/display-anything-in-grafana-8.png?raw=true)
+![screenshot#6](https://github.com/zadworny/signalk.github.io/blob/images-to-display-anything-in-grafana-post/images/display-anything-in-grafana-7.png?raw=true)
 - Save the file and restart Grafana
 - Source: [https://github.com/grafana/grafana/blob/v6.0.0/CHANGELOG.md#breaking-changes-1](https://github.com/grafana/grafana/blob/v6.0.0/CHANGELOG.md#breaking-changes-1)

@@ -7,7 +7,7 @@ email: zado1984@gmail.com
 
 ## Introduction
 
-How to display anything in Grafana? And 'anything' means things that you can access from your web browser. All you need to do is just add a new `Text` panel to your Grafana dashboard, use "iframe" block in the content, and apply one little fix to Grafana ini file. Result: better user experience, because you have everything in one place. It's more like a workaround, but it works perfectly well. Details below.
+Many people have added InfluxDB and [Grafana](https://grafana.com/) to their setup, but there's one major problem - you still need to switch between screens or windows to view various apps. I've got solution for it ...let me show you how to display anything in Grafana. And 'anything' means things that you can access from your web browser. All you need to do is just add a new `Text` panel to your Grafana dashboard, use "iframe" block in the content, and apply one little fix to Grafana ini file. Result: better user experience, because you have everything in one place. It's more like a workaround, but it works perfectly well. Details below.
 
 ## Instruction
 
@@ -25,7 +25,7 @@ In the src="" insert an URL address of your choice - http://localhost:3000/@sign
 5. Click `Save dashboard` - the second button on the top-right hand corner
 ![screenshot#4](https://github.com/zadworny/signalk.github.io/blob/images-to-display-anything-in-grafana-post/images/display-anything-in-grafana-5.png?raw=true)
 
-6. You can add more panels like this, and orgranise your dashboard however you like.
+6. You can add more panels like this, and organise your dashboard however you like.
 ![screenshot#5](https://github.com/zadworny/signalk.github.io/blob/images-to-display-anything-in-grafana-post/images/display-anything-in-grafana-6.png?raw=true)
 
 

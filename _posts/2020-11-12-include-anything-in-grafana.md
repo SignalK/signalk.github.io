@@ -3,6 +3,7 @@ title: How to include anything in Grafana
 layout: post
 author: Sam Zadworny
 email: zado1984@gmail.com
+status: published
 ---
 
 ## Introduction

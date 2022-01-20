@@ -306,6 +306,7 @@ table thead tr {
 
 .article .gravatar {
   width: 32px;
+  display: inline;
 }
 
 .article ul {

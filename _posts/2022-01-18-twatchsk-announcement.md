@@ -3,6 +3,7 @@ title: Announcing TWatchSK - Signal K On Your Wrist
 layout: post
 author: Brian Smith
 email: ba58smith at gmail dot com
+status: published
 gravatar: https://avatars2.githubusercontent.com/u/15186790?s=400&v=4
 ---
 

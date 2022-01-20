@@ -8,7 +8,7 @@ gravatar: https://avatars2.githubusercontent.com/u/15186790?s=400&v=4
 
 On January 12, @Jan Dytrych released a very cool new addition to the Signal K ecosystem: TWatchSK. It puts Signal K right on your wrist, so it's always with you, wherever you are on your boat!
 
-The hardware is the LILYGO® T-WATCH-2020, which you can find all over the Internet for US$35 to 60. The software is completely free and open source - the GitHub repo is [here](https://github.com/JohnySeven/TWatchSK). (Development has been done on version 1 of the T-WATCH-2020. @Jan is currenlty making sure it will work with version 2.)
+The hardware is the LILYGO® T-WATCH-2020, which you can find all over the Internet for US$35 to 60. The software is completely free and open source, and [available on GitHub](https://github.com/JohnySeven/TWatchSK). (Development has been done on version 1 of the T-WATCH-2020. @Jan is currenlty making sure it will work with version 2.)
 
 <img src="https://user-images.githubusercontent.com/15186790/149951744-9426eb2c-d04e-4c16-aa08-4785fcaee0cc.png" alt="Home Screen" width="260"/>
 
@@ -38,7 +38,7 @@ TWatchSK connects to Signal K through your boat's wifi network. If you get out o
 
 <img src="https://user-images.githubusercontent.com/15186790/149958091-61256132-c60d-4af3-b316-6d82174eab46.png" alt="Can't Connect to Wifi" width=260/>
 
-The screen turns off after XX seconds (which you set, of course), which helps the battery last up to 24 hours when connected to Signal K. The screen wakes up whenever a Notification is received, or when you touch the screen, or simply turn the screen towards your face!
+The screen turns off after a timeout period that you set, which helps the battery last up to 24 hours when connected to Signal K. The screen wakes up whenever a Notification is received, or when you touch the screen, or simply turn the screen towards your face!
 
 You can switch between day and night mode by simply double-tapping the screen.
 

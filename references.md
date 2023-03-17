@@ -18,6 +18,7 @@ description: Signal K References Online Articles
 - [Arduino and SignalK - Part 3: Making it "Production-ready"](https://blog.emilecantin.com/web/sysadmin/iot/javascript/sailing/2016/08/03/arduino-signalk-part-3.html)
 - [Signal Kool Website - Marine Tech and the Internet of Boats](https://signalkool.com/) - A number of articles on Signal K by Adam Hyde and home of the Signal View App
 - [Victron Blog - Sailing with Signal K](https://www.victronenergy.com/blog/2019/06/13/sailing-with-signal-k/) - Interesting article about running Signal K on the Victron Venus GX products
+- [Victron Cerbo GX on Steroids](https://svrenaissance.com/victron-cerbo-gx-on-steroids/) - Detailed article with step-by-step instructions about running Signal K on Victron Cerbo GX products
 - [The Marine Installers Rant Blog](http://themarineinstallersrant.blogspot.co.uk/search?q=signal+k) - Lots of useful stuff on Signal K by Bill Bishop
 - [Sailbits - iKommunicate unboxing and install](https://sailbits.com/ikommunicate-unboxing-install/) - Very good "unboxing" article on Digital Yacht's iKommunicate, by Steve Mitchell
 - [Case Study - 40FT Clipper Cruiser Installation](http://www.signalk.com.au/applications-uses/84-case-study-40ft-clipper-cruiser-installation) - Interesting case study on installing and using Signal K on an Australian power boat

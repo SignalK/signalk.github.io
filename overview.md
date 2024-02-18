@@ -151,7 +151,4 @@ Please [click here](https://www.npmjs.com/search?q=signalk-node-server-plugin) f
 page]({{site.path}}/solutions.html).
 
 Signal K is an on-going, collaborative effort between a global network of volunteers and interested hardware
-manufacturers and software vendors in the marine industry. We encourage you to get in touch via the [mailing
-list](https://groups.google.com/forum/#!forum/SignalK) or group chat in our [Slack
-channel](http://slack-invite.SignalK.org/). Suggestions and requests via [Github](http://github.com/SignalK) are also
-welcome.
+manufacturers and software vendors in the marine industry. See the [front page for our Community & Support links](https://signalk.org/).

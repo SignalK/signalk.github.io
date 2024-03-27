@@ -6,9 +6,8 @@ description: Applications & Solutions with Signal K Support
 
 ## {{page.title}} with Signal K Support
 
-- [iKommunicate](http://ikommunicate.com) (in
-  [KickStarter](https://www.kickstarter.com/projects/1689846268/ikommunicate-gateway-enabling-the-internet-of-thin)) by
-  [Digital Yacht](http://digitalyacht.co.uk) is a Signal K server with NMEA 2000 and NMEA 0183 connectivity.
+- [OpenCPN](https://opencpn.org/) Open Source navigation software with Signal K support.
+- [OpenPlotter](https://openmarine.net/openplotter): OpenPlotter is a combination of selected software, SignalK, OpenCPN and Node-RED to mention a few, and hardware to be used as navigational aid on boats. It is also a home automation system onboard. It's easy installation with a NOOBS installer for Raspberry Pi.
 - [Yacht Devices](http://www.yachtd.com) [Voyage Recorder](http://www.yachtd.com/products/recorder.html) can export
   data in Signal K format.
 - [FairWind](http://fairwind.uniparthenope.it) can act as a gateway from commonly available marine electronics to
@@ -22,7 +21,6 @@ description: Applications & Solutions with Signal K Support
 - [SailRacer.net](http://sailracer.net): Tactical app for iOS and Android - helps to make decisions faster. Polars, Charts, Wind graphs, Signal K, Google wear and much more.
 - [AFTrack](http://afischer-online.de/and/aftrack/): a marine navigation display for an Android phone or tablet. Uses tracking with various logging features, several input modes, maps online and offline, wind routing, AIS and more.
 - [pysk](https://github.com/ph1l/pysk): a terminal client for displaying Signal K data, based on [Signal K Python client library](https://github.com/ph1l/python-signalk-client).
-- [OpenPlotter](https://openmarine.net/openplotter): OpenPlotter is a combination of selected software, SignalK, OpenCPN and Node-RED to mention a few, and hardware to be used as navigational aid on boats. It is also a home automation system onboard. It's easy installation with a NOOBS installer for Raspberry Pi.
 - [Homebridge Signal K Plugin](https://www.npmjs.com/package/homebridge-signalk) brings [HomeKit](https://www.apple.com/ios/home/) integration to let you monitor your boat's batteries, tanks and temperatures as well as control digital switching with the Apple Home app and even Siri.
 - [Aqua Map](http://www.globalaquamaps.com): Marine navigation app for iOS and Android with Signal K over WiFi capability.
 - [SignalK Monitor](https://www.youtube.com/watch?v=X8VbkD8WYV8): Intuitive and easy-to-use [Android](https://play.google.com/store/apps/details?id=com.belmille.signalkflutter) and [iPhone](https://apps.apple.com/fi/app/signalk-monitor/id1534189860) application to visualize SignalK data.

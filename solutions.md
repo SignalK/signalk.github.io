@@ -8,6 +8,7 @@ description: Applications & Solutions with Signal K Support
 
 - [OpenCPN](https://opencpn.org/) Open Source navigation software with Signal K support.
 - [OpenPlotter](https://openmarine.net/openplotter): OpenPlotter is a combination of selected software, SignalK, OpenCPN and Node-RED to mention a few, and hardware to be used as navigational aid on boats. It is also a home automation system onboard. It's easy installation with a NOOBS installer for Raspberry Pi.
+- [pypilot](http://pypilot.org/) : free software marine autopilot.
 - [Yacht Devices](http://www.yachtd.com) [Voyage Recorder](http://www.yachtd.com/products/recorder.html) can export
   data in Signal K format.
 - [FairWind](http://fairwind.uniparthenope.it) can act as a gateway from commonly available marine electronics to
@@ -25,7 +26,7 @@ description: Applications & Solutions with Signal K Support
 - [Aqua Map](http://www.globalaquamaps.com): Marine navigation app for iOS and Android with Signal K over WiFi capability.
 - [SignalK Monitor](https://www.youtube.com/watch?v=X8VbkD8WYV8): Intuitive and easy-to-use [Android](https://play.google.com/store/apps/details?id=com.belmille.signalkflutter) and [iPhone](https://apps.apple.com/fi/app/signalk-monitor/id1534189860) application to visualize SignalK data.
 - [PiCAN-M](http://skpang.co.uk/catalog/picanm-with-nmea-0183-and-nmea-2000-connection-3a-smps-p-1599.html) : Raspberry Pi hat with NMEA 2000 and NMEA 0183 connectivity with Signal K support.
-- [pypilot](http://pypilot.org/) : free software marine autopilot with Signal K support.
+
 
 
 The most straightforward way to add entries to this page is to

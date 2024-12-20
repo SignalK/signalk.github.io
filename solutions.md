@@ -12,7 +12,8 @@ description: Applications & Solutions with Signal K Support
 - [Victron Cerbo GX](https://www.victronenergy.com/communication-centres/cerbo-gx) The Cerbo GX is a flexible communication centre that will take remote monitoring to the next level. With all the hardware connection possibilities to fit your every need.
 - [iKommunicate](https://ikommunicate.com/) (No longer in production) iKommunicate the "Universal" Gateway by Digital Yacht, the first NMEA to Signal K gateway. Supports NMEA 0183 and NMEA 2000.
 - [Yacht Devices](http://www.yachtd.com) [Voyage Recorder](http://www.yachtd.com/products/recorder.html) can export data in Signal K format.
-- [PiCAN-M](http://skpang.co.uk/catalog/picanm-with-nmea-0183-and-nmea-2000-connection-3a-smps-p-1599.html) : Raspberry Pi hat with NMEA 2000 and NMEA 0183 connectivity with Signal K support.
+- [PiCAN-M](http://skpang.co.uk/catalog/picanm-with-nmea-0183-and-nmea-2000-connection-3a-smps-p-1599.html) : Raspberry Pi HAT with NMEA 2000 and NMEA 0183 connectivity with Signal K support.
+- [MacArthur HAT](https://macarthur-hat-documentation.readthedocs.io/en/latest/) : Raspberry Pi HAT with NMEA 2000, NMEA 0183 and Seatalk1 connectivity with Signal K support using OpenPlotter.
 - [Airmar SmartBoat](https://www.airmar.com/Catalog/SmartBoat-SmartFlex) Gateway with ability add extension for Signal K
   
 #### Sensors
@@ -30,7 +31,6 @@ description: Applications & Solutions with Signal K Support
   
 #### Chart Plotting, Navigation
 - [OpenCPN](https://opencpn.org/) : Open Source navigation software with Signal K support.
-- [OpenPlotter](https://openmarine.net/openplotter) : OpenPlotter is a combination of selected software, SignalK, OpenCPN and Node-RED to mention a few, and hardware to be used as navigational aid on boats. It is also a home automation system onboard. It's easy installation with a NOOBS installer for Raspberry Pi.
 - [AFTrack](http://afischer-online.de/and/aftrack/) : a marine navigation display for an Android phone or tablet. Uses tracking with various logging features, several input modes, maps online and offline, wind routing, AIS and more.
 - [Aqua Map](http://www.globalaquamaps.com) : Marine navigation app for iOS and Android with Signal K over WiFi capability.
 - [AngelNav](https://www.angelnav.co.uk/) : Navigation app for iPad and iPhone. Learn more at [angelnav.co.uk](https://www.angelnav.co.uk/).
@@ -40,6 +40,7 @@ description: Applications & Solutions with Signal K Support
   Signal&nbsp;K supporting Android based Boat Apps.
 - [BBN Bareboat Necessities](https://bareboat-necessities.github.io/) : BBN OS is free and open source. It is based on commonly used community supported open source projects such as SignalK, PyPilot, OpenCPN, and others. BBN OS graphical user interface will let you build a cockpit front-end to all functionality of the OS from chartplotting, dashboards, weather information, to media player, etc.
 - [Vyacht router](http://vyacht.net/) : router with Signal K support
+- [OpenPlotter](https://openplotter.readthedocs.io/latest/description/what_is_openplotter.html) : OpenPlotter is a combination of software and hardware to be used as navigational aid on small and medium boats. It is also a complete on-board home automation system. It is open-source, low-cost, low-consumption and it works on ARM computers like the Raspberry Pi or any computer running a Linux Debian derivative.
   
 #### Misc Utility
 - [pysk](https://github.com/ph1l/pysk) : a terminal client for displaying Signal K data, based on [Signal K Python client library](https://github.com/ph1l/python-signalk-client).

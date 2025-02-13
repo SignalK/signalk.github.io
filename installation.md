@@ -87,7 +87,7 @@ one of these USB cables plugged in to a 12v to USB type charging point on your b
 The Signal K server reference design is written in NodeJS and is referred to as the "Node Server", which dates back to when there was a second reference design written in Java. Unfortunately, the "Java Server" is no longer maintained and all development efforts are being focused on the "Node Server".
 
 The "Node Server" is maintained on <a href="https://github.com/signalk/signalk-server-node" target="_blank">GitHub</a> and
-a detailed “Getting Started” guide is also available - <a href="https://github.com/signalk/signalk-server-node/blob/master/raspberry_pi_installation.md" target="_blank">Signal K Node.js on Raspberry Pi</a>
+a detailed “Getting Started” guide is also available - <a href="https://github.com/SignalK/signalk-server/blob/master/docs/src/installation/raspberry_pi_installation.md" target="_blank">Signal K Node.js on Raspberry Pi</a>
 
 ## [Interfacing to Other Devices](#) <a class="anchor" id="interface"></a>
 Most equipment on boats use NMEA 0183, NMEA 2000 or proprietary interfaces to communicate with each other. A lot of

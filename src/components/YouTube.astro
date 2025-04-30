@@ -1,0 +1,16 @@
+---
+export type Props = {
+  videoId: string;
+};
+
+const { videoId } = Astro.props;
+---
+
+<div class="aspect-[16/9] overflow-hidden rounded-lg shadow-md">
+  <iframe
+    class="w-full h-full"
+    src={`https://www.youtube.com/embed/${videoId}`}
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen></iframe>
+</div>

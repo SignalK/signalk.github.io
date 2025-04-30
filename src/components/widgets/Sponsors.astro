@@ -1,0 +1,124 @@
+---
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
+import Headline from '../ui/Headline.astro';
+import Profile from '../ui/Profile.astro';
+import Button from '../ui/Button.astro';
+
+export interface Props {
+  limit?: number;
+}
+
+export interface Sponsor {
+  name: string;
+  profile: string;
+  image: string;
+  totalAmountDonated: number;
+  lastTransactionAmount: number;
+  createdAt: string;
+  lastTransactionAt: string;
+  currency: string;
+  role: string;
+}
+
+const { limit = 10 } = Astro.props as Props;
+
+function formatAmount(amount: number, currency: string) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: currency,
+    maximumFractionDigits: 0,
+  }).format(amount);
+}
+
+function formatDate(date: string) {
+  return new Date(date).toLocaleDateString(undefined, {
+    dateStyle: 'medium',
+  });
+}
+
+const response = await fetch('https://opencollective.com/signalk/members/all.json');
+if (!response.ok) throw new Error(response.statusText);
+const data: Sponsor[] = (await response.json()).filter((sponsor: Sponsor) => sponsor.role === 'BACKER');
+
+// OpenCollective API appears to duplicate sponsors that start/stop
+const unique = new Map<string, Sponsor>();
+data.forEach((sponsor) => {
+  const existing = unique.get(sponsor.profile);
+  if (existing) {
+    const createdAt = Math.min(new Date(existing.createdAt).valueOf(), new Date(sponsor.createdAt).valueOf());
+    const lastTransactionAt = Math.max(
+      new Date(existing.lastTransactionAt).valueOf(),
+      new Date(sponsor.lastTransactionAt).valueOf()
+    );
+
+    existing.createdAt = new Date(createdAt).toISOString();
+    existing.lastTransactionAt = new Date(lastTransactionAt).toISOString();
+    existing.totalAmountDonated += sponsor.totalAmountDonated;
+  } else {
+    unique.set(sponsor.profile, sponsor);
+  }
+});
+const sponsors = [...unique.values()];
+const topSponsors = sponsors.sort((a, b) => b.totalAmountDonated - a.totalAmountDonated).slice(0, limit);
+const newSponsors = sponsors
+  .sort((a, b) => new Date(b.lastTransactionAt).valueOf() - new Date(a.lastTransactionAt).valueOf())
+  .slice(0, limit);
+---
+
+<WidgetWrapper id="sponsors">
+  <Headline
+    tagline="Sponsors"
+    title="Thank you to the generous financial supporters that sustain our community."
+    subtitle="Expenses for running the Signal K community are offset by donations from individuals and companies."
+  />
+
+  <div class="text-center mx-auto mb-8">
+    <Button
+      text="Become a contributor"
+      href="https://opencollective.com/signalk"
+      target="_blank"
+      class="font-semibold"
+    />
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 sm:divide-x dark:divide-slate-800">
+    <div class="sm:pr-8">
+      <h2 class="text-2xl font-semibold lg:text-center mt-8 mb-4">Top Contributors</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
+        {
+          topSponsors.map((sponsor) => (
+            <Profile
+              name={sponsor.name}
+              link={sponsor.profile}
+              image={sponsor.image}
+              target="_blank"
+              meta={[formatAmount(sponsor.totalAmountDonated, sponsor.currency), formatDate(sponsor.createdAt)].join(
+                ' since '
+              )}
+            />
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="sm:pl-8">
+      <h2 class="text-2xl font-semibold lg:text-center mt-8 mb-4">Latest Contributors</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
+        {
+          newSponsors.map((sponsor) => (
+            <Profile
+              name={sponsor.name}
+              link={sponsor.profile}
+              image={sponsor.image}
+              target="_blank"
+              meta={[
+                formatAmount(sponsor.lastTransactionAmount, sponsor.currency),
+                formatDate(sponsor.lastTransactionAt),
+              ].join(' on ')}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</WidgetWrapper>

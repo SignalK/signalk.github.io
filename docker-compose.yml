@@ -1,0 +1,6 @@
+services:
+  astrowind:
+    build: .
+    container_name: signalk-website
+    ports:
+      - 8080:8080

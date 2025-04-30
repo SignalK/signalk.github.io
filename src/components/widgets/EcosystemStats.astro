@@ -1,0 +1,43 @@
+---
+import Stats from './Stats.astro';
+
+const { total: pluginCount } = await (
+  await fetch('https://registry.npmjs.org/-/v1/search?size=1&text=keywords:signalk-node-server-plugin')
+).json();
+
+const { total: webappCount } = await (
+  await fetch('https://registry.npmjs.org/-/v1/search?size=1&text=keywords:signalk-webapp')
+).json();
+
+//
+const { downloads } = await (await fetch('https://api.npmjs.org/downloads/point/last-month/signalk-server')).json();
+---
+
+<Stats
+  tagline="Stats"
+  title="The ecosystem is vibrant and growing"
+  subtitle=""
+  stats={[
+    {
+      amount: pluginCount,
+      title: 'Plugins',
+      icon: 'tabler:box',
+      link: 'https://www.npmjs.com/search?q=keywords:signalk-node-server-plugin',
+      target: '_blank',
+    },
+    {
+      amount: webappCount,
+      title: 'Web Apps',
+      icon: 'tabler:apps',
+      link: 'https://www.npmjs.com/search?q=keywords:signalk-webapp',
+      target: '_blank',
+    },
+    {
+      amount: downloads,
+      title: 'Server Installs / Month',
+      icon: 'tabler:download',
+      link: 'https://www.npmjs.com/package/signalk-server',
+      target: '_blank',
+    },
+  ]}
+/>

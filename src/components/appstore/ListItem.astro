@@ -6,6 +6,8 @@ export interface Props {
   icon?: string;
   image?: string;
   href?: string;
+  target?: string;
+  rel?: string;
 }
 
 const {
@@ -13,12 +15,14 @@ const {
   image = await Astro.slots.render('image'),
   icon,
   href,
+  target,
+  rel,
 } = Astro.props;
 
 const Element = href ? 'a' : 'div';
 ---
 
-<Element class="flex gap-2 items-center" {...href ? { href } : []}>
+<Element class="flex gap-2 items-center" {...href ? { href, target, rel } : []}>
   {icon && <Icon name={icon} class="size-8 p-2 bg-slate-100 text-slate-500 dark:bg-slate-900 rounded-full" />}
   {
     image && (

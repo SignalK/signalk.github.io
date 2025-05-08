@@ -18,7 +18,7 @@ export async function getStaticPaths() {
   }));
 }
 
-function keywordsToTags(keywords) {
+function keywordsToTags(keywords: string[]) {
   return keywords
     .map((k) => k.replace(/^signalk(-category|-node-server)?-/, ''))
     .filter((k) => k !== 'signalk')

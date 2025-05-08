@@ -16,7 +16,7 @@ export const headerData = {
       href: 'https://demo.signalk.org/documentation/',
     },
     {
-      text: "AppStore",
+      text: 'AppStore',
       href: getPermalink('appstore'),
     },
     {

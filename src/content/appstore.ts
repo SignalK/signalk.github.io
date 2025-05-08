@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import type { LoaderContext } from 'astro/loaders';
 import pMap from 'p-map';
 
-const cachePath = join(import.meta.dirname, '../../node_modules/.cache/fetch')
+const cachePath = join(import.meta.dirname, '../../node_modules/.cache/fetch');
 
 export const fetch = doFetch.defaults({
   cachePath,
@@ -28,7 +28,7 @@ const schema = z.object({
     ),
     license: z.string().optional(),
     date: z.string().datetime(),
-    links: z.record(z.string(), z.string())
+    links: z.record(z.string(), z.string()),
   }),
   downloads: z.object({
     monthly: z.number(),
@@ -57,9 +57,9 @@ const schema = z.object({
       signalk: z.object({
         appIcon: z.string().optional(),
         displayName: z.string().optional(),
-      })
+      }),
     })
-  )
+  ),
 });
 
 export type Module = z.infer<typeof schema>;
@@ -67,47 +67,51 @@ export type Module = z.infer<typeof schema>;
 export default defineCollection({
   schema,
   loader: npmLoader({
-    keywords: [
-      'signalk-node-server-plugin',
-      'signalk-embeddable-webapp',
-      'signalk-webapp'
-    ]
-  })
-})
+    keywords: ['signalk-node-server-plugin', 'signalk-embeddable-webapp', 'signalk-webapp'],
+  }),
+});
 
-export function npmLoader({ keywords = [], concurrency = 10 }: { keywords?: string[], concurrency?: number } = {}) {
+export function npmLoader({ keywords = [], concurrency = 10 }: { keywords?: string[]; concurrency?: number } = {}) {
   return {
     name: 'npm',
     load: async ({ store, logger, meta }: LoaderContext): Promise<void> => {
       logger.info(`Loading npm modules with keywords: ${keywords.join(', ')}`);
 
-      await pMap(keywords, (async (keyword) => {
-        const modules = await fetchModulesByKeyword(keyword);
-        await pMap(modules, (async (module) => {
-          const id = module.package.name;
+      await pMap(
+        keywords,
+        async (keyword) => {
+          const modules = await fetchModulesByKeyword(keyword);
+          await pMap(
+            modules,
+            async (module) => {
+              const id = module.package.name;
 
-          logger.debug(`Fetching ${module.package.name}`);
-          const res = await fetch(`https://registry.npmjs.org/${id}`);
-          if (!res.ok) throw new Error(`Failed to fetch package data: ${res.statusText}`);
-          const data = await res.json();
+              logger.debug(`Fetching ${module.package.name}`);
+              const res = await fetch(`https://registry.npmjs.org/${id}`);
+              if (!res.ok) throw new Error(`Failed to fetch package data: ${res.statusText}`);
+              const data = await res.json();
 
-          meta.set("lastModified", module.package.date)
+              meta.set('lastModified', module.package.date);
 
-          store.set({
-            id: module.package.name,
-            data: {
-              ...module,
-              ...data
+              store.set({
+                id: module.package.name,
+                data: {
+                  ...module,
+                  ...data,
+                },
+              });
             },
-          })
-        }), { concurrency });
-      }), { concurrency });
-    }
-  }
+            { concurrency }
+          );
+        },
+        { concurrency }
+      );
+    },
+  };
 }
 
 async function fetchModulesByKeyword(keyword: string): Promise<Module[]> {
-  const items: Module[] = []
+  const items: Module[] = [];
   const size = 250;
 
   while (true) {
@@ -115,12 +119,12 @@ async function fetchModulesByKeyword(keyword: string): Promise<Module[]> {
     url.search = new URLSearchParams({
       size: size.toString(),
       from: items.length.toString(),
-      text: `keywords:${keyword}`
+      text: `keywords:${keyword}`,
     }).toString();
 
     const response = await fetch(url.toString());
     if (!response.ok) throw new Error(`Failed to fetch modules: ${response.statusText}`);
-    const data = await response.json() as { objects: Module[], total: number };
+    const data = (await response.json()) as { objects: Module[]; total: number };
 
     items.push(...data.objects);
 

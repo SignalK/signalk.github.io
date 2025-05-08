@@ -46,12 +46,8 @@ function expandLinks(links: Record<string, string>) {
 
 const { data } = Astro.props;
 
-const res = await fetch(`https://registry.npmjs.org/${Astro.params.id}`);
-if (!res.ok) throw new Error(`Failed to fetch package data: ${res.statusText}`);
-const remoteData = await res.json();
-
-const readme = sanitize(await marked.parse(remoteData.readme));
-const pkg = remoteData.versions[data.package.version];
+const readme = sanitize(await marked.parse(data.readme));
+const pkg = data.versions[data.package.version];
 ---
 
 <PageLayout>

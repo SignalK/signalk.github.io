@@ -1,0 +1,31 @@
+---
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  text?: string;
+  icon?: string;
+  image?: string;
+  href?: string;
+}
+
+const {
+  text = await Astro.slots.render('default'),
+  image = await Astro.slots.render('image'),
+  icon,
+  href,
+} = Astro.props;
+
+const Element = href ? 'a' : 'div';
+---
+
+<Element class="flex gap-2 items-center" {...href ? { href } : []}>
+  {icon && <Icon name={icon} class="size-8 p-2 bg-slate-100 text-slate-500 dark:bg-slate-900 rounded-full" />}
+  {
+    image && (
+      <span class="size-8">
+        <Fragment set:html={image} />
+      </span>
+    )
+  }
+  <span set:html={text} />
+</Element>

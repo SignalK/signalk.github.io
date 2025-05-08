@@ -1,5 +1,6 @@
 import { z, defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
+import appstore from './appstore';
 
 const metadataDefinition = () =>
   z
@@ -67,4 +68,5 @@ const postCollection = defineCollection({
 
 export const collections = {
   post: postCollection,
+  appstore,
 };

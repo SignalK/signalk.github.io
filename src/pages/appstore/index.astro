@@ -1,0 +1,31 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import PageLayout from '~/layouts/PageLayout.astro';
+import { getCollection } from 'astro:content';
+const extensions = await getCollection('appstore');
+---
+
+<PageLayout>
+  <Hero
+    tagline="AppStore"
+    title="Words about how wonderful and powerful Signal K extensions are."
+    subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quibusdam, hic similique officia veniam sapiente"
+  />
+  <ul class="grid grid-cols-4 gap-4 p-4 sm:p-6 mx-auto lg:p-8 max-w-6xl">
+    {
+      extensions.map((extension) => (
+        <a href={`/appstore/${extension.id}`}>
+          <h2
+            class="
+    text-xl
+    font-semibold"
+          >
+            {extension.data.package.name}
+          </h2>
+          <p class="">{extension.data.package.description}</p>
+          {/* <pre>{JSON.stringify(extension, null, 2)}</pre> */}
+        </a>
+      ))
+    }
+  </ul></PageLayout
+>

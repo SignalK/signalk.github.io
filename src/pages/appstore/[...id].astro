@@ -1,0 +1,183 @@
+---
+import Tagline from '~/components/ui/Tagline.astro';
+import Button from '~/components/ui/Button.astro';
+import { Icon } from 'astro-icon/components';
+import PageLayout from '~/layouts/PageLayout.astro';
+import { getCollection } from 'astro:content';
+import { marked } from 'marked';
+import sanitize from 'sanitize-html';
+import gravatar from '~/utils/gravatar';
+import Label from '~/components/appstore/Label.astro';
+import ListItem from '~/components/appstore/ListItem.astro';
+
+export async function getStaticPaths() {
+  const extensions = await getCollection('appstore');
+  return extensions.map((extension) => ({
+    params: { id: extension.id },
+    props: extension,
+  }));
+}
+
+function keywordsToTags(keywords) {
+  return keywords
+    .map((k) => k.replace(/^signalk(-category|-node-server)?-/, ''))
+    .filter((k) => k !== 'signalk')
+    .map((keyword) => ({
+      name: keyword,
+      url: `/appstore/${keyword}`,
+    }));
+}
+
+const LinkDefaults = {
+  homepage: { name: 'Website', icon: 'tabler:home' },
+  repository: { name: 'Source', icon: 'tabler:code' },
+  bugs: { name: 'Issues', icon: 'tabler:bug' },
+  npm: { name: 'NPM', icon: 'tabler:package' },
+};
+
+function expandLinks(links: Record<string, string>) {
+  return Object.entries(links).map(([key, value]) => {
+    return {
+      ...LinkDefaults[key],
+      url: value,
+    };
+  });
+}
+
+const { data } = Astro.props;
+
+const res = await fetch(`https://registry.npmjs.org/${Astro.params.id}`);
+if (!res.ok) throw new Error(`Failed to fetch package data: ${res.statusText}`);
+const remoteData = await res.json();
+
+const readme = sanitize(await marked.parse(remoteData.readme));
+const pkg = remoteData.versions[data.package.version];
+---
+
+<PageLayout>
+  <main class="p-4 sm:p-6 mx-auto lg:p-8 max-w-7xl gap-12 flex flex-col">
+    <div class="grid grid-cols-4 gap-8 items-center">
+      <div class="col-span-3 flex flex-col gap-1">
+        <Tagline>
+          <a href="/appstore">AppStore</a>
+        </Tagline>
+        <div class="flex gap-6">
+          <div class="shrink-0">
+            {
+              pkg.signalk?.appIcon ? (
+                <img
+                  src={`https://unpkg.com/${pkg.name}@${pkg.version}/public/${pkg.signalk.appIcon}`}
+                  alt={pkg.name}
+                  class="size-[6.5rem] rounded object-cover"
+                />
+              ) : (
+                <Icon
+                  name="tabler:apps"
+                  class="size-[6.5rem] p-8 bg-slate-100 text-slate-300 dark:bg-slate-900 rounded-lg"
+                />
+              )
+            }
+          </div>
+
+          <div class="space-y-1">
+            <h1 class="text-4xl font-bold">{pkg.signalk?.displayName ?? pkg.name}</h1>
+            <p class="text-xl text-muted">
+              {pkg.description}
+            </p>
+            {
+              pkg.keywords && (
+                <div class="flex flex-wrap gap-2">
+                  {keywordsToTags(pkg.keywords).map((keyword) => (
+                    <a
+                      href={keyword.url}
+                      class="text-sm bg-slate-100 text-muted dark:bg-slate-800 px-3 py-1 rounded-full"
+                    >
+                      {keyword.name}
+                    </a>
+                  ))}
+                </div>
+              )
+            }
+          </div>
+        </div>
+      </div>
+      <div>
+        <Button text="Install" icon="tabler:download" />
+      </div>
+    </div>
+    <div class="grid grid-cols-4 gap-8">
+      <div class="col-span-3">
+        <Label>Readme</Label>
+        <div
+          class="prose prose-slate dark:prose-invert prose-h1:hidden prose-p:mt-2 prose-p:mb-2 prose-ul:mt-2 prose-ul:mb-2 prose-li:mt-0 prose-li:mb-0 prose-p:leading-normal p-10 bg-slate-50 dark:bg-slate-800 rounded-lg max-w-none"
+          set:html={readme}
+        />
+      </div>
+      <div class="flex flex-col gap-8">
+        <div>
+          <Label>Latest Release</Label>
+
+          <div class="space-y-2">
+            <ListItem icon="tabler:tag">
+              {data.package.version}
+              <span class="text-sm">
+                {new Date(data.package.date).toLocaleString(undefined, { dateStyle: 'medium' })}
+              </span>
+            </ListItem>
+          </div>
+        </div>
+
+        <div>
+          <Label>Downloads</Label>
+          <ListItem
+            icon="tabler:download"
+            href={`https://www.npmjs.com/package/${data.package.name}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {data.downloads.monthly} / month
+          </ListItem>
+        </div>
+
+        <div>
+          <Label>Links</Label>
+          <div class="space-y-2">
+            {
+              expandLinks(data.package.links).map(({ name, icon, url }) => (
+                <ListItem icon={icon} href={url} target="_blank" rel="noopener noreferrer">
+                  {name}
+                </ListItem>
+              ))
+            }
+          </div>
+        </div>
+
+        <div>
+          <Label>Built By</Label>
+          {
+            data.package.maintainers && (
+              <div class="space-y-2">
+                {data.package.maintainers.map((maintainer) => (
+                  <ListItem text={maintainer.username}>
+                    <Fragment slot="image">
+                      <img
+                        src={gravatar(maintainer.email, { s: '80', d: 'initials', name: maintainer.username })}
+                        alt={maintainer.username}
+                        class="rounded-full"
+                      />
+                    </Fragment>
+                  </ListItem>
+                ))}
+              </div>
+            )
+          }
+        </div>
+
+        <div class="">
+          <Label>License</Label>
+          <ListItem icon="tabler:brand-open-source">{data.package.license}</ListItem>
+        </div>
+      </div>
+    </div>
+  </main>
+</PageLayout>

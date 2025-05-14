@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+import { writeFile, mkdir, readFile } from 'fs/promises';
+import { dirname } from 'path';
+
+const title = process.argv[2];
+if (!title) {
+  console.error('Please provide a title for the post.');
+  process.exit(1);
+}
+
+const slug = title
+  .toLowerCase()
+  .replace(/[^a-z0-9]+/g, '-')
+  .replace(/^-|-$/g, '');
+
+const date = new Date().toISOString().split('T')[0];
+const filename = `_posts/${new Date().getFullYear()}/${slug}.mdx`;
+
+const template = fillTemplate(await readFile('docs/blog-template.md', 'utf-8'), { title, date });
+
+await mkdir(dirname(filename), { recursive: true });
+await writeFile(filename, template);
+console.log(`Post created: ${filename}`);
+
+function fillTemplate(input, data) {
+  const regex = new RegExp('{(' + Object.keys(data).join('|') + ')}', 'g');
+  return input.replace(regex, (m, $1) => data[$1] || m);
+}

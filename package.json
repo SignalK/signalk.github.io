@@ -16,7 +16,7 @@
     "check:astro": "astro check",
     "check:eslint": "eslint .",
     "check:prettier": "prettier --check .",
-    "fix": "npm run fix:eslint && npm run fix:prettier",
+    "fix": "npm run fix:eslint && npm run fix:prettier && npm run check:astro",
     "fix:eslint": "eslint --fix .",
     "fix:prettier": "prettier -w ."
   },

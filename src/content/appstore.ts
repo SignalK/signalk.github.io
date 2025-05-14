@@ -11,25 +11,23 @@ export const fetch = doFetch.defaults({
 });
 
 const schema = z.object({
-  package: z.object({
-    name: z.string(),
-    description: z.string().optional(),
-    version: z.string(),
-    keywords: z.array(z.string()),
-    publisher: z.object({
+  name: z.string(),
+  description: z.string().optional(),
+  version: z.string(),
+  keywords: z.array(z.string()),
+  publisher: z.object({
+    username: z.string(),
+    email: z.string(),
+  }),
+  maintainers: z.array(
+    z.object({
       username: z.string(),
       email: z.string(),
-    }),
-    maintainers: z.array(
-      z.object({
-        username: z.string(),
-        email: z.string(),
-      })
-    ),
-    license: z.string().optional(),
-    date: z.string().datetime(),
-    links: z.record(z.string(), z.string()),
-  }),
+    })
+  ),
+  license: z.string().optional(),
+  date: z.string().datetime(),
+  links: z.record(z.string(), z.string()),
   downloads: z.object({
     monthly: z.number(),
     weekly: z.number(),
@@ -47,19 +45,10 @@ const schema = z.object({
     insecure: z.number(),
   }),
   readme: z.string(),
-  versions: z.record(
-    z.string(),
-    z.object({
-      name: z.string(),
-      version: z.string(),
-      description: z.string().optional(),
-      keywords: z.array(z.string()),
-      signalk: z.object({
-        appIcon: z.string().optional(),
-        displayName: z.string().optional(),
-      }),
-    })
-  ),
+  signalk: z.object({
+    appIcon: z.string().optional(),
+    displayName: z.string().optional(),
+  }).optional(),
 });
 
 export type Module = z.infer<typeof schema>;
@@ -74,7 +63,7 @@ export default defineCollection({
 export function npmLoader({ keywords = [], concurrency = 10 }: { keywords?: string[]; concurrency?: number } = {}) {
   return {
     name: 'npm',
-    load: async ({ store, logger, meta }: LoaderContext): Promise<void> => {
+    load: async ({ store, logger, meta, parseData }: LoaderContext): Promise<void> => {
       logger.info(`Loading npm modules with keywords: ${keywords.join(', ')}`);
 
       await pMap(
@@ -83,18 +72,28 @@ export function npmLoader({ keywords = [], concurrency = 10 }: { keywords?: stri
           const modules = await fetchModulesByKeyword(keyword);
           await pMap(
             modules,
-            async (module) => {
-              const id = module.package.name;
+            async ({ package: pkg, ...module }) => {
+              const id = pkg.name;
 
-              logger.debug(`Fetching ${module.package.name}`);
+              logger.debug(`Fetching ${id}`);
               const res = await fetch(`https://registry.npmjs.org/${id}`);
               if (!res.ok) throw new Error(`Failed to fetch package data: ${res.statusText}`);
-              const data = await res.json();
+              const { readme, versions } = await res.json();
 
-              meta.set('lastModified', module.package.date);
+              const data = await parseData({
+                id,
+                data: {
+                  ...module,
+                  ...versions[pkg.version],
+                  ...pkg,
+                  readme,
+                }
+              })
+
+              meta.set('lastModified', data.date);
 
               store.set({
-                id: module.package.name,
+                id,
                 data: {
                   ...module,
                   ...data,
@@ -110,8 +109,9 @@ export function npmLoader({ keywords = [], concurrency = 10 }: { keywords?: stri
   };
 }
 
-async function fetchModulesByKeyword(keyword: string): Promise<Module[]> {
-  const items: Module[] = [];
+async function fetchModulesByKeyword(keyword: string) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const items: any[] = [];
   const size = 250;
 
   while (true) {
@@ -124,7 +124,7 @@ async function fetchModulesByKeyword(keyword: string): Promise<Module[]> {
 
     const response = await fetch(url.toString());
     if (!response.ok) throw new Error(`Failed to fetch modules: ${response.statusText}`);
-    const data = (await response.json()) as { objects: Module[]; total: number };
+    const data = await response.json();
 
     items.push(...data.objects);
 

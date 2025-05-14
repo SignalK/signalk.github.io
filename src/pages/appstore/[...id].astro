@@ -1,12 +1,12 @@
 ---
 import Tagline from '~/components/ui/Tagline.astro';
 import Button from '~/components/ui/Button.astro';
-import { Icon } from 'astro-icon/components';
 import PageLayout from '~/layouts/PageLayout.astro';
 import { getCollection } from 'astro:content';
 import { marked } from 'marked';
 import sanitize from 'sanitize-html';
 import gravatar from '~/utils/gravatar';
+import AppIcon from '~/components/appstore/AppIcon.astro';
 import Label from '~/components/appstore/Label.astro';
 import ListItem from '~/components/appstore/ListItem.astro';
 
@@ -47,7 +47,6 @@ function expandLinks(links: Record<string, string>) {
 const { data } = Astro.props;
 
 const readme = sanitize(await marked.parse(data.readme));
-const pkg = data.versions[data.package.version];
 ---
 
 <PageLayout>
@@ -59,31 +58,18 @@ const pkg = data.versions[data.package.version];
         </Tagline>
         <div class="flex gap-6">
           <div class="shrink-0">
-            {
-              pkg.signalk?.appIcon ? (
-                <img
-                  src={`https://unpkg.com/${pkg.name}@${pkg.version}/public/${pkg.signalk.appIcon}`}
-                  alt={pkg.name}
-                  class="size-[6.5rem] rounded object-cover"
-                />
-              ) : (
-                <Icon
-                  name="tabler:apps"
-                  class="size-[6.5rem] p-8 bg-slate-100 text-slate-300 dark:bg-slate-900 rounded-lg"
-                />
-              )
-            }
+            <AppIcon name={data.name} path={data.signalk?.appIcon} version={data.version} />
           </div>
 
           <div class="space-y-1">
-            <h1 class="text-4xl font-bold">{pkg.signalk?.displayName ?? pkg.name}</h1>
+            <h1 class="text-4xl font-bold">{data.signalk?.displayName ?? data.name}</h1>
             <p class="text-xl text-muted">
-              {pkg.description}
+              {data.description}
             </p>
             {
-              pkg.keywords && (
+              data.keywords && (
                 <div class="flex flex-wrap gap-2">
-                  {keywordsToTags(pkg.keywords).map((keyword) => (
+                  {keywordsToTags(data.keywords).map((keyword) => (
                     <a
                       href={keyword.url}
                       class="text-sm bg-slate-100 text-muted dark:bg-slate-800 px-3 py-1 rounded-full"
@@ -115,9 +101,9 @@ const pkg = data.versions[data.package.version];
 
           <div class="space-y-2">
             <ListItem icon="tabler:tag">
-              {data.package.version}
+              {data.version}
               <span class="text-sm">
-                {new Date(data.package.date).toLocaleString(undefined, { dateStyle: 'medium' })}
+                {new Date(data.date).toLocaleString(undefined, { dateStyle: 'medium' })}
               </span>
             </ListItem>
           </div>
@@ -127,7 +113,7 @@ const pkg = data.versions[data.package.version];
           <Label>Downloads</Label>
           <ListItem
             icon="tabler:download"
-            href={`https://www.npmjs.com/package/${data.package.name}`}
+            href={`https://www.npmjs.com/package/${data.name}`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -139,7 +125,7 @@ const pkg = data.versions[data.package.version];
           <Label>Links</Label>
           <div class="space-y-2">
             {
-              expandLinks(data.package.links).map(({ name, icon, url }) => (
+              expandLinks(data.links).map(({ name, icon, url }) => (
                 <ListItem icon={icon} href={url} target="_blank" rel="noopener noreferrer">
                   {name}
                 </ListItem>
@@ -151,9 +137,9 @@ const pkg = data.versions[data.package.version];
         <div>
           <Label>Built By</Label>
           {
-            data.package.maintainers && (
+            data.maintainers && (
               <div class="space-y-2">
-                {data.package.maintainers.map((maintainer) => (
+                {data.maintainers.map((maintainer) => (
                   <ListItem text={maintainer.username}>
                     <Fragment slot="image">
                       <img
@@ -171,7 +157,7 @@ const pkg = data.versions[data.package.version];
 
         <div class="">
           <Label>License</Label>
-          <ListItem icon="tabler:brand-open-source">{data.package.license}</ListItem>
+          <ListItem icon="tabler:brand-open-source">{data.license}</ListItem>
         </div>
       </div>
     </div>

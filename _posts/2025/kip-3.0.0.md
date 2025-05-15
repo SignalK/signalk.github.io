@@ -1,11 +1,11 @@
 ---
-title: KIP 3.0 is out!
+title: KIP 3.0 brings improved user experience
 author: David Godin
 publishDate: 2025-04-26
 category: Release
 tags: [KIP, Ecosystem]
 image: https://raw.githubusercontent.com/mxtommy/Kip/master/images/KIPDemo.png
-excerpt: KIP 3.0 delivers a vastly improved user experience across desktops, tablets, and mobile devices. Whether you're fine-tuning your helm setup or creating a custom dashboard for your nav station, KIP v3.0 gives you more flexibility, clarity, and control than ever before.
+excerpt: Whether you're fine-tuning your helm setup or creating a custom dashboard for your nav station, KIP 3.0 delivers a vastly improved user experience.
 ---
 
 We’re excited to announce the release of **KIP v3.0**, the latest major version of the Signal K Instrument Panel — a customizable, responsive dashboard for marine data built by and for the open boating community.
@@ -49,6 +49,6 @@ Version 3.0 is our biggest update yet, delivering a vastly improved user experie
 
 KIP continues to evolve thanks to the contributions of our passionate Signal K community. We’re proud to keep the project 100% free and open source, so every boater can customize their onboard experience without limitations.
 
-Search for "KIP" in the Signal K appstore to find the latest version, or explore the full changelog on [GitHub](https://github.com/mxtommy/Kip/releases/latest).
+Search for "KIP" in the Signal K appstore to find the latest version, or explore the full changelog on [GitHub](https://github.com/mxtommy/Kip/releases/tag/v3.0.0).
 
 Happy sailing! ⛵

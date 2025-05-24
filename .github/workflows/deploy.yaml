@@ -1,4 +1,4 @@
-name: GitHub Actions
+name: Build & Deploy
 
 on:
   pull_request:

@@ -24,7 +24,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check
-      - run: npm run build -- --base '/signalk.github.io'
+      - run: npm run build
       - name: Upload Artifact
         # if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3

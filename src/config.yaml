@@ -1,7 +1,7 @@
 site:
   name: Signal K
   site: 'https://signalk.org'
-  base: '/signalk.github.io'
+  base: '/'
 
   # googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
 

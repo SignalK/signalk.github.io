@@ -1,0 +1,79 @@
+---
+import Features from '~/components/widgets/Features.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import GitHubMembers from '~/components/widgets/GitHubMembers.astro';
+import EcosystemStats from '~/components/widgets/EcosystemStats.astro';
+
+const metadata = {
+  title: 'About',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero tagline="About">
+    <Fragment slot="title">
+      <span class="text-accent">The next generation solution for marine data exchange</span>
+      <!-- <span class="text-accent dark:text-white"> Beautiful Website Templates</span> -->
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Signal K enables communication between instruments and sensors on board a vessel, and enables sharing of data
+      between boats, aids to navigation, bridges, marinas and other land-based resources. It is designed to be easily
+      used by web and mobile applications and to connect modern boats to the <em>Internet of Things</em>.
+    </Fragment>
+  </Hero>
+
+  <section class="p-4 sm:p-6 mx-auto lg:p-8 max-w-4xl">
+    <Headline tagline="Origin" title="How it all began" />
+    <div
+      class="mx-auto prose prose-lg max-w-4xl dark:prose-invert dark:prose-headings:text-slate-300 prose-md prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8"
+    >
+      <p>
+        Signal K began in <a href="https://github.com/tkurki/navgauge/issues/4">GitHub issue</a>, as a solution for 5
+        developers to make their projects interoperable. Frustrated at the closed protocols, expensive hardware and
+        internet “unfriendliness” of marine data, they decided to develop a new “Open Data Standard” that would
+        compliment and expand the existing marine data protocols.
+      </p>
+      <p>
+        By utilising modern web technologies and protocols, running on low cost but powerful hardware platforms and
+        encouraging an open and collaborative community of developers all working to a common goal, they have managed to
+        create a really powerful and expandable data format, that keeps changing the marine electronics ecosystem in a
+        more open direction.
+      </p>
+    </div>
+  </section>
+
+  <Features
+    tagline="Community"
+    title="Built by a global community of boaters, for boaters"
+    items={[
+      {
+        title: 'Free & Open Source',
+        description: 'All code & artifacts are released as Open Source, mostly under the Apache 2 license.',
+        icon: 'tabler:brand-open-source',
+      },
+      {
+        title: 'Volunteer Led',
+        description:
+          'There is no legal entity for Signal K. Volunteers lead and coordinate a global community of contributors.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Community Supported',
+        description: 'The community is supported by donations and sponsorships from individuals and companies.',
+        icon: 'tabler:coin',
+      },
+      {
+        title: 'Globally Distributed',
+        description: 'Signal K is used by and built by boaters all over the world.',
+        icon: 'tabler:world',
+      },
+    ]}
+  />
+
+  <GitHubMembers />
+
+  <EcosystemStats />
+</Layout>

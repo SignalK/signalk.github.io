@@ -1,0 +1,42 @@
+---
+import Tagline from '~/components/ui/Tagline.astro';
+import type { Headline as Props } from '~/types';
+import { twMerge } from 'tailwind-merge';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline,
+  classes = {},
+} = Astro.props;
+
+const {
+  container: containerClass = 'max-w-3xl',
+  title: titleClass = 'text-3xl md:text-4xl ',
+  subtitle: subtitleClass = 'text-xl',
+} = classes;
+---
+
+{
+  (title || subtitle || tagline) && (
+    <div
+      class={twMerge(
+        'mb-8 md:mx-auto md:mb-12 text-center intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
+        containerClass
+      )}
+    >
+      {tagline && <Tagline>{tagline}</Tagline>}
+      {title && (
+        <h2
+          class={twMerge(
+            'font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl text-balance',
+            titleClass
+          )}
+          set:html={title}
+        />
+      )}
+
+      {subtitle && <p class={twMerge('mt-4 text-muted text-balance', subtitleClass)} set:html={subtitle} />}
+    </div>
+  )
+}

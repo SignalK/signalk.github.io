@@ -1,0 +1,87 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import Sponsors from '~/components/widgets/Sponsors.astro';
+import HeroImage from '~/assets/images/hero.svg';
+
+const metadata = {
+  title: 'The Open Marine Data Platform',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    actions={[
+      { text: 'Learn More', href: 'https://demo.signalk.org/documentation/' },
+      {
+        variant: 'primary',
+        text: 'Try Demo',
+        href: 'https://demo.signalk.org',
+        target: '_blank',
+        icon: 'tabler:arrow-right',
+      },
+    ]}
+  >
+    <Fragment slot="title">The Open Marine Data Platform</Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline"> Signal K is </span>
+      a data standard, a local hub, and an ecosystem of plugins & web apps for collecting and sharing boat data.
+    </Fragment>
+    <Fragment slot="image">
+      <div class="flex items-center justify-center"><HeroImage /></div>
+    </Fragment>
+  </Hero>
+
+  <!-- <Image src="~/assets/images/hero.png" alt="WTF" /> -->
+
+  <!-- Features Widget *************** -->
+
+  <Features3
+    tagline="Platform"
+    title="A modern, open platform for marine data exchange"
+    columns={3}
+    items={[
+      {
+        title: 'An Open Data Standard',
+        description:
+          'Signal K is data format for marine use built on standard web technologies, suitable for WiFi, mobile devices, and the internet.',
+        icon: 'tabler:binary-tree-2',
+        callToAction: {
+          text: 'Read the Signal K specification',
+          href: 'https://signalk.org/specification/latest/',
+          target: '_blank',
+        },
+      },
+      {
+        title: 'A Local Server',
+        description:
+          'Signal K Server creates a central hub for a boat, connecting all onboard devices and systems over NMEA, WiFi, and other marine protocols.',
+        icon: 'tabler:cpu',
+        callToAction: {
+          text: 'Install the Signal K Server',
+          href: 'https://github.com/SignalK/signalk-server#readme',
+          target: '_blank',
+        },
+      },
+      {
+        title: 'An Ecosystem',
+        description:
+          'Extend the functionality of Signal K Server with hundreds of plugins and web apps from the growing community of developers.',
+        icon: 'tabler:apps',
+        callToAction: {
+          text: 'Explore the Signal K ecosystem',
+          href: 'https://www.npmjs.com/search?q=signalk',
+        },
+      },
+    ]}
+  />
+
+  <BlogLatestPosts title="The latest from the Signal K community" />
+
+  <Sponsors />
+</Layout>

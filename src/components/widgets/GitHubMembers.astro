@@ -1,0 +1,47 @@
+---
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
+import Headline from '../ui/Headline.astro';
+import Profile from '../ui/Profile.astro';
+
+const response = await fetch('https://api.github.com/orgs/Signalk/members');
+if (!response.ok) throw new Error(response.statusText);
+
+const membersData = await response.json();
+
+// GitHub doesn't return "name" in the members list, so we need to fetch each member's details.
+const members = await Promise.all(
+  membersData.map(async (member: { url: string; login: string }) => {
+    const userResponse = await fetch(member.url);
+    const userData = await userResponse.json();
+    return {
+      ...member,
+      name: userData.name || member.login, // Use full name if available, fallback to login
+    };
+  })
+);
+---
+
+<WidgetWrapper id="team">
+  <Headline
+    tagline="Team"
+    title="Meet the core-contributors"
+    subtitle="The project is led by a group of volunteers who are passionate about open data and interoperability in the marine electronics ecosystem."
+  />
+
+  <div class="text-center text-balance">
+    {
+      members.map((member) => (
+        <span class="inline-block m-4 text-left w-48">
+          <Profile
+            variant="center"
+            name={member.name}
+            link={member.html_url}
+            image={member.avatar_url}
+            target="_blank"
+            meta={`@${member.login}`}
+          />
+        </span>
+      ))
+    }
+  </div>
+</WidgetWrapper>

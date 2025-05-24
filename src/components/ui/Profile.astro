@@ -1,0 +1,46 @@
+---
+import { twMerge } from 'tailwind-merge';
+
+export interface Props {
+  name: string;
+  link?: string;
+  image?: string;
+  target?: string;
+  meta?: string;
+  class?: string;
+  variant?: 'default' | 'center';
+}
+
+const { link, image, name, meta, target = '_blank', variant = 'default' } = Astro.props;
+
+function initials(name: string) {
+  return name
+    .split(' ')
+    .map((part) => part[0])
+    .join('');
+}
+---
+
+<a
+  href={link}
+  class={twMerge('flex items-center gap-3', { center: 'flex-col text-center' }[variant])}
+  {...target ? { target: target, rel: 'noopener noreferrer' } : {}}
+>
+  {
+    image ? (
+      <img
+        src={image}
+        alt={name}
+        class={twMerge('size-10 rounded-full object-cover', { center: 'size-20', default: 'size-10' }[variant])}
+      />
+    ) : (
+      <div class="size-10 rounded-full bg-slate-500/20 flex items-center justify-center text-slate-500/50">
+        {initials(name)}
+      </div>
+    )
+  }
+  <div>
+    <span class="text-lg font-semibold leading-tight overflow-ellipsis text-nowrap">{name}</span>
+    {meta && <div class="text-gray-500 text-sm">{meta}</div>}
+  </div>
+</a>

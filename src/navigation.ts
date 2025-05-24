@@ -36,7 +36,6 @@ export const footerData = {
       title: 'Project',
       links: [
         { text: 'Sponsor', href: 'https://opencollective.com/signalk' },
-        { text: 'Security', href: '#' },
         { text: 'Contact', href: 'mailto:info@signalk.org' },
       ],
     },
@@ -45,7 +44,7 @@ export const footerData = {
       links: [
         { text: 'Specification', href: 'https://signalk.org/specification/latest' },
         { text: 'Server', href: 'https://github.com/SignalK/signalk-server' },
-        { text: 'Plugins & Webapps', href: '#' },
+        { text: 'Plugins & Webapps', href: getPermalink('about#stats') },
       ],
     },
     {

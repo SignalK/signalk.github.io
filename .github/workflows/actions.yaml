@@ -3,11 +3,10 @@ name: GitHub Actions
 on:
   pull_request:
     branches:
-      - main
+      - master
   push:
     branches:
-      - main
-      - astro # TODO: remove
+      - master
   schedule:
     # Rebuild every day to update dynamic content
     - cron: '0 0 * * *'
@@ -26,7 +25,7 @@ jobs:
       - run: npm run check
       - run: npm run build
       - name: Upload Artifact
-        # if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'

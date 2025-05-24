@@ -1,0 +1,38 @@
+---
+publishDate: 2025-05-24
+title: Running a Roaming AIS Station
+author: Brandon Keepers
+category: Tutorial
+image: ~/assets/images/roaming-ais-station.jpg
+tags: [ais, ais-forwarder, cloud]
+excerpt: Use Signal K to report your position—and everyone else’s nearby—to online services like MarineTraffic and VesselFinder.
+---
+
+If you are in a well-populated area, you may notice that the position of your vessel on global tracking sites like MarineTraffic or VesselFinder is often updated in near-real-time. This is thanks to a network of AIS stations that relay the positions of vessels to these services. You can join this network by running a roaming AIS station on your boat, which will report your position and the positions of nearby vessels.
+
+### Why Run a Roaming AIS Station?
+
+- 📍 **Track your own boat**: view your real-time position on marine traffic websites and share it with friends and family.
+- 🆘 **Improve safety at sea**: your roaming station may help relay the AIS position of vessels in distress in remote areas.
+- 🎁 **Unlock perks**: services like [MarineTraffic offer premium benefits to AIS data partners](https://support.marinetraffic.com/en/articles/9552976-what-benefits-do-i-get-as-an-ais-partner).
+
+### What You’ll Need
+
+To set up a roaming AIS station, you'll need to already have Signal K server running on your boat. Check out the [Getting Started with Signal K](https://demo.signalk.org/documentation/installation/) documentation and install it on your boat. You can run Signal K on a Raspberry Pi, a laptop, or any other computer that can connect to the internet and instruments on your boat.
+
+To report the position of boats besides your own, you'll also need an AIS receiver and a connection to your Signal K server. If you do have AIS but it's not yet connected to Signal K, check out the [documentation on connecting Signal K to your NMEA network](https://demo.signalk.org/documentation/features/navdataserver/navdataserver.html). If you don't have AIS, there are some [low cost AIS receivers](https://shop.wegmatt.com/products/daisy-2-dual-channel-ais-receiver-with-nmea-0183?variant=7103563628580) that can simply be connected via USB to the computer running Signal K.
+https://www.tindie.com/products/astuder/daisy-2-dual-channel-ais-receiver-with-nmea-0183/
+
+### Setting Up Your Roaming AIS Station
+
+Once you have the prerequisites in place, setting up your roaming AIS station is shockingly simple (as with many things in Signal K).
+
+1. Install one of the following plugins:
+   1. _If you have an AIS onboard_, install the [ais-forwarder](https://github.com/hkapanen/ais-forwarder), which will forward your position and all AIS traffic.
+   2. _If you don’t have an AIS onboard_, install the [aisreporter](https://github.com/SignalK/aisreporter) plugin, which will at least report your position.
+2. Sign up for accounts with AIS reporting services:
+   - [MarineTraffic](https://www.marinetraffic.com/en/)
+   - [VesselFinder](https://www.vesselfinder.com/)
+3. Configure the plugin with the IP and ports provided by the AIS reporting services
+
+That’s it—your boat is now a roaming station that automatically reports AIS data, enhancing global coverage and making us all a little safer.

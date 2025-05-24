@@ -60,7 +60,7 @@
     "tailwind-merge": "^2.6.0",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.30.1",
+    "typescript-eslint": "^8.32.1",
     "unist-util-visit": "^5.0.0"
   }
 }

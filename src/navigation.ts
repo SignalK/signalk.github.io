@@ -23,7 +23,7 @@ export const headerData = {
   actions: [
     {
       text: 'Try Demo',
-      href: 'https://github.com/SignalK/signalk-server',
+      href: 'https://demo.signalk.org',
       target: '_blank',
       icon: 'tabler:arrow-right',
     },

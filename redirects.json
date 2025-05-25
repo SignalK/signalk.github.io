@@ -22,5 +22,7 @@
   "/2022/05/16/signalk-case-study-DockTech.html": "/2022/signalk-case-study-DockTech/",
   "/demo.html": "https://demo.signalk.org/",
   "/specification.html": "https://signalk.org/specification/latest/",
-  "applications_solutions.html": "/solutions/"
+  "applications_solutions.html": "/solutions/",
+  "solutions.html": "/solutions/",
+  "installation.html": "/installation/"
 }

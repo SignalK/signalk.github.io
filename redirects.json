@@ -24,5 +24,6 @@
   "/specification.html": "https://signalk.org/specification/latest/",
   "applications_solutions.html": "/solutions/",
   "solutions.html": "/solutions/",
-  "installation.html": "/installation/"
+  "installation.html": "/installation/",
+  "overview.html": "/overview/"
 }

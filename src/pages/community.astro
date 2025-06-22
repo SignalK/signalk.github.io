@@ -1,0 +1,48 @@
+---
+import Features from '~/components/widgets/Features.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Community',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero tagline="Community" title="A global community of boaters helping boaters">
+    <Fragment slot="subtitle">
+      Whether you need technical support, advice on integrations, or want to contribute your own ideas, there are
+      friendly volunteers ready to assist. The Signal K community is dedicated to helping boaters of all experience
+      levels get the most out of their marine electronics.
+    </Fragment>
+  </Hero>
+
+  <Features
+    columns={2}
+    tagline="Forums"
+    title="Connect and collaborate with fellow enthusiasts."
+    items={[
+      {
+        title: 'Discord',
+        description:
+          'Real-time chat with other users, contributors, plugin developers, and marine electronics enthusiasts.',
+        icon: 'tabler:brand-discord',
+        callToAction: {
+          text: 'Join Discord',
+          href: 'https://discord.gg/uuZrwz4dCS',
+          icon: 'tabler:arrow-right',
+        },
+      },
+      {
+        title: 'GitHub Discussions',
+        description: 'Ask questions and share ideas with other developers in the Signal K community.',
+        icon: 'mdi:github',
+        callToAction: {
+          text: 'Join GitHub Discussions',
+          href: 'https://github.com/SignalK/signalk/discussions',
+          icon: 'tabler:arrow-right',
+        },
+      },
+    ]}
+  />
+</Layout>

@@ -13,6 +13,10 @@ export const headerData = {
       href: getPermalink('about'),
     },
     {
+      text: 'Community',
+      href: getPermalink('community'),
+    },
+    {
       text: 'Specification',
       href: 'https://signalk.org/specification/latest/',
     },

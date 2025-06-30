@@ -1,10 +1,20 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
+export const socialLinks = [
+  { ariaLabel: 'Discord', icon: 'tabler:brand-discord', href: 'https://discord.gg/uuZrwz4dCS' },
+  { ariaLabel: 'GitHub', icon: 'mdi:github', href: 'https://github.com/SignalK' },
+  { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
+];
+
 export const headerData = {
   links: [
     {
       text: 'About',
       href: getPermalink('about'),
+    },
+    {
+      text: 'Community',
+      href: getPermalink('community'),
     },
     {
       text: 'Specification',
@@ -20,14 +30,7 @@ export const headerData = {
       href: getBlogPermalink(),
     },
   ],
-  actions: [
-    {
-      text: 'Try Demo',
-      href: 'https://demo.signalk.org',
-      target: '_blank',
-      icon: 'tabler:arrow-right',
-    },
-  ],
+  socialLinks,
 };
 
 export const footerData = {
@@ -56,11 +59,6 @@ export const footerData = {
     },
   ],
   secondaryLinks: [],
-  socialLinks: [
-    { ariaLabel: 'Discord', icon: 'tabler:brand-discord', href: 'https://discord.gg/uuZrwz4dCS' },
-    { ariaLabel: 'GitHub', icon: 'tabler:brand-github', href: 'https://github.com/SignalK' },
-    { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-  ],
   footNote: `
     <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
       <a property="dct:title" rel="cc:attributionURL" href="https://signalk.org/">

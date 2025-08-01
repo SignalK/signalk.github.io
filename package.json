@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.11",
-    "@astrojs/sitemap": "^3.4.0",
+    "@astrojs/sitemap": "^3.4.2",
     "@astrolib/seo": "^1.0.0-beta.8",
     "@fontsource-variable/inter": "^5.2.5",
     "@iconify-json/mdi": "^1.2.3",

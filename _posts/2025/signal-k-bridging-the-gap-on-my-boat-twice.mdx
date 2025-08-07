@@ -10,7 +10,7 @@ description: 'Upgrading to LiFePO₄ batteries and Victron Energy Cerbo GX, Sign
 
 Back in 2013, I bought a modern steel cruiser, fully equipped with Garmin EmpirBus and NMEA 2000 throughout. Touch switches, digital dimmers, intelligent distribution, everything wired into EmpirBus. It felt advanced back then, but like many of us, I started wondering: How do I bring this smart boat into my smart home?
 
-## Discovering Signal K for HomeKit
+## Discovering Signal K
 
 In 2018, I stumbled across Signal K while researching how to connect my EmpirBus system with Apple HomeKit. That’s when I met [Scott Bender](https://github.com/sbender9), and we started collaborating. The result was the [signalk-empirbus-plugin](https://www.npmjs.com/package/signalk-empirbus-plugin), the bridge between Signal K and EmpirBus.
 
@@ -18,13 +18,13 @@ To complete the integration, I built a [Homebridge plugin](https://www.npmjs.com
 
 ## 2025: A New Challenge
 
-This year I upgraded my boat to LiFePO₄ batteries and with that added a full Victron Energy setup: Cerbo GX, MPPT, Orion DC/DC charger, all connected via VE.Direct and my legacy MultiPlus via VE.Bus.
+This year I upgraded my boat to LiFePO₄ batteries and with that added a full Victron Energy setup: Cerbo GX, MPPT, Orion DC/DC charger, all connected via VE.Direct, and my legacy MultiPlus connected via VE.Bus.
 
 Just my old Victron BMV-602 battery monitor is still wired to NMEA 2000. That means: Not visible on the GX Touch or Remote Console (VRM), no DVCC, no charging automation.
 
 ## Once More, Signal K to the Rescue
 
-I got back in touch with Scott, and again Signal K provided the solution. Inspired by our conversations, I wrote a new plugin: [signalk-to-venus](https://www.npmjs.com/package/signalk-to-venus). It injects non-Victron devices into Venus OS—emulating native D-Bus services. My NMEA 2000 battery monitor now shows up like a real Victron device in GX Touch and VRM.
+I got back in touch with Scott, and again Signal K provided the solution: Inspired by our conversations, I wrote a new plugin [signalk-to-venus](https://www.npmjs.com/package/signalk-to-venus). It injects non-Victron devices into Venus OS—emulating native D-Bus services. My NMEA 2000 battery monitor now shows up like a real Victron device in GX Touch and VRM.
 
 And not just that: My freshwater, blackwater, and fuel tanks, plus water temperature sensors, are now all available in the Victron ecosystem.
 
@@ -32,8 +32,10 @@ Most of the code was written with the help of AI pair programming. ChatGPT and C
 
 ## I Want to Communicate
 
-Again, Signal K bridged the gap between the systems on my boat—doing exactly what it was made for: **“I want to communicate.”** That’s what Signal K stands for. And it keeps delivering.
+Again, Signal K bridged the gap between the systems on my boat, doing exactly what it was made for: 
+
+**“I want to communicate.”** That’s what Signal K stands for. And it keeps delivering.
 
 —
-*Christian Wegerhoff*
+*Christian Wegerhoff*. 
 [signalk-to-venus on npm](https://www.npmjs.com/package/signalk-to-venus)

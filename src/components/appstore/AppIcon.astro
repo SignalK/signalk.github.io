@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  name: string;
+  path?: string;
+  version?: string;
+}
+
+const { path, name, version = 'latest' } = Astro.props;
+---
+
+{
+  path ? (
+    <Image
+      src={`https://unpkg.com/${name}@${version}/public/${path}`}
+      alt={name}
+      width={144}
+      height={144}
+      loading="lazy"
+      class={`size-[72px] rounded object-cover`}
+    />
+  ) : (
+    <Icon name="tabler:apps" class="size-[72px] p-5 bg-slate-100 text-slate-300 dark:bg-slate-900 rounded-lg" />
+  )
+}

@@ -42,6 +42,20 @@ On our boat we have a digital switching setup connected with Signal K. In our ca
 
 Digital switching uses [Meshtastic's encrypted chat features](https://meshtastic.org/docs/overview/encryption/) to ensure that only registered crew nodes can control the boat.
 
+## How does this work
+
+Meshtastic is a protocol for communicating over LoRa using [Protocol Buffers](https://en.wikipedia.org/wiki/Protocol_Buffers). In most cases the LoRa radio is attached to a microcontroller running the [Meshtastic firmware](https://flasher.meshtastic.org).
+
+As a user you typically interface with these devices via one of the Meshtastic client applications for [Android](https://play.google.com/store/apps/details?id=com.geeksville.mesh), [iOS](https://apple.co/3Auysep), or [the browser](https://client.meshtastic.org). These clients can connect to the Meshtastic device over Bluetooth, Serial, HTTP, or plain TCP (for network-capable nodes like ESP32). Some Meshtastic devices are self-contained, featuring a screen and a keyboard.
+
+The Meshtastic Protocol Buffers define schemas not only for basic text messaging but also for telemetry like [environmental metrics](https://buf.build/meshtastic/protobufs/docs/master:meshtastic#meshtastic.EnvironmentMetrics) or [position sharing](https://buf.build/meshtastic/protobufs/docs/master:meshtastic#meshtastic.Position).
+
+The [signalk-meshtastic](https://www.npmjs.com/package/@meri-imperiumi/signalk-meshtastic) plugin connects to a Meshtastic device as a client using the [Meshtastic JavaScript library](https://www.npmjs.com/package/@meshtastic/core). It supports both TCP and Serial connections, offering flexibility in where the “boat node” is physically located. The plugin listens to [Signal K deltas](https://signalk.org/specification/1.7.0/doc/data_model.html#delta-format) and publishes telemetry to Meshtastic. It also receives telemetry from other Meshtastic nodes and integrates it into the Signal K data model. Additionally, it can receive direct text messages and [react](https://github.com/meri-imperiumi/signalk-meshtastic/tree/main/plugin/commands) to them.
+
+![Meshtastic telemetry in Signal K](/images/posts/signalk-meshtastic/meshtastic-signalk.webp)
+
+The screenshots in this article are from the Meshtastic Android app, connected via Bluetooth to one of our crew nodes.
+
 ## Hardware setup
 
 With a basic setup you can expect a communication range up to a couple of kilometers. In areas with existing mesh infrastructure, you can often reach your boat across a city or even an island, as packets hop from one node to another.

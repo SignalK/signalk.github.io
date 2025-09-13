@@ -1,0 +1,83 @@
+---
+publishDate: 2025-09-13
+title: Off-Grid Boat Data with Signal K and Meshtastic
+author: Henri Bergius
+image: ~/assets/images/meshtastic-bequia.webp
+category: Release
+tags: [plugins, meshtastic, lora, iot, ais]
+excerpt: Integrating Signal K with the Meshtastic LoRa mesh network enables off-grid, no-cost boat-to-shore communication and telemetry. You can monitor your boat’s status and receive alerts without relying on cellular or satellite connections.
+---
+
+[Meshtastic](https://meshtastic.org) is a community-driven, open source, decentralised mesh network built on LoRa ("long range") radio communications. LoRa uses license-free UHF bands. It enables long-range communications using simple and inexpensive hardware. With the [signalk-meshtastic plugin](https://github.com/meri-imperiumi/signalk-meshtastic#readme), Signal K can be integrated with the mesh network.
+
+You can either join the public mesh or [set up a private mesh](https://meshtastic.org/docs/configuration/tips/#not-sharing-your-location) for yourself and perhaps your buddy boats. All you need is at least one [Meshtastic device](https://meshtastic.org/docs/hardware/devices/) for the boat, and another one to carry ashore. If every crew member has a device of their own, this is also a convenient way to chat when there's no internet access.
+
+## Alerts and telemetry
+
+The Signal K plugin can transmit your vessel's telemetry over the Meshtastic network. This means that even when we’re ashore, we can check how the boat is doing. We can see the wind speed and temperature, as well as the current and voltage of our house bank.
+
+![Meshtastic telemetry](/images/posts/signalk-meshtastic/meshtastic-telemetry.webp)
+
+We also get the boat position history, so we can see how it swings at anchor.
+
+![Node map in Meshtastic](/images/posts/signalk-meshtastic/meshtastic-location-history.webp)
+
+Signal K alerts are transmitted to the crew’s Meshtastic devices. If the [Signal K notification](https://signalk.org/specification/1.7.0/doc/notifications.html) is set with _sound_ alert method, the plugin sends the [bell character](https://en.m.wikipedia.org/wiki/Bell_character) which causes crew devices to vibrate. With that, we get notified of important alerts even when the phone is on silent. On our boat, that includes bilge alarms, anchor drag warnings, and any detected MOB beacons.
+
+![Signal K alert via Meshtastic](/images/posts/signalk-meshtastic/meshtastic-alert.webp)
+
+## Waypoints
+
+In the busy Caribbean anchorages it is sometimes difficult to find the boat that invited you for dinner or drinks. To make life easier, you can have the Meshtastic plugin create a waypoint for the boat you’re looking for. Simply text _"Waypoint Boatname"_, and if Signal K knows the boat's location (for example from AIS history), it will appear on the map:
+
+![Vessel waypoint in Meshtastic app](/images/posts/signalk-meshtastic/meshtastic-waypoint.webp)
+
+Any detected MOB or EPIRB beacons also appear automatically as waypoints in Meshtastic. You'll need an AIS receiver and [a separate plugin](https://github.com/meri-imperiumi/signalk-mob-notifier) to detect these.
+
+## Digital switching
+
+On our boat we have a digital switching setup connected with Signal K. In our case this is set up with simple [Shelly relays](https://shellyuk.com/shop/shelly-range-all-items/lighting/shelly-plus-1/). When leaving the dinghy dock after dark, we can simply text our boat _"Turn decklight on_" and arrive to a well-lit vessel. This makes it easier to get on board and lift the dinghy.
+
+![Turning the decklight on via Meshtastic](/images/posts/signalk-meshtastic/meshtastic-digital-switching.webp)
+
+Digital switching uses [Meshtastic's encrypted chat features](https://meshtastic.org/docs/overview/encryption/) to ensure that only registered crew nodes can control the boat.
+
+## How does this work
+
+Meshtastic is a protocol for communicating over LoRa using [Protocol Buffers](https://en.wikipedia.org/wiki/Protocol_Buffers). In most cases the LoRa radio is attached to a microcontroller running the [Meshtastic firmware](https://flasher.meshtastic.org).
+
+As a user you typically interface with these devices via one of the Meshtastic client applications for [Android](https://play.google.com/store/apps/details?id=com.geeksville.mesh), [iOS](https://apple.co/3Auysep), or [the browser](https://client.meshtastic.org). These clients can connect to the Meshtastic device over Bluetooth, Serial, HTTP, or plain TCP (for network-capable nodes like ESP32). Some Meshtastic devices are self-contained, featuring a screen and a keyboard.
+
+The Meshtastic Protocol Buffers define schemas not only for basic text messaging but also for telemetry like [environmental metrics](https://buf.build/meshtastic/protobufs/docs/master:meshtastic#meshtastic.EnvironmentMetrics) or [position sharing](https://buf.build/meshtastic/protobufs/docs/master:meshtastic#meshtastic.Position).
+
+The [signalk-meshtastic](https://www.npmjs.com/package/@meri-imperiumi/signalk-meshtastic) plugin connects to a Meshtastic device as a client using the [Meshtastic JavaScript library](https://www.npmjs.com/package/@meshtastic/core). It supports both TCP and Serial connections, offering flexibility in where the “boat node” is physically located. The plugin listens to [Signal K deltas](https://signalk.org/specification/1.7.0/doc/data_model.html#delta-format) and publishes telemetry to Meshtastic. It also receives telemetry from other Meshtastic nodes and integrates it into the Signal K data model. Additionally, it can receive direct text messages and [react](https://github.com/meri-imperiumi/signalk-meshtastic/tree/main/plugin/commands) to them.
+
+![Meshtastic telemetry in Signal K](/images/posts/signalk-meshtastic/meshtastic-signalk.webp)
+
+The screenshots in this article are from the Meshtastic Android app, connected via Bluetooth to one of our crew nodes.
+
+## Hardware setup
+
+With a basic setup you can expect a communication range up to a couple of kilometers. In areas with existing mesh infrastructure, you can often reach your boat across a city or even an island, as packets hop from one node to another.
+
+On our boat we have [a Heltec V3.2 device](https://heltec.org/project/wifi-lora-32-v3/) as the "boat node", powered from the vessel's 12V supply and connected to Signal K over the boat's always-on WiFi network. For each crew member we have a [SenseCAP T1000-e device](https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html). Being waterproof, they’re well-suited to survive daily dinghy rides and the other realities of cruising life. We have a convenient charging station for them next to the companionway, just above the boat and dinghy keys.
+
+![T1000-e charging station](/images/posts/signalk-meshtastic/meshtastic-charging-station.webp)
+
+We also have a [solar-powered Meshtastic device](https://www.printables.com/model/1396221-meshtastic-boat-module-masthead) installed on our mast to greatly increase the communications range.
+
+## The future, or ship-to-ship communications
+
+At this stage, Meshtastic on boats is still new. Unless you're in Curaçao this hurricane season, it may be a while before you see another vessel with a Meshtastic node. But as it becomes more popular there are interesting possibilities.
+
+As Meshtastic uses low-power and affordable hardware, and doesn't require any licensing to carry or operate, it can be suitable for vessels that might not carry an AIS or VHF transmitter. The communication range is similar, and text messaging can often be easier than voice. And of course with the mesh the communications can "hop" and carry far beyond line of sight. I've seen reports of quite frequent communications across the Gulf of Finland or the English Channel.
+
+Since Meshtastic devices can run fine on battery power for days, you could have an AIS-like tracking capability even for dinghies or the local "around the cans" racing fleet. Regatta organizers could also broadcast the race course as a shared set of waypoints.
+
+Shared telemetry could even create a network of hyper-local weather stations. You would be able to know what's the actual wind speed behind a corner before you sail there. And of course text alerts can be broadcasted. A NAVTEX-to-Meshtastic bridge might be a good place to start.
+
+[VDES](https://www.iala.int/technical/connectivity/vdes-vhf-data-exchange-system/) might eventually bring similar capabilities to the "official" marine world. But with Meshtastic, we can start experimenting with the future right now. Starting with your own boat and crew, and eventually extending to other boaters.
+
+To [get started](https://github.com/meri-imperiumi/signalk-meshtastic?tab=readme-ov-file#requirements), just grab a couple of Meshtastic devices (ranging from $10 to $100 at the time of writing) and set up the plugin.
+
+Source code for the signalk-meshtastic plugin can be found [from GitHub](https://github.com/meri-imperiumi/signalk-meshtastic#readme).

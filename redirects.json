@@ -25,5 +25,6 @@
   "applications_solutions.html": "/solutions/",
   "solutions.html": "/solutions/",
   "installation.html": "/installation/",
-  "overview.html": "/overview/"
+  "overview.html": "/overview/",
+  "/installation/": "https://demo.signalk.org/documentation/Installation.html"
 }

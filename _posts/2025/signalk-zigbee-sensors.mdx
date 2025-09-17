@@ -12,7 +12,7 @@ excerpt: Low cost zigbee (wireless) sensors are readily available for use on doo
 
 I wanted to fit door/window sensors to my boat, given that a number of my portholes are close to the waterline, a disaster waiting to happen when visitors are on board & I get underway. I needed wireless sensors that would "stick" onto window/door frames, and have reliable coverage, decent battery life, and be inexpensive.
 
-![alt text](<../../src/assets/images/posts/zigbee-sensors/porthole_sensor.webp>)
+![](../../src/assets/images/posts/zigbee-sensors/porthole_sensor.webp)
 
 After initial testing and success, I expanded the range of sensor types and now have 30 Zigbee devices scattered around the boat, including in the engine room and bilge spaces; that have operated reliably for >2 years.
 
@@ -72,7 +72,7 @@ Zigbee2mqtt software has an extensive & well supported database of devices, that
 As noted, Zigbee and Wi‑Fi channels both exist in the 2.4 GHz band, occupying the same frequency space. When deploying both Wi‑Fi and Zigbee in the same environment, careful planning must be performed to make sure that they don't interfere with each other.
 The Zigbee channel to be used can be set through the web interface; using Ch25 minimises potential interference.
 
-![alt text](<../../src/assets/images/posts/zigbee-sensors/ultrasonic_exposes.webp>)
+![alt text](../../src/assets/images/posts/zigbee-sensors/ultrasonic_exposes.webp)
 
 More complex sensors, e.g., Ultrasonic Level Sensors, have JSON payloads with multiple parameters (value pairs) and can also be configured via the web interface.
 All Zigbee devices report "battery level" & "link quality", making it convenient to monitor battery life and set reminders, and also troubleshoot poor reception issues.
@@ -95,7 +95,7 @@ The magnetic switch sensor only updates when it closes/opens (and at a less freq
 
 ## Zigbee Motion Sensors
 
-![alt text](<../../src/assets/images/posts/zigbee-sensors/zigbee_motion_sensor.webp>)
+![alt text](../../src/assets/images/posts/zigbee-sensors/zigbee_motion_sensor.webp)
 
 I have fitted motion sensors inside the saloon and also (under cover) in the outdoor cockpit area; despite the harsh environment and water splashing, to date the sensors continue to work very well.
 In a similar way, I utilise Node-RED flows to capture motion and then initiate actions, e.g., switching on lights when conditions are met.
@@ -103,7 +103,7 @@ Given that with a combination of door/hatch & motion sensors, this provides an e
 
 ## Zigbee Push Button (tap) switches
 
-![alt text](<../../src/assets/images/posts/zigbee-sensors/zigbee_scene_switch.webp>)
+![alt text](../../src/assets/images/posts/zigbee-sensors/zigbee_scene_switch.webp)
 
 It's not always convenient to run a new wire and install a wall switch, but with low-cost ($5 each) "stick-on" Zigbee push buttons, you can conveniently place them around the boat, beside the bed to switch on lights or take other actions (e.g., they even come in red — that could make a perfect MOB button).
 Each Zigbee "button" can have three actions, namely "tap", "hold" and "double tap" - accordingly the Node-RED flow can initiate different actions as required.
@@ -111,31 +111,31 @@ Switches are available in multi-gang wall plates for those more complex switchin
 
 ## Zigbee Ultrasonic Tank Level sensor
 
-![alt text](<../../src/assets/images/posts/zigbee-sensors/zigbee_ultrasonic_sensor.webp>)
+![alt text](../../src/assets/images/posts/zigbee-sensors/zigbee_ultrasonic_sensor.webp)
 
 My black tank has simple float switches for "empty" (switch off pump out), "warning" (80%) and "full"; however, I wanted improved resolution across the zero-to-full range, and while NMEA 2000 ultrasonic sensors cost >$200 and also need wired connectivity into the N2k backbone (which in my case was very difficult to achieve for this tank location), I found a Zigbee ME210WZ Ultrasonic sensor (12V powered, not battery) that is claimed to "read tank depths up to 4m"; in my case the tank is only 0.4m deep. The sensor has a claimed "dead zone" from 0-100mm; however, in my testing it reads reliably to around 40mm from its mounting face, and certainly with sufficient accuracy to monitor your black tank rate of use!
 Not only do you get tank level (ratio) in SignalK, but by utilising the "SignalK to NMEA2000" plugin, the respective N2k PGN can be output for Black tank level, enabling it to be viewed on N2k-capable displays (e.g., MFDs).
 
-![alt text](<../../src/assets/images/posts/zigbee-sensors/ultrasonic_state.webp>)
+![alt text](../../src/assets/images/posts/zigbee-sensors/ultrasonic_state.webp)
 
 ## Zigbee Smoke Sensor
 
-![alt text](<../../src/assets/images/posts/zigbee-sensors/zigbee_smoke_sensor.webp>)
+![alt text](../../src/assets/images/posts/zigbee-sensors/zigbee_smoke_sensor.webp)
 
 This unit operates as a standalone smoke sensor, but with the additional wireless Zigbee functionality, I fitted one of these in the engine room, where it's impossible to hear its inbuilt beeper from my helm position. However, using notifications from SignalK, I can send alerts to my phone and various SignalK display devices (e.g., WilhelmSK dashboards and alerts).
 This sensor provides not only an "alarm" payload, but also "smoke density" concentration; albeit I have no way to determine any usable calibration for this.
 
 ## Zigbee Carbon Monoxide Sensor
 
-![alt text](<../../src/assets/images/posts/zigbee-sensors/zigbee_carbonMonoxide.webp>)
+![alt text](../../src/assets/images/posts/zigbee-sensors/zigbee_carbonMonoxide.webp)
 
 This unit is fitted in the engine room, and provides JSON data with an alarm if CO is detected & CO level in PPM.
 For testing purposes, I held the unit near my car exhaust; an alarm was generated (as expected) along with a PPM reading that was within an expected range for my test conditions. Having experienced a bad exhaust leak on a previous boat (what a mess that makes in the engine room!), I'm keen to be able to detect this much earlier, aside from of course the obvious safety aspects of early CO detection.
 
 ## Zigbee Temperature/Humidity sensors
 
-![alt text](<../../src/assets/images/posts/zigbee-sensors/zigbee_temphumid.webp>)
-![alt text](<../../src/assets/images/posts/zigbee-sensors/zigbee_temphumid1.webp>)
+![alt text](../../src/assets/images/posts/zigbee-sensors/zigbee_temphumid.webp)
+![alt text](../../src/assets/images/posts/zigbee-sensors/zigbee_temphumid1.webp)
 
 There are a range of Zigbee temp/humidity sensors available; some include a display (LCD) whilst others don't, but are smaller.
 I have the higher-quality units with larger LCD displays velcro-mounted on cabin walls for local display, in addition to their Zigbee reporting into SignalK.
@@ -143,8 +143,9 @@ I have the higher-quality units with larger LCD displays velcro-mounted on cabin
 ## Zigbee Hardware/Sensor Costs
 
 At the time of publication (Sep 2025) (US$)
+
 - ZBDongle-P ~$22
-- Magnetic proximity switches &lt;$4
+- Magnetic proximity switches ~$4
 - Motion sensor ~$6
 - Ultrasonic Tank Sensor ~$45
 - Smoke sensor ~$15

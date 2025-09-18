@@ -32,6 +32,7 @@ An alternate Shelly module that would deliver dual channel capability (& hence c
 ## Interface Circuit
 
 The Shelly 1 Plus is powered from the same lighting circuit as the Hella module.
+
 - Shelly "input" (marked SW)  
 terminal is connected to the existing Hella output circuit, and  used to sense the Hella state (On or Off).
 - Shelly relay outputs (marked "O" & "I"), connect across the (existing) wall mounted push button switch, to send a "pulse" (creates a momentarily short) across the switch to "control" the Hella module
@@ -71,14 +72,17 @@ For a detailed tutorial on integrating zigbee wireless devices into signalK,
 see this **** tutorial.
 
 ## Zigbee Motion Sensors
+
 ![alt text](../../public/images/posts/signalk-zigbee-sensors/zigbee_motion_sensor.webp)
 
 A motion sensor in the outdoor cockpit area provides JSON data via MQTT that is used within a NodeRed flow to switch the lights on for a period of time, subject to selected conditions being met.
+
 ## NodeRed Flow for Motion Automation
 
 ![alt text](../../public/images/posts/signalk-HellaMarine-interface/cockpit-motion-nodered.webp)
 
 This Nodered flow for "motion" control of the lights has a number of "inputs" for decision making:
+
 - CockpitMotionSensor (MQTT IN Node)
 used to receive the status of zigbee motion sensor
 - environment.mode day or night (SK subscribe Node)  
@@ -87,7 +91,8 @@ that is populated by the "signalK-derived-data" plugin
 - CockpitLights state (MQTT IN Node)  
 which is the state reported by Shelly "Input" (SW pin); if its True (the lights are On, which is then inverted before input to AND gate), so it will only trigger if the lights are Off.
 
-The output of the AND gate is only True, (ALL True) if Motion is detected, And its Night, And the Lights are currently Off. The delay 90S node initiates a further pulse, switching the lights off after 90S.
+The output of the AND gate is only True, (ALL True) if Motion is detected, And its Night, And the Lights are currently Off. The delay 90S Node initiates a further pulse, switching the lights off after 90S.
+
 - electrical.CockpitLights.state  
 (SK send pathvalue node)  
 is used to set a path (so that lights state can be displayed)
@@ -103,7 +108,7 @@ recieves the button action (eg Tap)
 - extract contact payload (from JSON)
 - switch  
 (has 3 outputs, namely for Tap, double Tap and Hold actions)
-- set msg.payload   
+- set msg.payload
 formats the msg.payload for the MQTT RPC message
 
 ## Summary

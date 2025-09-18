@@ -1,116 +1,115 @@
 ---
 publishDate: 2025-09-18
-title: Signalk Automation of Hella LED dimmer module 
-author: Greg Young 
+title: SignalK Automation of Hella LED Dimmer Module
+author: Greg Young
 image: ~/assets/images/Hella-dimmer.webp
 category: Tutorial
-tags: [LED control, zigbee sensors, NodeRed]
-excerpt: Interface SignalK with an existing Hella Marine LED module, to monitor and control LED lights.
+tags: [LED control, Zigbee sensors, Node-RED]
+excerpt: Interface SignalK with an existing Hella Marine LED module to monitor and control LED lights.
 ---
 
 ## Background
 
-My boat is fitted with Hella Marine LED dimmer modules, that have wall mounted (hard wired) push button switches for control and dim of overhead LED lights.
-The boat builder only fitted a single wall switch, its location is inconvenient at times, so i wanted a second control switch location (without running new wiring throughout the boat); in addition to control by a motion sensor, or any SignalK connected display/control device (eg IPAD).
-I wanted to retain the existing (as built) installation & wall control buttons, but add additional control (switches) & automation via SignalK.
+My boat is fitted with Hella Marine LED dimmer modules that use wall-mounted (hard-wired) push-button switches to control and dim the overhead LED lights.  
 
-To achieve this, I needed a wireless (WiFi) module, that could interface to signalK, have an "input" to sense the current state of the Lights (On/Off) and an output ("momentary pulse") for controlling the Hella dimmer module.
-I selected a Shelly 1 Plus module to achieve this.
+The boat builder installed only a single wall switch, and its location is sometimes inconvenient. I wanted a second control switch location (without running new wiring throughout the boat), as well as the ability to control the lights via a motion sensor or any SignalK-connected display/control device (e.g., an iPad).  
+
+I wanted to retain the existing wall control buttons, but also add additional control options (extra switches) and automation via SignalK.  
+
+To achieve this, I needed a wireless (WiFi) module that could interface with SignalK, include an input to sense the current state of the lights (On/Off), and provide an output (momentary pulse) to control the Hella dimmer module.  
+
+I selected a **Shelly 1 Plus** module for this purpose.  
 
 ## Shelly 1 Plus
 
-![alt text](../../public/images/posts/signalk-HellaMarine-interface/shellyPlus1.webp)
+![Shelly 1 Plus](../../public/images/posts/signalk-HellaMarine-interface/shellyPlus1.webp)
 
-As my house electrical system is "24VDC", it was important to find a module capable of running directly from the existing light circuit.
-Remembering of course that a "24V" system, under battery charging conditions will reach ~29V, which rules out many modules, which have more limited power supply specifications.
-I selected the Shelly 1 Plus module, which can operate from 12V/24-48VDC, has a single "switch" input and a relay based "output".
+Since my house electrical system runs on 24VDC, it was important to find a module capable of running directly from the existing light circuit.  
 
-An alternate Shelly module that would deliver dual channel capability (& hence control both Hella 2 module circuits) is the recently released Shelly Uni.
+A “24V” system under battery charging conditions can reach ~29V, which rules out many modules with more limited power supply specifications.  
 
-![alt text](../../public/images/posts/signalk-HellaMarine-interface/shellyUni.webp)
+The Shelly 1 Plus can operate from 12V/24–48VDC, includes a single “switch” input, and provides a relay-based output.  
+
+An alternative Shelly module that offers dual-channel capability (and could therefore control both Hella module circuits) is the recently released **Shelly Uni**.  
+
+![Shelly Uni](../../public/images/posts/signalk-HellaMarine-interface/shellyUni.webp)
 
 ## Interface Circuit
 
-The Shelly 1 Plus is powered from the same lighting circuit as the Hella module.
+The Shelly 1 Plus is powered from the same lighting circuit as the Hella module.  
 
-- Shelly "input" (marked SW)  
-terminal is connected to the existing Hella output circuit, and  used to sense the Hella state (On or Off).
-- Shelly relay outputs (marked "O" & "I"), connect across the (existing) wall mounted push button switch, to send a "pulse" (creates a momentarily short) across the switch to "control" the Hella module
+- **Shelly input (SW)**  
+  Connected to the existing Hella output circuit and used to sense the Hella state (On or Off).  
 
-![alt text](<../../public/images/posts/signalk-HellaMarine-interface/Cockpit LED Hella Shelly interface.webp>)
+- **Shelly relay outputs (O & I)**  
+  Connected across the existing wall-mounted push-button switch to send a “pulse.” This creates a momentary short across the switch, which controls the Hella module.  
 
-Note: the Hella module dims the lights using PWM output, however the Shelly ("input") cannot detect the "dim level", only that its "On", likewise the Shelly can only switch the lights On or Off, it does not control Hella dimming.
-(in theory it could, however without being able to detect current Dim level, it doesnt make sense to attempt this)  
+![Interface Diagram](../../public/images/posts/signalk-HellaMarine-interface/Cockpit%20LED%20Hella%20Shelly%20interface.webp)
 
-Even though the Hella "output" to LEDs is "pulse width modulated" (PWM) for dimming operation, the Shelly "input" copes ok with this, and at all available Dim levels, it senses it as "On".
+**Note:** The Hella module dims the lights using PWM output. However, the Shelly input cannot detect the dim level—it only senses whether the lights are On. Likewise, the Shelly can only switch the lights On or Off; it cannot directly control Hella dimming.  
+(In theory it could, but since it cannot detect the current dim level, this is not practical.)  
 
-## Configuring Shelly device
+Even though the Hella output to LEDs is pulse width modulated (PWM) for dimming operation, the Shelly input handles this correctly, and at all dim levels it senses the lights as “On.”  
 
-The Shelly device needs some configuration, specifically to "unlink" the connection between "input" & "output", which is termed a "detached input" (because the input is  used independently of the output).
+## Configuring the Shelly Device
 
-![alt text](../../public/images/posts/signalk-HellaMarine-interface/shelly-IO-setting.webp)
+The Shelly device needs configuration, specifically to “unlink” the connection between its input and output. This is called a **detached input** (because the input is used independently of the output).  
 
-The home screen status will then appear as follows;
+![Shelly IO Settings](../../public/images/posts/signalk-HellaMarine-interface/shelly-IO-setting.webp)
 
-![alt text](../../public/images/posts/signalk-HellaMarine-interface/shelly-IO-display.webp)
+The home screen status will then appear as follows:  
 
-As the Hella uses a (momentary) Push Button for its control (to toggle state On/Off) the Shelly needs to emulate this by "pulsing" its output. The timer function with switch it off (after 0.1Sec)
+![Shelly IO Display](../../public/images/posts/signalk-HellaMarine-interface/shelly-IO-display.webp)
 
-![alt text](../../public/images/posts/signalk-HellaMarine-interface/shelly-output-timer.webp)
+Since the Hella uses a momentary push button for control (to toggle On/Off), the Shelly must emulate this by pulsing its output. The timer function switches it off after 0.1 seconds.  
 
-I chose to use  MQTT connectivity between the Shelly device &  signalK server (not using a Shelly plugin). Specifically using MQTT RPC ("Remote Procedure Calls") functionality.
+![Shelly Output Timer](../../public/images/posts/signalk-HellaMarine-interface/shelly-output-timer.webp)
 
-![alt text](../../public/images/posts/signalk-HellaMarine-interface/shelly-mqtt-config.webp)
+I chose to use **MQTT connectivity** between the Shelly device and the SignalK server (not via a Shelly plugin). Specifically, I used MQTT RPC (Remote Procedure Calls).  
 
-## Zigbee Push Button (tap) switches
+![Shelly MQTT Config](../../public/images/posts/signalk-HellaMarine-interface/shelly-mqtt-config.webp)
 
-![alt text](../../public/images/posts/signalk-zigbee-sensors/zigbee_scene_switch.webp)
+## Zigbee Push Button (Tap) Switches
 
-A zigbee (wireless) button is used for control purposes, each button can have three actions, namely "tap", "hold" and "double tap".
-Utilising a NodeRed flow, this toggles the light On/Off via a short "tap".
-For a detailed tutorial on integrating zigbee wireless devices into signalK,
-see this **** tutorial.
+![Zigbee Scene Switch](../../public/images/posts/signalk-zigbee-sensors/zigbee_scene_switch.webp)
+
+A Zigbee (wireless) button is used for control purposes. Each button supports three actions: *tap*, *hold*, and *double tap*.  
+
+Using a Node-RED flow, a short tap toggles the light On/Off.  
+
+(For a detailed tutorial on integrating Zigbee wireless devices into SignalK, see this ***  tutorial.)  
 
 ## Zigbee Motion Sensors
 
-![alt text](../../public/images/posts/signalk-zigbee-sensors/zigbee_motion_sensor.webp)
+![Zigbee Motion Sensor](../../public/images/posts/signalk-zigbee-sensors/zigbee_motion_sensor.webp)
 
-A motion sensor in the outdoor cockpit area provides JSON data via MQTT that is used within a NodeRed flow to switch the lights on for a period of time, subject to selected conditions being met.
+A motion sensor in the outdoor cockpit area provides JSON data via MQTT. This is used within a Node-RED flow to switch the lights on for a period of time, subject to certain conditions.  
 
-## NodeRed Flow for Motion Automation
+## Node-RED Flow for Motion Automation
 
-![alt text](../../public/images/posts/signalk-HellaMarine-interface/cockpit-motion-nodered.webp)
+![Motion Flow](../../public/images/posts/signalk-HellaMarine-interface/cockpit-motion-nodered.webp)
 
-This Nodered flow for "motion" control of the lights has a number of "inputs" for decision making:
+This Node-RED flow for motion-based control of the lights has several inputs for decision-making:  
 
-- CockpitMotionSensor (MQTT IN Node)
-used to receive the status of zigbee motion sensor
-- environment.mode day or night (SK subscribe Node)  
-that is populated by the "signalK-derived-data" plugin
-(so the AND output can only be True if its night)
-- CockpitLights state (MQTT IN Node)  
-which is the state reported by Shelly "Input" (SW pin); if its True (the lights are On, which is then inverted before input to AND gate), so it will only trigger if the lights are Off.
+- **CockpitMotionSensor (MQTT IN Node):** receives status from the Zigbee motion sensor.  
+- **environment.mode (day/night) (SignalK subscribe Node):** populated by the `signalk-derived-data` plugin (so the AND gate output can only be true at night).  
+- **CockpitLights state (MQTT IN Node):** reports the state from the Shelly input (SW pin). If the lights are On, this is inverted before input to the AND gate, so the logic only triggers if the lights are Off.  
 
-The output of the AND gate is only True, (ALL True) if Motion is detected, And its Night, And the Lights are currently Off. The delay 90S Node initiates a further pulse, switching the lights off after 90S.
+The AND gate output is only true if *motion is detected*, *it is night*, and *the lights are currently Off*.  
+The **delay (90s) Node** then switches the lights off after 90 seconds.  
 
-- electrical.CockpitLights.state  
-(SK send pathvalue node)  
-is used to set a path (so that lights state can be displayed)
-- CockpitLights/rpc (MQTT Out Node)  
- sends an "Output" message "ON" to Shelly, which then pulses its output for 0.1 second (simulating tapping the push button switch)
+- **electrical.CockpitLights.state (SignalK send pathvalue Node):** sets a path so the lights’ state can be displayed.  
+- **CockpitLights/rpc (MQTT OUT Node):** sends an “Output” message `ON` to the Shelly, which then pulses its output for 0.1 seconds (simulating a button press).  
 
-## NodeRed Flow for Zigbee Tap Button
+## Node-RED Flow for Zigbee Tap Button
 
-![alt text](../../public/images/posts/signalk-HellaMarine-interface/cockpit-zigbee-switch-nodered.webp)
+![Zigbee Switch Flow](../../public/images/posts/signalk-HellaMarine-interface/cockpit-zigbee-switch-nodered.webp)
 
-- zigbee2mqtt/CockpitSwitch (MQTT IN Node)  
-recieves the button action (eg Tap)
-- extract contact payload (from JSON)
-- switch  
-(has 3 outputs, namely for Tap, double Tap and Hold actions)
-- set msg.payload
-formats the msg.payload for the MQTT RPC message
+- **zigbee2mqtt/CockpitSwitch (MQTT IN Node):** receives the button action (e.g., tap).  
+- **Extract contact payload:** parses the JSON payload.  
+- **Switch Node:** has three outputs (tap, double tap, hold).  
+- **Set msg.payload:** formats the payload for the MQTT RPC message.  
 
 ## Summary
 
-I was able to retain the existing Hella Marine dimmer modules and wall switch buttons; and with the addition of a shelly module, a zigbee wireless motion detector & zigbee wall button integrated into signalK; signifigantly extend its functionality, introducing a level of intelligent "boat automation" for motion control of these lights.
+I was able to retain the existing Hella Marine dimmer modules and wall switch buttons. With the addition of a Shelly module, a Zigbee wireless motion detector, and a Zigbee wall button integrated into SignalK, I significantly extended the system’s functionality—introducing a level of intelligent boat automation for motion-controlled lighting.  

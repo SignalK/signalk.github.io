@@ -15,15 +15,14 @@ SignalK has a built in "notification engine" that requires a display device, or 
 There are two basic use cases, namely "Locally" (on the boat) or "Remote" (which could be "at the beach", or "on the other side of the world").  
 This list is certainly not exhaustive, just based on my experience.
 
-**Locally**:
+**Local Alerts**:
 
 - audible alerts from sound devices such as USB speakers, audio output (from RPi) to a local stereo (eg Fusion)
 - audible alert beeper/buzzer/siren device (eg driven by RPi GPIO)
 - Displays devices such as MFDs, monitor/touchscreen
 - Tablet/phones or PCs running applications (eg WilhelmSK, KIP, OpenCPN)
-
-**Remotely**:
-
+- 
+**Remote Alerts**:
 - Any of the above applications that can be operated on a mobile device AND support "remote push" style alerts
 - Cloud based "push" messaging (eg Pushover, SMS)
 
@@ -40,7 +39,7 @@ Within signalK there are four pre-defined notification "types" (levels) namely;
 
 Different plugins, actions & user defined NodeRed flows can selectively raise or cancel (set to "normal") & respond to these notifications.  
 For example, the anchor alarm plugin generates an "Emergency" notification for breaching the alarm radius (configurable in the plugin) and a "Warning" for the inner radius.  
-The audible &/or visual behaviour of a client would typically be different for an "alert" vs a "warning" vs an "emergency".
+The audible &/or visual behavior of a client would typically be different for an "alert" vs a "warning" vs an "emergency".
 
 ## Remote Pushover notifications
 
@@ -69,7 +68,10 @@ It enables customisation of sounds and behaviour, it will "wake" the device (& c
 An example of a pushover message, for an "emergency" notification (anchor alarm radius exceeded); which continues until acknowledged.
 Its all very highly customizable.
 
+An example of what the application screen looks like.
 ![alt text](../../public/images/posts/signalk-remote-local-alerts/pushover-alerts2.webp)
+
+An emergency alert;  note the "acknowledge notification" that needs to be clicked to stop it repeatedly alerting.
 
 ![alt text](../../public/images/posts/signalk-remote-local-alerts/pushover-alerts.webp)
 
@@ -78,11 +80,11 @@ Its all very highly customizable.
 Everyone has heard those annoying "reversing beepers" on trucks, with a distinctive screech, they are inexpensive & readily available in either 12V or 24V. This is a perfect solution for hiding out of sight, but still loud enough to get my attention anywhere on the boat, including waking me in the master stateroom.
 
 ![alt text](../../public/images/posts/signalk-remote-local-alerts/beeper-horn.webp)
+
 12/24V Backup Beeper Horn 105dB ~$15
 
 Whilst there are very cheap "5V buzzer" devices available that can be driven directly from a RPI; in my experience their sound level is inadequate.  
 My RPi that hosts signalK is "always running", so an externally connected "beeper" has advantages:
-
 - no additional power draw (except when alerting)
 - does not require running chartplotter/MFDs or sound system (overnight or when at anchor)
 - will operate regardless even when Ipad/phone are flat; or not connected to the boat LAN  
@@ -106,10 +108,13 @@ Its preferable to have a module that has a "high trigger" capability, as this is
 
 ![alt text](../../public/images/posts/signalk-remote-local-alerts/nodered-notifications-beeper.webp)
 
+Download this NodRed flow:
+https://github.com/gregsyoung/NodeRed-Flows/blob/main/notifications-beeper/NodeRed-alerting-beeper.json
+
 To control the beeper, we use a "rpi-gpio out node" (in this case connected to Pin40 /GPIO21), when msg.payload =1, the relay module is switched ON and the beeper sounds.
 There are two different sub flows, the upper pulses the beeper (1.2S ON/ 1 S off) continuously when either "emergency" or "alarm" notifications are set (for any path). The lower sub flow (for "alerts") sounds a double beep only.
-In my setup, ALL notifications of the respective type initiate the flows, however the "notification node" can be configured for a single path only if desired.
-In practise, any notification of type "emergency or alarm" result in an ongoing (very loud) beeping until the alarm is cleared (set to "normal" in signalK).
+In this flow as configured, ALL notifications of the respective type initiate the beeper sounding, however the "notification node" can be configured for a single path only if desired.
+In practise, in my system, any notification of type "emergency or alarm" result in an ongoing (very loud) beeping until the alarm is cleared (set to "normal" in signalK).
 
 ## Summary
 

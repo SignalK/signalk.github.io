@@ -108,7 +108,7 @@ Its preferable to have a module that has a "high trigger" capability, as this is
 
 ![alt text](../../public/images/posts/signalk-remote-local-alerts/nodered-notifications-beeper.webp)
 
-Download this NodRed flow:
+This NodRed flow can be downloaded at:
 https://github.com/gregsyoung/NodeRed-Flows/blob/main/notifications-beeper/NodeRed-alerting-beeper.json
 
 To control the beeper, we use a "rpi-gpio out node" (in this case connected to Pin40 /GPIO21), when msg.payload =1, the relay module is switched ON and the beeper sounds.

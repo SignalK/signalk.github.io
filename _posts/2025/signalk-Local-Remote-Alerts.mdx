@@ -2,7 +2,7 @@
 publishDate: 2025-09-21
 title: SignalK Remote Alerting with Pushover and a Local Beeper
 author: Greg Young
-image: ~/assets/images/xxx.webp
+image: ~/assets/images/signalk-notifications.webp
 category: Tutorial
 tags: [pushover, signalk, Node-RED]
 excerpt: An example of using Pushover for signalK remote notifications across Android and IOS devices; and an inexpensive beeper locally that will ensure it wakes you in the middle of the night.
@@ -108,7 +108,7 @@ Its preferable to have a module that has a "high trigger" capability, as this is
 
 ![alt text](../../public/images/posts/signalk-remote-local-alerts/nodered-notifications-beeper.webp)
 
-This NodRed flow can be downloaded at:
+This NodRed flow can be downloaded atp:
 https://github.com/gregsyoung/NodeRed-Flows/blob/main/notifications-beeper/NodeRed-alerting-beeper.json
 
 To control the beeper, we use a "rpi-gpio out node" (in this case connected to Pin40 /GPIO21), when msg.payload =1, the relay module is switched ON and the beeper sounds.

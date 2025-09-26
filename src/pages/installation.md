@@ -7,63 +7,6 @@ description: 'Follow these instructions to get started with Signal K. Please don
   help if you run in to trouble.'
 ---
 
-## [Getting Started with Signal K](#) <a class="anchor" id="started"></a>
-
-In this section we will look at different ways you can install and use Signal K on your boat. There are already a
-number of hardware platforms and devices being used, and more are bound to follow, but we will concentrate on three
-recommended starter packs that we will refer to as; Basic, Advanced and Expert.
-
-## ["Basic" Starter Pack](#) <a class="anchor" id="basic"></a>
-
-For boat owners that want to use Signal K with the minimum of effort, then the Basic Starter Pack gives you a simple
-way to install Signal K on your boat and start using the free apps and services that are available. The pack consists
-of a “Smart” Gateway that converts your existing NMEA data in to Signal K and installation just consists of wiring the
-gateway to your NMEA0183 and/or NMEA2000 networks and plugging the gateway in to a wireless router.
-
-<figure>
-  <img src="../assets/images/diagrams/SK_Smart_Gateway.png" width="400">
-  <figcaption>Basic Starter Pack</figcaption>
-</figure>
-
-The most popular “smart gateway” is Digital Yacht’s
-<a href="http://ikommunicate.com" target="_blank">iKommunicate Gateway</a> which has three NMEA 0183 and one NMEA 2000
-interfaces. It comes with some built-in Signal K web apps to get you started or you can copy other apps on to its 8GB
-SD card.
-
-As your experience and confidence in Signal K grows, you can simply add a Signal K server to iKommunicate to make one
-of the advanced or expert packs (see below).
-
-## ["Advanced" Starter Pack](#) <a class="anchor" id="advanced"></a>
-
-For more technical minded boat owners that want to use the logging and cloud features of Signal K or who want to get
-involved in the “cutting edge” Signal K developments, then one of the two Advanced packs below would be the best
-starting point. For a larger, more powerful Signal K system, but where stability and reliability are key, then adding a
-Signal K server to an iKommunicate is the way to go.
-
-<figure>
-  <img src="../assets/images/diagrams/SK_Server+Gateway.png" width="400">
-  <figcaption>Advanced Starter Pack 1</figcaption>
-</figure>
-
-If you enjoy getting your hands dirty and want to experiment with the “cutting edge” features then a Signal K server
-with raw NMEA data coming from USB adaptors and gateways would be the best solution, as shown in the diagram below.
-
-<figure>
-  <img src="../assets/images/diagrams/Signal_K_Server_Diagram.png" width="400">
-  <figcaption>Advanced Starter Pack 2</figcaption>
-</figure>
-
-## ["Expert" Starter Pack](#) <a class="anchor" id="expert"></a>
-
-For developers and seriously technical installations, then a larger network with multiple Signal K servers, Signal K
-sensors, etc. is possible and will become more common in the future as more people discover Signal K and the new
-functionality and benefits it can bring.
-
-<figure>
-  <img src="../assets/images/diagrams/SK_Multiple_Servers+Gateway.png" width="400">
-  <figcaption>Expert Starter Pack</figcaption>
-</figure>
-
 ## [Installing your Signal K server](#) <a class="anchor" id="server"></a>
 
 A Signal K server, is basically a webserver with the ability to read marine data and create web pages and web apps that
@@ -125,50 +68,9 @@ You should see NMEA 0183 sentences scrolling off the screen. To exit picocom pre
 
 ### NMEA 2000 Instruments
 
-For NMEA 2000, there are less options. A quick search on Google will return a number of NMEA2000 to USB gateways, but
-the interface device is just one half of the solution. The other equally important part is the software that can read
-the data from the gateway and then convert it in to a format that the Signal K server understands. This software called
-<a href="https://github.com/canboat/canboatjs" target="_blank">CANboat</a> is a suite of tools that can read and write
-NMEA 2000 data and convert it in to Signal K.
+See [How Do I Integrate with NMEA2000](https://github.com/SignalK/signalk-server/wiki/FAQ:-Frequently-Asked-Questions#how-do-i-integrate-with-nmea2000-can-bus) in the Signal K server FAQ.
 
-Currently, CANboat supports the following NMEA 2000 to USB Gateways:
 
-- <a href="https://digitalyacht.co.uk/product/ikonvert-nmea-2000-to-usb/" target="_blank">
-    iKonvert USB from Digital Yacht (NMEA Certified)
-  </a>
-- <a href="http://www.actisense.com/product/nmea-2000-to-pc-interface-ngt-1/" target="_blank">
-    NGT-1-USB from Actisense (NMEA Certified)
-  </a>
-- <a href="https://www.yachtd.com/purchase/" target="_blank">
-    YDNU-02 by Yacht Devices
-  </a>
-
-and any CAN Interface that supports "SocketCAN" such as the
-<a href="http://canable.io/" target="_blank">CANable board</a>.
-
-Alternatively if you want to have a wireless NMEA 2000 gateway, CANboat supports these products:
-
-- <a href="https://digitalyacht.co.uk/product/navlink2/" target="_blank">
-    NavLink 2 from Digital Yacht (NMEA Certified)
-  </a>
-- <a href="https://digitalmarinegauges.com/seasmart-network-gateways/" target="_blank">
-    SeaSmart by Chetco (NMEA Certified)
-  </a>
-- <a href="https://www.simrad-yachting.com/simrad/type/accessories/cables-connectors/gofree-wifi1-wireless-module/" target="_blank">
-    GoFree Wifi-1 by Simrad
-  </a>
-- <a href="https://www.yachtd.com/purchase/" target="_blank">
-    YDGW-02 by Yacht Devices
-  </a>
-
-Or wired Ethernet version:
-
-- <a href="https://www.yachtd.com/purchase/" target="_blank">
-    YDEN-02 by Yacht Devices
-  </a>
-
-CANBoat has recently been ported to JavaScript and is now part of the Signal K Node Server build, so no additional
-installation of CANBoat is required.
 
 ### Proprietary Interfaces
 
@@ -185,3 +87,5 @@ Even though Raymarine no longer make a SeaTalk 1 interface, there are a number o
 convert to NMEA 0183, which both of the Signal K servers can read, or convert to a raw $STALK format that allows more
 control and access to the SeaTalk data. One such interface that handles both types of SeaTalk conversions is the
 <a href="http://digitalyacht.co.uk/product/st-nmea-usb/" target="_blank">ST-NMEA interface</a> from Digital Yacht.
+
+Signal K server also includes [Seatalk 1 support (a bit of DIY hardware required)](https://demo.signalk.org/documentation/Configuration/Seatalk_Connections.html).

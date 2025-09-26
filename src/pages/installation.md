@@ -70,8 +70,6 @@ You should see NMEA 0183 sentences scrolling off the screen. To exit picocom pre
 
 See [How Do I Integrate with NMEA2000](https://github.com/SignalK/signalk-server/wiki/FAQ:-Frequently-Asked-Questions#how-do-i-integrate-with-nmea2000-can-bus) in the Signal K server FAQ.
 
-
-
 ### Proprietary Interfaces
 
 There are a number of proprietary interfaces in the marine industry and by their nature, they tend to be pretty

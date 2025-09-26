@@ -129,8 +129,7 @@ NMEA networks onboard as well as databases, other Signal K data streams, and pot
 resources. The server can also hold static items like charts, routes and notes. It can also hold and act as a
 web-server for browser-based Apps.
 
-The Signal K server is available as a ready-to-fit commercial product (such as the
-[Digital Yacht iKommunicate](http://ikommunicate.com)), or you can download the software for free and run it yourself.
+The Signal K server software is available as a free download.
 The software runs on a range of single board computers; Raspberry Pi, Beagle Board, etc. as well as any normal PC running Linux, Windows and MacOS, see the
 [Install page](./installation) for details.
 

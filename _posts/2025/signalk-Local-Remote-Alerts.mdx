@@ -43,7 +43,7 @@ The audible &/or visual behavior of a client would typically be different for an
 ## Remote Pushover notifications
 
 Pushover is a cloud based notification platform that makes it easy to get real-time notifications on your Android, iPhone, iPad, Desktop or watch (Android Wear and Apple Watch)  
-https://pushover.net/
+<https://pushover.net/>
 
 Use of the messaging platform is "free" (up to 100k notifications/mth), however the android and IOS apps (each) have a one time fee of $5.
 After registering (free), you will be assigned a "username" & "API key, these are used below.
@@ -51,7 +51,7 @@ After registering (free), you will be assigned a "username" & "API key, these ar
 ## Install & Setup signalK Pushover Plugin
 
 Install the signalk pushover plugin
-https://github.com/KvotheBloodless/signalk-pushover-notification-relay  
+<https://github.com/KvotheBloodless/signalk-pushover-notification-relay>  
 from the signalk app store and then configure with your username/API Key.  
 If you leave the Notification section blank, it will send ALL signalK notifications.
 
@@ -109,7 +109,7 @@ Its preferable to have a module that has a "high trigger" capability, as this is
 ![alt text](../../public/images/posts/signalk-remote-local-alerts/nodered-notifications-beeper.webp)
 
 This NodRed flow can be downloaded atp:
-https://github.com/gregsyoung/NodeRed-Flows/blob/main/notifications-beeper/NodeRed-alerting-beeper.json
+<https://github.com/gregsyoung/NodeRed-Flows/blob/main/notifications-beeper/NodeRed-alerting-beeper.json>
 
 To control the beeper, we use a "rpi-gpio out node" (in this case connected to Pin40 /GPIO21), when msg.payload =1, the relay module is switched ON and the beeper sounds.
 There are two different sub flows, the upper pulses the beeper (1.2S ON/ 1 S off) continuously when either "emergency" or "alarm" notifications are set (for any path). The lower sub flow (for "alerts") sounds a double beep only.

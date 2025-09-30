@@ -1,0 +1,14 @@
+---
+import AppIcon from './AppIcon.astro';
+import type { Module } from '../../content/appstore';
+
+export type Props = Module;
+const module = Astro.props;
+---
+
+<a href={`/appstore/${module.name}`}>
+  <AppIcon name={module.name} path={module.signalk?.appIcon} version={module.version} />
+  <h2 class="text-xl font-semibold">{module.name}</h2>
+  <p class="">{module.description}</p>
+  {/* <pre>{JSON.stringify(module, null, 2)}</pre> */}
+</a>

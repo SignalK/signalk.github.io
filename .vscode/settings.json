@@ -12,12 +12,7 @@
     "./.vscode/astrowind/config-schema.json": "/src/config.yaml"
   },
   "eslint.useFlatConfig": true,
-  "githubPullRequests.ignoredPullRequestBranches": [
-    "master"
-  ],
+  "githubPullRequests.ignoredPullRequestBranches": ["master"],
   "markdown.validate.enabled": true,
-  "cSpell.words": [
-    "customise",
-    "optocoupler"
-  ]
+  "cSpell.words": ["customise", "optocoupler"]
 }

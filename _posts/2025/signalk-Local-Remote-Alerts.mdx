@@ -60,7 +60,7 @@ If you leave the Notification section blank, it will send ALL signalK notificati
 ## Pushover IOS (iphone/Ipad) application
 
 Install pushover application on your mobile device (IOS version shown), and customise it as required.  
-It enables customisation of sounds and behaviour, it will "wake" the device (& can over-ride silent modes etc) with different tones and volume (inc very loud!) alerting... you certainly cant miss them!
+It enables customisation of sounds and behavior, it will "wake" the device (& can over-ride silent modes etc) with different tones and volume (inc very loud!) alerting... you certainly cant miss them!
 
 ![alt text](../../public/images/posts/signalk-remote-local-alerts/pushover-ipad-app-config.webp)
 
@@ -88,7 +88,7 @@ My RPi that hosts signalK is "always running", so an externally connected "beepe
 - no additional power draw (except when alerting)
 - does not require running chartplotter/MFDs or sound system (overnight or when at anchor)
 - will operate regardless even when Ipad/phone are flat; or not connected to the boat LAN  
-  .. or inevitably in a location where the inbuilt sound level just doesnt do the job.
+  .. or inevitably in a location where the inbuilt sound level just doesn't do the job.
 
 ## Driving the Beeper from a RPi
 
@@ -114,7 +114,7 @@ This NodRed flow can be downloaded atp:
 To control the beeper, we use a "rpi-gpio out node" (in this case connected to Pin40 /GPIO21), when msg.payload =1, the relay module is switched ON and the beeper sounds.
 There are two different sub flows, the upper pulses the beeper (1.2S ON/ 1 S off) continuously when either "emergency" or "alarm" notifications are set (for any path). The lower sub flow (for "alerts") sounds a double beep only.
 In this flow as configured, ALL notifications of the respective type initiate the beeper sounding, however the "notification node" can be configured for a single path only if desired.
-In practise, in my system, any notification of type "emergency or alarm" result in an ongoing (very loud) beeping until the alarm is cleared (set to "normal" in signalK).
+In practice, in my system, any notification of type "emergency or alarm" result in an ongoing (very loud) beeping until the alarm is cleared (set to "normal" in signalK).
 
 ## Summary
 

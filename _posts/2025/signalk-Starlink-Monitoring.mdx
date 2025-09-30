@@ -4,19 +4,19 @@ title: SignalK Monitoring of Starlink
 author: Greg Young
 image: ~/assets/images/starlink-Gen3.webp
 category: Tutorial
-tags: [starlink, sensesp, sensors, Node-RED]
-excerpt: Monitoring of Starlink using a custom DC-DC boost (57VDC) power supply with Signalk, starlink-plugin & sensESP.
+tags: [starlink, sensESP, sensors, Node-RED]
+excerpt: Monitoring of Starlink using a custom DC-DC boost (57VDC) power supply with SignalK, Starlink plugin & sensESP.
 ---
 
 ## Background
 
-Like many cruisers, I recently installed Starlink onto my boat, in this case a Gen3 unit, however I wanted to eliminate the supplied mains power supply ("brick") and replace it with a DC-DC power supply; monitor its power consumption, along with Starlink operation.
-When using the included mains power supply, a multiple conversion process from battery power (DC) thru the boats onboard Inverter to AC, then a further AC back to DC via the power brick - results in a a chain of inefficiency that multiplies.
+Like many cruisers, I recently installed Starlink on my boat, in this case a Gen3 unit, however I wanted to eliminate the supplied mains power supply ("brick") and replace it with a DC-DC power supply; monitor its power consumption, along with Starlink operation.
+When using the included mains power supply, a multiple conversion process from battery power (DC) through the boat’s onboard Inverter to AC, then a further AC back to DC via the power brick - results in a chain of inefficiency that multiplies.
 By eliminating one of these steps, it improves the overall "power supply" efficiency; with Starlink average power consumption around 45W this improvement adds up over a period of time whilst at anchor.
 
 ## DC-DC Power Supply
 
-The Starlink Gen3 WiFi/Router has a rather peculiar 57VDC input requirement, that as standard is supplied via a mains power brick.
+The Starlink Gen3 WiFi/Router has a rather peculiar 57VDC input requirement, that as standard is supplied via mains power brick.
 
 ![alt text](../../public/images/posts/signalk-starlink/starlink-router.webp)
 
@@ -52,7 +52,7 @@ The output (VIOUT) of the current sensing module is read by an ESP32 ADC ("analo
 ## sensESP
 
 The sensESP framework for ESP32
-<https://signalk.org/SensESP/pages/getting_started/>
+[SensESP Getting Started](https://signalk.org/SensESP/pages/getting_started/)
 is used to read & convert the analog voltage from the current sense module, averaging it and formatting it for periodic updating of the SKpath in signalK.
 
 ## Starlink Plugin
@@ -60,7 +60,7 @@ is used to read & convert the analog voltage from the current sense module, aver
 The signalk-starlink plugin <https://github.com/itemir/signalk-starlink>
 reports a number of performance & status parameters, these are automatically created as skpaths by the plugin.
 
-![alt text](../../public/images/posts/signalk-starlink/signalk-starlink-plugin.webp)
+![alt text](../../public/images/posts/signalk-starlink/signalk-Starlink plugin.webp)
 
 Unfortunately "power consumption" details from the Starlink unit are not available via the plugin, hence why I added a current (A) sensing module.
 
@@ -74,19 +74,19 @@ This flow performs two tasks:
 
 - "filters" the change in status (so it only triggers a notification alert) on a status change.
   The "send notification node" is used to raise a signalK "alert" notification;... so I become aware (before my "crew"" commence complaining!)
-- changes the sk status path to "off" if it doesnt receive an update for 30 seconds.
-  When power is disconnected to Starlink (eg circuit breaker switched off), the plugin cant update the status, and hence doesnt update the skpath. This ensures the status is set to "off" (& not left in a previous state)
+- changes the sk status path to "off" if it doesn't receive an update for 30 seconds.
+  When power is disconnected to Starlink (eg circuit breaker switched off), the plugin cant update the status, and hence doesn't update the skpath. This ensures the status is set to "off" (& not left in a previous state)
 
 ## Node-Red current monitoring
 
 The ESP32/sensESP is powered from the same power supply/circuit, so when power is switched off, sensESP no longer updates the current, leaving the skpath with "old" data.
-This flow checks (every 20s) for electrical.Starlink.current updates, and sets the path to "Null" if it hasnt recieved an update.
+This flow checks (every 20s) for electrical.Starlink.current updates, and sets the path to "Null" if it hasn't received an update.
 
 ![alt text](../../public/images/posts/signalk-starlink/nodered-starlink-current.webp)
 
 ## Starlink Monitoring dashboard
 
-Current is logged to influx, thus enabling grafana history graphing; which is embedded into a WilhelmSK dashboard display.
+Current (Amps) is logged to influx, thus enabling grafana history graphing; which is embedded into a WilhelmSK dashboard display.
 
 ![alt text](../../public/images/posts/signalk-starlink/IMG_0716.webp)
 
@@ -94,4 +94,4 @@ Current is logged to influx, thus enabling grafana history graphing; which is em
 
 ![alt text](../../public/images/posts/signalk-starlink/IMG_0193.webp)
 
-I was able to eliminate an unnecessary additional power supply "conversion", thereby improving efficiency; and include current sensing to measure power consumption. This compliments the monitoring information available from the signalk-starlink plugin; to provide a comprehensive monitoring dashboard & automated alerts of starlink operation & performance.
+I was able to eliminate an unnecessary additional power supply "conversions", thereby improving efficiency; and include current sensing to measure power consumption. This compliments the monitoring information available from the signalk-starlink plugin; to provide a comprehensive monitoring dashboard & automated alerts of starlink operation & performance.

@@ -1,0 +1,229 @@
+---
+publishDate: 2025-10-12
+title: 'Introducing SignalK MCP Server: AI-Powered Marine Data Access'
+author: Tony Bentley
+category: Tutorial
+tags: [MCP, AI, Claude, ecosystem, developer-tools, automation]
+description: 'A new Model Context Protocol server brings natural language AI assistance to SignalK, transforming how boaters interact with their vessel data and systems.'
+---
+
+Imagine asking your boat "How are you doing today?" and receiving a comprehensive status report on batteries, solar charging, environmental conditions, and nearby vessels. Thanks to a new Model Context Protocol (MCP) server for SignalK, this conversational approach to boat monitoring is now a reality.
+
+## What is the Model Context Protocol?
+
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard developed by Anthropic that enables AI assistants like Claude to securely connect to external data sources and tools. Think of it as a universal adapter that lets AI systems interact with your applications, databases, and services in a structured, secure way.
+
+For SignalK users, this means your AI assistant can now:
+
+- Query real-time vessel data
+- Monitor AIS targets
+- Check system alarms
+- Analyze historical trends
+- Discover available data paths
+
+All through natural language conversations, without writing a single line of code.
+
+## The SignalK MCP Server
+
+The [signalk-mcp-server](https://github.com/tonybentley/signalk-mcp-server) is a new open-source project that bridges SignalK installations with MCP-compatible AI assistants. It provides read-only access to marine data systems, enabling AI-powered monitoring and analysis while maintaining security through its inability to control devices.
+
+### Key Features
+
+- **Real-time vessel data access** - Query navigation, electrical, environmental, and propulsion systems
+- **AIS target monitoring** - Track nearby vessels with intelligent distance calculations
+- **System notifications** - Monitor active alarms and warnings
+- **Path discovery** - Automatically find available SignalK data streams
+- **Automatic reconnection** - Maintains reliable connection to SignalK server
+- **Zero device control** - Read-only operations ensure safety
+
+### Installation
+
+Getting started is simple. The server requires Node.js 18.0.0 or higher and access to a SignalK server (local or remote).
+
+**Recommended: Using npx (no installation required)**
+
+```bash
+npx signalk-mcp-server
+```
+
+**Or install globally**
+
+```bash
+npm install -g signalk-mcp-server
+```
+
+The server can be configured using environment variables for SignalK host/port, authentication, and logging preferences.
+
+## Real-World Usage: The Satori Project
+
+To understand the transformative potential of this technology, let's look at a real deployment aboard _Satori_, a 1977 Westsail 32 cruising out of San Diego.
+
+### From Dashboards to Conversations
+
+_Satori's_ owner has integrated the SignalK MCP server with Claude Desktop, creating a system where the boat can be queried conversationally. Over a four-month period, this resulted in:
+
+- **89 conversations** about boat status and systems
+- **252 SignalK tool calls** for real-time data
+- **192 InfluxDB queries** for historical analysis
+
+But the numbers don't tell the full story. What matters is _how_ the interaction changed.
+
+### Example: Morning Check-In
+
+**User:** "how is satori doing today? batteries, and environment conditions?"
+
+In a single query, the AI automatically:
+
+1. Checked battery state of charge (100%), voltage (13.45V), and current draw (13.4A)
+2. Calculated total solar production for the day (5.44 kWh from two controllers)
+3. Read cabin environmental conditions (26.8°C, 42.3% humidity)
+4. Verified bilge status (both forward and aft dry)
+
+This replaced what would have been multiple dashboard checks, graph reviews, and manual calculations.
+
+### Example: Historical Analysis
+
+**User:** "how has the main battery doing. was it charged today?"
+
+Rather than just answering "yes," the AI told a story:
+
+> "The battery started at 99.8% at midnight, discharged to 96.9% by 2:30 AM, began charging at 3:00 AM, and reached 100% by 4:30 AM where it has stayed since. Currently receiving 13.2A charging current."
+
+This narrative analysis of time-series data transforms raw numbers into actionable insights.
+
+### Example: Situational Awareness
+
+**User:** "what is the nearest vessel to satori right now"
+
+The AI:
+
+1. Queried AIS targets via SignalK
+2. Retrieved _Satori's_ current position
+3. Calculated distances using Haversine formula
+4. Identified the nearest vessel: "MMSI 338311884, a 36-foot pleasure craft only 51 meters away, currently stationary"
+
+Complex spatial calculations became as simple as asking a question.
+
+## The "Satori Effect"
+
+Something interesting emerged from these conversations: users stopped "checking systems" and started "asking how Satori is doing." This shift from technical monitoring to conversational relationship represents a fundamentally different interaction model.
+
+Common query patterns that developed:
+
+- **Morning check-ins**: "How is Satori?" - overnight charging, weather
+- **Comparative analysis**: "Today vs yesterday" - solar production, power consumption
+- **Troubleshooting**: Checking alarms, investigating anomalies
+- **Environmental monitoring**: Temperature and humidity trends
+- **Situational awareness**: Nearby vessels, position data
+
+## Integration Architecture
+
+_Satori_ demonstrates a sophisticated but accessible integration:
+
+```
+Boat Sensors → SignalK Server → MCP Server → Claude Desktop → User
+                ↓
+            InfluxDB (historical data)
+```
+
+The system combines:
+
+- **SignalK** for real-time vessel data aggregation
+- **InfluxDB** for time-series storage and historical analysis
+- **MCP Server** to bridge AI access to both systems
+- **Claude Desktop** as the conversational interface
+
+This architecture enables seamless switching between real-time queries ("What's the battery voltage right now?") and historical analysis ("Show me the charging pattern over the last week").
+
+## Available Tools
+
+The SignalK MCP server exposes five core tools to AI assistants:
+
+### `get_initial_context()`
+
+Provides a comprehensive overview of the SignalK system, including server version, vessel information, and available data sources.
+
+### `get_vessel_state()`
+
+Retrieves current navigation data including position, course, speed, and heading.
+
+### `get_ais_targets()`
+
+Returns information about nearby vessels tracked via AIS, enabling situational awareness queries.
+
+### `get_active_alarms()`
+
+Monitors system notifications and warnings, helping identify issues that need attention.
+
+### `list_available_paths()`
+
+Discovers what data streams are available on your SignalK server, making it easy to explore new capabilities.
+
+## Security Considerations
+
+The SignalK MCP server is designed with safety in mind:
+
+- **Read-only operations** - Cannot control devices or modify settings
+- **No write access** - Eliminates risk of unintended system changes
+- **Graceful error handling** - Fails safely if connections are lost
+- **Connection validation** - Ensures proper authentication before data access
+
+This makes it suitable for production use aboard vessels where system integrity is critical.
+
+## Getting Started
+
+Ready to add AI-powered monitoring to your SignalK installation? Here's how:
+
+### 1. Install the MCP Server
+
+```bash
+npx signalk-mcp-server
+```
+
+### 2. Configure Connection
+
+Set environment variables for your SignalK server:
+
+```bash
+SIGNALK_HOST=signalk.local
+SIGNALK_PORT=3000
+```
+
+### 3. Connect Your AI Assistant
+
+Add the MCP server to your Claude Desktop or Claude Code configuration. The server will automatically connect to SignalK and expose its tools to your AI assistant.
+
+### 4. Start Asking Questions
+
+Try queries like:
+
+- "What's my current position?"
+- "Show me battery voltage and state of charge"
+- "What vessels are nearby?"
+- "Are there any active alarms?"
+
+The AI will automatically use the appropriate tools to answer your questions.
+
+## What's Next?
+
+The SignalK MCP server opens new possibilities for marine automation and monitoring:
+
+- **Proactive alerts**: AI-driven anomaly detection across systems
+- **Voyage planning**: Natural language query of route, weather, and vessel readiness
+- **Maintenance tracking**: Conversational access to equipment hours and service schedules
+- **Integration with other data sources**: Combining SignalK with weather APIs, marina databases, etc.
+
+## Join the Community
+
+The signalk-mcp-server project is open source and available on [GitHub](https://github.com/tonybentley/signalk-mcp-server). Whether you're a developer interested in extending the capabilities or a boat owner wanting to try AI-powered monitoring, we'd love to hear from you.
+
+### Resources
+
+- **Project Repository**: [github.com/tonybentley/signalk-mcp-server](https://github.com/tonybentley/signalk-mcp-server)
+- **Model Context Protocol**: [modelcontextprotocol.io](https://modelcontextprotocol.io/)
+- **SignalK**: [signalk.org](https://signalk.org)
+- **Claude Desktop**: [claude.ai](https://claude.ai)
+
+The future of marine data interaction is conversational. The SignalK MCP server is your bridge to that future.
+
+_Have you integrated AI with your boat's systems? Share your experiences in the [SignalK Slack community](https://signalk-dev.slack.com/)!_

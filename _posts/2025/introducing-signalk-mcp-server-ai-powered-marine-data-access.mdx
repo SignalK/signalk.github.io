@@ -38,39 +38,143 @@ The [signalk-mcp-server](https://github.com/tonybentley/signalk-mcp-server) is a
 
 ### Installation
 
-Getting started is simple. The server requires Node.js 18.0.0 or higher and access to a SignalK server (local or remote).
+The SignalK MCP server can be installed in multiple ways depending on your AI client. Choose the method that best fits your setup:
 
-**Recommended: Using npx (no installation required)**
+#### Option A: Claude Desktop (Recommended for Beginners)
 
-```bash
-npx signalk-mcp-server
+**Important**: The MCP server runs on the same computer as Claude Desktop and connects to your SignalK server over the network (local or remote).
+
+1. **Install Node.js** (one-time requirement)
+
+   - Visit [nodejs.org](https://nodejs.org) and download the LTS version
+   - **Mac**: Download the `.pkg` installer and double-click to install
+   - **Windows**: Download the `.msi` installer and run the setup wizard
+   - Verify installation: Open Terminal (Mac) or Command Prompt (Windows), type `node --version`
+
+2. **Configure Claude Desktop**
+   - Open Claude Desktop → Settings → Developer → "Edit Config"
+   - This opens the `claude_desktop_config.json` file
+   - Add this configuration (replace with your SignalK server details):
+
+```json
+{
+  "mcpServers": {
+    "signalk": {
+      "command": "npx",
+      "args": ["-y", "signalk-mcp-server"],
+      "env": {
+        "SIGNALK_HOST": "your-signalk-server.local",
+        "SIGNALK_PORT": "3000"
+      }
+    }
+  }
+}
 ```
 
-**Or install globally**
+3. **Save and Restart**
+   - Save the config file
+   - Completely quit Claude Desktop (not just close the window)
+   - Reopen Claude Desktop
 
-```bash
-npm install -g signalk-mcp-server
+#### Option B: ChatGPT Desktop
+
+1. **Install Node.js** (same as Option A above)
+
+2. **Enable Developer Mode**
+
+   - Open ChatGPT Desktop → Settings → Advanced
+   - Enable "Developer Mode"
+
+3. **Add MCP Server**
+   - Go to Connectors tab
+   - Follow the configuration wizard to add SignalK MCP server
+   - Enter your SignalK host and port details
+
+**Note**: Requires ChatGPT Pro, Team, Enterprise, or Edu subscription
+
+#### Option C: Mobile (Claude iOS/Android)
+
+Mobile devices support **remote MCP servers only**:
+
+1. Configure the MCP server on [claude.ai](https://claude.ai) website
+2. Settings automatically sync to mobile apps
+3. No local server installation possible on mobile
+
+### Adding InfluxDB for Historical Analysis (Optional but Recommended)
+
+The SignalK MCP server provides **real-time** vessel data. For **historical analysis** and trend tracking, you'll want to add the InfluxDB MCP server alongside it.
+
+**What InfluxDB MCP Provides:**
+
+- Historical time-series data (battery charging patterns, energy trends)
+- Comparative analysis (today vs. yesterday, weekly averages)
+- Long-term tracking (seasonal patterns, system performance over months)
+- Narrative analysis ("battery discharged overnight, then charged at sunrise")
+
+**How They Work Together:**
+
+The AI automatically chooses which MCP server to use:
+- **SignalK MCP**: Current position, live sensor readings, active alarms
+- **InfluxDB MCP**: Historical trends, comparative analysis, time-series queries
+- **Both together**: Compare current state against historical patterns
+
+**Installation (Claude Desktop):**
+
+1. **Set up InfluxDB** on your boat's server (if not already running)
+   - Most SignalK installations can log data to InfluxDB
+   - See [SignalK InfluxDB plugin documentation](https://github.com/signalk/signalk-to-influxdb2)
+
+2. **Update Claude Desktop config** to include both servers:
+
+```json
+{
+  "mcpServers": {
+    "signalk": {
+      "command": "npx",
+      "args": ["-y", "signalk-mcp-server"],
+      "env": {
+        "SIGNALK_HOST": "your-signalk-server.local",
+        "SIGNALK_PORT": "3000"
+      }
+    },
+    "influxdb": {
+      "command": "npx",
+      "args": ["-y", "@influxdata/influxdb-mcp-server"],
+      "env": {
+        "INFLUXDB_URL": "http://your-boat-server.local:8086",
+        "INFLUXDB_TOKEN": "your-influxdb-token",
+        "INFLUXDB_ORG": "your-org-name"
+      }
+    }
+  }
+}
 ```
 
-The server can be configured using environment variables for SignalK host/port, authentication, and logging preferences.
+3. **Restart Claude Desktop**
 
-## Real-World Usage: The Satori Project
+Now you can ask questions like:
+- "How has my battery performed over the last week?" (InfluxDB)
+- "What's my battery voltage right now?" (SignalK)
+- "Is today's solar production normal compared to this week?" (Both)
 
-To understand the transformative potential of this technology, let's look at a real deployment aboard _Satori_, a 1977 Westsail 32 cruising out of San Diego.
+## Real-World Usage: A Cruising Sailboat
+
+To understand the transformative potential of this technology, let's look at a real deployment aboard a 1977 Westsail 32 cruising sailboat.
 
 ### From Dashboards to Conversations
 
-_Satori's_ owner has integrated the SignalK MCP server with Claude Desktop, creating a system where the boat can be queried conversationally. Over a four-month period, this resulted in:
+The boat owner integrated **both SignalK and InfluxDB MCP servers** with Claude Desktop, creating a system where the boat can be queried conversationally. Over a four-month period, this resulted in:
 
 - **89 conversations** about boat status and systems
-- **252 SignalK tool calls** for real-time data
-- **192 InfluxDB queries** for historical analysis
+- **252 SignalK MCP tool calls** for real-time data (via signalk-mcp-server)
+- **192 InfluxDB MCP tool calls** for historical analysis (via @influxdata/influxdb-mcp-server)
+- **26 conversations** used both MCP servers simultaneously
 
 But the numbers don't tell the full story. What matters is _how_ the interaction changed.
 
 ### Example: Morning Check-In
 
-**User:** "how is satori doing today? batteries, and environment conditions?"
+**User:** "What's my boat's status today? batteries, and environment conditions?"
 
 In a single query, the AI automatically:
 
@@ -85,32 +189,32 @@ This replaced what would have been multiple dashboard checks, graph reviews, and
 
 **User:** "how has the main battery doing. was it charged today?"
 
-Rather than just answering "yes," the AI told a story:
+Rather than just answering "yes," the AI told a story by querying **InfluxDB** (not SignalK) for historical time-series data:
 
-> "The battery started at 99.8% at midnight, discharged to 96.9% by 2:30 AM, began charging at 3:00 AM, and reached 100% by 4:30 AM where it has stayed since. Currently receiving 13.2A charging current."
+> "The battery started at 99.8% at midnight, discharged to 96.9% by 6:30 AM, began charging at 7:00 AM (sunrise), and reached 100% by 9:30 AM where it has stayed since. Currently receiving 13.2A charging current."
 
-This narrative analysis of time-series data transforms raw numbers into actionable insights.
+**Behind the scenes:** The AI used the `influxdb:query-data` tool with a Flux query to retrieve battery state of charge measurements over the entire day, then analyzed the trend. SignalK provided only the final value (current charging current). This demonstrates how the two MCP servers complement each other—InfluxDB for the narrative, SignalK for real-time confirmation.
 
 ### Example: Situational Awareness
 
-**User:** "what is the nearest vessel to satori right now"
+**User:** "what is the nearest vessel to me right now"
 
 The AI:
 
 1. Queried AIS targets via SignalK
-2. Retrieved _Satori's_ current position
+2. Retrieved the boat's current position
 3. Calculated distances using Haversine formula
-4. Identified the nearest vessel: "MMSI 338311884, a 36-foot pleasure craft only 51 meters away, currently stationary"
+4. Identified the nearest vessel: "A 36-foot pleasure craft only 51 meters away, currently stationary"
 
 Complex spatial calculations became as simple as asking a question.
 
-## The "Satori Effect"
+## The Conversational Shift
 
-Something interesting emerged from these conversations: users stopped "checking systems" and started "asking how Satori is doing." This shift from technical monitoring to conversational relationship represents a fundamentally different interaction model.
+Something interesting emerged from these conversations: users stopped "checking systems" and started "asking how the boat is doing." This shift from technical monitoring to conversational relationship represents a fundamentally different interaction model.
 
 Common query patterns that developed:
 
-- **Morning check-ins**: "How is Satori?" - overnight charging, weather
+- **Morning check-ins**: "How's the boat?" - overnight charging, weather
 - **Comparative analysis**: "Today vs yesterday" - solar production, power consumption
 - **Troubleshooting**: Checking alarms, investigating anomalies
 - **Environmental monitoring**: Temperature and humidity trends
@@ -118,46 +222,265 @@ Common query patterns that developed:
 
 ## Integration Architecture
 
-_Satori_ demonstrates a sophisticated but accessible integration:
+This setup demonstrates a sophisticated but accessible integration:
 
 ```
-Boat Sensors → SignalK Server → MCP Server → Claude Desktop → User
-                ↓
-            InfluxDB (historical data)
+Boat Sensors → SignalK Server → SignalK MCP Server → AI Client* → User
+                ↓                                ↑              ↓
+            InfluxDB → InfluxDB MCP Server ──────┘    System Context Doc
+        (historical data)  (runs on same            (vessel knowledge)
+                          computer as AI)
+
+*Claude Desktop, ChatGPT Desktop, or compatible MCP client
 ```
+
+### How It Works
+
+**Where the MCP Servers Run:**
+
+- **Both** SignalK MCP and InfluxDB MCP servers run on **the same computer** as your AI client
+- When Claude Desktop starts, it automatically launches both MCP servers as background processes
+- They stay running as long as the AI client is open
+- They operate independently with no conflicts
+
+**Network Connections:**
+
+- **SignalK MCP** connects to your SignalK server over the network (WebSocket/HTTP)
+  - **Local**: If SignalK runs on the same boat network, use hostname like `signalk.local` or `192.168.1.x`
+  - **Remote**: If accessing remotely, use your boat's IP address or domain name
+  - Port: typically 3000
+
+- **InfluxDB MCP** connects to your InfluxDB server over the network (HTTP)
+  - Usually on the same boat server as SignalK
+  - Port: typically 8086
+  - Requires authentication token
+
+**Data Flow:**
+
+1. You ask a question in Claude Desktop
+2. Claude determines which data source(s) it needs:
+   - **Real-time query** → calls SignalK MCP server
+   - **Historical query** → calls InfluxDB MCP server
+   - **Comprehensive analysis** → calls both
+3. MCP servers query their respective data sources over the network
+4. Servers format responses for Claude
+5. Claude analyzes using your context document and responds
 
 The system combines:
 
-- **SignalK** for real-time vessel data aggregation
-- **InfluxDB** for time-series storage and historical analysis
-- **MCP Server** to bridge AI access to both systems
-- **Claude Desktop** as the conversational interface
+- **SignalK Server** (on boat) - Real-time vessel data aggregation from sensors
+- **SignalK MCP Server** (on your computer) - Bridges AI access to live SignalK data
+- **InfluxDB** (on boat) - Time-series storage for historical analysis
+- **InfluxDB MCP Server** (on your computer) - Bridges AI access to historical data
+- **AI Client** (on your computer) - Conversational interface that launches both MCP servers
+- **System Context Document** (uploaded to AI) - Vessel-specific knowledge for intelligent analysis
 
-This architecture enables seamless switching between real-time queries ("What's the battery voltage right now?") and historical analysis ("Show me the charging pattern over the last week").
+This architecture enables seamless switching between real-time queries ("What's the battery voltage right now?") and historical analysis ("Show me the charging pattern over the last week") with the AI automatically choosing the appropriate data source.
 
 ## Available Tools
 
-The SignalK MCP server exposes five core tools to AI assistants:
+### SignalK MCP Server Tools (Real-Time Data)
 
-### `get_initial_context()`
+The SignalK MCP server exposes five core tools for accessing **live vessel data**:
+
+#### `get_initial_context()`
 
 Provides a comprehensive overview of the SignalK system, including server version, vessel information, and available data sources.
 
-### `get_vessel_state()`
+#### `get_vessel_state()`
 
 Retrieves current navigation data including position, course, speed, and heading.
 
-### `get_ais_targets()`
+#### `get_ais_targets()`
 
 Returns information about nearby vessels tracked via AIS, enabling situational awareness queries.
 
-### `get_active_alarms()`
+#### `get_active_alarms()`
 
 Monitors system notifications and warnings, helping identify issues that need attention.
 
-### `list_available_paths()`
+#### `list_available_paths()`
 
 Discovers what data streams are available on your SignalK server, making it easy to explore new capabilities.
+
+### InfluxDB MCP Server Tools (Historical Data)
+
+The InfluxDB MCP server provides one powerful tool for **time-series analysis**:
+
+#### `query-data`
+
+Executes Flux queries against your InfluxDB database to retrieve historical trends, compare time periods, and analyze patterns.
+
+**Example queries:**
+- Battery charging patterns over the last week
+- Solar production compared to yesterday
+- Temperature trends for the past month
+- Power consumption analysis
+
+**How the AI Chooses:**
+
+When you ask a question, the AI automatically determines which tools to use:
+- **"What's my battery voltage?"** → `signalk:get_vessel_state` (real-time)
+- **"How did my battery charge today?"** → `influxdb:query-data` (historical)
+- **"Is my battery healthy?"** → Both (compare current state to historical patterns)
+
+## Setting Up Your Vessel Knowledge Base
+
+The SignalK MCP server becomes truly powerful when paired with a vessel-specific context document. This document teaches the AI about YOUR boat's systems, normal operating ranges, and how to interpret the data—transforming raw sensor readings into intelligent insights.
+
+### Why Context Documents Matter
+
+Without a context document, the AI can retrieve data but lacks understanding. Consider this query:
+
+**User:** "How's my battery?"
+
+**Without context**, the AI retrieves:
+- `electrical.batteries.288.voltage` = 13.2V
+- `electrical.batteries.288.capacity.stateOfCharge` = 85%
+- `electrical.batteries.288.current` = -15.3A
+
+The AI responds: "Your battery at path `electrical.batteries.288` is at 13.2V, 85% state of charge, drawing 15.3 amps."
+
+**With context**, the AI knows:
+- Path 288 = "Main house battery (300Ah LiFePO4)"
+- 13.2V = Normal voltage when discharging (range: 12.8-13.4V)
+- -15.3A = Negative means discharging (fridge + electronics = typical ~15A load)
+- 85% at night = Expected after evening loads before solar charging resumes
+
+The AI responds: "Your main house battery is healthy. At 85% charge and 13.2V, it's in the normal discharge range for a LiFePO4 battery. The 15A draw is typical for your overnight loads (fridge, electronics). Should recharge to 100% by mid-morning when solar production kicks in."
+
+This context enables:
+
+- **Path interpretation**: Understanding what each cryptic path actually represents
+- **Baseline comparison**: Recognizing normal vs abnormal values
+- **System relationships**: Connecting cause and effect ("solar charges battery")
+- **Anomaly detection**: Flagging when values fall outside expected ranges
+- **Intelligent recommendations**: Suggesting actions based on vessel-specific knowledge
+
+**Unit Conversions Are Critical:**
+
+SignalK follows the specification standard and stores all data in **SI units** (meters, Kelvin, meters/second), while boaters typically think in **nautical units, imperial units, or metric** depending on their location (feet/Fahrenheit in the US, meters/Celsius internationally, and knots universally). Additionally, SignalK and InfluxDB store timestamps in **UTC**, but you'll want to see times in your local timezone.
+
+Without specifying your preferred units in the context document, you'll get technically correct but unintuitive responses:
+- "Water depth is 5.4864 meters" instead of "18 feet"
+- "Temperature is 299.15 Kelvin" instead of "78°F"
+- "Charging started at 14:00" instead of "7:00 AM PDT"
+- "Wind speed is 5.14 m/s" instead of "10 knots"
+
+By documenting your unit preferences and timezone, the AI automatically converts SignalK's SI units into the measurements you actually use when navigating and operating your vessel.
+
+### What to Include in Your Context Document
+
+**Essential Information:**
+
+- **Vessel specifications**: Battery capacity, solar array wattage, tank sizes, propulsion details
+- **SignalK path mappings**: Which paths contain which data (e.g., `electrical.batteries.288.voltage`)
+- **Normal operating ranges**: Expected values for all major systems
+- **System relationships**: How systems interact (solar → battery → loads)
+- **Unit preferences & timezone**: Your preferred units and local timezone for conversions
+- **Known quirks**: "50% solar efficiency is normal due to boom shading"
+
+**Example Context Template:**
+
+```
+# My Vessel Systems
+
+## Electrical
+- Main battery: 300Ah LiFePO4, normal range 12.0-14.6V
+- Solar: 400W bimini + 100W dodger (expect ~50% efficiency due to shading)
+- SignalK paths:
+  - Battery voltage: electrical.batteries.288.voltage
+  - Battery SOC: electrical.batteries.288.capacity.stateOfCharge
+  - Solar production: electrical.solar.289.yieldToday
+
+## Normal Patterns
+- Battery charges 7-9 AM (sunrise), reaches 100% by 9:30 AM
+- Average power consumption: ~107W continuously
+- Fridge cycles: 21W average, alarm threshold at >6°C
+
+## Environmental
+- Inside temp: 22-28°C typical
+- Bilge: Both forward and aft normally dry
+- SignalK paths:
+  - Inside temp: environment.inside.temperature
+  - Bilge status: environment.bilge.aft.flood
+
+## Unit Conversions & Preferences
+- Timezone: Pacific (PDT/PST) - SignalK and InfluxDB store times in UTC
+- Temperature: Display in Fahrenheit (SignalK stores in Kelvin)
+- Depth: Display in feet (SignalK stores in meters)
+- Speed: Display in knots (SignalK stores in m/s)
+- Distance: Use nautical miles for navigation (SignalK stores meters)
+- Wind speed: Display in knots (SignalK stores m/s)
+```
+
+### How to Set Up Context in Different AI Clients
+
+**Claude Desktop - Projects (Recommended)**
+
+1. Create a document with your vessel specifications
+2. Open Claude Desktop → Projects → Create New Project
+3. Name it after your boat or "Vessel Monitoring"
+4. Click "Add Content" → Upload your context document
+5. The AI will reference this automatically in all project conversations
+
+**Claude Desktop - Google Drive Sync (Pro/Team/Enterprise)**
+
+1. Create a Google Doc with your vessel context
+2. In Claude Desktop Project: Click "Add Content" → Google Docs
+3. Authenticate with Google (first time only)
+4. Select your vessel context document
+5. Changes to the doc auto-sync—always up to date
+
+**ChatGPT Desktop**
+
+1. Save your vessel context as a text file
+2. Option A: Upload to each conversation before querying
+3. Option B: Add key details to Custom Instructions (Settings → Personalization)
+
+**Mobile (Claude iOS/Android)**
+
+1. Add context documents to a Claude Project on claude.ai website
+2. Access the project from mobile app
+3. Context automatically available in all project chats
+
+### Maintaining Your Context Document
+
+Your vessel's context document is a living document that becomes more valuable over time. Regular updates improve the AI's ability to detect problems and provide intelligent analysis.
+
+**Why Keeping It Current Matters:**
+
+Baselines are critical for detecting electrical anomalies and system degradation. Consider this example:
+
+**Scenario:** You notice your battery isn't holding charge as well as it used to.
+
+**Without updated context:**
+- AI sees: `electrical.batteries.288.voltage` = 12.4V at 50% SOC
+- AI responds: "Battery is at 12.4V and 50% state of charge."
+
+**With historical baseline in context:**
+- Context says: "Normal voltage at 50% SOC: 13.1V (baseline from June 2024)"
+- AI sees: Current = 12.4V, Expected = 13.1V
+- AI responds: "⚠️ Battery voltage is 0.7V below normal baseline for 50% charge. This suggests battery degradation or a cell imbalance issue. Normal voltage at this charge level should be ~13.1V. Recommend checking battery health and connections."
+
+**Best Practices for Maintaining Context:**
+
+- **Document baselines** when systems are new or freshly serviced
+- **Update normal ranges** seasonally (summer vs winter temperatures, loads)
+- **Record system changes**: New equipment, battery replacements, solar panel additions
+- **Note degradation patterns**: "Battery capacity reduced from 300Ah to ~280Ah effective"
+- **Track performance**: "Solar output dropped 15% after tree growth on dock"
+- **Mark dates**: "Fridge compressor replaced Oct 2024, now runs cooler"
+
+**What to Update Regularly:**
+
+1. **Electrical baselines**: Battery voltage curves, normal charging current, expected solar output
+2. **Consumption patterns**: Seasonal changes in power usage, new equipment loads
+3. **Environmental normals**: Temperature ranges as seasons change
+4. **System quirks**: New issues discovered, workarounds implemented
+5. **Maintenance history**: When components were serviced, replaced, or adjusted
+
+The more detailed your context, the better the AI can distinguish between "that's normal for winter" and "something is actually wrong."
 
 ## Security Considerations
 
@@ -172,46 +495,131 @@ This makes it suitable for production use aboard vessels where system integrity 
 
 ## Getting Started
 
-Ready to add AI-powered monitoring to your SignalK installation? Here's how:
+Ready to add AI-powered monitoring to your SignalK installation? Follow these beginner-friendly steps:
 
-### 1. Install the MCP Server
+### Step 1: Prerequisites
 
-```bash
-npx signalk-mcp-server
-```
+**What You Need:**
 
-### 2. Configure Connection
+- A computer (Mac or Windows) or mobile device
+- Access to your SignalK server (local network or remote)
+- An AI client account (Claude or ChatGPT)
 
-Set environment variables for your SignalK server:
+**Install Node.js (Desktop Only):**
 
-```bash
-SIGNALK_HOST=signalk.local
-SIGNALK_PORT=3000
-```
+- Visit [nodejs.org](https://nodejs.org) and download the LTS version
+- Run the installer and follow the prompts
+- Verify: Open Terminal/Command Prompt and type `node --version`
 
-### 3. Connect Your AI Assistant
+### Step 2: Create Your Vessel Context Document
 
-Add the MCP server to your Claude Desktop or Claude Code configuration. The server will automatically connect to SignalK and expose its tools to your AI assistant.
+Before connecting the MCP server, create a document with your boat's information:
 
-### 4. Start Asking Questions
+**Use the template from the "Setting Up Your Vessel Knowledge Base" section** above, including:
 
-Try queries like:
+- Battery specifications and normal voltage ranges
+- Solar panel wattage and expected output
+- SignalK path mappings for your systems
+- Normal operating patterns
+
+**Save this document** - you'll upload it to your AI client in Step 4.
+
+### Step 3: Install SignalK MCP Server
+
+Choose your installation method based on your AI client:
+
+**For Claude Desktop:** See "Option A" in the Installation section above
+**For ChatGPT Desktop:** See "Option B" in the Installation section above
+**For Mobile:** See "Option C" in the Installation section above
+
+### Step 4: Upload Your Context Document
+
+**Claude Desktop:**
+
+1. Create a new Project
+2. Name it "Vessel Monitoring" (or your boat's name)
+3. Click "Add Content" and upload your context document
+4. All conversations in this project will reference your vessel info
+
+**ChatGPT Desktop:**
+
+1. Open a new chat
+2. Upload your context document using the attachment button
+3. OR add key details to Custom Instructions
+
+### Step 5: Test the Connection
+
+Start with simple queries to verify everything works:
+
+**Initial Test:**
+
+- "What tools do you have available for SignalK?"
+- "Can you connect to my SignalK server?"
+
+**Data Queries:**
 
 - "What's my current position?"
 - "Show me battery voltage and state of charge"
 - "What vessels are nearby?"
 - "Are there any active alarms?"
 
-The AI will automatically use the appropriate tools to answer your questions.
+**Context-Aware Analysis:**
+
+- "How's my boat doing today?"
+- "Is the battery charging normally?"
+- "Any systems outside normal range?"
+
+The AI will automatically:
+
+1. Consult your vessel context document
+2. Query SignalK using the appropriate MCP tools
+3. Provide intelligent analysis based on your normal ranges
+
+### Step 6: Ask Natural Questions
+
+With context uploaded and MCP connected, you can ask natural questions:
+
+- "How much solar did I generate compared to yesterday?"
+- "Is the fridge temperature normal?"
+- "What's been happening with my battery overnight?"
+- "Any boats near me right now?"
+
+The AI orchestrates the right tools and interprets results using your vessel's context.
+
+## Platform Comparison
+
+Choose the right AI client for your needs:
+
+| Feature               | Claude Desktop                       | ChatGPT Desktop                    | Claude Mobile (iOS/Android)  |
+| --------------------- | ------------------------------------ | ---------------------------------- | ---------------------------- |
+| **Installation**      | JSON config file                     | Developer mode config              | Remote MCP only              |
+| **Best For**          | Easiest setup, most features         | OpenAI ecosystem users             | On-the-go monitoring         |
+| **Context Documents** | Projects + Google Drive sync         | File upload or Custom Instructions | Same as web (via Projects)   |
+| **Requires Node.js**  | Yes (currently)                      | Yes                                | No (remote servers only)     |
+| **Configuration**     | Settings UI or JSON file             | Developer mode wizard              | Configure on web, auto-syncs |
+| **Subscription**      | Free tier available, Pro recommended | Pro/Team/Enterprise required       | Free tier available          |
+| **Offline Use**       | Yes (with local SignalK)             | Yes (with local SignalK)           | No (requires internet)       |
+| **Update Frequency**  | Auto-updates extensions              | Manual updates                     | Auto-syncs from web config   |
+
+**Recommendation:**
+
+- **New users**: Start with Claude Desktop (simplest setup, great Projects feature)
+- **OpenAI users**: ChatGPT Desktop works well but requires paid subscription
+- **Mobile-only**: Claude mobile app with remote MCP (configure on web first)
+- **Advanced users**: Any platform—all support the same MCP protocol
 
 ## What's Next?
 
 The SignalK MCP server opens new possibilities for marine automation and monitoring:
 
-- **Proactive alerts**: AI-driven anomaly detection across systems
-- **Voyage planning**: Natural language query of route, weather, and vessel readiness
-- **Maintenance tracking**: Conversational access to equipment hours and service schedules
-- **Integration with other data sources**: Combining SignalK with weather APIs, marina databases, etc.
+### Future Possibilities
+
+- **Proactive Alerts**: AI-driven anomaly detection across systems
+- **Voyage Planning**: Natural language query of route, weather, and vessel readiness
+- **Maintenance Tracking**: Conversational access to equipment hours and service schedules
+- **Multi-Source Integration**: Combining SignalK with weather APIs, marina databases, and more
+- **Voice Interface**: "Hey Claude, how's the boat?" via mobile devices
+- **Automated Logging**: AI-generated system reports and maintenance logs
 
 ## Join the Community
 

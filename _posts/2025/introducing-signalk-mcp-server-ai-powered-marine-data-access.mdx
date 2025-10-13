@@ -2,6 +2,7 @@
 publishDate: 2025-10-12
 title: 'Introducing SignalK MCP Server: AI-Powered Marine Data Access'
 author: Tony Bentley
+image: ~/assets/images/signalk-mcp-server.webp
 category: Tutorial
 tags: [MCP, AI, Claude, ecosystem, developer-tools, automation]
 description: 'A new Model Context Protocol server brings natural language AI assistance to SignalK, transforming how boaters interact with their vessel data and systems.'
@@ -114,6 +115,7 @@ The SignalK MCP server provides **real-time** vessel data. For **historical anal
 **How They Work Together:**
 
 The AI automatically chooses which MCP server to use:
+
 - **SignalK MCP**: Current position, live sensor readings, active alarms
 - **InfluxDB MCP**: Historical trends, comparative analysis, time-series queries
 - **Both together**: Compare current state against historical patterns
@@ -121,6 +123,7 @@ The AI automatically chooses which MCP server to use:
 **Installation (Claude Desktop):**
 
 1. **Set up InfluxDB** on your boat's server (if not already running)
+
    - Most SignalK installations can log data to InfluxDB
    - See [SignalK InfluxDB plugin documentation](https://github.com/signalk/signalk-to-influxdb2)
 
@@ -153,6 +156,7 @@ The AI automatically chooses which MCP server to use:
 3. **Restart Claude Desktop**
 
 Now you can ask questions like:
+
 - "How has my battery performed over the last week?" (InfluxDB)
 - "What's my battery voltage right now?" (SignalK)
 - "Is today's solar production normal compared to this week?" (Both)
@@ -246,6 +250,7 @@ Boat Sensors → SignalK Server → SignalK MCP Server → AI Client* → User
 **Network Connections:**
 
 - **SignalK MCP** connects to your SignalK server over the network (WebSocket/HTTP)
+
   - **Local**: If SignalK runs on the same boat network, use hostname like `signalk.local` or `192.168.1.x`
   - **Remote**: If accessing remotely, use your boat's IP address or domain name
   - Port: typically 3000
@@ -312,6 +317,7 @@ The InfluxDB MCP server provides one powerful tool for **time-series analysis**:
 Executes Flux queries against your InfluxDB database to retrieve historical trends, compare time periods, and analyze patterns.
 
 **Example queries:**
+
 - Battery charging patterns over the last week
 - Solar production compared to yesterday
 - Temperature trends for the past month
@@ -320,6 +326,7 @@ Executes Flux queries against your InfluxDB database to retrieve historical tren
 **How the AI Chooses:**
 
 When you ask a question, the AI automatically determines which tools to use:
+
 - **"What's my battery voltage?"** → `signalk:get_vessel_state` (real-time)
 - **"How did my battery charge today?"** → `influxdb:query-data` (historical)
 - **"Is my battery healthy?"** → Both (compare current state to historical patterns)
@@ -335,6 +342,7 @@ Without a context document, the AI can retrieve data but lacks understanding. Co
 **User:** "How's my battery?"
 
 **Without context**, the AI retrieves:
+
 - `electrical.batteries.288.voltage` = 13.2V
 - `electrical.batteries.288.capacity.stateOfCharge` = 85%
 - `electrical.batteries.288.current` = -15.3A
@@ -342,6 +350,7 @@ Without a context document, the AI can retrieve data but lacks understanding. Co
 The AI responds: "Your battery at path `electrical.batteries.288` is at 13.2V, 85% state of charge, drawing 15.3 amps."
 
 **With context**, the AI knows:
+
 - Path 288 = "Main house battery (300Ah LiFePO4)"
 - 13.2V = Normal voltage when discharging (range: 12.8-13.4V)
 - -15.3A = Negative means discharging (fridge + electronics = typical ~15A load)
@@ -362,6 +371,7 @@ This context enables:
 SignalK follows the specification standard and stores all data in **SI units** (meters, Kelvin, meters/second), while boaters typically think in **nautical units, imperial units, or metric** depending on their location (feet/Fahrenheit in the US, meters/Celsius internationally, and knots universally). Additionally, SignalK and InfluxDB store timestamps in **UTC**, but you'll want to see times in your local timezone.
 
 Without specifying your preferred units in the context document, you'll get technically correct but unintuitive responses:
+
 - "Water depth is 5.4864 meters" instead of "18 feet"
 - "Temperature is 299.15 Kelvin" instead of "78°F"
 - "Charging started at 14:00" instead of "7:00 AM PDT"
@@ -455,10 +465,12 @@ Baselines are critical for detecting electrical anomalies and system degradation
 **Scenario:** You notice your battery isn't holding charge as well as it used to.
 
 **Without updated context:**
+
 - AI sees: `electrical.batteries.288.voltage` = 12.4V at 50% SOC
 - AI responds: "Battery is at 12.4V and 50% state of charge."
 
 **With historical baseline in context:**
+
 - Context says: "Normal voltage at 50% SOC: 13.1V (baseline from June 2024)"
 - AI sees: Current = 12.4V, Expected = 13.1V
 - AI responds: "⚠️ Battery voltage is 0.7V below normal baseline for 50% charge. This suggests battery degradation or a cell imbalance issue. Normal voltage at this charge level should be ~13.1V. Recommend checking battery health and connections."

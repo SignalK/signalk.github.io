@@ -24,6 +24,17 @@ For SignalK users, this means your AI assistant can now:
 
 All through natural language conversations, without writing a single line of code.
 
+## Getting Started
+
+Here's the quick path to AI-powered boat monitoring:
+
+1. **Install** the SignalK MCP server (see Installation section below)
+2. **Create** a context document with your boat's specs and normal ranges
+3. **Upload** the context to your AI client (Claude/ChatGPT Projects)
+4. **Ask** natural questions like "How's my boat doing today?"
+
+The AI automatically queries your SignalK server, interprets the data using your vessel context, and provides intelligent analysis. Installation takes about 10 minutes.
+
 ## The SignalK MCP Server
 
 The [signalk-mcp-server](https://github.com/tonybentley/signalk-mcp-server) is a new open-source project that bridges SignalK installations with MCP-compatible AI assistants. It provides read-only access to marine data systems, enabling AI-powered monitoring and analysis while maintaining security through its inability to control devices.
@@ -142,7 +153,7 @@ The AI automatically chooses which MCP server to use:
     },
     "influxdb": {
       "command": "npx",
-      "args": ["-y", "@influxdata/influxdb-mcp-server"],
+      "args": ["-y", "influxdb-mcp-server"],
       "env": {
         "INFLUXDB_URL": "http://your-boat-server.local:8086",
         "INFLUXDB_TOKEN": "your-influxdb-token",
@@ -171,7 +182,7 @@ The boat owner integrated **both SignalK and InfluxDB MCP servers** with Claude 
 
 - **89 conversations** about boat status and systems
 - **252 SignalK MCP tool calls** for real-time data (via signalk-mcp-server)
-- **192 InfluxDB MCP tool calls** for historical analysis (via @influxdata/influxdb-mcp-server)
+- **192 InfluxDB MCP tool calls** for historical analysis (via influxdb-mcp-server)
 - **26 conversations** used both MCP servers simultaneously
 
 But the numbers don't tell the full story. What matters is _how_ the interaction changed.
@@ -223,6 +234,57 @@ Common query patterns that developed:
 - **Troubleshooting**: Checking alarms, investigating anomalies
 - **Environmental monitoring**: Temperature and humidity trends
 - **Situational awareness**: Nearby vessels, position data
+
+### Example Prompts to Try
+
+These are real queries from actual usage, adapted to work with any SignalK setup. What you can ask depends on which sensors and systems you have installed:
+
+**General Status Checks**
+
+- "How is my boat doing today?"
+  - Requires: Battery monitoring, any environmental sensors
+- "Are there any active alarms or warnings?"
+  - Works with any SignalK system with alarm support
+
+**Battery & Power** (if you have battery monitoring)
+
+- "What's my current battery voltage and state of charge?"
+- "How much power am I using right now?"
+- "How has the battery been charging today?" (requires InfluxDB for historical analysis)
+
+**Solar/Wind** (if you have renewable energy sources)
+
+- "How much solar power am I generating?"
+  - Requires: Solar controller with SignalK integration
+- "What's today's total solar production?" (requires InfluxDB for historical data)
+
+**Navigation & AIS** (if you have AIS receiver)
+
+- "What's the nearest vessel to me right now?"
+- "Show me all vessels within 5 miles"
+  - Requires: AIS receiver integrated with SignalK
+
+**Environmental Monitoring** (if you have temp/humidity sensors)
+
+- "What's the temperature inside the cabin?"
+- "How has humidity changed over the last day?" (requires InfluxDB for historical analysis)
+
+**Tank Monitoring** (if you have tank sensors)
+
+- "How much fresh water do I have left?"
+- "Is my holding tank full?"
+
+**Bilge & Safety** (if you have bilge sensors)
+
+- "Check for any water in the bilge"
+- "Monitor bilge pumps and alert me if they're running"
+
+**Engine Monitoring** (if you have engine sensors)
+
+- "What's my engine temperature and oil pressure?"
+- "Show me RPM over the last hour" (requires InfluxDB for historical data)
+
+The AI automatically uses your available sensors and paths—it won't try to query data you don't have. Start with simple queries to discover what your system can provide, then build up to more complex questions.
 
 ## Integration Architecture
 
@@ -368,7 +430,7 @@ This context enables:
 
 **Unit Conversions Are Critical:**
 
-SignalK follows the specification standard and stores all data in **SI units** (meters, Kelvin, meters/second), while boaters typically think in **nautical units, imperial units, or metric** depending on their location (feet/Fahrenheit in the US, meters/Celsius internationally, and knots universally). Additionally, SignalK and InfluxDB store timestamps in **UTC**, but you'll want to see times in your local timezone.
+SignalK follows the specification standard and stores all data in **SI units** (meters, Kelvin, meters/second). Boaters typically think in **nautical units, imperial units, or metric** depending on their location—feet and Fahrenheit in the US, meters and Celsius internationally, and knots universally. Additionally, SignalK and InfluxDB store timestamps in **UTC**, but you'll want to see times in your local timezone.
 
 Without specifying your preferred units in the context document, you'll get technically correct but unintuitive responses:
 
@@ -456,43 +518,14 @@ By documenting your unit preferences and timezone, the AI automatically converts
 
 ### Maintaining Your Context Document
 
-Your vessel's context document is a living document that becomes more valuable over time. Regular updates improve the AI's ability to detect problems and provide intelligent analysis.
+Keep your vessel context updated for better AI analysis. When you document baselines (battery voltage curves, normal solar output, typical consumption), the AI can detect degradation early. For example, if battery voltage at 50% SOC drops from a documented 13.1V baseline to 12.4V, the AI will flag potential cell imbalance rather than just reporting the value.
 
-**Why Keeping It Current Matters:**
+**Update regularly:**
 
-Baselines are critical for detecting electrical anomalies and system degradation. Consider this example:
-
-**Scenario:** You notice your battery isn't holding charge as well as it used to.
-
-**Without updated context:**
-
-- AI sees: `electrical.batteries.288.voltage` = 12.4V at 50% SOC
-- AI responds: "Battery is at 12.4V and 50% state of charge."
-
-**With historical baseline in context:**
-
-- Context says: "Normal voltage at 50% SOC: 13.1V (baseline from June 2024)"
-- AI sees: Current = 12.4V, Expected = 13.1V
-- AI responds: "⚠️ Battery voltage is 0.7V below normal baseline for 50% charge. This suggests battery degradation or a cell imbalance issue. Normal voltage at this charge level should be ~13.1V. Recommend checking battery health and connections."
-
-**Best Practices for Maintaining Context:**
-
-- **Document baselines** when systems are new or freshly serviced
-- **Update normal ranges** seasonally (summer vs winter temperatures, loads)
-- **Record system changes**: New equipment, battery replacements, solar panel additions
-- **Note degradation patterns**: "Battery capacity reduced from 300Ah to ~280Ah effective"
-- **Track performance**: "Solar output dropped 15% after tree growth on dock"
-- **Mark dates**: "Fridge compressor replaced Oct 2024, now runs cooler"
-
-**What to Update Regularly:**
-
-1. **Electrical baselines**: Battery voltage curves, normal charging current, expected solar output
-2. **Consumption patterns**: Seasonal changes in power usage, new equipment loads
-3. **Environmental normals**: Temperature ranges as seasons change
-4. **System quirks**: New issues discovered, workarounds implemented
-5. **Maintenance history**: When components were serviced, replaced, or adjusted
-
-The more detailed your context, the better the AI can distinguish between "that's normal for winter" and "something is actually wrong."
+- Electrical baselines when equipment is new or serviced
+- Normal ranges seasonally (temperature, consumption patterns)
+- System changes (new equipment, replacements)
+- Degradation patterns and maintenance history
 
 ## Security Considerations
 
@@ -504,99 +537,6 @@ The SignalK MCP server is designed with safety in mind:
 - **Connection validation** - Ensures proper authentication before data access
 
 This makes it suitable for production use aboard vessels where system integrity is critical.
-
-## Getting Started
-
-Ready to add AI-powered monitoring to your SignalK installation? Follow these beginner-friendly steps:
-
-### Step 1: Prerequisites
-
-**What You Need:**
-
-- A computer (Mac or Windows) or mobile device
-- Access to your SignalK server (local network or remote)
-- An AI client account (Claude or ChatGPT)
-
-**Install Node.js (Desktop Only):**
-
-- Visit [nodejs.org](https://nodejs.org) and download the LTS version
-- Run the installer and follow the prompts
-- Verify: Open Terminal/Command Prompt and type `node --version`
-
-### Step 2: Create Your Vessel Context Document
-
-Before connecting the MCP server, create a document with your boat's information:
-
-**Use the template from the "Setting Up Your Vessel Knowledge Base" section** above, including:
-
-- Battery specifications and normal voltage ranges
-- Solar panel wattage and expected output
-- SignalK path mappings for your systems
-- Normal operating patterns
-
-**Save this document** - you'll upload it to your AI client in Step 4.
-
-### Step 3: Install SignalK MCP Server
-
-Choose your installation method based on your AI client:
-
-**For Claude Desktop:** See "Option A" in the Installation section above
-**For ChatGPT Desktop:** See "Option B" in the Installation section above
-**For Mobile:** See "Option C" in the Installation section above
-
-### Step 4: Upload Your Context Document
-
-**Claude Desktop:**
-
-1. Create a new Project
-2. Name it "Vessel Monitoring" (or your boat's name)
-3. Click "Add Content" and upload your context document
-4. All conversations in this project will reference your vessel info
-
-**ChatGPT Desktop:**
-
-1. Open a new chat
-2. Upload your context document using the attachment button
-3. OR add key details to Custom Instructions
-
-### Step 5: Test the Connection
-
-Start with simple queries to verify everything works:
-
-**Initial Test:**
-
-- "What tools do you have available for SignalK?"
-- "Can you connect to my SignalK server?"
-
-**Data Queries:**
-
-- "What's my current position?"
-- "Show me battery voltage and state of charge"
-- "What vessels are nearby?"
-- "Are there any active alarms?"
-
-**Context-Aware Analysis:**
-
-- "How's my boat doing today?"
-- "Is the battery charging normally?"
-- "Any systems outside normal range?"
-
-The AI will automatically:
-
-1. Consult your vessel context document
-2. Query SignalK using the appropriate MCP tools
-3. Provide intelligent analysis based on your normal ranges
-
-### Step 6: Ask Natural Questions
-
-With context uploaded and MCP connected, you can ask natural questions:
-
-- "How much solar did I generate compared to yesterday?"
-- "Is the fridge temperature normal?"
-- "What's been happening with my battery overnight?"
-- "Any boats near me right now?"
-
-The AI orchestrates the right tools and interprets results using your vessel's context.
 
 ## Platform Comparison
 
@@ -620,22 +560,9 @@ Choose the right AI client for your needs:
 - **Mobile-only**: Claude mobile app with remote MCP (configure on web first)
 - **Advanced users**: Any platform—all support the same MCP protocol
 
-## What's Next?
-
-The SignalK MCP server opens new possibilities for marine automation and monitoring:
-
-### Future Possibilities
-
-- **Proactive Alerts**: AI-driven anomaly detection across systems
-- **Voyage Planning**: Natural language query of route, weather, and vessel readiness
-- **Maintenance Tracking**: Conversational access to equipment hours and service schedules
-- **Multi-Source Integration**: Combining SignalK with weather APIs, marina databases, and more
-- **Voice Interface**: "Hey Claude, how's the boat?" via mobile devices
-- **Automated Logging**: AI-generated system reports and maintenance logs
-
 ## Join the Community
 
-The signalk-mcp-server project is open source and available on [GitHub](https://github.com/tonybentley/signalk-mcp-server). Whether you're a developer interested in extending the capabilities or a boat owner wanting to try AI-powered monitoring, we'd love to hear from you.
+The signalk-mcp-server project is open source and available on [GitHub](https://github.com/tonybentley/signalk-mcp-server).
 
 ### Resources
 

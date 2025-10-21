@@ -1,5 +1,5 @@
 ---
-publishDate: 2025-10-12
+publishDate: 2025-10-21
 title: 'Introducing SignalK MCP Server: AI-Powered Marine Data Access'
 author: Tony Bentley
 image: ~/assets/images/signalk-mcp-server.webp
@@ -57,7 +57,6 @@ The SignalK MCP server can be installed in multiple ways depending on your AI cl
 **Important**: The MCP server runs on the same computer as Claude Desktop and connects to your SignalK server over the network (local or remote).
 
 1. **Install Node.js** (one-time requirement)
-
    - Visit [nodejs.org](https://nodejs.org) and download the LTS version
    - **Mac**: Download the `.pkg` installer and double-click to install
    - **Windows**: Download the `.msi` installer and run the setup wizard
@@ -93,7 +92,6 @@ The SignalK MCP server can be installed in multiple ways depending on your AI cl
 1. **Install Node.js** (same as Option A above)
 
 2. **Enable Developer Mode**
-
    - Open ChatGPT Desktop → Settings → Advanced
    - Enable "Developer Mode"
 
@@ -134,7 +132,6 @@ The AI automatically chooses which MCP server to use:
 **Installation (Claude Desktop):**
 
 1. **Set up InfluxDB** on your boat's server (if not already running)
-
    - Most SignalK installations can log data to InfluxDB
    - See [SignalK InfluxDB plugin documentation](https://github.com/signalk/signalk-to-influxdb2)
 
@@ -312,7 +309,6 @@ Boat Sensors → SignalK Server → SignalK MCP Server → AI Client* → User
 **Network Connections:**
 
 - **SignalK MCP** connects to your SignalK server over the network (WebSocket/HTTP)
-
   - **Local**: If SignalK runs on the same boat network, use hostname like `signalk.local` or `192.168.1.x`
   - **Remote**: If accessing remotely, use your boat's IP address or domain name
   - Port: typically 3000

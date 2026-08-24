@@ -25,15 +25,20 @@ https://www.tindie.com/products/astuder/daisy-2-dual-channel-ais-receiver-with-n
 
 ### Setting Up Your Roaming AIS Station
 
-Once you have the prerequisites in place, setting up your roaming AIS station is shockingly simple (as with many things in Signal K).
+Once you have the prerequisites in place, setting up your roaming AIS station is shockingly simple (as with many things in Signal K): install a plugin and configure it.
+
+Install the [signalk-aiscast](https://github.com/openwatersio/aiscast/tree/main/signalk-plugin) plugin, which will forward all AIS traffic to the [Open Waters AIS network](https://openwaters.io/ais/). Your data will automatically be shared with any AIS reporting services that are part of the reciprocal-sharing network (such as AISHub).
+
+#### Other AIS Reporting Services
+
+For services that don't participate in the reciprocal-sharing network, you can use the following setup:
 
 1. Install one of the following plugins:
-   1. _If you have an AIS onboard_, install the [ais-forwarder](https://github.com/hkapanen/ais-forwarder), which will forward your position and all AIS traffic.
-   2. _If you don’t have an AIS onboard_, install the [aisreporter](https://github.com/SignalK/aisreporter) plugin, which will at least report your position.
+   1. _If you have an AIS receiver on board_, install [ais-forwarder](https://github.com/hkapanen/ais-forwarder), which will forward your position and all AIS traffic.
+   2. _If you don’t have an AIS receiver on board_, install the [aisreporter](https://github.com/SignalK/aisreporter) plugin, which will at least report your position.
 2. Sign up for accounts with AIS reporting services:
    - [MarineTraffic](https://www.marinetraffic.com/en/)
    - [VesselFinder](https://www.vesselfinder.com/)
-   - [AISHub](https://www.aishub.net/)
-3. Configure the plugin with the IP and ports provided by the AIS reporting services
+3. Configure the plugin with the IP and ports provided by the AIS reporting services.
 
 That’s it—your boat is now a roaming station that automatically reports AIS data, enhancing global coverage and making us all a little safer.

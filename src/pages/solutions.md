@@ -23,6 +23,7 @@ description: Applications & Solutions with Signal K Support
 
 #### Instrument, Display, Control, Racing
 
+- [Open Source for SignalK](https://boat-tech-directory.rhizomatics.org.uk/open-source-projects/#signalk) - SignalK section of the [Boat Tech Directory](https://boat-tech-directory.rhizomatics.org.uk)
 - [pypilot](http://pypilot.org/) : free software marine autopilot.
 - SmartBoat digital marine instrument display, various instruments designed to mimic the standard marine instrument display for [Android](https://play.google.com/store/apps/details?id=com.smartboatnetwork.smartboat) and [iOS](https://itunes.apple.com/us/app/smartboat/id1299526775)
 - [NMEAremote](http://www.zapfware.de/en/products/nmearemote/) : iOS marine instrument display with Signal K support

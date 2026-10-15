@@ -55,7 +55,7 @@ description: Applications & Solutions with Signal K Support
 
 - [Locations](https://activecaptain.com/locations/index.php) by [ActiveCaptain](https://activecaptain.com/index.php) can use data in Signal K format.
 
-See the [Open Source for SignalK](https://boat-tech-directory.rhizomatics.org.uk/open-source-projects/#signalk) section of the [Boat Tech Directory](https://boat-tech-directory.rhizomatics.org.uk) for more.
+See the [Open Source for SignalK](https://boat-tech-directory.rhizomatics.org.uk/open-source-projects/#signalk) section of the [Boat Tech Directory](https://boat-tech-directory.rhizomatics.org.uk) for more SignalK apps and projects. The directory is also available as an offline SignalK plugin.
 
 The most straightforward way to add entries to this page is to
 [fork this page in Github](https://github.com/SignalK/signalk.github.io/blob/master/solutions.md) and

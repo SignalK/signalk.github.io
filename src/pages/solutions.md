@@ -24,12 +24,10 @@ description: Applications & Solutions with Signal K Support
 #### Instrument, Display, Control, Racing
 
 - [pypilot](http://pypilot.org/) : free software marine autopilot.
-- SmartBoat digital marine instrument display, various instruments designed to mimic the standard marine instrument display for [Android](https://play.google.com/store/apps/details?id=com.smartboatnetwork.smartboat) and [iOS](https://itunes.apple.com/us/app/smartboat/id1299526775)
 - [NMEAremote](http://www.zapfware.de/en/products/nmearemote/) : iOS marine instrument display with Signal K support
 - [Signal K Mobile](https://github.com/itemir/signalk-mobile) : Open source mobile app for Signal K, available for iOS and Android
 - [WilhelmSK](https://itunes.apple.com/us/app/wilhelmsk/id1150499484?mt=8) : Highly customizable Signal K application for iOS with Apple Watch support
 - [SailRacer.net](http://sailracer.net) : Tactical app for iOS and Android - helps to make decisions faster. Polars, Charts, Wind graphs, Signal K, Google wear and much more.
-- [SignalK Monitor](https://www.youtube.com/watch?v=X8VbkD8WYV8): Intuitive and easy-to-use [Android](https://play.google.com/store/apps/details?id=com.belmille.signalkflutter) and [iPhone](https://apps.apple.com/fi/app/signalk-monitor/id1534189860) application to visualize SignalK data.
 - [SKipper](https://www.skipperapp.net/) : Highly customizable Signal K application for Linux, Android, IOS, Windows and web!
 
 #### Chart Plotting, Navigation
@@ -50,11 +48,14 @@ description: Applications & Solutions with Signal K Support
 #### Misc Utility
 
 - [pysk](https://github.com/ph1l/pysk) : a terminal client for displaying Signal K data, based on [Signal K Python client library](https://github.com/ph1l/python-signalk-client).
+- [signalk-cli](https://signalk-cli.rhizomatics.org.uk) - Command line utility and Python library to query SignalK REST APIs and streaming data, with export to CSV, JSON or Feather dataframes.
 - [Homebridge Signal K Plugin](https://www.npmjs.com/package/homebridge-signalk) brings [HomeKit](https://www.apple.com/ios/home/) integration to let you monitor your boat's batteries, tanks and temperatures as well as control digital switching with the Apple Home app and even Siri.
 
 #### Platforms
 
 - [Locations](https://activecaptain.com/locations/index.php) by [ActiveCaptain](https://activecaptain.com/index.php) can use data in Signal K format.
+
+See the [Open Source for SignalK](https://boat-tech-directory.rhizomatics.org.uk/open-source-projects/#signalk) section of the [Boat Tech Directory](https://boat-tech-directory.rhizomatics.org.uk) for more SignalK apps and projects. The directory is also available as an offline SignalK plugin.
 
 The most straightforward way to add entries to this page is to
 [fork this page in Github](https://github.com/SignalK/signalk.github.io/blob/master/solutions.md) and

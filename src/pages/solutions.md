@@ -49,6 +49,7 @@ description: Applications & Solutions with Signal K Support
 #### Misc Utility
 
 - [pysk](https://github.com/ph1l/pysk) : a terminal client for displaying Signal K data, based on [Signal K Python client library](https://github.com/ph1l/python-signalk-client).
+- [signalk-cli](https://signalk-cli.rhizomatics.org.uk) - Command line utility and Python library to query SignalK REST APIs and streaming data, with export to CSV, JSON or Feather dataframes.
 - [Homebridge Signal K Plugin](https://www.npmjs.com/package/homebridge-signalk) brings [HomeKit](https://www.apple.com/ios/home/) integration to let you monitor your boat's batteries, tanks and temperatures as well as control digital switching with the Apple Home app and even Siri.
 
 #### Platforms

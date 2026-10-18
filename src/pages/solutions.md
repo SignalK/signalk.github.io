@@ -36,6 +36,7 @@ description: Applications & Solutions with Signal K Support
 - [AFTrack](http://afischer-online.de/and/aftrack/) : a marine navigation display for an Android phone or tablet. Uses tracking with various logging features, several input modes, maps online and offline, wind routing, AIS and more.
 - [Aqua Map](http://www.globalaquamaps.com) : Marine navigation app for iOS and Android with Signal K over WiFi capability.
 - [AngelNav](https://www.angelnav.co.uk/) : Navigation app for iPad and iPhone. Learn more at [angelnav.co.uk](https://www.angelnav.co.uk/).
+- [Rivers & Seas](https://riversandseas.app/s/sgk) : Boat navigation for iPhone and iPad with Apple Watch support. Connects to Signal K for live boat data, AIS and compatible autopilot control. While cruising, Rivers & Seas automatically shows the relevant waterway, bridges, locks, navigation notices and vessel traffic ahead.
 
 #### Operating Systems Gateway Controllers
 
